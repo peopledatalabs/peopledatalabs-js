@@ -1,5 +1,5 @@
 <p align="center">
-<img src="https://i.imgur.com/4OYLAR9.png" width="250" alt="People Data Labs Logo">
+<img src="https://i.imgur.com/S7DkZtr.png" width="250" alt="People Data Labs Logo">
 </p>
 <p align="center">
 A tiny, universal client for the People Data Labs API.
