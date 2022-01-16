@@ -1,6 +1,7 @@
 <p align="center">
 <img src="https://i.imgur.com/S7DkZtr.png" width="250" alt="People Data Labs Logo">
 </p>
+<h1 align="center">People Data Labs JS Library</h1>
 <p align="center">
 A tiny, universal client for the People Data Labs API.
 </p>
