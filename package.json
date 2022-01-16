@@ -13,7 +13,8 @@
   "unpkg": "dist/index.umd.js",
   "scripts": {
     "build": "microbundle",
-    "dev": "microbundle watch"
+    "dev": "microbundle watch",
+    "publish": "npm run build && npm publish"
   },
   "repository": {
     "type": "git",
