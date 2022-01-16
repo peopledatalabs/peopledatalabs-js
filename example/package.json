@@ -1,0 +1,12 @@
+{
+  "name": "peopledatalabs-example",
+  "version": "1.0.0",
+  "description": "Example project with People Data Labs API library",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "People Data Labs <hello@peopledatalabs.com>",
+  "license": "MIT"
+}

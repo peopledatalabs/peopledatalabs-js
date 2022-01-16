@@ -1,0 +1,42 @@
+{
+  "name": "peopledatalabs",
+  "version": "1.0.0",
+  "description": "An universal client for the People Data Labs API",
+  "source": "src/index.js",
+  "main": "dist/index.js",
+  "module": "dist/index.module.js",
+  "unpkg": "dist/index.umd.js",
+  "scripts": {
+    "dev": "microbundle watch",
+    "build": "microbundle"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/peopledatalabs/peopledatalabs-js.git"
+  },
+  "keywords": [
+    "peopledatalabs",
+    "People Data Labs",
+    "data enrichment",
+    "person enrichment",
+    "person search",
+    "company enrichment",
+    "company search",
+    "javascript",
+    "api",
+    "client",
+    "universal"
+  ],
+  "author": "People Data Labs <hello@peopledatalabs.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/peopledatalabs/peopledatalabs-js/issues"
+  },
+  "homepage": "https://github.com/peopledatalabs/peopledatalabs-js#readme",
+  "devDependencies": {
+    "microbundle": "^0.14.2"
+  },
+  "dependencies": {
+    "axios": "^0.24.0"
+  }
+}
