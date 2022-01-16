@@ -1,5 +1,5 @@
 <p align="center">
-<img src="https://www.peopledatalabs.com/static/media/company-logo.9b87e290.svg" width="250" alt="peopledatalabs">
+<img src="https://i.imgur.com/4OYLAR9.png" width="250" alt="People Data Labs Logo">
 </p>
 <p align="center">
 A tiny, universal client for the People Data Labs API.
@@ -32,87 +32,67 @@ const PDLJSClient = new PDLJS({ apiKey: '%apiKey%' })
 
 // Major APIs
 
-PDLJSClient.personEnrich({ enrichmentParams })
-.then((data) => {
+PDLJSClient.personEnrich({ enrichmentParams }).then((data) => {
   console.log(data);
-})
-.catch((error) => {
+}).catch((error) => {
   console.log(error);
 });
 
-PDLJSClient.companyEnrich({ enrichmentParams })
-.then((data) => {
+PDLJSClient.companyEnrich({ enrichmentParams }).then((data) => {
   console.log(data);
-})
-.catch((error) => {
+}).catch((error) => {
   console.log(error);
 });
 
-PDLJSClient.identify({ identifyParams })
-.then((data) => {
+PDLJSClient.identify({ identifyParams }).then((data) => {
   console.log(data);
-})
-.catch((error) => {
+}).catch((error) => {
   console.log(error);
 });
 
 // Supporting APIs
 
-PDLJSClient.personRetrieve(personID)
-.then((data) => {
+PDLJSClient.personRetrieve(personID).then((data) => {
   console.log(data);
-})
-.catch((error) => {
+}).catch((error) => {
   console.log(error);
 });
 
-PDLJSClient.companyCleaner({ cleanerParams })
-.then((data) => {
+PDLJSClient.companyCleaner({ cleanerParams }).then((data) => {
   console.log(data);
-})
-.catch((error) => {
+}).catch((error) => {
   console.log(error);
 });
 
-PDLJSClient.locationCleaner({ cleanerParams })
-.then((data) => {
+PDLJSClient.locationCleaner({ cleanerParams }).then((data) => {
   console.log(data);
-})
-.catch((error) => {
+}).catch((error) => {
   console.log(error);
 });
 
-PDLJSClient.schoolCleaner({ cleanerParams })
-.then((data) => {
+PDLJSClient.schoolCleaner({ cleanerParams }).then((data) => {
   console.log(data);
-})
-.catch((error) => {
+}).catch((error) => {
   console.log(error);
 });
 
 // Coming Soon
 
-PDLJSClient.bulkPersonEnrich([{ enrichmentParams1 }, { enrichmentParams2 }])
-.then((data) => {
+PDLJSClient.bulkPersonEnrich([{ enrichmentParams1 }, { enrichmentParams2 }]).then((data) => {
   console.log(data);
-})
-.catch((error) => {
+}).catch((error) => {
   console.log(error);
 });
 
-PDLJSClient.personSearch({ searchParams })
-.then((data) => {
+PDLJSClient.personSearch({ searchParams }).then((data) => {
   console.log(data);
-})
-.catch((error) => {
+}).catch((error) => {
   console.log(error);
 });
 
-PDLJSClient.companySearch({ searchParams })
-.then((data) => {
+PDLJSClient.companySearch({ searchParams }).then((data) => {
   console.log(data);
-})
-.catch((error) => {
+}).catch((error) => {
   console.log(error);
 });
 ```

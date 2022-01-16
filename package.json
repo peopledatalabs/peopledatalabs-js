@@ -2,13 +2,18 @@
   "name": "peopledatalabs",
   "version": "1.0.0",
   "description": "An universal client for the People Data Labs API",
+  "type": "module",
   "source": "src/index.js",
-  "main": "dist/index.js",
-  "module": "dist/index.module.js",
-  "unpkg": "dist/index.umd.js",
+  "exports": {
+    "require": "./dist/index.cjs",
+    "default": "./dist/index.modern.js"
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.module.js",
+  "unpkg": "./dist/index.umd.js",
   "scripts": {
-    "dev": "microbundle watch",
-    "build": "microbundle"
+    "build": "microbundle",
+    "dev": "microbundle watch"
   },
   "repository": {
     "type": "git",
