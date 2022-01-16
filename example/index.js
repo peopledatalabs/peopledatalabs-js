@@ -1,44 +1,44 @@
-import PDLJS from '../dist/index.js'
+import PDLJS from '../dist/index.cjs'
 
 const PDLJSClient = new PDLJS({ apiKey: '%apiKey%' });
 
-PDLJSClient.personEnrichment({ phone: '4155688415' }).then((data) => {
+PDLJSClient.person.enrichment({ phone: '4155688415' }).then((data) => {
   console.log(data);
 }).catch((error) => {
   console.log(error);
 });
 
-PDLJSClient.companyEnrichment({ website: 'peopledatalabs.com' }).then((data) => {
+PDLJSClient.company.enrichment({ website: 'peopledatalabs.com' }).then((data) => {
   console.log(data);
 }).catch((error) => {
   console.log(error);
 });
 
-PDLJSClient.identify({ phone: '4155688415' }).then((data) => {
+PDLJSClient.person.identify({ phone: '4155688415' }).then((data) => {
   console.log(data);
 }).catch((error) => {
   console.log(error);
 });
 
-PDLJSClient.personRetrieve('qEnOZ5Oh0poWnQ1luFBfVw_0000').then((data) => {
+PDLJSClient.person.retrieve('qEnOZ5Oh0poWnQ1luFBfVw_0000').then((data) => {
   console.log(data);
 }).catch((error) => {
   console.log(error);
 });
 
-PDLJSClient.companyCleaner({ name: "peopledatalabs" }).then((data) => {
+PDLJSClient.company.cleaner({ name: "peopledatalabs" }).then((data) => {
   console.log(data);
 }).catch((error) => {
   console.log(error);
 });
 
-PDLJSClient.locationCleaner({ location: "455 Market Street, San Francisco, California 94105, US" }).then((data) => {
+PDLJSClient.location.cleaner({ location: "455 Market Street, San Francisco, California 94105, US" }).then((data) => {
   console.log(data);
 }).catch((error) => {
   console.log(error);
 });
 
-PDLJSClient.schoolCleaner({ name: 'university of oregon' }).then((data) => {
+PDLJSClient.school.cleaner({ name: 'university of oregon' }).then((data) => {
   console.log(data);
 }).catch((error) => {
   console.log(error);

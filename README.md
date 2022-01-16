@@ -33,19 +33,19 @@ const PDLJSClient = new PDLJS({ apiKey: '%apiKey%' })
 
 // Major APIs
 
-PDLJSClient.personEnrich({ enrichmentParams }).then((data) => {
+PDLJSClient.person.enrichment({ phone: '4155688415' }).then((data) => {
   console.log(data);
 }).catch((error) => {
   console.log(error);
 });
 
-PDLJSClient.companyEnrich({ enrichmentParams }).then((data) => {
+PDLJSClient.company.enrichment({ website: 'peopledatalabs.com' }).then((data) => {
   console.log(data);
 }).catch((error) => {
   console.log(error);
 });
 
-PDLJSClient.identify({ identifyParams }).then((data) => {
+PDLJSClient.person.identify({ phone: '4155688415' }).then((data) => {
   console.log(data);
 }).catch((error) => {
   console.log(error);
@@ -53,25 +53,25 @@ PDLJSClient.identify({ identifyParams }).then((data) => {
 
 // Supporting APIs
 
-PDLJSClient.personRetrieve(personID).then((data) => {
+PDLJSClient.person.retrieve('qEnOZ5Oh0poWnQ1luFBfVw_0000').then((data) => {
   console.log(data);
 }).catch((error) => {
   console.log(error);
 });
 
-PDLJSClient.companyCleaner({ cleanerParams }).then((data) => {
+PDLJSClient.company.cleaner({ name: "peopledatalabs" }).then((data) => {
   console.log(data);
 }).catch((error) => {
   console.log(error);
 });
 
-PDLJSClient.locationCleaner({ cleanerParams }).then((data) => {
+PDLJSClient.location.cleaner({ location: "455 Market Street, San Francisco, California 94105, US" }).then((data) => {
   console.log(data);
 }).catch((error) => {
   console.log(error);
 });
 
-PDLJSClient.schoolCleaner({ cleanerParams }).then((data) => {
+PDLJSClient.school.cleaner({ name: 'university of oregon' }).then((data) => {
   console.log(data);
 }).catch((error) => {
   console.log(error);
@@ -79,19 +79,19 @@ PDLJSClient.schoolCleaner({ cleanerParams }).then((data) => {
 
 // Coming Soon
 
-PDLJSClient.bulkPersonEnrich([{ enrichmentParams1 }, { enrichmentParams2 }]).then((data) => {
+PDLJSClient.person.bulk([{ enrichmentParams1 }, { enrichmentParams2 }]).then((data) => {
   console.log(data);
 }).catch((error) => {
   console.log(error);
 });
 
-PDLJSClient.personSearch({ searchParams }).then((data) => {
+PDLJSClient.person.search({ searchParams }).then((data) => {
   console.log(data);
 }).catch((error) => {
   console.log(error);
 });
 
-PDLJSClient.companySearch({ searchParams }).then((data) => {
+PDLJSClient.company.search({ searchParams }).then((data) => {
   console.log(data);
 }).catch((error) => {
   console.log(error);
