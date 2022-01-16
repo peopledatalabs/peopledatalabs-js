@@ -29,7 +29,24 @@ class PDLJS {
         console.log('coming soon');
       },
       bulk: (params) => {
-        console.log('coming soon');
+        const headers = {
+          'Content-Type': 'application/json',
+          'X-Api-Key': this.apiKey,
+        };
+
+        return new Promise((resolve, reject) => {
+          axios.post(`${this.basePath}/person/bulk`, params, { headers })
+          .then((data) => {
+            if (data.data.status === 200) {
+              resolve(data.data);
+            } else {
+              reject(data.data);
+            }
+          })
+          .catch((error) => {
+            reject(error);
+          })
+        });
       },
       identify: (params) => {
         return new Promise((resolve, reject) => {

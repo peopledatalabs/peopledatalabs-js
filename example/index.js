@@ -26,6 +26,28 @@ PDLJSClient.person.retrieve('qEnOZ5Oh0poWnQ1luFBfVw_0000').then((data) => {
   console.log(error);
 });
 
+const records = {
+  "requests": [
+    {
+      "params": {
+        "profile": ["linkedin.com/in/seanthorne"]
+      }
+    },
+    {
+      "params": {
+        "profile": ["linkedin.com/in/randrewn"]
+      }
+    }
+  ]
+};
+
+PDLJSClient.person.bulk(records).then((data) => {
+  console.log(data);
+}).catch((error) => {
+  console.log(error);
+});
+
+
 PDLJSClient.company.cleaner({ name: "peopledatalabs" }).then((data) => {
   console.log(data);
 }).catch((error) => {
