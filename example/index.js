@@ -1,4 +1,4 @@
-import PDLJS from '../dist/index.cjs'
+import PDLJS from '../dist/index.cjs';
 
 const PDLJSClient = new PDLJS({ apiKey: '%apiKey%' });
 
@@ -30,15 +30,15 @@ const records = {
   requests: [
     {
       params: {
-        profile: ['linkedin.com/in/seanthorne']
-      }
+        profile: ['linkedin.com/in/seanthorne'],
+      },
     },
     {
       params: {
-        profile: ['linkedin.com/in/randrewn']
-      }
-    }
-  ]
+        profile: ['linkedin.com/in/randrewn'],
+      },
+    },
+  ],
 };
 
 PDLJSClient.person.bulk(records).then((data) => {
@@ -46,7 +46,6 @@ PDLJSClient.person.bulk(records).then((data) => {
 }).catch((error) => {
   console.log(error);
 });
-
 
 PDLJSClient.company.cleaner({ name: 'peopledatalabs' }).then((data) => {
   console.log(data);

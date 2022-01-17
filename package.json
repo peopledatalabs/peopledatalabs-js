@@ -40,7 +40,14 @@
   },
   "homepage": "https://github.com/peopledatalabs/peopledatalabs-js#readme",
   "devDependencies": {
-    "microbundle": "^0.14.2"
+    "microbundle": "^0.14.2",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-plugin-import": "^2.24.0",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-react": "^7.24.0",
+    "eslint-plugin-react-hooks": "^1.7.0",
+    "eslint-plugin-unused-imports": "^2.0.0"
   },
   "dependencies": {
     "axios": "^0.24.0"
