@@ -52,15 +52,15 @@ PDLJSClient.person.identify({ phone: '4155688415' }).then((data) => {
 });
 
 const records = {
-  "requests": [
+  requests: [
     {
-      "params": {
-        "profile": ["linkedin.com/in/seanthorne"]
+      params: {
+        profile: ['linkedin.com/in/seanthorne']
       }
     },
     {
-      "params": {
-        "profile": ["linkedin.com/in/randrewn"]
+      params: {
+        profile: ['linkedin.com/in/randrewn']
       }
     }
   ]
@@ -80,13 +80,13 @@ PDLJSClient.person.retrieve('qEnOZ5Oh0poWnQ1luFBfVw_0000').then((data) => {
   console.log(error);
 });
 
-PDLJSClient.company.cleaner({ name: "peopledatalabs" }).then((data) => {
+PDLJSClient.company.cleaner({ name: 'peopledatalabs' }).then((data) => {
   console.log(data);
 }).catch((error) => {
   console.log(error);
 });
 
-PDLJSClient.location.cleaner({ location: "455 Market Street, San Francisco, California 94105, US" }).then((data) => {
+PDLJSClient.location.cleaner({ location: '455 Market Street, San Francisco, California 94105, US' }).then((data) => {
   console.log(data);
 }).catch((error) => {
   console.log(error);
