@@ -3,16 +3,12 @@
   "version": "1.0.0",
   "description": "An universal client for the People Data Labs API",
   "type": "module",
-  "source": "src/index.js",
-  "exports": {
-    "require": "dist/index.cjs",
-    "default": "dist/index.modern.js"
-  },
   "main": "dist/index.cjs",
-  "module": "dist/index.module.js",
-  "unpkg": "dist/index.umd.js",
+  "module": "dist/index.m.js",
+  "umd:main": "dist/index.umd.js",
+  "source": "src/index.js",
   "scripts": {
-    "build": "microbundle",
+    "build": "rm -rf dist && microbundle",
     "dev": "microbundle watch",
     "publish": "npm run build && npm publish"
   },
@@ -40,14 +36,14 @@
   },
   "homepage": "https://github.com/peopledatalabs/peopledatalabs-js#readme",
   "devDependencies": {
-    "microbundle": "^0.14.2",
     "eslint": "^6.8.0",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-plugin-import": "^2.24.0",
     "eslint-plugin-jsx-a11y": "^6.4.1",
     "eslint-plugin-react": "^7.24.0",
     "eslint-plugin-react-hooks": "^1.7.0",
-    "eslint-plugin-unused-imports": "^2.0.0"
+    "eslint-plugin-unused-imports": "^2.0.0",
+    "microbundle": "^0.14.2"
   },
   "dependencies": {
     "axios": "^0.24.0"

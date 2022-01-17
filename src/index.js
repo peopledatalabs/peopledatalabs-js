@@ -169,4 +169,4 @@ class PDLJS {
   }
 }
 
-module.exports = PDLJS;
+export default PDLJS;

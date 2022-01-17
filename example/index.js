@@ -1,4 +1,4 @@
-import PDLJS from '../dist/index.cjs';
+import PDLJS from 'peopledatalabs';
 
 const PDLJSClient = new PDLJS({ apiKey: '%apiKey%' });
 
