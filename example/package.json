@@ -7,7 +7,7 @@
   "scripts": {
     "start": "node index.js"
   },
-  "author": "People Data Labs <hello@peopledatalabs.com>",
+  "author": "People Data Labs",
   "license": "MIT",
   "devDependencies": {
     "dotenv": "^14.2.0"
