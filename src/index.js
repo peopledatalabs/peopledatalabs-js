@@ -31,9 +31,9 @@ class PDLJS {
       search: ({ searchType, searchQuery, size }) => new Promise((resolve, reject) => {
         check({ searchType, searchQuery, size }, this.basePath, this.apiKey, null, 'search').then(() => {
           const params = {};
-          params.size = size;
-
           const tempST = searchType.toLowerCase();
+
+          params.size = size;
 
           if (tempST === 'sql') {
             params.sql = searchQuery;
@@ -150,9 +150,9 @@ class PDLJS {
       search: ({ searchType, searchQuery, size }) => new Promise((resolve, reject) => {
         check({ searchType, searchQuery, size }, this.basePath, this.apiKey, null, 'search').then(() => {
           const params = {};
-          params.size = size;
-
           const tempST = searchType.toLowerCase();
+
+          params.size = size;
 
           if (tempST === 'sql') {
             params.sql = searchQuery;
