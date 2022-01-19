@@ -6,13 +6,9 @@ dotenv.config();
 
 const PDLJSClient = new PDLJS({ apiKey: process.env.PDL_API_KEY });
 
-PDLJSClient.person.enrichment({ phone: '4155688415' }).then((data) => {
-  console.log(data);
-}).catch((error) => {
-  console.log(error);
-});
+// Person APIs
 
-PDLJSClient.company.enrichment({ website: 'peopledatalabs.com' }).then((data) => {
+PDLJSClient.person.enrichment({ phone: '4155688415' }).then((data) => {
   console.log(data);
 }).catch((error) => {
   console.log(error);
@@ -50,6 +46,42 @@ PDLJSClient.person.bulk(records).then((data) => {
 }).catch((error) => {
   console.log(error);
 });
+
+PDLJSClient.person.search({ searchType: 'sql', searchQuery: "SELECT * FROM person WHERE location_country='mexico' AND job_title_role='health'AND phone_numbers IS NOT NULL;", size: 10 })
+  .then((data) => {
+    console.log(data);
+  }).catch((error) => {
+    console.log(error);
+  });
+
+// Company APIs
+
+PDLJSClient.company.enrichment({ website: 'peopledatalabs.com' }).then((data) => {
+  console.log(data);
+}).catch((error) => {
+  console.log(error);
+});
+
+PDLJSClient.company.search({
+  searchType: 'es',
+  searchQuery: {
+    query: {
+      bool: {
+        must: [
+          { term: { website: 'peopledatalabs.com' } },
+        ],
+      },
+    },
+  },
+  size: 10,
+})
+  .then((data) => {
+    console.log(data);
+  }).catch((error) => {
+    console.log(error);
+  });
+
+// Cleaner APIs
 
 PDLJSClient.company.cleaner({ name: 'peopledatalabs' }).then((data) => {
   console.log(data);

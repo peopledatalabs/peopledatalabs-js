@@ -39,12 +39,6 @@ PDLJSClient.person.enrichment({ phone: '4155688415' }).then((data) => {
   console.log(error);
 });
 
-PDLJSClient.company.enrichment({ website: 'peopledatalabs.com' }).then((data) => {
-  console.log(data);
-}).catch((error) => {
-  console.log(error);
-});
-
 PDLJSClient.person.identify({ phone: '4155688415' }).then((data) => {
   console.log(data);
 }).catch((error) => {
@@ -72,6 +66,36 @@ PDLJSClient.person.bulk(records).then((data) => {
   console.log(error);
 });
 
+PDLJSClient.person.search({ searchType: 'sql', searchQuery: "SELECT * FROM person WHERE location_country='mexico' AND job_title_role='health'AND phone_numbers IS NOT NULL;", size: 10 }).then((data) => {
+  console.log(data);
+}).catch((error) => {
+  console.log(error);
+});
+
+PDLJSClient.company.enrichment({ website: 'peopledatalabs.com' }).then((data) => {
+  console.log(data);
+}).catch((error) => {
+  console.log(error);
+});
+
+PDLJSClient.company.search({
+  searchType: 'es',
+  searchQuery: {
+    query: {
+      bool: {
+        must: [
+          { term: { website: 'peopledatalabs.com' } },
+        ],
+      },
+    },
+  },
+  size: 10,
+}).then((data) => {
+  console.log(data);
+}).catch((error) => {
+  console.log(error);
+});
+
 // Supporting APIs
 
 PDLJSClient.person.retrieve('qEnOZ5Oh0poWnQ1luFBfVw_0000').then((data) => {
@@ -93,20 +117,6 @@ PDLJSClient.location.cleaner({ location: '455 Market Street, San Francisco, Cali
 });
 
 PDLJSClient.school.cleaner({ name: 'university of oregon' }).then((data) => {
-  console.log(data);
-}).catch((error) => {
-  console.log(error);
-});
-
-// Coming Soon
-
-PDLJSClient.person.search({ searchParams }).then((data) => {
-  console.log(data);
-}).catch((error) => {
-  console.log(error);
-});
-
-PDLJSClient.company.search({ searchParams }).then((data) => {
   console.log(data);
 }).catch((error) => {
   console.log(error);

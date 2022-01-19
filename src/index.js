@@ -24,12 +24,42 @@ class PDLJS {
               reject(errorHandler(error.response.status));
             });
         }).catch((error) => {
-          reject(error);
+          reject(error.message);
         });
       }),
-      search: (params) => {
-        console.log('coming soon');
-      },
+
+      search: ({ searchType, searchQuery, size }) => new Promise((resolve, reject) => {
+        check({ searchType, searchQuery, size }, this.basePath, this.apiKey).then(() => {
+          const params = {};
+          params.size = size;
+
+          const tempST = searchType.toLowerCase();
+
+          if (tempST === 'sql') {
+            params.sql = searchQuery;
+          } else if (tempST === 'es') {
+            params.query = searchQuery;
+          }
+
+          axios.get(`${this.basePath}/person/search`, {
+            params: {
+              api_key: this.apiKey,
+              ...params,
+            },
+          })
+            .then((data) => {
+              if (data?.data?.status === 200) {
+                resolve(data.data);
+              }
+            })
+            .catch((error) => {
+              reject(errorHandler(error.response.status));
+            });
+        }).catch((error) => {
+          reject(error.message);
+        });
+      }),
+
       bulk: (records) => {
         const headers = {
           'Content-Type': 'application/json',
@@ -52,6 +82,7 @@ class PDLJS {
           });
         });
       },
+
       identify: (params) => new Promise((resolve, reject) => {
         check(params, this.basePath, this.apiKey).then(() => {
           axios.get(`${this.basePath}/person/identify`, {
@@ -72,6 +103,7 @@ class PDLJS {
           reject(error);
         });
       }),
+
       retrieve: (id) => new Promise((resolve, reject) => {
         check(id, this.basePath, this.apiKey, 'ID').then(() => {
           axios.get(`${this.basePath}/person/retrieve/${id}`, {
@@ -88,7 +120,7 @@ class PDLJS {
               reject(errorHandler(error.response.status));
             });
         }).catch((error) => {
-          reject(error);
+          reject(error.message);
         });
       }),
     };
@@ -111,12 +143,42 @@ class PDLJS {
               reject(errorHandler(error.response.status));
             });
         }).catch((error) => {
-          reject(error);
+          reject(error.message);
         });
       }),
-      search: (params) => {
-        console.log('coming soon');
-      },
+
+      search: ({ searchType, searchQuery, size }) => new Promise((resolve, reject) => {
+        check({ searchType, searchQuery, size }, this.basePath, this.apiKey).then(() => {
+          const params = {};
+          params.size = size;
+
+          const tempST = searchType.toLowerCase();
+
+          if (tempST === 'sql') {
+            params.sql = searchQuery;
+          } else if (tempST === 'es') {
+            params.query = searchQuery;
+          }
+
+          axios.get(`${this.basePath}/company/search`, {
+            params: {
+              api_key: this.apiKey,
+              ...params,
+            },
+          })
+            .then((data) => {
+              if (data?.data?.status === 200) {
+                resolve(data.data);
+              }
+            })
+            .catch((error) => {
+              reject(errorHandler(error.response.status));
+            });
+        }).catch((error) => {
+          reject(error.message);
+        });
+      }),
+
       cleaner: (params) => new Promise((resolve, reject) => {
         check(params, this.basePath, this.apiKey).then(() => {
           axios.get(`${this.basePath}/company/clean`, {
@@ -134,7 +196,7 @@ class PDLJS {
               reject(errorHandler(error.response.status));
             });
         }).catch((error) => {
-          reject(error);
+          reject(error.message);
         });
       }),
     };
@@ -157,7 +219,7 @@ class PDLJS {
               reject(errorHandler(error.response.status));
             });
         }).catch((error) => {
-          reject(error);
+          reject(error.message);
         });
       }),
     };
@@ -180,7 +242,7 @@ class PDLJS {
               reject(errorHandler(error.response.status));
             });
         }).catch((error) => {
-          reject(error);
+          reject(error.message);
         });
       }),
     };
