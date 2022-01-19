@@ -1,250 +1,32 @@
-import { check, errorHandler } from './errors';
-
-const axios = require('axios');
+import {
+  bulk, cleaner, enrichment, identify, retrieve, search,
+} from './endpoints';
 
 class PDLJS {
   constructor({ apiKey, basePath, version }) {
     this.apiKey = apiKey;
     this.basePath = basePath || `https://api.peopledatalabs.com/${version || 'v5'}/`;
+
     this.person = {
-      enrichment: (params) => new Promise((resolve, reject) => {
-        check(params, this.basePath, this.apiKey).then(() => {
-          axios.get(`${this.basePath}/person/enrich`, {
-            params: {
-              api_key: this.apiKey,
-              ...params,
-            },
-          })
-            .then((data) => {
-              if (data?.data?.status === 200) {
-                resolve(data.data);
-              }
-            })
-            .catch((error) => {
-              reject(errorHandler(error.response.status));
-            });
-        }).catch((error) => {
-          reject(error.message);
-        });
-      }),
-
-      search: ({ searchType, searchQuery, size }) => new Promise((resolve, reject) => {
-        check({ searchType, searchQuery, size }, this.basePath, this.apiKey, null, 'search').then(() => {
-          const params = {};
-          const tempST = searchType.toLowerCase();
-
-          params.size = size;
-
-          if (tempST === 'sql') {
-            params.sql = searchQuery;
-          } else if (tempST === 'es') {
-            params.query = searchQuery;
-          }
-
-          axios.get(`${this.basePath}/person/search`, {
-            params: {
-              api_key: this.apiKey,
-              ...params,
-            },
-          })
-            .then((data) => {
-              if (data?.data?.status === 200) {
-                resolve(data.data);
-              }
-            })
-            .catch((error) => {
-              reject(errorHandler(error.response.status));
-            });
-        }).catch((error) => {
-          reject(error.message);
-        });
-      }),
-
-      bulk: (records) => {
-        const headers = {
-          'Content-Type': 'application/json',
-          'X-Api-Key': this.apiKey,
-        };
-
-        return new Promise((resolve, reject) => {
-          check(records, this.basePath, this.apiKey, 'Records').then(() => {
-            axios.post(`${this.basePath}/person/bulk`, records, { headers })
-              .then((data) => {
-                if (data?.data?.status === 200) {
-                  resolve(data.data);
-                }
-              })
-              .catch((error) => {
-                reject(errorHandler(error.response.status));
-              });
-          }).catch((error) => {
-            reject(error);
-          });
-        });
-      },
-
-      identify: (params) => new Promise((resolve, reject) => {
-        check(params, this.basePath, this.apiKey).then(() => {
-          axios.get(`${this.basePath}/person/identify`, {
-            params: {
-              api_key: this.apiKey,
-              ...params,
-            },
-          })
-            .then((data) => {
-              if (data?.data?.status === 200) {
-                resolve(data.data);
-              }
-            })
-            .catch((error) => {
-              reject(errorHandler(error.response.status));
-            });
-        }).catch((error) => {
-          reject(error);
-        });
-      }),
-
-      retrieve: (id) => new Promise((resolve, reject) => {
-        check(id, this.basePath, this.apiKey, 'ID').then(() => {
-          axios.get(`${this.basePath}/person/retrieve/${id}`, {
-            params: {
-              api_key: this.apiKey,
-            },
-          })
-            .then((data) => {
-              if (data?.data?.status === 200) {
-                resolve(data.data);
-              }
-            })
-            .catch((error) => {
-              reject(errorHandler(error.response.status));
-            });
-        }).catch((error) => {
-          reject(error.message);
-        });
-      }),
+      enrichment: (params) => enrichment(this.basePath, this.apiKey, ...params, 'person'),
+      search: (params) => search(this.basePath, this.apiKey, ...params, 'person'),
+      bulk: (records) => bulk(this.basePath, this.apiKey, records),
+      identify: (params) => identify(this.basePath, this.apiKey, ...params),
+      retrieve: (id) => retrieve(this.basePath, this.apiKey, id),
     };
 
     this.company = {
-      enrichment: (params) => new Promise((resolve, reject) => {
-        check(params, this.basePath, this.apiKey).then(() => {
-          axios.get(`${this.basePath}/company/enrich`, {
-            params: {
-              api_key: this.apiKey,
-              ...params,
-            },
-          })
-            .then((data) => {
-              if (data?.data?.status === 200) {
-                resolve(data.data);
-              }
-            })
-            .catch((error) => {
-              reject(errorHandler(error.response.status));
-            });
-        }).catch((error) => {
-          reject(error.message);
-        });
-      }),
-
-      search: ({ searchType, searchQuery, size }) => new Promise((resolve, reject) => {
-        check({ searchType, searchQuery, size }, this.basePath, this.apiKey, null, 'search').then(() => {
-          const params = {};
-          const tempST = searchType.toLowerCase();
-
-          params.size = size;
-
-          if (tempST === 'sql') {
-            params.sql = searchQuery;
-          } else if (tempST === 'es') {
-            params.query = searchQuery;
-          }
-
-          axios.get(`${this.basePath}/company/search`, {
-            params: {
-              api_key: this.apiKey,
-              ...params,
-            },
-          })
-            .then((data) => {
-              if (data?.data?.status === 200) {
-                resolve(data.data);
-              }
-            })
-            .catch((error) => {
-              reject(errorHandler(error.response.status));
-            });
-        }).catch((error) => {
-          reject(error.message);
-        });
-      }),
-
-      cleaner: (params) => new Promise((resolve, reject) => {
-        check(params, this.basePath, this.apiKey).then(() => {
-          axios.get(`${this.basePath}/company/clean`, {
-            params: {
-              api_key: this.apiKey,
-              ...params,
-            },
-          })
-            .then((data) => {
-              if (data?.data?.status === 200) {
-                resolve(data.data);
-              }
-            })
-            .catch((error) => {
-              reject(errorHandler(error.response.status));
-            });
-        }).catch((error) => {
-          reject(error.message);
-        });
-      }),
+      enrichment: (params) => enrichment(this.basePath, this.apiKey, ...params, 'company'),
+      search: (params) => search(this.basePath, this.apiKey, ...params, 'company'),
+      cleaner: (params) => cleaner(this.basePath, this.apiKey, ...params, 'company'),
     };
 
     this.school = {
-      cleaner: (params) => new Promise((resolve, reject) => {
-        check(params, this.basePath, this.apiKey).then(() => {
-          axios.get(`${this.basePath}/school/clean`, {
-            params: {
-              api_key: this.apiKey,
-              ...params,
-            },
-          })
-            .then((data) => {
-              if (data?.data?.status === 200) {
-                resolve(data.data);
-              }
-            })
-            .catch((error) => {
-              reject(errorHandler(error.response.status));
-            });
-        }).catch((error) => {
-          reject(error.message);
-        });
-      }),
+      cleaner: (params) => cleaner(this.basePath, this.apiKey, ...params, 'school'),
     };
 
     this.location = {
-      cleaner: (params) => new Promise((resolve, reject) => {
-        check(params, this.basePath, this.apiKey).then(() => {
-          axios.get(`${this.basePath}/location/clean`, {
-            params: {
-              api_key: this.apiKey,
-              ...params,
-            },
-          })
-            .then((data) => {
-              if (data?.data?.status === 200) {
-                resolve(data.data);
-              }
-            })
-            .catch((error) => {
-              reject(errorHandler(error.response.status));
-            });
-        }).catch((error) => {
-          reject(error.message);
-        });
-      }),
+      cleaner: (params) => cleaner(this.basePath, this.apiKey, ...params, 'location'),
     };
   }
 }

@@ -2,14 +2,13 @@ const check = (data, basePath, apiKey, type, search) => new Promise((resolve, re
   if (!data) reject(new Error(`Missing ${type || 'Params'}`));
   if (search) {
     const { searchType, searchQuery, size } = data;
-    const tempST = searchType.toLowerCase();
-    if (!data.searchType) {
+    if (!searchType) {
       reject(new Error('Missing searchType'));
-    } else if (!data.searchQuery) {
+    } else if (!searchQuery) {
       reject(new Error('Missing searchQuery'));
-    } else if (!data.size) {
+    } else if (!size) {
       reject(new Error('Missing size'));
-    } else if (data.searchType !== 'es' || data.searchType !== 'sql') {
+    } else if (searchType.toLowerCase() !== 'es' && searchType.toLowerCase() !== 'sql') {
       reject(new Error('Invalid searchType, must be SQL or ES'));
     }
   }
