@@ -13,7 +13,7 @@ A tiny, universal client for the People Data Labs API.
 </div>
 
 ## ✨ Features:
-- Tiny <1KB size gzip
+- Tiny <2KB size gzip
 - Works in Node.js and in Browser
 
 ## 🔧 Installation
