@@ -29,7 +29,7 @@ class PDLJS {
       }),
 
       search: ({ searchType, searchQuery, size }) => new Promise((resolve, reject) => {
-        check({ searchType, searchQuery, size }, this.basePath, this.apiKey).then(() => {
+        check({ searchType, searchQuery, size }, this.basePath, this.apiKey, null, 'search').then(() => {
           const params = {};
           params.size = size;
 
@@ -148,7 +148,7 @@ class PDLJS {
       }),
 
       search: ({ searchType, searchQuery, size }) => new Promise((resolve, reject) => {
-        check({ searchType, searchQuery, size }, this.basePath, this.apiKey).then(() => {
+        check({ searchType, searchQuery, size }, this.basePath, this.apiKey, null, 'search').then(() => {
           const params = {};
           params.size = size;
 

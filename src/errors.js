@@ -1,6 +1,6 @@
-const check = (data, basePath, apiKey, type) => new Promise((resolve, reject) => {
+const check = (data, basePath, apiKey, type, search) => new Promise((resolve, reject) => {
   if (!data) reject(new Error(`Missing ${type || 'Params'}`));
-  if (typeof data === 'object' && (!data.searchType || !data.searchQuery || !data.size)) reject(new Error('Malformed Search Query'));
+  if (search && (!data.searchType || !data.searchQuery || !data.size)) reject(new Error('Malformed Search Query'));
   if (!basePath || !basePath.includes('https://api.peopledatalabs.com')) reject(new Error('Invalid API Base Path'));
   if (!apiKey || apiKey.length !== 64) reject(new Error('Invalid API Key'));
   resolve();
