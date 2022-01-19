@@ -31,15 +31,9 @@ import PDLJS from 'peopledatalabs'
 
 const PDLJSClient = new PDLJS({ apiKey: '%apiKey%' })
 
-// Major APIs
+// Person APIs
 
 PDLJSClient.person.enrichment({ phone: '4155688415' }).then((data) => {
-  console.log(data);
-}).catch((error) => {
-  console.log(error);
-});
-
-PDLJSClient.person.identify({ phone: '4155688415' }).then((data) => {
   console.log(data);
 }).catch((error) => {
   console.log(error);
@@ -72,6 +66,20 @@ PDLJSClient.person.search.sql({ searchQuery: "SELECT * FROM person WHERE locatio
   console.log(error);
 });
 
+PDLJSClient.person.identify({ phone: '4155688415' }).then((data) => {
+  console.log(data);
+}).catch((error) => {
+  console.log(error);
+});
+
+PDLJSClient.person.retrieve('qEnOZ5Oh0poWnQ1luFBfVw_0000').then((data) => {
+  console.log(data);
+}).catch((error) => {
+  console.log(error);
+});
+
+// Company APIs
+
 PDLJSClient.company.enrichment({ website: 'peopledatalabs.com' }).then((data) => {
   console.log(data);
 }).catch((error) => {
@@ -97,7 +105,7 @@ PDLJSClient.company.search.elastic({
 
 // Supporting APIs
 
-PDLJSClient.person.retrieve('qEnOZ5Oh0poWnQ1luFBfVw_0000').then((data) => {
+PDLJSClient.autocomplete({ field: 'skill', text: 'c++', size: 10 }).then((data) => {
   console.log(data);
 }).catch((error) => {
   console.log(error);

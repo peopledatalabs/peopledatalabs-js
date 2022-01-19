@@ -20,12 +20,6 @@ PDLJSClient.person.identify({ phone: '4155688415' }).then((data) => {
   console.log(error);
 });
 
-PDLJSClient.person.retrieve('qEnOZ5Oh0poWnQ1luFBfVw_0000').then((data) => {
-  console.log(data);
-}).catch((error) => {
-  console.log(error);
-});
-
 const records = {
   requests: [
     {
@@ -48,6 +42,12 @@ PDLJSClient.person.bulk(records).then((data) => {
 });
 
 PDLJSClient.person.search.sql({ searchQuery: "SELECT * FROM person WHERE location_country='mexico' AND job_title_role='health'AND phone_numbers IS NOT NULL;", size: 10 }).then((data) => {
+  console.log(data);
+}).catch((error) => {
+  console.log(error);
+});
+
+PDLJSClient.person.retrieve('qEnOZ5Oh0poWnQ1luFBfVw_0000').then((data) => {
   console.log(data);
 }).catch((error) => {
   console.log(error);
@@ -78,7 +78,13 @@ PDLJSClient.company.search.elastic({
   console.log(error);
 });
 
-// Cleaner APIs
+// Supporting APIs
+
+PDLJSClient.autocomplete({ field: 'skill', text: 'c++', size: 10 }).then((data) => {
+  console.log(data);
+}).catch((error) => {
+  console.log(error);
+});
 
 PDLJSClient.company.cleaner({ name: 'peopledatalabs' }).then((data) => {
   console.log(data);

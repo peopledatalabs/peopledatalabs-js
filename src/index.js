@@ -1,5 +1,5 @@
 import {
-  bulk, cleaner, enrichment, identify, retrieve, search,
+  autocomplete, bulk, cleaner, enrichment, identify, retrieve, search,
 } from './endpoints';
 
 class PDLJS {
@@ -34,6 +34,8 @@ class PDLJS {
     this.location = {
       cleaner: (params) => cleaner(this.basePath, this.apiKey, ...params, 'location'),
     };
+
+    this.autocomplete = (params) => autocomplete(this.basePath, this.apiKey, ...params);
   }
 }
 
