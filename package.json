@@ -10,7 +10,7 @@
   "scripts": {
     "build": "rm -rf dist && microbundle",
     "dev": "microbundle watch",
-    "publish": "npm run build && npm publish"
+    "pub": "npm run build && npm publish"
   },
   "repository": {
     "type": "git",
