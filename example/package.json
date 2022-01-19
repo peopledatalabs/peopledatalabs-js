@@ -8,5 +8,8 @@
     "start": "node index.js"
   },
   "author": "People Data Labs <hello@peopledatalabs.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "dotenv": "^14.2.0"
+  }
 }

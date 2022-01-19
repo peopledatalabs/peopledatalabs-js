@@ -1,6 +1,10 @@
+import dotenv from 'dotenv';
+
 import PDLJS from 'peopledatalabs';
 
-const PDLJSClient = new PDLJS({ apiKey: '%apiKey%' });
+dotenv.config();
+
+const PDLJSClient = new PDLJS({ apiKey: process.env.PDL_API_KEY });
 
 PDLJSClient.person.enrichment({ phone: '4155688415' }).then((data) => {
   console.log(data);
