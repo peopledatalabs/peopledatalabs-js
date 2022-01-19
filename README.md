@@ -8,8 +8,8 @@ A tiny, universal client for the People Data Labs API.
 
 <div>
 <a href="https://www.npmjs.com/package/peopledatalabs"><img src="https://img.shields.io/npm/v/peopledatalabs" alt="peopledatalabs"></a>
-<a href="https://unpkg.com/peopledatalabs-js"><img src="https://img.badgesize.io/https://unpkg.com/peopledatalabs@1.0.0/dist/index.js?compression=gzip" alt="gzip size"></a>
-<a href="https://unpkg.com/peopledatalabs"><img src="https://img.badgesize.io/https://unpkg.com/peopledatalabs@1.0.0/dist/index.js?compression=brotli" alt="brotli size"></a>
+<a href="https://unpkg.com/peopledatalabs"><img src="https://img.badgesize.io/https://unpkg.com/peopledatalabs/dist/index.cjs?compression=gzip" alt="gzip size"></a>
+<a href="https://unpkg.com/peopledatalabs"><img src="https://img.badgesize.io/https://unpkg.com/peopledatalabs/dist/index.cjs?compression=brotli" alt="brotli size"></a>
 </div>
 
 ## ✨ Features:
