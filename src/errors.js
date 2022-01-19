@@ -1,15 +1,11 @@
 const check = (data, basePath, apiKey, type, search) => new Promise((resolve, reject) => {
   if (!data) reject(new Error(`Missing ${type || 'Params'}`));
   if (search) {
-    const { searchType, searchQuery, size } = data;
-    if (!searchType) {
-      reject(new Error('Missing searchType'));
-    } else if (!searchQuery) {
+    const { searchQuery, size } = data;
+    if (!searchQuery) {
       reject(new Error('Missing searchQuery'));
     } else if (!size) {
       reject(new Error('Missing size'));
-    } else if (searchType.toLowerCase() !== 'es' && searchType.toLowerCase() !== 'sql') {
-      reject(new Error('Invalid searchType, must be SQL or ES'));
     }
   }
   if (!basePath || !basePath.includes('https://api.peopledatalabs.com')) reject(new Error('Invalid API Base Path'));

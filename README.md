@@ -66,7 +66,7 @@ PDLJSClient.person.bulk(records).then((data) => {
   console.log(error);
 });
 
-PDLJSClient.person.search({ searchType: 'sql', searchQuery: "SELECT * FROM person WHERE location_country='mexico' AND job_title_role='health'AND phone_numbers IS NOT NULL;", size: 10 }).then((data) => {
+PDLJSClient.person.search.sql({ searchQuery: "SELECT * FROM person WHERE location_country='mexico' AND job_title_role='health'AND phone_numbers IS NOT NULL;", size: 10 }).then((data) => {
   console.log(data);
 }).catch((error) => {
   console.log(error);
@@ -78,8 +78,7 @@ PDLJSClient.company.enrichment({ website: 'peopledatalabs.com' }).then((data) =>
   console.log(error);
 });
 
-PDLJSClient.company.search({
-  searchType: 'es',
+PDLJSClient.company.search.elastic({
   searchQuery: {
     query: {
       bool: {

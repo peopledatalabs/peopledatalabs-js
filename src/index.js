@@ -9,7 +9,10 @@ class PDLJS {
 
     this.person = {
       enrichment: (params) => enrichment(this.basePath, this.apiKey, ...params, 'person'),
-      search: (params) => search(this.basePath, this.apiKey, ...params, 'person'),
+      search: {
+        elastic: (params) => search(this.basePath, this.apiKey, 'elastic', ...params, 'person'),
+        sql: (params) => search(this.basePath, this.apiKey, 'sql', ...params, 'person'),
+      },
       bulk: (records) => bulk(this.basePath, this.apiKey, records),
       identify: (params) => identify(this.basePath, this.apiKey, ...params),
       retrieve: (id) => retrieve(this.basePath, this.apiKey, id),
@@ -17,7 +20,10 @@ class PDLJS {
 
     this.company = {
       enrichment: (params) => enrichment(this.basePath, this.apiKey, ...params, 'company'),
-      search: (params) => search(this.basePath, this.apiKey, ...params, 'company'),
+      search: {
+        elastic: (params) => search(this.basePath, this.apiKey, 'elastic', ...params, 'company'),
+        sql: (params) => search(this.basePath, this.apiKey, 'sql', ...params, 'company'),
+      },
       cleaner: (params) => cleaner(this.basePath, this.apiKey, ...params, 'company'),
     };
 
