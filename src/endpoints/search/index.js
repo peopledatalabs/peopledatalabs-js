@@ -21,7 +21,7 @@ export default (basePath, apiKey, searchType, { searchQuery, size }, type) => ne
         }
       })
       .catch((error) => {
-        reject(errorHandler(error.response.status));
+        reject(errorHandler(error?.response?.status));
       });
   }).catch((error) => {
     reject(error.message);
