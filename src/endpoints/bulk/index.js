@@ -9,7 +9,7 @@ export default (basePath, apiKey, records) => {
   };
 
   return new Promise((resolve, reject) => {
-    check(records, basePath, apiKey, 'Records').then(() => {
+    check(records, basePath, apiKey, 'Records', 'bulk').then(() => {
       axios.post(`${basePath}/person/bulk`, records, { headers })
         .then((data) => {
           if (data?.status === 200) {

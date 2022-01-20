@@ -4,10 +4,22 @@ const axios = require('axios');
 
 export default (basePath, apiKey, params) => new Promise((resolve, reject) => {
   check(params, basePath, apiKey, null, 'autocomplete').then(() => {
+    const {
+      field, text, size, pretty,
+    } = params;
+
+    const autocompleteParams = {
+      field,
+      text: text || '',
+      size: size || 10,
+      pretty: pretty || false,
+    };
+
     axios.get(`${basePath}/autocomplete`, {
+
       params: {
         api_key: apiKey,
-        ...params,
+        ...autocompleteParams,
       },
     })
       .then((data) => {

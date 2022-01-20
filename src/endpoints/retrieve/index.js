@@ -3,7 +3,7 @@ import { check, errorHandler } from '../../errors';
 const axios = require('axios');
 
 export default (basePath, apiKey, id) => new Promise((resolve, reject) => {
-  check(id, basePath, apiKey, 'ID').then(() => {
+  check(id, basePath, apiKey, 'ID', 'retrieve').then(() => {
     axios.get(`${basePath}/person/retrieve/${id}`, {
       params: {
         api_key: apiKey,

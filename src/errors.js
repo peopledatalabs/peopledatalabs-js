@@ -1,24 +1,18 @@
-const check = (data, basePath, apiKey, type, endpoint) => new Promise((resolve, reject) => {
-  if (!data) reject(new Error(`Missing ${type || 'Params'}`));
+const check = (params, basePath, apiKey, type, endpoint) => new Promise((resolve, reject) => {
+  if (!params) reject(new Error(`Missing ${type || 'Params'}`));
   if (endpoint === 'search') {
-    const { searchQuery, size } = data;
+    const { searchQuery } = params;
     if (!searchQuery) {
       reject(new Error('Missing searchQuery'));
-    } else if (!size) {
-      reject(new Error('Missing size'));
     }
   }
   if (endpoint === 'autocomplete') {
-    const { field, text, size } = data;
-    const fields = ['company', 'country', 'industry', 'location', 'major', 'region', 'role', 'school', 'sub_role', 'skill', 'title'];
+    const { field } = params;
+    const validFields = ['company', 'country', 'industry', 'location', 'major', 'region', 'role', 'school', 'sub_role', 'skill', 'title'];
     if (!field) {
       reject(new Error('Missing field'));
-    } else if (!text) {
-      reject(new Error('Missing text'));
-    } else if (!size) {
-      reject(new Error('Missing size'));
-    } else if (fields.indexOf(field) === -1) {
-      reject(new Error(`field should be one of: ${fields}`));
+    } else if (validFields.indexOf(field) === -1) {
+      reject(new Error(`field should be one of: ${validFields}`));
     }
   }
   if (!basePath || !basePath.includes('https://api.peopledatalabs.com')) reject(new Error('Invalid API Base Path'));

@@ -2,17 +2,24 @@ import { check, errorHandler } from '../../errors';
 
 const axios = require('axios');
 
-export default (basePath, apiKey, searchType, { searchQuery, size }, type) => new Promise((resolve, reject) => {
-  check({ searchQuery, size }, basePath, apiKey, null, 'search').then(() => {
-    const params = {
-      size,
+export default (basePath, apiKey, searchType, params, type) => new Promise((resolve, reject) => {
+  check(params, basePath, apiKey, null, 'search').then(() => {
+    const {
+      dataset, searchQuery, size, scroll_token, titlecase, pretty,
+    } = params;
+
+    const searchParams = {
+      titlecase: titlecase || false,
+      dataset: dataset || 'all',
+      scroll_token: scroll_token || null,
+      size: size || 10,
       [`${searchType === 'sql' ? 'sql' : 'query'}`]: searchQuery,
     };
 
     axios.get(`${basePath}/${type}/search`, {
       params: {
         api_key: apiKey,
-        ...params,
+        ...searchParams,
       },
     })
       .then((data) => {
