@@ -3,7 +3,7 @@
 </p>
 <h1 align="center">People Data Labs JS Library</h1>
 <p align="center">
-A tiny, universal client for the People Data Labs API.
+A tiny, universal JS client for the People Data Labs API.
 </p>
 
 <div>
