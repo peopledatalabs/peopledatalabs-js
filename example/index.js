@@ -2,7 +2,7 @@ import dotenv from 'dotenv';
 
 import PDLJS from 'peopledatalabs';
 
-dotenv.config();
+dotenv.config({ path: '../.env' });
 
 const PDLJSClient = new PDLJS({ apiKey: process.env.PDL_API_KEY });
 
