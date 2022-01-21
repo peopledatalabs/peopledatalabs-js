@@ -17,7 +17,7 @@ export default (basePath, apiKey, records) => {
           }
         })
         .catch((error) => {
-          reject(errorHandler(error?.response?.status));
+          reject(errorHandler(error));
         });
     }).catch((error) => {
       reject(error);

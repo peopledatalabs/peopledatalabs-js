@@ -15,7 +15,7 @@ export default (basePath, apiKey, id) => new Promise((resolve, reject) => {
         }
       })
       .catch((error) => {
-        reject(errorHandler(error?.response?.status));
+        reject(errorHandler(error));
       });
   }).catch((error) => {
     reject(error.message);

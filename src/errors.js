@@ -15,13 +15,15 @@ const check = (params, basePath, apiKey, type, endpoint) => new Promise((resolve
       reject(new Error(`field should be one of: ${validFields}`));
     }
   }
-  if (!basePath || !basePath.includes('https://api.peopledatalabs.com')) reject(new Error('Invalid API Base Path'));
+  if (!basePath) reject(new Error('Invalid API Base Path'));
   if (!apiKey || apiKey.length !== 64) reject(new Error('Invalid API Key'));
   resolve();
 });
 
-const errorHandler = (code) => {
-  if (code) {
+const errorHandler = (error) => {
+  if (error.response) {
+    const { status } = error.response;
+
     const errorMessages = {
       400: 'Request contained either missing or invalid parameters',
       401: 'Request contained a missing or invalid key',
@@ -32,9 +34,9 @@ const errorHandler = (code) => {
       500: 'The server encountered an unexpected condition which prevented it from fulfilling the request',
     };
 
-    return (`${code} Error: ${errorMessages[code >= 500 && code < 600 ? 500 : code]}`);
+    return (`${status} Error: ${errorMessages[status >= 500 && status < 600 ? 500 : status]}`);
   }
-  return ('Unknown Error. Please Try Again.');
+  return (`Error: ${error.toJSON().message}`);
 };
 
 export { check, errorHandler };

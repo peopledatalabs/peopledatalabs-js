@@ -28,7 +28,7 @@ export default (basePath, apiKey, searchType, params, type) => new Promise((reso
         }
       })
       .catch((error) => {
-        reject(errorHandler(error?.response?.status));
+        reject(errorHandler(error));
       });
   }).catch((error) => {
     reject(error.message);

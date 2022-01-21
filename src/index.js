@@ -5,7 +5,7 @@ import {
 class PDLJS {
   constructor({ apiKey, basePath, version }) {
     this.apiKey = apiKey;
-    this.basePath = basePath || `https://api.peopledatalabs.com/${version || 'v5'}/`;
+    this.basePath = basePath || `https://api.peopledatalabs.com/${version || 'v5'}`;
 
     this.person = {
       enrichment: (params) => enrichment(this.basePath, this.apiKey, ...params, 'person'),
