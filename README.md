@@ -19,13 +19,11 @@ A tiny, universal JS client for the People Data Labs API.
 - Supports all People Data Labs API endpoints
 
 ## Table of Contents
-- [✨ Features:](#-features)
-- [Table of Contents](#table-of-contents)
-- [🔧 Installation <a name="installation"></a>](#-installation-)
-- [🌐 Usage <a name="usage"></a>](#-usage-)
-- [🌐 Endpoints <a name="endpoints"></a>](#-endpoints-)
-- [📘 Documentation <a name="installation"></a>](#-documentation-)
-    - [**Special Note about Search API Support** <a name="special-note"></a>](#special-note-about-search-api-support-)
+- [🔧 Installation](#installation)
+- [🚀 Usage](#usage)
+- [🌐 Endpoints](#endpoints)
+- [📘 Documentation](#documentation)
+    - [Special Note about Search API Support](#special-note)
 
 
 ## 🔧 Installation <a name="installation"></a>
@@ -34,7 +32,7 @@ A tiny, universal JS client for the People Data Labs API.
 npm i peopledatalabs
 ```
 
-## 🌐 Usage <a name="usage"></a>
+## 🚀 Usage <a name="usage"></a>
 
 First, create the PDLJS client:
 ```js
@@ -145,7 +143,6 @@ PDLJSClient.autocomplete({ field: 'title', text: 'full', size: 10 }).then((data)
   console.log(error);
 });
 
-
 // Clean Raw Company Strings
 PDLJSClient.company.cleaner({ name: 'peOple DaTa LabS' }).then((data) => {
   console.log(data);
@@ -194,22 +191,28 @@ PDLJSClient.school.cleaner({ name: 'university of oregon' }).then((data) => {
 | [School Cleaner API](https://docs.peopledatalabs.com/docs/cleaner-apis#schoolclean) | SQL: `PDLJS.person.identify(...params)` |
 
 
-## 📘 Documentation <a name="installation"></a>
+## 📘 Documentation <a name="documentation"></a>
 
 All of our API endpoints are documented at: https://docs.peopledatalabs.com/
 
 These docs describe the supported input parameters, output responses and also provide additional technical context. 
 
-As illustrated in the [Endpoints]() section above, each of our API endpoints is mapped to a specific method in the PDLJS class.  For each of these class methods, **all function inputs are mapped as input parameters to the respective API endpoint**, meaning that you can use the API documentation linked above to determine the input parameters for each endpoint. 
+As illustrated in the [Endpoints](#endpoints) section above, each of our API endpoints is mapped to a specific method in the PDLJS class.  For each of these class methods, **all function inputs are mapped as input parameters to the respective API endpoint**, meaning that you can use the API documentation linked above to determine the input parameters for each endpoint. 
 
 As an example:
 
-`PDLJS.person.identify(name=”sean thorne”)` is **valid** because `name` is a [supported input parameter to the Person Identify API]().
+The following is **valid** because `name` is a [supported input parameter to the Person Identify API](https://docs.peopledatalabs.com/docs/identify-api-reference#input-parameters):
+```js
+PDLJS.person.identify(name=”sean thorne”)
+``` 
 
-Conversely, `PDLJS.person.identify(fake_parameter=”anything”)` is **invalid** because `fake_parameter` is not an input parameter to the Person Identify API. 
+Conversely, this would be **invalid** because `fake_parameter` is not an input parameter to the Person Identify API:
+```js
+PDLJS.person.identify(fake_parameter=”anything”)
+```
 
 
-#### **Special Note about Search API Support** <a name="special-note"></a>
+#### Special Note about Search API Support <a name="special-note"></a>
 
 Our Person Search API and Company Search API endpoints both support two types of query syntax: you can construct search queries using either `SQL` or `Elasticsearch` syntax. 
 
@@ -224,7 +227,7 @@ In the PDLJS class, the person and company search functions are broken out into 
 You can pass your query to these methods using the special `searchQuery` function argument, as shown in the following example:
 
 ```js
-const sqlQuery = "SELECT * FROM company WHERE tags='big data' AND industry='financial services' AND location.country='united states';"
+const sqlQuery = "SELECT * FROM company WHERE website='peopledatalabs.com';"
  
 PDLJSClient.company.search.sql({ searchQuery: sqlQuery, size: 10 }).then((data) => {
  console.log(data['total']);
