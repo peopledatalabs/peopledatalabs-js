@@ -173,8 +173,8 @@ PDLJSClient.school.cleaner({ name: 'university of oregon' }).then((data) => {
 |-|-|
 | [Person Enrichment API](https://docs.peopledatalabs.com/docs/enrichment-api) | `PDLJS.person.enrichment(...params)` |
 | [Person Search API](https://docs.peopledatalabs.com/docs/search-api) | SQL: `PDLJS.person.search.sql(...params)` <br/> Elasticsearch: `PDLJS.person.search.elastic(...params)`|
-| [Person Retrieve API](https://docs.peopledatalabs.com/docs/person-retrieve-api) | SQL: `PDLJS.person.retrieve(...params)` |
-| [Person Identify API](https://docs.peopledatalabs.com/docs/identify-api) | SQL: `PDLJS.person.identify(...params)` |
+| [Person Retrieve API](https://docs.peopledatalabs.com/docs/person-retrieve-api) | `PDLJS.person.retrieve(...params)` |
+| [Person Identify API](https://docs.peopledatalabs.com/docs/identify-api) | `PDLJS.person.identify(...params)` |
 
 **Company Endpoints**
 | API Endpoint | PDLJS Function |
@@ -185,10 +185,10 @@ PDLJSClient.school.cleaner({ name: 'university of oregon' }).then((data) => {
 **Supporting Endpoints**
 | API Endpoint | PDLJS Function |
 |-|-|
-| [Autocomplete API](https://docs.peopledatalabs.com/docs/autocomplete-api) | `PDLJS.person.enrichment(...params)` |
-| [Company Cleaner API](https://docs.peopledatalabs.com/docs/cleaner-apis#companyclean) | SQL: `PDLJS.person.search.sql(...params)` <br/> Elasticsearch: `PDLJS.person.search.elastic(...params)`|
-| [Location Cleaner API](https://docs.peopledatalabs.com/docs/cleaner-apis#locationclean) | SQL: `PDLJS.person.retrieve(...params)` |
-| [School Cleaner API](https://docs.peopledatalabs.com/docs/cleaner-apis#schoolclean) | SQL: `PDLJS.person.identify(...params)` |
+| [Autocomplete API](https://docs.peopledatalabs.com/docs/autocomplete-api) | `PDLJS.autocomplete(...params)` |
+| [Company Cleaner API](https://docs.peopledatalabs.com/docs/cleaner-apis#companyclean) | `PDLJS.company.cleaner(...params)` |
+| [Location Cleaner API](https://docs.peopledatalabs.com/docs/cleaner-apis#locationclean) | `PDLJS.location.cleaner(...params)` |
+| [School Cleaner API](https://docs.peopledatalabs.com/docs/cleaner-apis#schoolclean) | `PDLJS.school.cleaner(...params)` |
 
 
 ## 📘 Documentation <a name="documentation"></a>
@@ -203,12 +203,12 @@ As an example:
 
 The following is **valid** because `name` is a [supported input parameter to the Person Identify API](https://docs.peopledatalabs.com/docs/identify-api-reference#input-parameters):
 ```js
-PDLJS.person.identify(name=”sean thorne”)
+PDLJS.person.identify({ name: 'sean thorne' })
 ``` 
 
 Conversely, this would be **invalid** because `fake_parameter` is not an input parameter to the Person Identify API:
 ```js
-PDLJS.person.identify(fake_parameter=”anything”)
+PDLJS.person.identify({ fake_parameter: 'anything' })
 ```
 
 
