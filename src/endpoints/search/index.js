@@ -14,6 +14,7 @@ export default (basePath, apiKey, searchType, params, type) => new Promise((reso
       scroll_token: scroll_token || null,
       size: size || 10,
       [`${searchType === 'sql' ? 'sql' : 'query'}`]: searchQuery,
+      pretty: pretty || false,
     };
 
     axios.get(`${basePath}/${type}/search`, {
