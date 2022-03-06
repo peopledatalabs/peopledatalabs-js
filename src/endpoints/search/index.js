@@ -17,12 +17,12 @@ export default (basePath, apiKey, searchType, params, type) => new Promise((reso
       pretty: pretty || false,
     };
 
-    axios.get(`${basePath}/${type}/search`, {
-      params: {
-        api_key: apiKey,
-        ...searchParams,
-      },
-    })
+    const headers = {
+      'Content-Type': 'application/json',
+      'X-Api-Key': apiKey,
+    };
+
+    axios.post(`${basePath}/${type}/search`, searchParams, { headers })
       .then((data) => {
         if (data?.data?.status === 200) {
           resolve(data.data);
