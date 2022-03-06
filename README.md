@@ -29,6 +29,10 @@ A tiny, universal JS client for the People Data Labs API.
 ## 🔧 Installation <a name="installation"></a>
 
 ```bash
+yarn add peopledatalabs
+```
+or
+```bash
 npm i peopledatalabs
 ```
 
@@ -66,8 +70,8 @@ const esQuery = {
   query: {
     bool: {
       must:[
-        {term: {location_country: "mexico"}}, 
-        {term: {job_title_role: "health"}}, 
+        {term: {location_country: "mexico"}},
+        {term: {job_title_role: "health"}},
         {exists: {field: "phone_numbers"}}
       ]
     }
@@ -118,8 +122,8 @@ const esQuery = {
   query: {
     bool: {
       must:[
-        {term: {tags: "big data"}}, 
-        {term: {industry: "financial services"}}, 
+        {term: {tags: "big data"}},
+        {term: {industry: "financial services"}},
         {term: {location_country: "united states"}}
       ]
     }
@@ -195,16 +199,16 @@ PDLJSClient.school.cleaner({ name: 'university of oregon' }).then((data) => {
 
 All of our API endpoints are documented at: https://docs.peopledatalabs.com/
 
-These docs describe the supported input parameters, output responses and also provide additional technical context. 
+These docs describe the supported input parameters, output responses and also provide additional technical context.
 
-As illustrated in the [Endpoints](#endpoints) section above, each of our API endpoints is mapped to a specific method in the PDLJS class.  For each of these class methods, **all function inputs are mapped as input parameters to the respective API endpoint**, meaning that you can use the API documentation linked above to determine the input parameters for each endpoint. 
+As illustrated in the [Endpoints](#endpoints) section above, each of our API endpoints is mapped to a specific method in the PDLJS class.  For each of these class methods, **all function inputs are mapped as input parameters to the respective API endpoint**, meaning that you can use the API documentation linked above to determine the input parameters for each endpoint.
 
 As an example:
 
 The following is **valid** because `name` is a [supported input parameter to the Person Identify API](https://docs.peopledatalabs.com/docs/identify-api-reference#input-parameters):
 ```js
 PDLJS.person.identify({ name: 'sean thorne' })
-``` 
+```
 
 Conversely, this would be **invalid** because `fake_parameter` is not an input parameter to the Person Identify API:
 ```js
@@ -214,21 +218,21 @@ PDLJS.person.identify({ fake_parameter: 'anything' })
 
 #### Special Note about Search API Support <a name="special-note"></a>
 
-Our Person Search API and Company Search API endpoints both support two types of query syntax: you can construct search queries using either `SQL` or `Elasticsearch` syntax. 
+Our Person Search API and Company Search API endpoints both support two types of query syntax: you can construct search queries using either `SQL` or `Elasticsearch` syntax.
 
 In the PDLJS class, the person and company search functions are broken out into two syntax-specific methods as follows:
 | Data Type | Search Query Syntax | Function |
 | -- | -- | -- |
 | Person | SQL | `PDLJS.person.search.sql(...params)` |
-| Person | Elasticsearch | `PDLJS.person.search.elastic(...params)` | 
+| Person | Elasticsearch | `PDLJS.person.search.elastic(...params)` |
 | Company | SQL | `PDLJS.company.search.sql(...params)` |
-| Company | Elasticsearch | `PDLJS.company.search.elastic(...params)` | 
+| Company | Elasticsearch | `PDLJS.company.search.elastic(...params)` |
 
 You can pass your query to these methods using the special `searchQuery` function argument, as shown in the following example:
 
 ```js
 const sqlQuery = "SELECT * FROM company WHERE website='peopledatalabs.com';"
- 
+
 PDLJSClient.company.search.sql({ searchQuery: sqlQuery, size: 10 }).then((data) => {
  console.log(data['total']);
 }).catch((error) => {
