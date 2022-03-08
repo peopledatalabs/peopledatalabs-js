@@ -12,8 +12,12 @@ A tiny, universal JS client for the People Data Labs API.
 <a href="https://unpkg.com/peopledatalabs"><img src="https://img.badgesize.io/https://unpkg.com/peopledatalabs/dist/index.cjs?compression=brotli" alt="brotli size"></a>
 </div>
 
+# 
+This is a simple JavaScript client library to access the various API endpoints provided by [People Data Labs](https://www.peopledatalabs.com/).
 
-## ✨ Features:
+This library bundles up PDL API requests into simple function calls, making it easy to integrate into your projects. You can use the various [API endpoints](#endpoints) to access up-to-date, real-world data from our massive [Person](https://docs.peopledatalabs.com/docs/stats) and [Company](https://docs.peopledatalabs.com/docs/company-stats) Datasets.  
+
+## ✨ Features
 - Tiny <2KB size gzip
 - Works in Node.js and in Browser
 - Supports all People Data Labs API endpoints
@@ -28,9 +32,13 @@ A tiny, universal JS client for the People Data Labs API.
 
 ## 🔧 Installation <a name="installation"></a>
 
+1. Pull the package from the npm repository:
+
 ```bash
 npm i peopledatalabs
 ```
+
+2. Sign up for a [free PDL API key](https://www.peopledatalabs.com/signup)
 
 ## 🚀 Usage <a name="usage"></a>
 
