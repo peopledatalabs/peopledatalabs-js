@@ -46,7 +46,7 @@ First, create the PDLJS client:
 ```js
 import PDLJS from 'peopledatalabs';
 
-PDLJSClient = PDLJS({“apiKey”: “YOUR API KEY”})
+const PDLJSClient = new PDLJS({apiKey: "YOUR API KEY"})
 ```
 
 Then, send requests to any PDL API Endpoint:
