@@ -16,7 +16,6 @@ export default (basePath, apiKey, params) => new Promise((resolve, reject) => {
     };
 
     axios.get(`${basePath}/autocomplete`, {
-
       params: {
         api_key: apiKey,
         ...autocompleteParams,
