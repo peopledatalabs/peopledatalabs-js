@@ -1,6 +1,6 @@
 {
   "name": "peopledatalabs",
-  "version": "1.1.10",
+  "version": "1.1.11",
   "description": "An universal client for the People Data Labs API",
   "type": "module",
   "main": "dist/index.cjs",
