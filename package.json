@@ -10,6 +10,8 @@
   "scripts": {
     "build": "rm -rf dist && microbundle",
     "dev": "microbundle watch",
+    "test": "yarn run build && yarn run mocha",
+    "mocha": "mocha --recursive './tests/**/*.js'",
     "pub": "yarn run build && yarn publish"
   },
   "repository": {
@@ -36,6 +38,8 @@
   },
   "homepage": "https://github.com/peopledatalabs/peopledatalabs-js#readme",
   "devDependencies": {
+    "chai": "^4.3.6",
+    "dotenv": "^16.0.0",
     "eslint": "^6.8.0",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-plugin-import": "^2.24.0",
@@ -43,7 +47,9 @@
     "eslint-plugin-react": "^7.24.0",
     "eslint-plugin-react-hooks": "^1.7.0",
     "eslint-plugin-unused-imports": "^2.0.0",
-    "microbundle": "^0.14.2"
+    "esm": "^3.2.25",
+    "microbundle": "^0.14.2",
+    "mocha": "^9.2.2"
   },
   "dependencies": {
     "axios": "^0.24.0"
