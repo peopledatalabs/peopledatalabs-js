@@ -7,7 +7,6 @@ A tiny, universal JS client for the People Data Labs API.
 </p>
 
 <div>
-[![Testing](https://github.com/peopledatalabs/peopledatalabs-js/actions/workflows/test.yaml/badge.svg)](https://github.com/peopledatalabs/peopledatalabs-js/actions/workflows/test.yaml)
 <a href="https://www.npmjs.com/package/peopledatalabs"><img src="https://img.shields.io/npm/v/peopledatalabs" alt="peopledatalabs"></a>
 <a href="https://unpkg.com/peopledatalabs"><img src="https://img.badgesize.io/https://unpkg.com/peopledatalabs/dist/index.cjs?compression=gzip" alt="gzip size"></a>
 <a href="https://unpkg.com/peopledatalabs"><img src="https://img.badgesize.io/https://unpkg.com/peopledatalabs/dist/index.cjs?compression=brotli" alt="brotli size"></a>
