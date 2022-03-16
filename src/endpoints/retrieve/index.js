@@ -1,6 +1,6 @@
 import { check, errorHandler } from '../../errors';
 
-const axios = require('axios');
+import axios from 'axios';
 
 export default (basePath, apiKey, id) => new Promise((resolve, reject) => {
   check(id, basePath, apiKey, 'ID', 'retrieve').then(() => {
