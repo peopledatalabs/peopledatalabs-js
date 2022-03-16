@@ -5,6 +5,7 @@ const axios = require('axios');
 export default (basePath, apiKey, records) => {
   const headers = {
     'Content-Type': 'application/json',
+    'Accept-Encoding': 'gzip',
     'X-Api-Key': apiKey,
   };
 
