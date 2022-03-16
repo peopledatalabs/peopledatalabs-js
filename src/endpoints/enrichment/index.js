@@ -4,11 +4,16 @@ const axios = require('axios');
 
 export default (basePath, apiKey, params, type) => new Promise((resolve, reject) => {
   check(params, basePath, apiKey, null, 'enrichment').then(() => {
+    const headers = {
+      'Accept-Encoding': 'gzip',
+    };
+
     axios.get(`${basePath}/${type}/enrich`, {
       params: {
         api_key: apiKey,
         ...params,
       },
+      headers,
     })
       .then((data) => {
         if (data?.data?.status === 200) {

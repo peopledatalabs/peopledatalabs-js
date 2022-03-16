@@ -15,11 +15,16 @@ export default (basePath, apiKey, params) => new Promise((resolve, reject) => {
       pretty: pretty || false,
     };
 
+    const headers = {
+      'Accept-Encoding': 'gzip',
+    };
+
     axios.get(`${basePath}/autocomplete`, {
       params: {
         api_key: apiKey,
         ...autocompleteParams,
       },
+      headers,
     })
       .then((data) => {
         if (data?.data?.status === 200) {
