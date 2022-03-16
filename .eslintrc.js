@@ -2,6 +2,7 @@ module.exports = {
   env: {
     browser: true,
     es6: true,
+    jest: true,
   },
   extends: [
     'airbnb'
@@ -17,6 +18,7 @@ module.exports = {
     sourceType: 'module'
   },
   rules: {
+    'import/extensions': ['off', 'never', {ignorePackages: true} ],
     'react/prop-types': 0,
     'prefer-regex-literals': 'off',
     'jsx-a11y/click-events-have-key-events': 'off',
