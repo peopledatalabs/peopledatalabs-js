@@ -1,6 +1,6 @@
 import { check, errorHandler } from '../../errors';
 
-const axios = require('axios');
+import axios from 'axios';
 
 export default (basePath, apiKey, searchType, params, type) => new Promise((resolve, reject) => {
   check(params, basePath, apiKey, null, 'search').then(() => {
@@ -20,12 +20,10 @@ export default (basePath, apiKey, searchType, params, type) => new Promise((reso
     const headers = {
       'Content-Type': 'application/json',
       'Accept-Encoding': 'gzip',
+      'X-Api-Key': apiKey,
     };
 
-    axios.post(`${basePath}/${type}/search`, {
-      api_key: apiKey,
-      ...searchParams,
-    }, { headers })
+    axios.post(`${basePath}/${type}/search`, searchParams, { headers })
       .then((data) => {
         if (data?.data?.status === 200) {
           resolve(data.data);
