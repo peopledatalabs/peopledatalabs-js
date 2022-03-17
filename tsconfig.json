@@ -19,6 +19,6 @@
     "module": "ESNext",
     "target": "ES6"
   },
-  "include": ["src"],
-  "exclude": ["dist", "example", "./tests", "node_modules"]
+  "include": ["src", "examples/ts"],
+  "exclude": ["dist", "examples/js", "tests", "node_modules"]
 }

@@ -1,0 +1,17 @@
+{
+  "name": "peopledatalabs-example",
+  "version": "1.0.0",
+  "description": "Example project with People Data Labs API library",
+  "main": "index.ts",
+  "scripts": {
+    "start": "ts-node index.ts"
+  },
+  "author": "People Data Labs",
+  "license": "MIT",
+  "devDependencies": {
+    "dotenv": "^14.2.0"
+  },
+  "dependencies": {
+    "ts-node": "^10.7.0"
+  }
+}
