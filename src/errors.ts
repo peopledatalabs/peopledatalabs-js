@@ -1,4 +1,4 @@
-const check = (params, basePath, apiKey, type, endpoint) => new Promise((resolve, reject) => {
+const check = (params:any, basePath:string, apiKey:string, type:any, endpoint:string) => new Promise<void>((resolve, reject) => {
   if (!params) reject(new Error(`Missing ${type || 'Params'}`));
   if (endpoint === 'search') {
     const { searchQuery } = params;
@@ -20,11 +20,11 @@ const check = (params, basePath, apiKey, type, endpoint) => new Promise((resolve
   resolve();
 });
 
-const errorHandler = (error) => {
+const errorHandler: Function = (error:any) => {
   if (error.response) {
     const { status } = error.response;
 
-    const errorMessages = {
+    const errorMessages:{ [key: number]: string } = {
       400: 'Request contained either missing or invalid parameters',
       401: 'Request contained a missing or invalid key',
       402: 'Payment Required, You have hit your account maximum (all matches used)',

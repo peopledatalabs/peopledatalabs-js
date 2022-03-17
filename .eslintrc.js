@@ -5,12 +5,14 @@ module.exports = {
     jest: true,
   },
   extends: [
-    'airbnb'
+    'airbnb',
+    'airbnb-typescript'
   ],
   plugins: [
     'unused-imports'
   ],
   parserOptions: {
+    project: './tsconfig.json',
     ecmaFeatures: {
       jsx: true,
     },
@@ -18,6 +20,9 @@ module.exports = {
     sourceType: 'module'
   },
   rules: {
+    "@typescript-eslint/naming-convention": "off",
+    "no-loss-of-precision": "off",
+    "@typescript-eslint/no-loss-of-precision": "off",
     'import/extensions': ['off', 'never', {ignorePackages: true} ],
     'react/prop-types': 0,
     'prefer-regex-literals': 'off',
