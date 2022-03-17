@@ -19,7 +19,7 @@ module.exports = {
     ecmaVersion: 2020,
     sourceType: 'module'
   },
-  ignorePatterns: ["tests", "examples/js", "dist", "node_modules"],
+  ignorePatterns: ["tests", "examples", "dist", "node_modules"],
   rules: {
     "@typescript-eslint/naming-convention": "off",
     "no-loss-of-precision": "off",

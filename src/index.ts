@@ -2,54 +2,9 @@ import {
   autocomplete, bulk, cleaner, enrichment, identify, retrieve, search,
 } from './endpoints';
 
-interface APISettings {
-  apiKey: string;
-  basePath?: string;
-  version?: string;
-}
-
-interface Search {
-  elastic:Function;
-  sql:Function;
-}
-
-interface Person {
-  enrichment: Function;
-  search: Search;
-  bulk: Function;
-  identify: Function;
-  retrieve: Function;
-}
-
-interface Company {
-  enrichment: Function;
-  search: Search;
-  cleaner: Function;
-}
-
-interface School {
-  cleaner: Function;
-}
-
-interface Location {
-  cleaner: Function;
-}
-
-interface SearchParams {
-  searchQuery: string;
-  dataset?: string;
-  size?: number;
-  scroll_token?: string;
-  pretty?: boolean;
-  titlecase?: boolean;
-}
-
-interface AutoCompleteParams {
-  field: string;
-  text?: string;
-  size?: number;
-  pretty?: boolean;
-}
+import {
+  APISettings, Person, Company, School, Location, SearchParams, AutoCompleteParams,
+} from './types';
 
 class PDLJS {
   apiKey: string;

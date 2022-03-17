@@ -2,7 +2,7 @@ import { check, errorHandler } from '../../errors';
 
 import axios from 'axios';
 
-export default (basePath:string, apiKey:string, id:string) => new Promise((resolve, reject) => {
+export default (basePath: string, apiKey: string, id: string) => new Promise((resolve, reject) => {
   check(id, basePath, apiKey, 'ID', 'retrieve').then(() => {
     const headers = {
       'Accept-Encoding': 'gzip',

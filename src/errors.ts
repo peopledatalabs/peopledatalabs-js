@@ -1,4 +1,4 @@
-const check = (params:any, basePath:string, apiKey:string, type:any, endpoint:string) => new Promise<void>((resolve, reject) => {
+const check = (params: any, basePath: string, apiKey: string, type: any, endpoint: string) => new Promise<void>((resolve, reject) => {
   if (!params) reject(new Error(`Missing ${type || 'Params'}`));
   if (endpoint === 'search') {
     const { searchQuery } = params;

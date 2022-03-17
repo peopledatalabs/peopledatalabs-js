@@ -2,7 +2,7 @@ import { check, errorHandler } from '../../errors';
 
 import axios from 'axios';
 
-interface SearchParams {
+export interface SearchParams {
   searchQuery: string;
   dataset?: string;
   size?: number;
@@ -11,7 +11,7 @@ interface SearchParams {
   titlecase?: boolean;
 }
 
-export default (basePath:string, apiKey:string, searchType:string, params:SearchParams, type:string) => new Promise((resolve, reject) => {
+export default (basePath: string, apiKey: string, searchType: string, params: SearchParams, type: string) => new Promise((resolve, reject) => {
   check(params, basePath, apiKey, null, 'search').then(() => {
     const {
       dataset, searchQuery, size, scroll_token, titlecase, pretty,
