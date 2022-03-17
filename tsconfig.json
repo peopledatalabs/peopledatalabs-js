@@ -20,5 +20,5 @@
     "target": "ES6"
   },
   "include": ["src"],
-  "exclude": ["dist", "example", "tests", "node_modules"]
+  "exclude": ["dist", "example", "./tests", "node_modules"]
 }
