@@ -1,8 +1,13 @@
-import { check, errorHandler } from '../../errors';
-
 import axios from 'axios';
+import { check, errorHandler } from '../../errors';
+import { EnrichmentType } from '../../types/enrichment-types';
 
-export default (basePath, apiKey, params, type) => new Promise((resolve, reject) => {
+export default (
+  basePath: string,
+  apiKey: string,
+  params,
+  type: EnrichmentType,
+) => new Promise((resolve, reject) => {
   check(params, basePath, apiKey, null, 'enrichment').then(() => {
     const headers = {
       'Accept-Encoding': 'gzip',

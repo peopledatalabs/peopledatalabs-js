@@ -1,6 +1,5 @@
-import { check, errorHandler } from '../../errors';
-
 import axios from 'axios';
+import { check, errorHandler } from '../../errors';
 
 export default (basePath, apiKey, params) => new Promise((resolve, reject) => {
   check(params, basePath, apiKey, null, 'identify').then(() => {

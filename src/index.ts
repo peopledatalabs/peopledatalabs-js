@@ -1,9 +1,18 @@
 import {
   autocomplete, bulk, cleaner, enrichment, identify, retrieve, search,
 } from './endpoints';
+import { CompanyCleanerParams, CompanyCleanerResponse } from 'src/types/cleaner-types';
 
 class PDLJS {
-  constructor({ apiKey, basePath, version }) {
+  private readonly apiKey: string;
+
+  private readonly basePath: string;
+
+  constructor({
+    apiKey,
+    basePath,
+    version,
+  }: { apiKey: string, basePath: string, version: string }) {
     this.apiKey = apiKey;
     this.basePath = basePath || `https://api.peopledatalabs.com/${version || 'v5'}`;
 
@@ -24,7 +33,7 @@ class PDLJS {
         elastic: (params) => search(this.basePath, this.apiKey, 'elastic', ...params, 'company'),
         sql: (params) => search(this.basePath, this.apiKey, 'sql', ...params, 'company'),
       },
-      cleaner: (params) => cleaner(this.basePath, this.apiKey, ...params, 'company'),
+      cleaner: (params: CompanyCleanerParams) => cleaner<CompanyCleanerParams, CompanyCleanerResponse>(this.basePath, this.apiKey, ...params, 'company'),
     };
 
     this.school = {

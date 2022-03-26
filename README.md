@@ -21,6 +21,7 @@ This library bundles up PDL API requests into simple function calls, making it e
 - Tiny <2KB size gzip
 - Works in Node.js and in Browser
 - Supports all People Data Labs API endpoints
+- Built-in Typescript support
 
 ## Table of Contents
 - [🔧 Installation](#installation)
