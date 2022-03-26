@@ -1,17 +1,15 @@
+import axios from 'axios';
 import { check, errorHandler } from '../../errors';
 
-import axios from 'axios';
-
-export default (basePath, apiKey, params, type) => new Promise((resolve, reject) => {
-  check(params, basePath, apiKey, null, 'cleaner').then(() => {
+export default (basePath, apiKey, id) => new Promise((resolve, reject) => {
+  check(id, basePath, apiKey, 'ID', 'retrieve').then(() => {
     const headers = {
       'Accept-Encoding': 'gzip',
     };
 
-    axios.get(`${basePath}/${type}/clean`, {
+    axios.get(`${basePath}/person/retrieve/${id}`, {
       params: {
         api_key: apiKey,
-        ...params,
       },
       headers,
     })

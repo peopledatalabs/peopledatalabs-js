@@ -1,8 +1,12 @@
-import { check, errorHandler } from '../../errors';
-
 import axios from 'axios';
+import { check, errorHandler } from '../../errors';
+import type { AutoCompleteParams, AutoCompleteResponse } from '../../types/autocomplete-types';
 
-export default (basePath, apiKey, params) => new Promise((resolve, reject) => {
+export default (
+  basePath: string,
+  apiKey: string,
+  params: AutoCompleteParams,
+) => new Promise((resolve, reject) => {
   check(params, basePath, apiKey, null, 'autocomplete').then(() => {
     const {
       field, text, size, pretty,
@@ -19,16 +23,16 @@ export default (basePath, apiKey, params) => new Promise((resolve, reject) => {
       'Accept-Encoding': 'gzip',
     };
 
-    axios.get(`${basePath}/autocomplete`, {
+    axios.get<AutoCompleteResponse>(`${basePath}/autocomplete`, {
       params: {
         api_key: apiKey,
         ...autocompleteParams,
       },
       headers,
     })
-      .then((data) => {
-        if (data?.data?.status === 200) {
-          resolve(data.data);
+      .then((response) => {
+        if (response?.data?.status === 200) {
+          resolve(response.data);
         }
       })
       .catch((error) => {

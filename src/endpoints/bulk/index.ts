@@ -1,8 +1,7 @@
+import axios from 'axios';
 import { check, errorHandler } from '../../errors';
 
-import axios from 'axios';
-
-export default (basePath, apiKey, records) => {
+export default (basePath: string, apiKey: string, records) => {
   const headers = {
     'Content-Type': 'application/json',
     'Accept-Encoding': 'gzip',
