@@ -1,7 +1,20 @@
 import {
+  CompanyCleanerParams,
+  CompanyCleanerResponse,
+  LocationCleanerParams,
+  LocationCleanerResponse,
+  SchoolCleanerParams,
+  SchoolCleanerResponse,
+} from './types/cleaner-types';
+import {
+  CompanyEnrichmentParams,
+  CompanyEnrichmentResponse,
+  PersonEnrichmentParams,
+  PersonEnrichmentResponse,
+} from './types/enrichment-types';
+import {
   autocomplete, bulk, cleaner, enrichment, identify, retrieve, search,
 } from './endpoints';
-import { CompanyCleanerParams, CompanyCleanerResponse } from 'src/types/cleaner-types';
 
 class PDLJS {
   private readonly apiKey: string;
@@ -17,7 +30,7 @@ class PDLJS {
     this.basePath = basePath || `https://api.peopledatalabs.com/${version || 'v5'}`;
 
     this.person = {
-      enrichment: (params) => enrichment(this.basePath, this.apiKey, ...params, 'person'),
+      enrichment: (params: PersonEnrichmentParams) => enrichment<PersonEnrichmentParams, PersonEnrichmentResponse>(this.basePath, this.apiKey, ...params, 'person'),
       search: {
         elastic: (params) => search(this.basePath, this.apiKey, 'elastic', ...params, 'person'),
         sql: (params) => search(this.basePath, this.apiKey, 'sql', ...params, 'person'),
@@ -28,7 +41,7 @@ class PDLJS {
     };
 
     this.company = {
-      enrichment: (params) => enrichment(this.basePath, this.apiKey, ...params, 'company'),
+      enrichment: (params: CompanyEnrichmentParams) => enrichment<CompanyEnrichmentParams, CompanyEnrichmentResponse>(this.basePath, this.apiKey, ...params, 'company'),
       search: {
         elastic: (params) => search(this.basePath, this.apiKey, 'elastic', ...params, 'company'),
         sql: (params) => search(this.basePath, this.apiKey, 'sql', ...params, 'company'),
@@ -37,11 +50,11 @@ class PDLJS {
     };
 
     this.school = {
-      cleaner: (params) => cleaner(this.basePath, this.apiKey, ...params, 'school'),
+      cleaner: (params: SchoolCleanerParams) => cleaner<SchoolCleanerParams, SchoolCleanerResponse>(this.basePath, this.apiKey, ...params, 'school'),
     };
 
     this.location = {
-      cleaner: (params) => cleaner(this.basePath, this.apiKey, ...params, 'location'),
+      cleaner: (params: LocationCleanerParams) => cleaner<LocationCleanerParams, LocationCleanerResponse>(this.basePath, this.apiKey, ...params, 'location'),
     };
 
     this.autocomplete = (params) => autocomplete(this.basePath, this.apiKey, ...params);

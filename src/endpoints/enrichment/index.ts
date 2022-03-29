@@ -1,11 +1,12 @@
 import axios from 'axios';
 import { check, errorHandler } from '../../errors';
 import { EnrichmentType } from '../../types/enrichment-types';
+import { BaseResponse } from '../../types/api-types';
 
-export default (
+export default <T, K extends BaseResponse>(
   basePath: string,
   apiKey: string,
-  params,
+  params: T,
   type: EnrichmentType,
 ) => new Promise((resolve, reject) => {
   check(params, basePath, apiKey, null, 'enrichment').then(() => {
@@ -13,7 +14,7 @@ export default (
       'Accept-Encoding': 'gzip',
     };
 
-    axios.get(`${basePath}/${type}/enrich`, {
+    axios.get<K>(`${basePath}/${type}/enrich`, {
       params: {
         api_key: apiKey,
         ...params,

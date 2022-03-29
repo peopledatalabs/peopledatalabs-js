@@ -3,3 +3,7 @@ interface APISettings {
   basePath?: string;
   version?: string;
 }
+
+export interface BaseResponse {
+  status: number;
+}
