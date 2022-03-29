@@ -1,16 +1,20 @@
+import { RequireAtLeastOne } from './utility-types';
+import { LocationResponse } from './common-types';
+import { BaseResponse } from './api-types';
+
 export type CleanerType = 'company' | 'school' | 'location';
 
-export interface CompanyCleanerParams {
-  name?: string;
-  website?: string;
-  profile?: string;
-}
+/* ---------------------------------------------------------- */
+/* ------------------------- Company ------------------------ */
+/* ---------------------------------------------------------- */
 
-export interface SchoolCleanerParams {
-  location: string;
-}
+export type CompanyCleanerParams = RequireAtLeastOne<{
+  name: string;
+  website: string;
+  profile: string;
+}>;
 
-export interface CompanyCleanerResponse {
+export interface CompanyCleanerResponse extends BaseResponse {
   name?: string,
   size?: string,
   id?: string,
@@ -18,17 +22,7 @@ export interface CompanyCleanerResponse {
   industry?: string,
   type?: string,
   ticker?: string,
-  location?: {
-    name?: string,
-    locality?: string,
-    region?: string,
-    country?: string,
-    continent?: string,
-    street_address?: string,
-    address_line_2?: string,
-    postal_code?: string,
-    geo?: string
-  },
+  location?: Omit<LocationResponse, 'metro'>,
   linkedin_url: string,
   linkedin_id: string,
   facebook_url: string,
@@ -37,7 +31,13 @@ export interface CompanyCleanerResponse {
   fuzzy_match: boolean
 }
 
-export interface SchoolCleanerResponse {
+/* ---------------------------------------------------------- */
+/* ------------------------- School ------------------------- */
+/* ---------------------------------------------------------- */
+
+export type SchoolCleanerParams = CompanyCleanerParams;
+
+export interface SchoolCleanerResponse extends BaseResponse{
   name?: string,
   type?: string,
   id?: string,
@@ -56,7 +56,15 @@ export interface SchoolCleanerResponse {
   domain?: string
 }
 
-export interface LocationCleanerResponse {
+/* ---------------------------------------------------------- */
+/* ------------------------ Location ------------------------ */
+/* ---------------------------------------------------------- */
+
+export interface LocationCleanerParams {
+  location: string;
+}
+
+export interface LocationCleanerResponse extends BaseResponse{
   name?: string,
   locality?: string,
   region?: string,

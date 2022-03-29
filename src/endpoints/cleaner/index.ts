@@ -1,11 +1,13 @@
 import axios from 'axios';
 import { check, errorHandler } from '../../errors';
+import { BaseResponse } from '../../types/api-types';
+import { CleanerType } from '../../types/cleaner-types';
 
-export default <T, K> (
+export default <T, K extends BaseResponse> (
   basePath: string,
   apiKey: string,
   params: T,
-  type: string,
+  type: CleanerType,
 ) => new Promise((resolve, reject) => {
   check(params, basePath, apiKey, null, 'cleaner').then(() => {
     const headers = {

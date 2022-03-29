@@ -1,3 +1,5 @@
+import { BaseResponse } from './api-types';
+
 type AutoCompleteField =
   'company' |
   'country' |
@@ -18,8 +20,7 @@ export interface AutoCompleteParams {
   pretty?: boolean;
 }
 
-export interface AutoCompleteResponse {
-  status: number;
+export interface AutoCompleteResponse extends BaseResponse{
   fields?: Array<string>;
   data?: Array<{
     name: string;
