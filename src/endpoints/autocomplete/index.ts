@@ -6,7 +6,7 @@ export default (
   basePath: string,
   apiKey: string,
   params: AutoCompleteParams,
-) => new Promise((resolve, reject) => {
+) => new Promise<AutoCompleteResponse>((resolve, reject) => {
   check(params, basePath, apiKey, null, 'autocomplete').then(() => {
     const {
       field, text, size, pretty,

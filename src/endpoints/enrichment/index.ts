@@ -8,7 +8,7 @@ export default <T, K extends BaseResponse>(
   apiKey: string,
   params: T,
   type: EnrichmentType,
-) => new Promise((resolve, reject) => {
+) => new Promise<K>((resolve, reject) => {
   check(params, basePath, apiKey, null, 'enrichment').then(() => {
     const headers = {
       'Accept-Encoding': 'gzip',

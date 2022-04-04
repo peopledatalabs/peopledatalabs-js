@@ -1,4 +1,4 @@
-interface APISettings {
+export interface APISettings {
   apiKey: string;
   basePath?: string;
   version?: string;

@@ -1,14 +1,18 @@
 import axios from 'axios';
 import { check, errorHandler } from '../../errors';
-import { IdentifyResponse } from '../../types/identify-types';
+import { RetrieveResponse } from '../../types/retrieve-types';
 
-export default (basePath: string, apiKey: string, id: string) => new Promise((resolve, reject) => {
+export default (
+  basePath: string,
+  apiKey: string,
+  id: string,
+) => new Promise<RetrieveResponse>((resolve, reject) => {
   check(id, basePath, apiKey, 'ID', 'retrieve').then(() => {
     const headers = {
       'Accept-Encoding': 'gzip',
     };
 
-    axios.get<IdentifyResponse>(`${basePath}/person/retrieve/${id}`, {
+    axios.get<RetrieveResponse>(`${basePath}/person/retrieve/${id}`, {
       params: {
         api_key: apiKey,
       },

@@ -1,8 +1,12 @@
 import axios from 'axios';
 import { check, errorHandler } from '../../errors';
-import { IdentifyResponse, IdentityParams } from '../../types/identify-types';
+import { IdentifyResponse, IdentifyParams } from '../../types/identify-types';
 
-export default (basePath: string, apiKey: string, params: IdentityParams) => new Promise((resolve, reject) => {
+export default (
+  basePath: string,
+  apiKey: string,
+  params: IdentifyParams,
+) => new Promise<IdentifyResponse>((resolve, reject) => {
   check(params, basePath, apiKey, null, 'identify').then(() => {
     const headers = {
       'Accept-Encoding': 'gzip',
