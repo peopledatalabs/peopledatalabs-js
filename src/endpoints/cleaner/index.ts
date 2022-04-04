@@ -8,7 +8,7 @@ export default <T, K extends BaseResponse> (
   apiKey: string,
   params: T,
   type: CleanerType,
-) => new Promise((resolve, reject) => {
+) => new Promise<K>((resolve, reject) => {
   check(params, basePath, apiKey, null, 'cleaner').then(() => {
     const headers = {
       'Accept-Encoding': 'gzip',

@@ -152,3 +152,28 @@ export interface PersonResponse {
   education: Array<PersonEducationResponse>,
   profiles: Array<PersonProfileResponse>,
 }
+
+export interface CompanyResponse {
+  name: string,
+  size: string,
+  employee_count: number,
+  id: string,
+  founded: number,
+  industry: string,
+  location: LocationResponse,
+  linkedin_id: string,
+  linkedin_url: string,
+  facebook_url: string,
+  twitter_url: string,
+  profiles: Array<string>,
+  website: string,
+  ticker: string,
+  type: string,
+  summary: string,
+  tags: Array<string>,
+  headline: null,
+  alternative_names: Array<string>,
+  alternative_domains: Array<string>,
+  affiliated_profiles: Array<string>,
+  likelihood: number
+}

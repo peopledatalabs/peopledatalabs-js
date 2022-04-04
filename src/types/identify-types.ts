@@ -20,7 +20,7 @@ type IdentifyRequiredParams = RequireAtLeastOne<{
   lid: number,
 }>;
 
-export type IdentityParams = IdentifyRequiredParams & {
+export type IdentifyParams = IdentifyRequiredParams & {
   middle_name: string
   country: string,
   birth_date: string,

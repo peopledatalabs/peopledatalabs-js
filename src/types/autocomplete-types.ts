@@ -20,7 +20,7 @@ export interface AutoCompleteParams {
   pretty?: boolean;
 }
 
-export interface AutoCompleteResponse extends BaseResponse{
+export interface AutoCompleteResponse extends BaseResponse {
   fields?: Array<string>;
   data?: Array<{
     name: string;

@@ -1,13 +1,24 @@
-const check = (params, basePath, apiKey, type, endpoint) => new Promise((resolve, reject) => {
+import { AxiosError } from 'axios';
+import { ErrorEndpoint } from './types/error-types';
+import { BaseSearchParams } from './types/search-types';
+import { AutoCompleteParams } from './types/autocomplete-types';
+
+const check = (
+  params: unknown,
+  basePath: string,
+  apiKey: string,
+  type: string | null,
+  endpoint: ErrorEndpoint,
+) => new Promise<void>((resolve, reject) => {
   if (!params) reject(new Error(`Missing ${type || 'Params'}`));
   if (endpoint === 'search') {
-    const { searchQuery } = params;
+    const { searchQuery } = params as BaseSearchParams;
     if (!searchQuery) {
       reject(new Error('Missing searchQuery'));
     }
   }
   if (endpoint === 'autocomplete') {
-    const { field } = params;
+    const { field } = params as AutoCompleteParams;
     const validFields = ['company', 'country', 'industry', 'location', 'major', 'region', 'role', 'school', 'sub_role', 'skill', 'title'];
     if (!field) {
       reject(new Error('Missing field'));
@@ -20,7 +31,7 @@ const check = (params, basePath, apiKey, type, endpoint) => new Promise((resolve
   resolve();
 });
 
-const errorHandler = (error) => {
+const errorHandler = (error: AxiosError) => {
   if (error.response) {
     const { status } = error.response;
 
@@ -34,8 +45,10 @@ const errorHandler = (error) => {
       500: 'The server encountered an unexpected condition which prevented it from fulfilling the request',
     };
 
+    // @ts-ignore
     return (`${status} Error: ${errorMessages[status >= 500 && status < 600 ? 500 : status]}`);
   }
+  // @ts-ignore
   return (`Error: ${error.toJSON().message}`);
 };
 

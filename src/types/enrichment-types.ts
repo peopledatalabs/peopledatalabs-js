@@ -1,8 +1,8 @@
 import { RequireAtLeastOne } from './utility-types';
 import { BaseResponse } from './api-types';
-import { LocationResponse, PersonResponse } from './common-types';
+import { CompanyResponse, PersonResponse } from './common-types';
 
-export type EnrichmentType = 'company' | 'school';
+export type EnrichmentType = 'company' | 'person';
 
 interface EnrichmentAdditionalParams {
   titlecase?: boolean;
@@ -63,27 +63,4 @@ export type CompanyEnrichmentParams = RequireAtLeastOne<CompanyEnrichmentRequire
   postal_code?: string
 };
 
-export interface CompanyEnrichmentResponse extends BaseResponse{
-  name: string,
-  size: string,
-  employee_count: number,
-  id: string,
-  founded: number,
-  industry: string,
-  location: LocationResponse,
-  linkedin_id: string,
-  linkedin_url: string,
-  facebook_url: string,
-  twitter_url: string,
-  profiles: Array<string>,
-  website: string,
-  ticker: string,
-  type: string,
-  summary: string,
-  tags: Array<string>,
-  headline: null,
-  alternative_names: Array<string>,
-  alternative_domains: Array<string>,
-  affiliated_profiles: Array<string>,
-  likelihood: number
-}
+export interface CompanyEnrichmentResponse extends BaseResponse, CompanyResponse {}
