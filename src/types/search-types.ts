@@ -2,7 +2,7 @@ import { BaseResponse } from './api-types';
 import { CompanyResponse, PersonResponse } from './common-types';
 
 export interface BaseSearchParams {
-  searchQuery?: string,
+  searchQuery?: string | object,
   size?: number,
   from?: number,
   scroll_token?: string,

@@ -15,12 +15,12 @@ interface EnrichmentAdditionalParams {
 /* ------------------------- Person ------------------------- */
 /* ---------------------------------------------------------- */
 
-export interface PersonEnrichmentParams extends EnrichmentAdditionalParams {
-  name?: Array<string>,
-  first_name?: Array<string>,
-  last_name?: Array<string>,
-  middle_name?: Array<string>,
-  location?: Array<string>,
+export type PersonEnrichmentParams = EnrichmentAdditionalParams & Partial<{
+  name: Array<string>,
+  first_name: Array<string>,
+  last_name: Array<string>,
+  middle_name: Array<string>,
+  location: Array<string>,
   street_address: string,
   locality: string,
   region: string,
@@ -34,8 +34,8 @@ export interface PersonEnrichmentParams extends EnrichmentAdditionalParams {
   profile: Array<string>,
   lid: number,
   birth_date: Array<string>;
-  data_include?: string;
-}
+  data_include: string;
+}>;
 
 export interface PersonEnrichmentResponse extends BaseResponse {
   likelihood: number,

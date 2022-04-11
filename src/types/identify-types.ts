@@ -20,7 +20,7 @@ type IdentifyRequiredParams = RequireAtLeastOne<{
   lid: number,
 }>;
 
-export type IdentifyParams = IdentifyRequiredParams & {
+export type IdentifyParams = IdentifyRequiredParams & Partial<{
   middle_name: string
   country: string,
   birth_date: string,
@@ -29,7 +29,7 @@ export type IdentifyParams = IdentifyRequiredParams & {
   data_include: string,
   include_if_matched: boolean,
   pretty: boolean,
-};
+}>;
 
 export interface IdentifyResponse extends BaseResponse {
   matches: Array<{
