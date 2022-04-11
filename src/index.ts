@@ -1,4 +1,4 @@
-import { AutoCompleteParams } from './types/autocomplete-types';
+import { AutoCompleteParams, AutoCompleteResponse } from './types/autocomplete-types';
 import {
   CompanyCleanerParams,
   CompanyCleanerResponse,
@@ -13,7 +13,7 @@ import {
   PersonEnrichmentParams,
   PersonEnrichmentResponse,
 } from './types/enrichment-types';
-import { BulkPersonEnrichmentParams } from './types/bulk-types';
+import { BulkPersonEnrichmentParams, BulkPersonEnrichmentResponse } from './types/bulk-types';
 import {
   autocomplete, bulk, cleaner, enrichment, identify, retrieve, search,
 } from './endpoints';
@@ -23,23 +23,36 @@ import {
   PersonSearchParams,
   PersonSearchResponse,
 } from './types/search-types';
-import { IdentifyParams } from './types/identify-types';
+import { IdentifyParams, IdentifyResponse } from './types/identify-types';
 import { APISettings } from './types/api-types';
+import { RetrieveResponse } from './types/retrieve-types';
 
 class PDLJS {
   private readonly apiKey: string;
 
   private readonly basePath: string;
 
-  private person: object;
+  public person: {
+    enrichment: (params: PersonEnrichmentParams) => Promise<PersonEnrichmentResponse>;
+    search: { elastic: (params: PersonSearchParams) => Promise<PersonSearchResponse>;
+      sql: (params: PersonSearchParams) => Promise<PersonSearchResponse> };
+    identify: (params: IdentifyParams) => Promise<IdentifyResponse>;
+    retrieve: (id: string) => Promise<RetrieveResponse>;
+    bulk: (records: BulkPersonEnrichmentParams) => Promise<BulkPersonEnrichmentResponse>
+  };
 
-  private company: object;
+  public company: {
+    enrichment: (params: CompanyEnrichmentParams) => Promise<CompanyEnrichmentResponse>;
+    search: { elastic: (params: CompanySearchParams) => Promise<CompanySearchResponse>;
+      sql: (params: CompanySearchParams) => Promise<CompanySearchResponse> };
+    cleaner: (params: CompanyCleanerParams) => Promise<CompanyCleanerResponse>
+  };
 
-  private school: object;
+  public school: { cleaner: (params: SchoolCleanerParams) => Promise<SchoolCleanerResponse> };
 
-  private location: object;
+  public location: { cleaner: (params: LocationCleanerParams) => Promise<LocationCleanerResponse> };
 
-  private autocomplete: object;
+  public autocomplete: (params: AutoCompleteParams) => Promise<AutoCompleteResponse>;
 
   constructor({
     apiKey,
@@ -50,31 +63,31 @@ class PDLJS {
     this.basePath = basePath || `https://api.peopledatalabs.com/${version || 'v5'}`;
 
     this.person = {
-      enrichment: (params: PersonEnrichmentParams) => enrichment<PersonEnrichmentParams, PersonEnrichmentResponse>(this.basePath, this.apiKey, params, 'person'),
+      enrichment: (params) => enrichment<PersonEnrichmentParams, PersonEnrichmentResponse>(this.basePath, this.apiKey, params, 'person'),
       search: {
-        elastic: (params: PersonSearchParams) => search<PersonSearchParams, PersonSearchResponse>(this.basePath, this.apiKey, 'elastic', params, 'person'),
-        sql: (params: PersonSearchParams) => search<PersonSearchParams, PersonSearchResponse>(this.basePath, this.apiKey, 'sql', params, 'person'),
+        elastic: (params) => search<PersonSearchParams, PersonSearchResponse>(this.basePath, this.apiKey, 'elastic', params, 'person'),
+        sql: (params) => search<PersonSearchParams, PersonSearchResponse>(this.basePath, this.apiKey, 'sql', params, 'person'),
       },
-      bulk: (records: BulkPersonEnrichmentParams) => bulk(this.basePath, this.apiKey, records),
-      identify: (params: IdentifyParams) => identify(this.basePath, this.apiKey, params),
-      retrieve: (id: string) => retrieve(this.basePath, this.apiKey, id),
+      bulk: (records) => bulk(this.basePath, this.apiKey, records),
+      identify: (params) => identify(this.basePath, this.apiKey, params),
+      retrieve: (id) => retrieve(this.basePath, this.apiKey, id),
     };
 
     this.company = {
-      enrichment: (params: CompanyEnrichmentParams) => enrichment<CompanyEnrichmentParams, CompanyEnrichmentResponse>(this.basePath, this.apiKey, params, 'company'),
+      enrichment: (params) => enrichment<CompanyEnrichmentParams, CompanyEnrichmentResponse>(this.basePath, this.apiKey, params, 'company'),
       search: {
-        elastic: (params: CompanySearchParams) => search<CompanySearchParams, CompanySearchResponse>(this.basePath, this.apiKey, 'elastic', params, 'company'),
-        sql: (params: CompanySearchParams) => search<CompanySearchParams, CompanySearchResponse>(this.basePath, this.apiKey, 'sql', params, 'company'),
+        elastic: (params) => search<CompanySearchParams, CompanySearchResponse>(this.basePath, this.apiKey, 'elastic', params, 'company'),
+        sql: (params) => search<CompanySearchParams, CompanySearchResponse>(this.basePath, this.apiKey, 'sql', params, 'company'),
       },
-      cleaner: (params: CompanyCleanerParams) => cleaner<CompanyCleanerParams, CompanyCleanerResponse>(this.basePath, this.apiKey, params, 'company'),
+      cleaner: (params) => cleaner<CompanyCleanerParams, CompanyCleanerResponse>(this.basePath, this.apiKey, params, 'company'),
     };
 
     this.school = {
-      cleaner: (params: SchoolCleanerParams) => cleaner<SchoolCleanerParams, SchoolCleanerResponse>(this.basePath, this.apiKey, params, 'school'),
+      cleaner: (params) => cleaner<SchoolCleanerParams, SchoolCleanerResponse>(this.basePath, this.apiKey, params, 'school'),
     };
 
     this.location = {
-      cleaner: (params: LocationCleanerParams) => cleaner<LocationCleanerParams, LocationCleanerResponse>(this.basePath, this.apiKey, params, 'location'),
+      cleaner: (params) => cleaner<LocationCleanerParams, LocationCleanerResponse>(this.basePath, this.apiKey, params, 'location'),
     };
 
     this.autocomplete = (

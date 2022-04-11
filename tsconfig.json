@@ -17,7 +17,7 @@
     "strict": true,
     "lib": ["dom", "ES2015"],
     "module": "ESNext",
-    "target": "ES6"
+    "target": "ESNext"
   },
   "include": ["src/**/*"],
   "exclude": ["dist", "examples", "tests", "node_modules"]
