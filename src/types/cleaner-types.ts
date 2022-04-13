@@ -12,7 +12,9 @@ export type CompanyCleanerParams = RequireAtLeastOne<{
   name: string;
   website: string;
   profile: string;
-}>;
+}> & {
+  pretty?: boolean;
+};
 
 export interface CompanyCleanerResponse extends BaseResponse {
   name?: string,
@@ -62,6 +64,7 @@ export interface SchoolCleanerResponse extends BaseResponse{
 
 export interface LocationCleanerParams {
   location: string;
+  pretty?: boolean;
 }
 
 export interface LocationCleanerResponse extends BaseResponse{
