@@ -16,24 +16,24 @@ interface EnrichmentAdditionalParams {
 /* ---------------------------------------------------------- */
 
 export type PersonEnrichmentParams = EnrichmentAdditionalParams & Partial<{
-  name: Array<string>,
-  first_name: Array<string>,
-  last_name: Array<string>,
-  middle_name: Array<string>,
-  location: Array<string>,
+  name: Array<string> | string,
+  first_name: Array<string> | string,
+  last_name: Array<string> | string,
+  middle_name: Array<string> | string,
+  location: Array<string> | string,
   street_address: string,
   locality: string,
   region: string,
   country: string,
   postal_code: string,
-  company: Array<string>,
-  school: Array<string>,
-  phone: Array<string>,
-  email: Array<string>,
-  email_hash: Array<string>,
-  profile: Array<string>,
+  company: Array<string> | string,
+  school: Array<string> | string,
+  phone: Array<string> | string,
+  email: Array<string> | string,
+  email_hash: Array<string> | string,
+  profile: Array<string> | string,
   lid: number,
-  birth_date: Array<string>;
+  birth_date: Array<string> | string;
   data_include: string;
 }>;
 
