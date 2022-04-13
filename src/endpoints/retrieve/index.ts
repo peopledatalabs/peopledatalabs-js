@@ -6,6 +6,7 @@ export default (
   basePath: string,
   apiKey: string,
   id: string,
+  pretty?: boolean,
 ) => new Promise<RetrieveResponse>((resolve, reject) => {
   check(id, basePath, apiKey, 'ID', 'retrieve').then(() => {
     const headers = {
@@ -15,6 +16,7 @@ export default (
     axios.get<RetrieveResponse>(`${basePath}/person/retrieve/${id}`, {
       params: {
         api_key: apiKey,
+        pretty: pretty || false,
       },
       headers,
     })

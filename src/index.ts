@@ -37,7 +37,7 @@ class PDLJS {
     search: { elastic: (params: PersonSearchParams) => Promise<PersonSearchResponse>;
       sql: (params: PersonSearchParams) => Promise<PersonSearchResponse> };
     identify: (params: IdentifyParams) => Promise<IdentifyResponse>;
-    retrieve: (id: string) => Promise<RetrieveResponse>;
+    retrieve: (id: string, pretty: boolean) => Promise<RetrieveResponse>;
     bulk: (records: BulkPersonEnrichmentParams) => Promise<BulkPersonEnrichmentResponse>
   };
 
@@ -70,7 +70,7 @@ class PDLJS {
       },
       bulk: (records) => bulk(this.basePath, this.apiKey, records),
       identify: (params) => identify(this.basePath, this.apiKey, params),
-      retrieve: (id) => retrieve(this.basePath, this.apiKey, id),
+      retrieve: (id, pretty) => retrieve(this.basePath, this.apiKey, id, pretty),
     };
 
     this.company = {
