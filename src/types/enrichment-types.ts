@@ -9,6 +9,7 @@ interface EnrichmentAdditionalParams {
   include_if_matched?: boolean;
   min_likelihood?: number;
   required?: string;
+  pretty?: boolean;
 }
 
 /* ---------------------------------------------------------- */
