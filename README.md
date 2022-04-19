@@ -69,7 +69,7 @@ PDLJSClient.person.enrichment({ phone: '4155688415' }).then((data) => {
 const sqlQuery = "SELECT * FROM person WHERE location_country='mexico' AND job_title_role='health'AND phone_numbers IS NOT NULL;"
 
 PDLJSClient.person.search.sql({ searchQuery: sqlQuery, size: 10 }).then((data) => {
-  console.log(data['total']);
+  console.log(data.total);
 }).catch((error) => {
   console.log(error);
 });
@@ -88,7 +88,7 @@ const esQuery = {
 }
 
 PDLJSClient.person.search.elastic({ searchQuery: esQuery, size: 10 }).then((data) => {
-  console.log(data['total']);
+  console.log(data.total);
 }).catch((error) => {
   console.log(error);
 });
@@ -121,7 +121,7 @@ PDLJSClient.company.enrichment({ website: 'peopledatalabs.com' }).then((data) =>
 const sqlQuery = "SELECT * FROM company WHERE tags='big data' AND industry='financial services' AND location.country='united states';"
 
 PDLJSClient.company.search.sql({ searchQuery: sqlQuery, size: 10 }).then((data) => {
-  console.log(data['total']);
+  console.log(data.total);
 }).catch((error) => {
   console.log(error);
 });
@@ -140,7 +140,7 @@ const esQuery = {
 }
 
 PDLJSClient.company.search.elastic({ searchQuery: esQuery, size: 10 }).then((data) => {
-  console.log(data['total']);
+  console.log(data.total);
 }).catch((error) => {
   console.log(error);
 });
@@ -243,7 +243,7 @@ You can pass your query to these methods using the special `searchQuery` functio
 const sqlQuery = "SELECT * FROM company WHERE website='peopledatalabs.com';"
 
 PDLJSClient.company.search.sql({ searchQuery: sqlQuery, size: 10 }).then((data) => {
- console.log(data['total']);
+ console.log(data.total);
 }).catch((error) => {
  console.log(error);
 });
