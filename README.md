@@ -65,6 +65,28 @@ PDLJSClient.person.enrichment({ phone: '4155688415' }).then((data) => {
   console.log(error);
 });
 
+// By Bulk Enrichment
+const records = {
+  requests: [
+    {
+      params: {
+        profile: ['linkedin.com/in/seanthorne'],
+      },
+    },
+    {
+      params: {
+        profile: ['linkedin.com/in/randrewn'],
+      },
+    },
+  ],
+};
+
+PDLJSClient.person.bulk(records).then((data) => {
+  console.log(data.items);
+}).catch((error) => {
+  console.log(error);
+});
+
 // By Search (SQL)
 const sqlQuery = "SELECT * FROM person WHERE location_country='mexico' AND job_title_role='health'AND phone_numbers IS NOT NULL;"
 
@@ -185,6 +207,7 @@ PDLJSClient.school.cleaner({ name: 'university of oregon' }).then((data) => {
 | API Endpoint | PDLJS Function |
 |-|-|
 | [Person Enrichment API](https://docs.peopledatalabs.com/docs/enrichment-api) | `PDLJS.person.enrichment(...params)` |
+| [Person Bulk Person Enrichment API](https://docs.peopledatalabs.com/docs/bulk-enrichment-api) | `PDLJS.person.bulk(...records)` |
 | [Person Search API](https://docs.peopledatalabs.com/docs/search-api) | SQL: `PDLJS.person.search.sql(...params)` <br/> Elasticsearch: `PDLJS.person.search.elastic(...params)`|
 | [Person Retrieve API](https://docs.peopledatalabs.com/docs/person-retrieve-api) | `PDLJS.person.retrieve(...params)` |
 | [Person Identify API](https://docs.peopledatalabs.com/docs/identify-api) | `PDLJS.person.identify(...params)` |
