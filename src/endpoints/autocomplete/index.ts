@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { check, errorHandler } from '../../errors';
 import type { AutoCompleteParams, AutoCompleteResponse } from '../../types/autocomplete-types';
+import { parseRateLimitingResponse } from '../../utils/api-utils';
 
 export default (
   basePath: string,
@@ -32,7 +33,7 @@ export default (
     })
       .then((response) => {
         if (response?.data?.status === 200) {
-          resolve(response.data);
+          resolve(parseRateLimitingResponse(response));
         }
       })
       .catch((error) => {

@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { check, errorHandler } from '../../errors';
 import { RetrieveResponse } from '../../types/retrieve-types';
+import { parseRateLimitingResponse } from '../../utils/api-utils';
 
 export default (
   basePath: string,
@@ -20,9 +21,9 @@ export default (
       },
       headers,
     })
-      .then((data) => {
-        if (data?.data?.status === 200) {
-          resolve(data.data);
+      .then((response) => {
+        if (response?.data?.status === 200) {
+          resolve(parseRateLimitingResponse(response));
         }
       })
       .catch((error) => {

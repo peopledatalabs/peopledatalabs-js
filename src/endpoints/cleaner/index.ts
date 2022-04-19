@@ -2,6 +2,7 @@ import axios from 'axios';
 import { check, errorHandler } from '../../errors';
 import { BaseResponse } from '../../types/api-types';
 import { CleanerType } from '../../types/cleaner-types';
+import { parseRateLimitingResponse } from '../../utils/api-utils';
 
 export default <T, K extends BaseResponse> (
   basePath: string,
@@ -21,9 +22,9 @@ export default <T, K extends BaseResponse> (
       },
       headers,
     })
-      .then((data) => {
-        if (data?.data?.status === 200) {
-          resolve(data.data);
+      .then((response) => {
+        if (response?.data?.status === 200) {
+          resolve(parseRateLimitingResponse(response));
         }
       })
       .catch((error) => {

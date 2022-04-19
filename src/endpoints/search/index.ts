@@ -2,6 +2,7 @@ import axios from 'axios';
 import { check, errorHandler } from '../../errors';
 import { BaseSearchParams, SearchType } from '../../types/search-types';
 import { BaseResponse } from '../../types/api-types';
+import { parseRateLimitingResponse } from '../../utils/api-utils';
 
 export default <T extends BaseSearchParams, K extends BaseResponse>(
   basePath: string,
@@ -32,9 +33,9 @@ export default <T extends BaseSearchParams, K extends BaseResponse>(
     };
 
     axios.post<K>(`${basePath}/${type}/search`, searchParams, { headers })
-      .then((data) => {
-        if (data?.data?.status === 200) {
-          resolve(data.data);
+      .then((response) => {
+        if (response?.data?.status === 200) {
+          resolve(parseRateLimitingResponse(response));
         }
       })
       .catch((error) => {
