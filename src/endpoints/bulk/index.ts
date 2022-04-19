@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { check, errorHandler } from '../../errors';
 import { BulkPersonEnrichmentParams, BulkPersonEnrichmentResponse } from '../../types/bulk-types';
+import { parseRateLimitingResponse } from '../../utils/api-utils';
 
 export default (basePath: string, apiKey: string, records: BulkPersonEnrichmentParams) => {
   const headers = {
@@ -12,10 +13,8 @@ export default (basePath: string, apiKey: string, records: BulkPersonEnrichmentP
   return new Promise<BulkPersonEnrichmentResponse>((resolve, reject) => {
     check(records, basePath, apiKey, 'Records', 'bulk').then(() => {
       axios.post<BulkPersonEnrichmentResponse>(`${basePath}/person/bulk`, records, { headers })
-        .then((data) => {
-          if (data?.status === 200) {
-            resolve(data.data);
-          }
+        .then((response) => {
+          resolve(parseRateLimitingResponse(response));
         })
         .catch((error) => {
           reject(errorHandler(error));

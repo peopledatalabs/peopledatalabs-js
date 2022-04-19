@@ -1,4 +1,5 @@
 import { PersonEnrichmentParams, PersonEnrichmentResponse } from './enrichment-types';
+import { RateLimit } from './api-types';
 
 interface BulkPersonEnrichmentRequest {
   params: PersonEnrichmentParams,
@@ -13,4 +14,9 @@ interface BulkPersonEnrichmentResponseItem extends PersonEnrichmentResponse {
   metadata?: unknown
 }
 
-export type BulkPersonEnrichmentResponse = Array<BulkPersonEnrichmentResponseItem>;
+// This response does extend from the BaseResponse since each item in the array has its own status
+// See https://docs.peopledatalabs.com/docs/bulk-requests
+export type BulkPersonEnrichmentResponse = {
+  items: Array<BulkPersonEnrichmentResponseItem>,
+  rateLimit: RateLimit
+};
