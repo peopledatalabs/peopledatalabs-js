@@ -36,7 +36,7 @@ const records = {
 };
 
 PDLJSClient.person.bulk(records).then((data) => {
-  console.log(data);
+  console.log(data.items);
 }).catch((error) => {
   console.log(error);
 });

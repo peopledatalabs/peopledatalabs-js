@@ -93,8 +93,8 @@ describe('Person Identify', () => {
 describe('Person Bulk', () => {
   it(`Should Return Person Records for ${JSON.stringify(records)}`, (done) => {
     PDLJSClient.person.bulk(records).then((data) => {
-      expect(data.length).to.equal(2);
-      expect(data).to.be.a('array');
+      expect(data.items.length).to.equal(2);
+      expect(data.items).to.be.a('array');
       done();
     }).catch((error) => {
       expect(error).to.be.a('string');

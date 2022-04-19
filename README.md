@@ -21,6 +21,7 @@ This library bundles up PDL API requests into simple function calls, making it e
 - Tiny <2KB size gzip
 - Works in Node.js and in Browser
 - Supports all People Data Labs API endpoints
+- Built-in Typescript support
 
 ## Table of Contents
 - [🔧 Installation](#installation)
@@ -64,11 +65,33 @@ PDLJSClient.person.enrichment({ phone: '4155688415' }).then((data) => {
   console.log(error);
 });
 
+// By Bulk Enrichment
+const records = {
+  requests: [
+    {
+      params: {
+        profile: ['linkedin.com/in/seanthorne'],
+      },
+    },
+    {
+      params: {
+        profile: ['linkedin.com/in/randrewn'],
+      },
+    },
+  ],
+};
+
+PDLJSClient.person.bulk(records).then((data) => {
+  console.log(data.items);
+}).catch((error) => {
+  console.log(error);
+});
+
 // By Search (SQL)
 const sqlQuery = "SELECT * FROM person WHERE location_country='mexico' AND job_title_role='health'AND phone_numbers IS NOT NULL;"
 
 PDLJSClient.person.search.sql({ searchQuery: sqlQuery, size: 10 }).then((data) => {
-  console.log(data['total']);
+  console.log(data.total);
 }).catch((error) => {
   console.log(error);
 });
@@ -87,7 +110,7 @@ const esQuery = {
 }
 
 PDLJSClient.person.search.elastic({ searchQuery: esQuery, size: 10 }).then((data) => {
-  console.log(data['total']);
+  console.log(data.total);
 }).catch((error) => {
   console.log(error);
 });
@@ -120,7 +143,7 @@ PDLJSClient.company.enrichment({ website: 'peopledatalabs.com' }).then((data) =>
 const sqlQuery = "SELECT * FROM company WHERE tags='big data' AND industry='financial services' AND location.country='united states';"
 
 PDLJSClient.company.search.sql({ searchQuery: sqlQuery, size: 10 }).then((data) => {
-  console.log(data['total']);
+  console.log(data.total);
 }).catch((error) => {
   console.log(error);
 });
@@ -139,7 +162,7 @@ const esQuery = {
 }
 
 PDLJSClient.company.search.elastic({ searchQuery: esQuery, size: 10 }).then((data) => {
-  console.log(data['total']);
+  console.log(data.total);
 }).catch((error) => {
   console.log(error);
 });
@@ -184,6 +207,7 @@ PDLJSClient.school.cleaner({ name: 'university of oregon' }).then((data) => {
 | API Endpoint | PDLJS Function |
 |-|-|
 | [Person Enrichment API](https://docs.peopledatalabs.com/docs/enrichment-api) | `PDLJS.person.enrichment(...params)` |
+| [Person Bulk Person Enrichment API](https://docs.peopledatalabs.com/docs/bulk-enrichment-api) | `PDLJS.person.bulk(...records)` |
 | [Person Search API](https://docs.peopledatalabs.com/docs/search-api) | SQL: `PDLJS.person.search.sql(...params)` <br/> Elasticsearch: `PDLJS.person.search.elastic(...params)`|
 | [Person Retrieve API](https://docs.peopledatalabs.com/docs/person-retrieve-api) | `PDLJS.person.retrieve(...params)` |
 | [Person Identify API](https://docs.peopledatalabs.com/docs/identify-api) | `PDLJS.person.identify(...params)` |
@@ -242,7 +266,7 @@ You can pass your query to these methods using the special `searchQuery` functio
 const sqlQuery = "SELECT * FROM company WHERE website='peopledatalabs.com';"
 
 PDLJSClient.company.search.sql({ searchQuery: sqlQuery, size: 10 }).then((data) => {
- console.log(data['total']);
+ console.log(data.total);
 }).catch((error) => {
  console.log(error);
 });
