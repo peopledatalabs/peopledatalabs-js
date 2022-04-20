@@ -6,8 +6,17 @@
 A tiny, universal JS client for the People Data Labs API.
 </p>
 
-<a href="https://www.npmjs.com/package/peopledatalabs"><img src="https://img.shields.io/npm/v/peopledatalabs" alt="peopledatalabs"></a>
-![Tests](https://github.com/peopledatalabs/peopledatalabs-js/actions/workflows/test.yaml/badge.svg)
+<p align="center">
+  <a href="https://www.npmjs.com/package/peopledatalabs">
+    <img src="https://img.shields.io/npm/v/peopledatalabs" alt="peopledatalabs">
+  </a>&nbsp;
+  <a href="https://www.npmjs.com/peopledatalabs">
+    <img src="https://img.shields.io/npm/v/peopledatalabs.svg?logo=npm&logoColor=fff&label=NPM+package&color=limegreen" alt="People Data Labs on NPM" />
+  </a>&nbsp;
+  <a href="">
+    <img src="https://github.com/peopledatalabs/peopledatalabs-js/actions/workflows/test.yaml/badge.svg" alt="Tests Status" />
+  </a>
+</p>
 
 #
 This is a simple JavaScript client library to access the various API endpoints provided by [People Data Labs](https://www.peopledatalabs.com/).
