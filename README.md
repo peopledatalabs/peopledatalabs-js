@@ -24,7 +24,6 @@ This is a simple JavaScript client library to access the various API endpoints p
 This library bundles up PDL API requests into simple function calls, making it easy to integrate into your projects. You can use the various [API endpoints](#endpoints) to access up-to-date, real-world data from our massive [Person](https://docs.peopledatalabs.com/docs/stats) and [Company](https://docs.peopledatalabs.com/docs/company-stats) Datasets.  
 
 ## ✨ Features
-- Tiny <2KB size gzip
 - Supports all People Data Labs API endpoints
 - Built-in Typescript support
 
