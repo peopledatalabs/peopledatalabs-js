@@ -7,8 +7,8 @@ A tiny, universal JS client for the People Data Labs API.
 </p>
 
 <p align="center">
-  <a href="https://www.npmjs.com/package/peopledatalabs">
-    <img src="https://img.shields.io/npm/v/peopledatalabs" alt="peopledatalabs">
+  <a href="">
+    <img src="https://img.shields.io/badge/repo%20status-Active-limegreen" alt="Repo Status">
   </a>&nbsp;
   <a href="https://www.npmjs.com/peopledatalabs">
     <img src="https://img.shields.io/npm/v/peopledatalabs.svg?logo=npm&logoColor=fff&label=NPM+package&color=limegreen" alt="People Data Labs on NPM" />
