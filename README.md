@@ -8,7 +8,7 @@ A tiny, universal JS client for the People Data Labs API.
 
 <div>
 <a href="https://www.npmjs.com/package/peopledatalabs"><img src="https://img.shields.io/npm/v/peopledatalabs" alt="peopledatalabs"></a>
-![Tests](https://github.com/peopledatalabs/peopledatalabs-js/actions/workflows/test.yaml/badge.svg)
+[Tests](https://github.com/peopledatalabs/peopledatalabs-js/actions/workflows/test.yaml/badge.svg)
 </div>
 
 #
