@@ -1,4 +1,4 @@
-name: Publish Packages to NPM and Github
+name: Publish Package to NPM
 
 on:
   release:
@@ -30,18 +30,3 @@ jobs:
       - run: yarn run pub
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
-
-  publish-gpr:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          always-auth: true
-          node-version: 16
-          registry-url: https://npm.pkg.github.com/
-      - run: yarn
-      - run: yarn run pub
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.GH_TOKEN}}
