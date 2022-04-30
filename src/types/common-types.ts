@@ -263,3 +263,8 @@ export interface CompanyResponse {
   affiliated_profiles?: Array<string>,
   likelihood?: number
 }
+
+export interface ErrorResponse {
+  message: string,
+  status?: number
+}

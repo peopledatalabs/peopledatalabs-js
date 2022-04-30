@@ -120,7 +120,7 @@ PDLJSClient.person.search.elastic({ searchQuery: esQuery, size: 10 }).then((data
 });
 
 // By PDL_ID
-PDLJSClient.person.retrieve('qEnOZ5Oh0poWnQ1luFBfVw_0000').then((data) => {
+PDLJSClient.person.retrieve({ id: 'qEnOZ5Oh0poWnQ1luFBfVw_0000' }).then((data) => {
   console.log(data);
 }).catch((error) => {
   console.log(error);

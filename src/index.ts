@@ -25,7 +25,7 @@ import {
 } from './types/search-types';
 import { IdentifyParams, IdentifyResponse } from './types/identify-types';
 import { APISettings } from './types/api-types';
-import { RetrieveResponse } from './types/retrieve-types';
+import { RetrieveParams, RetrieveResponse } from './types/retrieve-types';
 
 class PDLJS {
   private readonly apiKey: string;
@@ -37,7 +37,7 @@ class PDLJS {
     search: { elastic: (params: PersonSearchParams) => Promise<PersonSearchResponse>;
       sql: (params: PersonSearchParams) => Promise<PersonSearchResponse> };
     identify: (params: IdentifyParams) => Promise<IdentifyResponse>;
-    retrieve: (id: string, pretty: boolean) => Promise<RetrieveResponse>;
+    retrieve: (params: RetrieveParams) => Promise<RetrieveResponse>;
     bulk: (records: BulkPersonEnrichmentParams) => Promise<BulkPersonEnrichmentResponse>
   };
 
@@ -70,7 +70,7 @@ class PDLJS {
       },
       bulk: (records) => bulk(this.basePath, this.apiKey, records),
       identify: (params) => identify(this.basePath, this.apiKey, params),
-      retrieve: (id, pretty) => retrieve(this.basePath, this.apiKey, id, pretty),
+      retrieve: (params) => retrieve(this.basePath, this.apiKey, params),
     };
 
     this.company = {

@@ -1,6 +1,6 @@
 {
   "name": "peopledatalabs",
-  "version": "2.0.3",
+  "version": "2.1.0",
   "description": "JavaScript client with TypeScript support for the People Data Labs API",
   "type": "module",
   "main": "dist/index.cjs",
@@ -43,7 +43,7 @@
     "@typescript-eslint/parser": "^5.16.0",
     "chai": "^4.3.6",
     "dotenv": "^16.0.0",
-    "eslint": "^8.11.0",
+    "eslint": "^8.14.0",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-airbnb-typescript": "^16.1.4",
