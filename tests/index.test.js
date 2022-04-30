@@ -129,7 +129,7 @@ describe('Person Search', () => {
 
 describe('Person Retrieve', () => {
   it(`Should Return Person Record for ${personID}`, (done) => {
-    PDLJSClient.person.retrieve(personID).then((data) => {
+    PDLJSClient.person.retrieve({ id: personID }).then((data) => {
       expect(data.status).to.equal(200);
       expect(data).to.be.a('object');
       done();

@@ -45,11 +45,17 @@ const errorHandler = (error: AxiosError) => {
       500: 'The server encountered an unexpected condition which prevented it from fulfilling the request',
     };
 
-    // @ts-ignore
-    return (`${status} Error: ${errorMessages[status >= 500 && status < 600 ? 500 : status]}`);
+    return ({
+      status: status >= 500 && status < 600 ? 500 : status,
+      // eslint-disable-next-line max-len
+      message: errorMessages[status >= 500 && status < 600 ? 500 : status as keyof typeof errorMessages],
+    });
   }
-  // @ts-ignore
-  return (`Error: ${error.toJSON().message}`);
+
+  return ({
+    status: 500,
+    message: error.message,
+  });
 };
 
 export { check, errorHandler };

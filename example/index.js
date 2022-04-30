@@ -47,7 +47,7 @@ PDLJSClient.person.search.sql({ searchQuery: "SELECT * FROM person WHERE locatio
   console.log(error);
 });
 
-PDLJSClient.person.retrieve('qEnOZ5Oh0poWnQ1luFBfVw_0000').then((data) => {
+PDLJSClient.person.retrieve({ id: 'qEnOZ5Oh0poWnQ1luFBfVw_0000' }).then((data) => {
   console.log(data);
 }).catch((error) => {
   console.log(error);

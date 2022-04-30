@@ -1,23 +1,22 @@
 import axios from 'axios';
 import { check, errorHandler } from '../../errors';
-import { RetrieveResponse } from '../../types/retrieve-types';
+import { RetrieveParams, RetrieveResponse } from '../../types/retrieve-types';
 import { parseRateLimitingResponse } from '../../utils/api-utils';
 
 export default (
   basePath: string,
   apiKey: string,
-  id: string,
-  pretty?: boolean,
+  params: RetrieveParams,
 ) => new Promise<RetrieveResponse>((resolve, reject) => {
-  check(id, basePath, apiKey, 'ID', 'retrieve').then(() => {
+  check(params.id, basePath, apiKey, 'ID', 'retrieve').then(() => {
     const headers = {
       'Accept-Encoding': 'gzip',
     };
 
-    axios.get<RetrieveResponse>(`${basePath}/person/retrieve/${id}`, {
+    axios.get<RetrieveResponse>(`${basePath}/person/retrieve/${params.id}`, {
       params: {
         api_key: apiKey,
-        pretty: pretty || false,
+        ...params,
       },
       headers,
     })

@@ -1,9 +1,9 @@
 <p align="center">
 <img src="https://i.imgur.com/S7DkZtr.png" width="250" alt="People Data Labs Logo">
 </p>
-<h1 align="center">People Data Labs JS Library</h1>
+<h1 align="center">People Data Labs JavaScript Library</h1>
 <p align="center">
-A tiny, universal JS client for the People Data Labs API.
+JavaScript client with TypeScript support for the People Data Labs API.
 </p>
 
 <p align="center">
@@ -120,7 +120,7 @@ PDLJSClient.person.search.elastic({ searchQuery: esQuery, size: 10 }).then((data
 });
 
 // By PDL_ID
-PDLJSClient.person.retrieve('qEnOZ5Oh0poWnQ1luFBfVw_0000').then((data) => {
+PDLJSClient.person.retrieve({ id: 'qEnOZ5Oh0poWnQ1luFBfVw_0000' }).then((data) => {
   console.log(data);
 }).catch((error) => {
   console.log(error);
