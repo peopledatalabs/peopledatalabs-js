@@ -1,7 +1,7 @@
 {
   "name": "peopledatalabs",
-  "version": "2.0.2",
-  "description": "An universal client for the People Data Labs API",
+  "version": "2.0.3",
+  "description": "JavaScript client with TypeScript support for the People Data Labs API",
   "type": "module",
   "main": "dist/index.cjs",
   "module": "dist/index.m.js",
@@ -30,7 +30,7 @@
     "javascript",
     "api",
     "client",
-    "universal"
+    "sdk"
   ],
   "author": "People Data Labs",
   "license": "MIT",
