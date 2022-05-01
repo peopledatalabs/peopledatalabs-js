@@ -42,7 +42,7 @@ const check = (
   }
 
   if (!basePath) {
-    error.message = 'Invalid API Base Path';
+    error.message = 'Missing API Base Path';
     error.status = 400;
     reject(error);
   }
@@ -57,19 +57,18 @@ const check = (
 });
 
 const errorHandler = (error: AxiosError) => {
+  const errorMessages = {
+    400: 'Request contained either missing or invalid parameters',
+    401: 'Request contained a missing or invalid key',
+    402: 'Payment Required, You have hit your account maximum (all matches used)',
+    404: 'No records were found matching your request',
+    405: 'Request method is not allowed on the requested resource',
+    429: 'An error occurred due to requests hitting the API too quick',
+    500: 'The server encountered an unexpected condition which prevented it from fulfilling the request',
+  };
+
   if (error.response) {
     const { status } = error.response;
-
-    const errorMessages = {
-      400: 'Request contained either missing or invalid parameters',
-      401: 'Request contained a missing or invalid key',
-      402: 'Payment Required, You have hit your account maximum (all matches used)',
-      404: 'No records were found matching your request',
-      405: 'Request method is not allowed on the requested resource',
-      429: 'An error occurred due to requests hitting the API too quick',
-      500: 'The server encountered an unexpected condition which prevented it from fulfilling the request',
-    };
-
     const statusCode = status >= 500 && status < 600 ? 500 : status;
 
     return ({
@@ -80,7 +79,7 @@ const errorHandler = (error: AxiosError) => {
 
   return ({
     status: 500,
-    message: error.message,
+    message: errorMessages[500],
   });
 };
 
