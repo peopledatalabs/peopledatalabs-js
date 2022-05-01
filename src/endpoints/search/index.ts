@@ -42,6 +42,6 @@ export default <T extends BaseSearchParams, K extends BaseResponse>(
         reject(errorHandler(error));
       });
   }).catch((error) => {
-    reject(error.message);
+    reject(error);
   });
 });

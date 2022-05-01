@@ -40,6 +40,6 @@ export default (
         reject(errorHandler(error));
       });
   }).catch((error) => {
-    reject(error.message);
+    reject(error);
   });
 });
