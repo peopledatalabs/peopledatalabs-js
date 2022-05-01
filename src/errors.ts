@@ -15,6 +15,7 @@ const check = (
   if (!params) {
     error.message = `Missing ${type || 'Params'}`;
     error.status = 400;
+    reject(error);
   }
 
   if (endpoint === 'search') {
@@ -22,6 +23,7 @@ const check = (
     if (!searchQuery) {
       error.message = 'Missing searchQuery';
       error.status = 400;
+      reject(error);
     }
   }
 
@@ -31,27 +33,27 @@ const check = (
     if (!field) {
       error.message = 'Missing field';
       error.status = 400;
+      reject(error);
     } else if (validFields.indexOf(field) === -1) {
       error.message = `field should be one of: ${validFields}`;
       error.status = 400;
+      reject(error);
     }
   }
 
   if (!basePath) {
     error.message = 'Invalid API Base Path';
     error.status = 400;
+    reject(error);
   }
 
   if (!apiKey || apiKey.length !== 64) {
     error.message = 'Invalid API Key';
     error.status = 401;
+    reject(error);
   }
 
-  if (error.message || error.status) {
-    reject(error);
-  } else {
-    resolve();
-  }
+  resolve();
 });
 
 const errorHandler = (error: AxiosError) => {
