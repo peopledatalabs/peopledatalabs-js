@@ -2,6 +2,7 @@ import { AxiosError } from 'axios';
 import { ErrorEndpoint } from './types/error-types';
 import { BaseSearchParams } from './types/search-types';
 import { AutoCompleteParams } from './types/autocomplete-types';
+import { RetrieveParams } from './types/retrieve-types';
 
 const check = (
   params: unknown,
@@ -22,6 +23,15 @@ const check = (
     const { searchQuery } = params as BaseSearchParams;
     if (!searchQuery) {
       error.message = 'Missing searchQuery';
+      error.status = 400;
+      reject(error);
+    }
+  }
+
+  if (endpoint === 'retrieve') {
+    const { id } = params as RetrieveParams;
+    if (!id) {
+      error.message = 'Missing id';
       error.status = 400;
       reject(error);
     }

@@ -1,5 +1,8 @@
+/* eslint-env mocha */
+
 import { expect } from 'chai';
 import dotenv from 'dotenv';
+// eslint-disable-next-line
 import PDLJS from '../dist/index.m.js';
 
 dotenv.config({ path: './.env.local' });
@@ -72,7 +75,18 @@ describe('Person Enrichment', () => {
       expect(data).to.be.a('object');
       done();
     }).catch((error) => {
-      expect(error).to.be.a('string');
+      expect(error).to.be.a('object');
+      done();
+    });
+  });
+
+  it('Should Error for Person Enrichment', (done) => {
+    PDLJSClient.person.enrichment().then((data) => {
+      expect(data.status).to.equal(200);
+      expect(data).to.be.a('object');
+      done();
+    }).catch((error) => {
+      expect(error).to.be.a('object');
       done();
     });
   });
@@ -85,7 +99,19 @@ describe('Person Identify', () => {
       expect(data).to.be.a('object');
       done();
     }).catch((error) => {
-      expect(error).to.be.a('string');
+      expect(error).to.be.a('object');
+      done();
+    });
+  });
+
+  it('Should Error for Person Identify', (done) => {
+    PDLJSClient.person.identify().then((data) => {
+      expect(data.status).to.equal(200);
+      expect(data).to.be.a('object');
+      done();
+    }).catch((error) => {
+      expect(error).to.be.a('object');
+      done();
     });
   });
 });
@@ -97,7 +123,18 @@ describe('Person Bulk', () => {
       expect(data.items).to.be.a('array');
       done();
     }).catch((error) => {
-      expect(error).to.be.a('string');
+      expect(error).to.be.a('object');
+      done();
+    });
+  });
+
+  it('Should Error for Person Bulk', (done) => {
+    PDLJSClient.person.bulk().then((data) => {
+      expect(data.items.length).to.equal(2);
+      expect(data.items).to.be.a('array');
+      done();
+    }).catch((error) => {
+      expect(error).to.be.a('object');
       done();
     });
   });
@@ -110,7 +147,18 @@ describe('Person Search', () => {
       expect(data).to.be.a('object');
       done();
     }).catch((error) => {
-      expect(error).to.be.a('string');
+      expect(error).to.be.a('object');
+      done();
+    });
+  });
+
+  it('Should Error for Person Search (sql)', (done) => {
+    PDLJSClient.person.search.sql().then((data) => {
+      expect(data.status).to.equal(200);
+      expect(data).to.be.a('object');
+      done();
+    }).catch((error) => {
+      expect(error).to.be.a('object');
       done();
     });
   });
@@ -121,7 +169,18 @@ describe('Person Search', () => {
       expect(data).to.be.a('object');
       done();
     }).catch((error) => {
-      expect(error).to.be.a('string');
+      expect(error).to.be.a('object');
+      done();
+    });
+  });
+
+  it('Should Error for Person Search (elastic)', (done) => {
+    PDLJSClient.person.search.elastic().then((data) => {
+      expect(data.status).to.equal(200);
+      expect(data).to.be.a('object');
+      done();
+    }).catch((error) => {
+      expect(error).to.be.a('object');
       done();
     });
   });
@@ -134,7 +193,18 @@ describe('Person Retrieve', () => {
       expect(data).to.be.a('object');
       done();
     }).catch((error) => {
-      expect(error).to.be.a('string');
+      expect(error).to.be.a('object');
+      done();
+    });
+  });
+
+  it('Should Error for Person Retrieve', (done) => {
+    PDLJSClient.person.retrieve().then((data) => {
+      expect(data.status).to.equal(200);
+      expect(data).to.be.a('object');
+      done();
+    }).catch((error) => {
+      expect(error).to.be.a('object');
       done();
     });
   });
@@ -147,7 +217,18 @@ describe('Company Enrichment', () => {
       expect(data).to.be.a('object');
       done();
     }).catch((error) => {
-      expect(error).to.be.a('string');
+      expect(error).to.be.a('object');
+      done();
+    });
+  });
+
+  it('Should Error for Company Enrichment', (done) => {
+    PDLJSClient.company.enrichment().then((data) => {
+      expect(data.status).to.equal(200);
+      expect(data).to.be.a('object');
+      done();
+    }).catch((error) => {
+      expect(error).to.be.a('object');
       done();
     });
   });
@@ -160,7 +241,18 @@ describe('Company Search', () => {
       expect(data).to.be.a('object');
       done();
     }).catch((error) => {
-      expect(error).to.be.a('string');
+      expect(error).to.be.a('object');
+      done();
+    });
+  });
+
+  it('Should Error for Company Search (sql)', (done) => {
+    PDLJSClient.company.search.sql().then((data) => {
+      expect(data.status).to.equal(200);
+      expect(data).to.be.a('object');
+      done();
+    }).catch((error) => {
+      expect(error).to.be.a('object');
       done();
     });
   });
@@ -171,7 +263,18 @@ describe('Company Search', () => {
       expect(data).to.be.a('object');
       done();
     }).catch((error) => {
-      expect(error).to.be.a('string');
+      expect(error).to.be.a('object');
+      done();
+    });
+  });
+
+  it('Should Error for Company Search (elastic)', (done) => {
+    PDLJSClient.company.search.elastic().then((data) => {
+      expect(data.status).to.equal(200);
+      expect(data).to.be.a('object');
+      done();
+    }).catch((error) => {
+      expect(error).to.be.a('object');
       done();
     });
   });
@@ -184,7 +287,18 @@ describe('Autocomplete', () => {
       expect(data).to.be.a('object');
       done();
     }).catch((error) => {
-      expect(error).to.be.a('string');
+      expect(error).to.be.a('object');
+      done();
+    });
+  });
+
+  it('Should Error for Autocomplete', (done) => {
+    PDLJSClient.autocomplete().then((data) => {
+      expect(data.status).to.equal(200);
+      expect(data).to.be.a('object');
+      done();
+    }).catch((error) => {
+      expect(error).to.be.a('object');
       done();
     });
   });
@@ -197,7 +311,18 @@ describe('Cleaner APIs', () => {
       expect(data).to.be.a('object');
       done();
     }).catch((error) => {
-      expect(error).to.be.a('string');
+      expect(error).to.be.a('object');
+      done();
+    });
+  });
+
+  it('Should Error for Company Cleaner', (done) => {
+    PDLJSClient.company.cleaner().then((data) => {
+      expect(data.status).to.equal(200);
+      expect(data).to.be.a('object');
+      done();
+    }).catch((error) => {
+      expect(error).to.be.a('object');
       done();
     });
   });
@@ -208,7 +333,18 @@ describe('Cleaner APIs', () => {
       expect(data).to.be.a('object');
       done();
     }).catch((error) => {
-      expect(error).to.be.a('string');
+      expect(error).to.be.a('object');
+      done();
+    });
+  });
+
+  it('Should Error for Location Cleaner', (done) => {
+    PDLJSClient.location.cleaner().then((data) => {
+      expect(data.status).to.equal(200);
+      expect(data).to.be.a('object');
+      done();
+    }).catch((error) => {
+      expect(error).to.be.a('object');
       done();
     });
   });
@@ -219,7 +355,18 @@ describe('Cleaner APIs', () => {
       expect(data).to.be.a('object');
       done();
     }).catch((error) => {
-      expect(error).to.be.a('string');
+      expect(error).to.be.a('object');
+      done();
+    });
+  });
+
+  it('Should Error for School Cleaner', (done) => {
+    PDLJSClient.school.cleaner().then((data) => {
+      expect(data.status).to.equal(200);
+      expect(data).to.be.a('object');
+      done();
+    }).catch((error) => {
+      expect(error).to.be.a('object');
       done();
     });
   });
