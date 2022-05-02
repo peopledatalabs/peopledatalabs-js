@@ -8,7 +8,7 @@ export default (
   apiKey: string,
   params: RetrieveParams,
 ) => new Promise<RetrieveResponse>((resolve, reject) => {
-  check(params.id, basePath, apiKey, 'ID', 'retrieve').then(() => {
+  check(params, basePath, apiKey, 'ID', 'retrieve').then(() => {
     const headers = {
       'Accept-Encoding': 'gzip',
     };
@@ -29,6 +29,6 @@ export default (
         reject(errorHandler(error));
       });
   }).catch((error) => {
-    reject(error.message);
+    reject(error);
   });
 });

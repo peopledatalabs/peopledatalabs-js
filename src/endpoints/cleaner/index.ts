@@ -31,6 +31,6 @@ export default <T, K extends BaseResponse> (
         reject(errorHandler(error));
       });
   }).catch((error) => {
-    reject(error.message);
+    reject(error);
   });
 });
