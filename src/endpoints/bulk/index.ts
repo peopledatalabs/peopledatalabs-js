@@ -8,6 +8,7 @@ export default (basePath: string, apiKey: string, records: BulkPersonEnrichmentP
     'Content-Type': 'application/json',
     'Accept-Encoding': 'gzip',
     'X-Api-Key': apiKey,
+    'User-Agent': 'PDL-JS-SDK',
   };
 
   return new Promise<BulkPersonEnrichmentResponse>((resolve, reject) => {

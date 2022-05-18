@@ -13,6 +13,7 @@ export default <T, K extends BaseResponse>(
   check(params, basePath, apiKey, null, 'enrichment').then(() => {
     const headers = {
       'Accept-Encoding': 'gzip',
+      'User-Agent': 'PDL-JS-SDK',
     };
 
     axios.get<K>(`${basePath}/${type}/enrich`, {

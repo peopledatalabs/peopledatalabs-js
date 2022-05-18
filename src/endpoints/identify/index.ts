@@ -11,6 +11,7 @@ export default (
   check(params, basePath, apiKey, null, 'identify').then(() => {
     const headers = {
       'Accept-Encoding': 'gzip',
+      'User-Agent': 'PDL-JS-SDK',
     };
 
     axios.get<IdentifyResponse>(`${basePath}/person/identify`, {

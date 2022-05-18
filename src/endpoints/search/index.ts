@@ -30,6 +30,7 @@ export default <T extends BaseSearchParams, K extends BaseResponse>(
       'Content-Type': 'application/json',
       'Accept-Encoding': 'gzip',
       'X-Api-Key': apiKey,
+      'User-Agent': 'PDL-JS-SDK',
     };
 
     axios.post<K>(`${basePath}/${type}/search`, searchParams, { headers })
