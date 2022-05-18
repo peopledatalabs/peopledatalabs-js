@@ -24,16 +24,8 @@ PDLJSClient.person.identify({ phone: '4155688415' }).then((data) => {
 
 const records = {
   requests: [
-    {
-      params: {
-        profile: ['linkedin.com/in/seanthorne'],
-      },
-    },
-    {
-      params: {
-        profile: ['linkedin.com/in/randrewn'],
-      },
-    },
+    { params: { profile: ['linkedin.com/in/seanthorne'] } },
+    { params: { profile: ['linkedin.com/in/randrewn'] } },
   ],
 };
 
@@ -43,7 +35,10 @@ PDLJSClient.person.bulk(records).then((data) => {
   console.log(error);
 });
 
-PDLJSClient.person.search.sql({ searchQuery: "SELECT * FROM person WHERE location_country='mexico' AND job_title_role='health'AND phone_numbers IS NOT NULL;", size: 10 }).then((data) => {
+PDLJSClient.person.search.sql({
+  searchQuery: "SELECT * FROM person WHERE location_country='mexico' AND job_title_role='health'AND phone_numbers IS NOT NULL;",
+  size: 10,
+}).then((data) => {
   console.log(data);
 }).catch((error) => {
   console.log(error);
@@ -67,9 +62,7 @@ PDLJSClient.company.search.elastic({
   searchQuery: {
     query: {
       bool: {
-        must: [
-          { term: { website: 'peopledatalabs.com' } },
-        ],
+        must: [{ term: { website: 'peopledatalabs.com' } }],
       },
     },
   },
@@ -82,7 +75,11 @@ PDLJSClient.company.search.elastic({
 
 // Supporting APIs
 
-PDLJSClient.autocomplete({ field: 'skill', text: 'c++', size: 10 }).then((data) => {
+PDLJSClient.autocomplete({
+  field: 'skill',
+  text: 'c++',
+  size: 10,
+}).then((data) => {
   console.log(data);
 }).catch((error) => {
   console.log(error);

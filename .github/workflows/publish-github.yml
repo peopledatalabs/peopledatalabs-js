@@ -1,4 +1,4 @@
-name: Publish Package to NPM
+name: Publish Package to Github
 
 on:
   release:
@@ -17,7 +17,7 @@ jobs:
         env:
           PDL_API_KEY: ${{secrets.PDL_API_KEY}}
 
-  publish-npm:
+  publish-gpr:
     needs: test
     runs-on: ubuntu-latest
     permissions:
@@ -28,8 +28,8 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 16
-          registry-url: https://registry.npmjs.org/
+          registry-url: https://npm.pkg.github.com/
       - run: yarn
       - run: yarn run pub
         env:
-          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+          NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
