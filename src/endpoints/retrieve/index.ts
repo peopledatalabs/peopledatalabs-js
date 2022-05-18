@@ -11,6 +11,7 @@ export default (
   check(params, basePath, apiKey, 'ID', 'retrieve').then(() => {
     const headers = {
       'Accept-Encoding': 'gzip',
+      'User-Agent': 'PDL-JS-SDK',
     };
 
     axios.get<RetrieveResponse>(`${basePath}/person/retrieve/${params.id}`, {

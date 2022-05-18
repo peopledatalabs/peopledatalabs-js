@@ -22,6 +22,7 @@ export default (
 
     const headers = {
       'Accept-Encoding': 'gzip',
+      'User-Agent': 'PDL-JS-SDK',
     };
 
     axios.get<AutoCompleteResponse>(`${basePath}/autocomplete`, {
