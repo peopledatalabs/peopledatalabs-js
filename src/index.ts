@@ -54,13 +54,9 @@ class PDLJS {
 
   public autocomplete: (params: AutoCompleteParams) => Promise<AutoCompleteResponse>;
 
-  constructor({
-    apiKey,
-    basePath,
-    version,
-  }: APISettings) {
-    this.apiKey = apiKey;
-    this.basePath = basePath || `https://api.peopledatalabs.com/${version || 'v5'}`;
+  constructor(public props: APISettings) {
+    this.apiKey = props.apiKey;
+    this.basePath = props.basePath || `https://api.peopledatalabs.com/${props.version || 'v5'}`;
 
     this.person = {
       enrichment: (params) => enrichment<PersonEnrichmentParams, PersonEnrichmentResponse>(this.basePath, this.apiKey, params, 'person'),

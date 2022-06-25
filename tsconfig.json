@@ -20,5 +20,5 @@
     "target": "ESNext"
   },
   "include": ["src"],
-  "exclude": ["tests", "dist", "node_modules"]
+  "exclude": ["dist", "node_modules", "example", "tests"]
 }
