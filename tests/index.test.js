@@ -3,7 +3,7 @@
 import { expect } from 'chai';
 import dotenv from 'dotenv';
 // eslint-disable-next-line
-import PDLJS from '../dist/index.m.js';
+import PDLJS from '../dist/main.modern.js';
 
 dotenv.config({ path: './.env.local' });
 
