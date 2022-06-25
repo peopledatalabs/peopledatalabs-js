@@ -30,6 +30,8 @@ import { RetrieveParams, RetrieveResponse } from './types/retrieve-types';
 class PDLJS {
   private readonly apiKey: string;
 
+  private readonly version: string;
+
   private readonly basePath: string;
 
   public person: {
@@ -54,9 +56,10 @@ class PDLJS {
 
   public autocomplete: (params: AutoCompleteParams) => Promise<AutoCompleteResponse>;
 
-  constructor(public props: APISettings) {
+  constructor(props: APISettings) {
     this.apiKey = props.apiKey;
-    this.basePath = props.basePath || `https://api.peopledatalabs.com/${props.version || 'v5'}`;
+    this.version = props.version || 'v5';
+    this.basePath = props.basePath || `https://api.peopledatalabs.com/${this.version}`;
 
     this.person = {
       enrichment: (params) => enrichment<PersonEnrichmentParams, PersonEnrichmentResponse>(this.basePath, this.apiKey, params, 'person'),
