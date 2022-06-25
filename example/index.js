@@ -1,5 +1,3 @@
-/* eslint no-console: "off" */
-
 import dotenv from 'dotenv';
 
 import PDLJS from 'peopledatalabs';
