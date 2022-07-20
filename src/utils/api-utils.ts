@@ -4,13 +4,15 @@ import { RateLimit } from '../types/api-types';
 // eslint-disable-next-line import/prefer-default-export
 export const parseRateLimitingResponse = (response: AxiosResponse) => {
   const rateLimit = {
-    retryAfter: Number(response.headers['retry-after']) || undefined,
-    rateLimit: Number(response.headers['x-ratelimit-limit']) || undefined,
-    rateLimitReset: Number(response.headers['x-ratelimit-reset']) || undefined,
-    totalLimit: Number(response.headers['x-totallimit-limit']) || undefined,
-    totalLimitRemaining: Number(response.headers['x-totallimit-remaining']) || undefined,
-    searchLimitRemaining: Number(response.headers['x-searchlimit-remaining']) || undefined,
-    enrichCompanyLimitRemaining: Number(response.headers['x-enrichcompanylimit-remaining']) || undefined,
+    rateLimitRemaining: response.headers['x-ratelimit-remaining'] || undefined,
+    rateLimitReset: response.headers['x-ratelimit-reset'] || undefined,
+    rateLimit: response.headers['x-ratelimit-limit'] || undefined,
+    totalLimitOveragesRemaining: response.headers['x-totallimit-overages-remaining'] || undefined,
+    totalLimitPurchasedRemaining: response.headers['x-totallimit-purchased-remaining'] || undefined,
+    totalLimitRemaining: response.headers['x-totallimit-remaining'] || undefined,
+    callCreditsType: response.headers['x-call-credits-type'] || undefined,
+    callCreditsSpent: response.headers['x-call-credits-spent'] || undefined,
+    lifetimeUsed: response.headers['x-lifetime-used'] || undefined,
   } as RateLimit;
 
   if (Array.isArray(response.data)) {

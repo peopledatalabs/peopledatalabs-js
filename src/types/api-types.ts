@@ -5,13 +5,15 @@ export interface APISettings {
 }
 
 export interface RateLimit {
-  retryAfter: number;
-  rateLimit: number;
-  rateLimitReset: number;
-  totalLimit?: number;
-  totalLimitRemaining?: number;
-  searchLimitRemaining?: number;
-  enrichCompanyLimitRemaining?: number;
+  rateLimitRemaining?: string;
+  rateLimitReset?: string;
+  rateLimit?: string;
+  totalLimitOveragesRemaining?: string;
+  totalLimitPurchasedRemaining?: string;
+  totalLimitRemaining?: string;
+  callCreditsType?: string;
+  callCreditsSpent?: string;
+  lifetimeUsed?: string;
 }
 
 export interface BaseResponse {
