@@ -1,6 +1,6 @@
 {
   "name": "peopledatalabs",
-  "version": "3.1.6",
+  "version": "3.1.7",
   "description": "JavaScript client with TypeScript support for the People Data Labs API",
   "type": "module",
   "main": "dist/index.cjs",
@@ -8,6 +8,9 @@
   "umd:main": "dist/index.umd.js",
   "types": "dist/index.d.ts",
   "source": "src/index.ts",
+  "files": [
+    "dist/**"
+  ],
   "scripts": {
     "build": "rm -rf dist && microbundle",
     "dev": "microbundle watch -p 6008",
