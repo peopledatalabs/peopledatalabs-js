@@ -11,7 +11,7 @@ export interface LocationResponse {
   geo?: string
 }
 
-export interface PersonEmailResponse {
+interface PersonEmailResponse {
   address?: string,
   type?: string,
   first_seen?: string,
@@ -19,7 +19,7 @@ export interface PersonEmailResponse {
   num_sources?: number
 }
 
-export interface PersonExperienceResponse {
+interface PersonExperienceResponse {
   company?: {
     name?: string,
     size?: string,
@@ -53,7 +53,7 @@ export interface PersonExperienceResponse {
   last_seen?: string
 }
 
-export interface PersonEducationResponse {
+interface PersonEducationResponse {
   school?: {
     name?: string,
     type?: string,
@@ -77,7 +77,7 @@ export interface PersonEducationResponse {
   summary?: string
 }
 
-export interface PersonProfileResponse {
+interface PersonProfileResponse {
   network?: string,
   id?: string,
   url?: string,
@@ -87,14 +87,14 @@ export interface PersonProfileResponse {
   num_sources?: number
 }
 
-export interface PersonPhoneResponse {
+interface PersonPhoneResponse {
   number?: string,
   first_seen?: string,
   last_seen?: string,
   num_sources?: number
 }
 
-export interface PersonStreetAddressResponse {
+interface PersonStreetAddressResponse {
   street_address?: string,
   address_line_2?: string,
   name?: string,
@@ -110,25 +110,25 @@ export interface PersonStreetAddressResponse {
   num_sources?: number
 }
 
-export interface PersonCertificateResponse {
+interface PersonCertificateResponse {
   start_date?: string,
   end_date?: string,
   name?: string,
   organization?: string
 }
 
-export interface PersonBirthdateResponse {
+interface PersonBirthdateResponse {
   month?: string,
   day?: string,
   year?: string
 }
 
-export interface PersonLanguageResponse {
+interface PersonLanguageResponse {
   name?: string,
   proficiency?: number
 }
 
-export interface PersonJobHistoryResponse {
+interface PersonJobHistoryResponse {
   company_id?: string,
   company_name?: string,
   title?: string,
