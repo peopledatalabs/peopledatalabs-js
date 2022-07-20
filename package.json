@@ -37,7 +37,7 @@
   "bugs": {
     "url": "https://github.com/peopledatalabs/peopledatalabs-js/issues"
   },
-  "homepage": "https://www.npmjs.com/package/peopledatalabs",
+  "homepage": "https://docs.peopledatalabs.com/docs/javascript-sdk",
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.16.0",
     "@typescript-eslint/parser": "^5.16.0",
