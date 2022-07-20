@@ -5,18 +5,30 @@ export interface APISettings {
 }
 
 export interface RateLimit {
-  rateLimitRemaining?: string;
+  rateLimitRemaining?: RateLimitRemaining;
   rateLimitReset?: string;
-  rateLimit?: string;
-  totalLimitOveragesRemaining?: string;
-  totalLimitPurchasedRemaining?: string;
-  totalLimitRemaining?: string;
+  rateLimitLimit?: RateLimitLimit;
+  totalLimitOveragesRemaining?: number;
+  totalLimitPurchasedRemaining?: number;
+  totalLimitRemaining?: number;
   callCreditsType?: string;
-  callCreditsSpent?: string;
-  lifetimeUsed?: string;
+  callCreditsSpent?: number;
+  lifetimeUsed?: number;
 }
 
 export interface BaseResponse {
   status: number;
   rateLimit: RateLimit;
+}
+
+export interface RateLimitRemaining {
+  minute?: number;
+  day?: number;
+  month?: number;
+}
+
+export interface RateLimitLimit {
+  minute?: number;
+  day?: number;
+  month?: number;
 }
