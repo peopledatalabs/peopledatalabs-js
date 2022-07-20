@@ -4,7 +4,7 @@ import { CompanyResponse, PersonResponse } from './common-types';
 
 export type EnrichmentType = 'company' | 'person';
 
-interface EnrichmentAdditionalParams {
+export interface EnrichmentAdditionalParams {
   titlecase?: boolean;
   include_if_matched?: boolean;
   min_likelihood?: number;
@@ -47,7 +47,7 @@ export interface PersonEnrichmentResponse extends BaseResponse {
 /* ------------------------- Company ------------------------ */
 /* ---------------------------------------------------------- */
 
-interface CompanyEnrichmentRequiredParams {
+export interface CompanyEnrichmentRequiredParams {
   name: string,
   profile: string,
   ticker: string,

@@ -1,6 +1,6 @@
 import { BaseResponse } from './api-types';
 
-type AutoCompleteField =
+export type AutoCompleteField =
   'company' |
   'country' |
   'industry' |

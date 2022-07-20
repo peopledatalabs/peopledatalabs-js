@@ -2,7 +2,7 @@ import { BaseResponse } from './api-types';
 import { PersonResponse } from './common-types';
 import { RequireAtLeastOne } from './utility-types';
 
-type IdentifyRequiredParams = RequireAtLeastOne<{
+export type IdentifyRequiredParams = RequireAtLeastOne<{
   name: string,
   first_name: string,
   last_name: string,

@@ -1,7 +1,7 @@
 import { PersonEnrichmentParams, PersonEnrichmentResponse } from './enrichment-types';
 import { RateLimit } from './api-types';
 
-interface BulkPersonEnrichmentRequest {
+export interface BulkPersonEnrichmentRequest {
   params: PersonEnrichmentParams,
   metadata?: unknown // The user can define their own custom metadata
 }
@@ -10,7 +10,7 @@ export interface BulkPersonEnrichmentParams {
   requests: Array<BulkPersonEnrichmentRequest>
 }
 
-interface BulkPersonEnrichmentResponseItem extends PersonEnrichmentResponse {
+export interface BulkPersonEnrichmentResponseItem extends PersonEnrichmentResponse {
   metadata?: unknown
 }
 
