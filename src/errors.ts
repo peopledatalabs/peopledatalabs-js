@@ -56,7 +56,7 @@ const check = (
   if (endpoint === 'jobTitle') {
     const { jobTitle } = params as JobTitleParams;
     if (!jobTitle) {
-      error.message = 'Missing job_title';
+      error.message = 'Missing jobTitle';
       error.status = 400;
       reject(error);
     }
@@ -65,7 +65,7 @@ const check = (
   if (endpoint === 'skill') {
     const { skill } = params as SkillParams;
     if (!skill) {
-      error.message = 'Missing job_title';
+      error.message = 'Missing skill';
       error.status = 400;
       reject(error);
     }
