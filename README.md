@@ -175,7 +175,7 @@ PDLJSClient.company.search.elastic({ searchQuery: esQuery, size: 10 }).then((dat
 
 ```
 
-**Using Supporting APIs**
+**Using Autocomplete API**
 ```js
 // Get Autocomplete Suggestions
 PDLJSClient.autocomplete({ field: 'title', text: 'full', size: 10 }).then((data) => {
@@ -183,7 +183,10 @@ PDLJSClient.autocomplete({ field: 'title', text: 'full', size: 10 }).then((data)
 }).catch((error) => {
   console.log(error);
 });
+```
 
+**Using Cleaner APIs**
+```js
 // Clean Raw Company Strings
 PDLJSClient.company.cleaner({ name: 'peOple DaTa LabS' }).then((data) => {
   console.log(data);
@@ -204,14 +207,20 @@ PDLJSClient.school.cleaner({ name: 'university of oregon' }).then((data) => {
 }).catch((error) => {
   console.log(error);
 });
+```
 
+**Using Job Title Enrichment API**
+```js
 // Enrich a Job Title
 PDLJSClient.jobTitle({ jobTitle: 'software engineer' }).then((data) => {
   console.log(data);
 }).catch((error) => {
   console.log(error);
 });
+```
 
+**Using Skill Enrichment API**
+```js
 // Enrich a Skill
 PDLJSClient.skill({ skill: 'c++' }).then((data) => {
   console.log(data);
