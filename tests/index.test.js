@@ -68,6 +68,10 @@ const location = { location: '455 Market Street, San Francisco, California 94105
 
 const school = { name: 'university of oregon' };
 
+const skill = { skill: 'c++' };
+
+const jobTitle = { jobTitle: 'software engineer' };
+
 describe('Person Enrichment', () => {
   it(`Should Return Person Record for ${phone}`, (done) => {
     PDLJSClient.person.enrichment({ phone }).then((data) => {
@@ -362,6 +366,144 @@ describe('Cleaner APIs', () => {
 
   it('Should Error for School Cleaner', (done) => {
     PDLJSClient.school.cleaner().then((data) => {
+      expect(data.status).to.equal(200);
+      expect(data).to.be.a('object');
+      done();
+    }).catch((error) => {
+      expect(error).to.be.a('object');
+      done();
+    });
+  });
+});
+
+describe('Skill API', () => {
+  it(`Should Return Skill Records for ${JSON.stringify(skill)}`, (done) => {
+    PDLJSClient.skill(skill).then((data) => {
+      expect(data.status).to.equal(200);
+      expect(data).to.be.a('object');
+      done();
+    }).catch((error) => {
+      expect(error).to.be.a('object');
+      done();
+    });
+  });
+
+  it('Should Error for Skill', (done) => {
+    PDLJSClient.skill().then((data) => {
+      expect(data.status).to.equal(200);
+      expect(data).to.be.a('object');
+      done();
+    }).catch((error) => {
+      expect(error).to.be.a('object');
+      done();
+    });
+  });
+});
+
+describe('Job Title API', () => {
+  it(`Should Return Job Title Records for ${JSON.stringify(jobTitle)}`, (done) => {
+    PDLJSClient.jobTitle(jobTitle).then((data) => {
+      expect(data.status).to.equal(200);
+      expect(data).to.be.a('object');
+      done();
+    }).catch((error) => {
+      expect(error).to.be.a('object');
+      done();
+    });
+  });
+
+  it('Should Error for Job Title', (done) => {
+    PDLJSClient.jobTitle().then((data) => {
+      expect(data.status).to.equal(200);
+      expect(data).to.be.a('object');
+      done();
+    }).catch((error) => {
+      expect(error).to.be.a('object');
+      done();
+    });
+  });
+});
+
+describe('Sandbox APIs', () => {
+  it(`Should Return Sandbox Person Record for { email: 'irussell@example.org' }`, (done) => {
+    PDLJSClient.person.sandbox.enrichment({ email: 'irussell@example.org' }).then((data) => {
+      expect(data.status).to.equal(200);
+      expect(data).to.be.a('object');
+      done();
+    }).catch((error) => {
+      expect(error).to.be.a('object');
+      done();
+    });
+  });
+
+  it('Should Error for Sandbox Person Enrichment', (done) => {
+    PDLJSClient.person.sandbox.enrichment().then((data) => {
+      expect(data.status).to.equal(200);
+      expect(data).to.be.a('object');
+      done();
+    }).catch((error) => {
+      expect(error).to.be.a('object');
+      done();
+    });
+  });
+
+  it(`Should Return Sandbox Person Records for "SELECT * FROM person WHERE location_country='mexico';"`, (done) => {
+    PDLJSClient.person.sandbox.search.sql({ searchQuery: "SELECT * FROM person WHERE location_country='mexico';", size: 10 }).then((data) => {
+      expect(data.status).to.equal(200);
+      expect(data).to.be.a('object');
+      done();
+    }).catch((error) => {
+      expect(error).to.be.a('object');
+      done();
+    });
+  });
+
+  it('Should Error for Sandbox Person Search (sql)', (done) => {
+    PDLJSClient.person.sandbox.search.sql().then((data) => {
+      expect(data.status).to.equal(200);
+      expect(data).to.be.a('object');
+      done();
+    }).catch((error) => {
+      expect(error).to.be.a('object');
+      done();
+    });
+  });
+
+  it(`Should Return Sandbox Person Records for { query: { bool: { must: [{term: {location_country: "mexico"}}] } } }`, (done) => {
+    PDLJSClient.person.sandbox.search.elastic({ searchQuery: { query: { bool: { must: [{term: {location_country: "mexico"}}] } } }, size: 10 }).then((data) => {
+      expect(data.status).to.equal(200);
+      expect(data).to.be.a('object');
+      done();
+    }).catch((error) => {
+      expect(error).to.be.a('object');
+      done();
+    });
+  });
+
+  it('Should Error for Sandbox Person Search (elastic)', (done) => {
+    PDLJSClient.person.sandbox.search.elastic().then((data) => {
+      expect(data.status).to.equal(200);
+      expect(data).to.be.a('object');
+      done();
+    }).catch((error) => {
+      expect(error).to.be.a('object');
+      done();
+    });
+  });
+
+  it(`Should Return Sandbox Identify Person Records for { company: 'walmart' }`, (done) => {
+    PDLJSClient.person.sandbox.identify({ company: 'walmart' }).then((data) => {
+      expect(data.status).to.equal(200);
+      expect(data).to.be.a('object');
+      done();
+    }).catch((error) => {
+      expect(error).to.be.a('object');
+      done();
+    });
+  });
+
+  it('Should Error for Sandbox Person Identify', (done) => {
+    PDLJSClient.person.sandbox.identify().then((data) => {
       expect(data.status).to.equal(200);
       expect(data).to.be.a('object');
       done();
