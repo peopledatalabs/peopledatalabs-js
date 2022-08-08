@@ -62,7 +62,7 @@ const PDLJSClient = new PDLJS({apiKey: "YOUR API KEY"})
 
 Then, send requests to any PDL API Endpoint:
 
-**Getting Person Data**
+**Using Person APIs**
 ```js
 // By Enrichment
 PDLJSClient.person.enrichment({ phone: '4155688415' }).then((data) => {
@@ -136,7 +136,7 @@ PDLJSClient.person.identify({ name: 'sean thorne' }).then((data) => {
 });
 ```
 
-**Getting Company Data**
+**Using Company APIs**
 ```js
 // By Enrichment
 PDLJSClient.company.enrichment({ website: 'peopledatalabs.com' }).then((data) => {
