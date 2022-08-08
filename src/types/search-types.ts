@@ -8,7 +8,7 @@ export interface BaseSearchParams {
   scroll_token?: string,
   dataset?: string,
   titlecase?: boolean,
-  pretty?: boolean
+  pretty?: boolean,
 }
 
 export interface BaseSearchResponse <T> extends BaseResponse {

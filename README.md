@@ -47,7 +47,9 @@ or
 npm i peopledatalabs
 ```
 
-2. Sign up for a [free PDL API key](https://www.peopledatalabs.com/signup)
+2. If you get a error while running a typescript project, add `"esModuleInterop": true` to your tsconfig
+
+3. Sign up for a [free PDL API key](https://www.peopledatalabs.com/signup)
 
 ## 🚀 Usage <a name="usage"></a>
 
@@ -203,6 +205,64 @@ PDLJSClient.school.cleaner({ name: 'university of oregon' }).then((data) => {
   console.log(error);
 });
 
+// Enrich a Job Title
+PDLJSClient.jobTitle({ jobTitle: 'software engineer' }).then((data) => {
+  console.log(data);
+}).catch((error) => {
+  console.log(error);
+});
+
+// Enrich a Skill
+PDLJSClient.skill({ skill: 'c++' }).then((data) => {
+  console.log(data);
+}).catch((error) => {
+  console.log(error);
+});
+```
+
+**Using Sandbox APIs**
+```js
+// By Enrichment
+PDLJSClient.person.sandbox.enrichment({ email: 'irussell@example.org' }).then((data) => {
+  console.log(data);
+}).catch((error) => {
+  console.log(error);
+});
+
+// By Search (SQL)
+PDLJSClient.person.sandbox.search.sql({
+  searchQuery: "SELECT * FROM person WHERE location_country='mexico';",
+  size: 10,
+}).then((data) => {
+  console.log(data);
+}).catch((error) => {
+  console.log(error);
+});
+
+// By Search (Elasticsearch)
+const esQuery = {
+  query: {
+    bool: {
+      must:[
+        {term: {location_country: "mexico"}}
+      ]
+    }
+  }
+}
+
+PDLJSClient.person.sandbox.search.elastic({ searchQuery: esQuery, size: 10 }).then((data) => {
+  console.log(data);
+}).catch((error) => {
+  console.log(error);
+});
+
+// By Fuzzy Enrichment
+PDLJSClient.person.sandbox.identify({ company: 'walmart' }).then((data) => {
+  console.log(data);
+}).catch((error) => {
+  console.log(error);
+});
+
 ```
 
 ## 🌐 Endpoints <a name="endpoints"></a>
@@ -229,6 +289,15 @@ PDLJSClient.school.cleaner({ name: 'university of oregon' }).then((data) => {
 | [Company Cleaner API](https://docs.peopledatalabs.com/docs/cleaner-apis#companyclean) | `PDLJS.company.cleaner(...params)` |
 | [Location Cleaner API](https://docs.peopledatalabs.com/docs/cleaner-apis#locationclean) | `PDLJS.location.cleaner(...params)` |
 | [School Cleaner API](https://docs.peopledatalabs.com/docs/cleaner-apis#schoolclean) | `PDLJS.school.cleaner(...params)` |
+| [Job Title Enrichment API](https://docs.peopledatalabs.com/docs/job-title-enrichment-api) | `PDLJS.jobTitle(...params)` |
+| [Skill Enrichment API](https://docs.peopledatalabs.com/docs/skill-enrichment-api) | `PDLJS.skill(...params)` |
+
+**Sandbox Endpoints**
+| API Endpoint | PDLJS Function |
+|-|-|
+| [Person Enrichment Sandbox API](https://docs.peopledatalabs.com/docs/sandbox-apis) | `PDLJS.person.sandbox.enrichment(...params)` |
+| [Person Search Sandbox API](https://docs.peopledatalabs.com/docs/sandbox-apis) | SQL: `PDLJS.person.sandbox.search.sql(...params)` <br/> Elasticsearch: `PDLJS.person.sandbox.search.elastic(...params)`|
+| [Person Identify Sandbox API](https://docs.peopledatalabs.com/docs/sandbox-apis) | `PDLJS.person.sandbox.identify(...params)` |
 
 
 ## 📘 Documentation <a name="documentation"></a>
