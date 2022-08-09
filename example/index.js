@@ -2,7 +2,7 @@
 
 import dotenv from 'dotenv';
 
-import PDLJS from '../dist/index.cjs';
+import PDLJS from 'peopledatalabs';
 
 dotenv.config({ path: '../.env.local' });
 
