@@ -5,6 +5,7 @@ import { parseRateLimitingResponse } from '../../utils/api-utils';
 
 export default (
   basePath: string,
+  sandboxBasePath: string,
   apiKey: string,
   params: IdentifyParams,
 ) => new Promise<IdentifyResponse>((resolve, reject) => {
@@ -14,10 +15,15 @@ export default (
       'User-Agent': 'PDL-JS-SDK',
     };
 
-    axios.get<IdentifyResponse>(`${basePath}/person/identify`, {
+    const url = params.sandbox ? `${sandboxBasePath}/person/identify` : `${basePath}/person/identify`;
+
+    const p = params;
+    delete p.sandbox;
+
+    axios.get<IdentifyResponse>(url, {
       params: {
         api_key: apiKey,
-        ...params,
+        ...p,
       },
       headers,
     })

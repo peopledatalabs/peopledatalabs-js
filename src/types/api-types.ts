@@ -1,8 +1,8 @@
 export interface APISettings {
   apiKey: string;
   basePath?: string;
-  version?: string;
   sandboxBasePath?: string;
+  version?: string;
 }
 
 export interface RateLimit {

@@ -45,14 +45,6 @@ class PDLJS {
     identify: (params: IdentifyParams) => Promise<IdentifyResponse>;
     retrieve: (params: RetrieveParams) => Promise<RetrieveResponse>;
     bulk: (records: BulkPersonEnrichmentParams) => Promise<BulkPersonEnrichmentResponse>;
-    sandbox: {
-      enrichment: (params: PersonEnrichmentParams) => Promise<PersonEnrichmentResponse>;
-      identify: (params: IdentifyParams) => Promise<IdentifyResponse>;
-      search: {
-        elastic: (params: PersonSearchParams) => Promise<PersonSearchResponse>;
-        sql: (params: PersonSearchParams) => Promise<PersonSearchResponse>;
-      };
-    }
   };
 
   public company: {
@@ -85,29 +77,21 @@ class PDLJS {
     this.sandboxBasePath = sandboxBasePath || `https://sandbox.api.peopledatalabs.com/${version || 'v5'}`;
 
     this.person = {
-      enrichment: (params) => enrichment<PersonEnrichmentParams, PersonEnrichmentResponse>(this.basePath, this.apiKey, params, 'person'),
+      enrichment: (params) => enrichment<PersonEnrichmentParams, PersonEnrichmentResponse>(this.basePath, this.sandboxBasePath, this.apiKey, params, 'person'),
       search: {
-        elastic: (params) => search<PersonSearchParams, PersonSearchResponse>(this.basePath, this.apiKey, 'elastic', params, 'person'),
-        sql: (params) => search<PersonSearchParams, PersonSearchResponse>(this.basePath, this.apiKey, 'sql', params, 'person'),
+        elastic: (params) => search<PersonSearchParams, PersonSearchResponse>(this.basePath, this.sandboxBasePath, this.apiKey, 'elastic', params, 'person'),
+        sql: (params) => search<PersonSearchParams, PersonSearchResponse>(this.basePath, this.sandboxBasePath, this.apiKey, 'sql', params, 'person'),
       },
       bulk: (records) => bulk(this.basePath, this.apiKey, records),
-      identify: (params) => identify(this.basePath, this.apiKey, params),
+      identify: (params) => identify(this.basePath, this.sandboxBasePath, this.apiKey, params),
       retrieve: (params) => retrieve(this.basePath, this.apiKey, params),
-      sandbox: {
-        enrichment: (params) => enrichment<PersonEnrichmentParams, PersonEnrichmentResponse>(this.sandboxBasePath, this.apiKey, params, 'person'),
-        search: {
-          elastic: (params) => search<PersonSearchParams, PersonSearchResponse>(this.sandboxBasePath, this.apiKey, 'elastic', params, 'person'),
-          sql: (params) => search<PersonSearchParams, PersonSearchResponse>(this.sandboxBasePath, this.apiKey, 'sql', params, 'person'),
-        },
-        identify: (params) => identify(this.sandboxBasePath, this.apiKey, params),
-      },
     };
 
     this.company = {
-      enrichment: (params) => enrichment<CompanyEnrichmentParams, CompanyEnrichmentResponse>(this.basePath, this.apiKey, params, 'company'),
+      enrichment: (params) => enrichment<CompanyEnrichmentParams, CompanyEnrichmentResponse>(this.basePath, this.sandboxBasePath, this.apiKey, params, 'company'),
       search: {
-        elastic: (params) => search<CompanySearchParams, CompanySearchResponse>(this.basePath, this.apiKey, 'elastic', params, 'company'),
-        sql: (params) => search<CompanySearchParams, CompanySearchResponse>(this.basePath, this.apiKey, 'sql', params, 'company'),
+        elastic: (params) => search<CompanySearchParams, CompanySearchResponse>(this.basePath, this.sandboxBasePath, this.apiKey, 'elastic', params, 'company'),
+        sql: (params) => search<CompanySearchParams, CompanySearchResponse>(this.basePath, this.sandboxBasePath, this.apiKey, 'sql', params, 'company'),
       },
       cleaner: (params) => cleaner<CompanyCleanerParams, CompanyCleanerResponse>(this.basePath, this.apiKey, params, 'company'),
     };

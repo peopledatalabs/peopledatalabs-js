@@ -29,6 +29,7 @@ export type IdentifyParams = IdentifyRequiredParams & Partial<{
   data_include: string,
   include_if_matched: boolean,
   pretty: boolean,
+  sandbox: boolean,
 }>;
 
 export interface IdentifyResponse extends BaseResponse {

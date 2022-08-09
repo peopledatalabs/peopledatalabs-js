@@ -9,6 +9,7 @@ export interface BaseSearchParams {
   dataset?: string,
   titlecase?: boolean,
   pretty?: boolean,
+  sandbox?: boolean,
 }
 
 export interface BaseSearchResponse <T> extends BaseResponse {

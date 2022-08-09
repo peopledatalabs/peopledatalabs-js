@@ -10,6 +10,7 @@ export interface EnrichmentAdditionalParams {
   min_likelihood?: number;
   required?: string;
   pretty?: boolean;
+  sandbox?: boolean;
 }
 
 /* ---------------------------------------------------------- */

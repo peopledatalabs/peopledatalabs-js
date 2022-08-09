@@ -426,7 +426,7 @@ describe('Job Title API', () => {
 
 describe('Sandbox APIs', () => {
   it(`Should Return Sandbox Person Record for { email: 'irussell@example.org' }`, (done) => {
-    PDLJSClient.person.sandbox.enrichment({ email: 'irussell@example.org' }).then((data) => {
+    PDLJSClient.person.enrichment({ email: 'irussell@example.org', sandbox: true }).then((data) => {
       expect(data.status).to.equal(200);
       expect(data).to.be.a('object');
       done();
@@ -437,7 +437,7 @@ describe('Sandbox APIs', () => {
   });
 
   it('Should Error for Sandbox Person Enrichment', (done) => {
-    PDLJSClient.person.sandbox.enrichment().then((data) => {
+    PDLJSClient.person.enrichment({ sandbox: true }).then((data) => {
       expect(data.status).to.equal(200);
       expect(data).to.be.a('object');
       done();
@@ -448,7 +448,7 @@ describe('Sandbox APIs', () => {
   });
 
   it(`Should Return Sandbox Person Records for "SELECT * FROM person WHERE location_country='mexico';"`, (done) => {
-    PDLJSClient.person.sandbox.search.sql({ searchQuery: "SELECT * FROM person WHERE location_country='mexico';", size: 10 }).then((data) => {
+    PDLJSClient.person.search.sql({ searchQuery: "SELECT * FROM person WHERE location_country='mexico';", size: 10, sandbox: true }).then((data) => {
       expect(data.status).to.equal(200);
       expect(data).to.be.a('object');
       done();
@@ -459,7 +459,7 @@ describe('Sandbox APIs', () => {
   });
 
   it('Should Error for Sandbox Person Search (sql)', (done) => {
-    PDLJSClient.person.sandbox.search.sql().then((data) => {
+    PDLJSClient.person.search.sql({ sandbox: true }).then((data) => {
       expect(data.status).to.equal(200);
       expect(data).to.be.a('object');
       done();
@@ -470,7 +470,7 @@ describe('Sandbox APIs', () => {
   });
 
   it(`Should Return Sandbox Person Records for { query: { bool: { must: [{term: {location_country: "mexico"}}] } } }`, (done) => {
-    PDLJSClient.person.sandbox.search.elastic({ searchQuery: { query: { bool: { must: [{term: {location_country: "mexico"}}] } } }, size: 10 }).then((data) => {
+    PDLJSClient.person.search.elastic({ searchQuery: { query: { bool: { must: [{term: {location_country: "mexico"}}] } } }, size: 10, sandbox: true }).then((data) => {
       expect(data.status).to.equal(200);
       expect(data).to.be.a('object');
       done();
@@ -481,7 +481,7 @@ describe('Sandbox APIs', () => {
   });
 
   it('Should Error for Sandbox Person Search (elastic)', (done) => {
-    PDLJSClient.person.sandbox.search.elastic().then((data) => {
+    PDLJSClient.person.search.elastic({ sandbox: true }).then((data) => {
       expect(data.status).to.equal(200);
       expect(data).to.be.a('object');
       done();
@@ -492,7 +492,7 @@ describe('Sandbox APIs', () => {
   });
 
   it(`Should Return Sandbox Identify Person Records for { company: 'walmart' }`, (done) => {
-    PDLJSClient.person.sandbox.identify({ company: 'walmart' }).then((data) => {
+    PDLJSClient.person.identify({ company: 'walmart', sandbox: true }).then((data) => {
       expect(data.status).to.equal(200);
       expect(data).to.be.a('object');
       done();
@@ -503,7 +503,7 @@ describe('Sandbox APIs', () => {
   });
 
   it('Should Error for Sandbox Person Identify', (done) => {
-    PDLJSClient.person.sandbox.identify().then((data) => {
+    PDLJSClient.person.identify({ sandbox: true }).then((data) => {
       expect(data.status).to.equal(200);
       expect(data).to.be.a('object');
       done();

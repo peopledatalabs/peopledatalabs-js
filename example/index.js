@@ -2,7 +2,7 @@
 
 import dotenv from 'dotenv';
 
-import PDLJS from 'peopledatalabs';
+import PDLJS from '../dist/index.cjs';
 
 dotenv.config({ path: '../.env.local' });
 
@@ -50,7 +50,7 @@ PDLJSClient.person.retrieve({ id: 'qEnOZ5Oh0poWnQ1luFBfVw_0000' }).then((data) =
   console.log(error);
 });
 
-// Company APIs
+// // Company APIs
 
 PDLJSClient.company.enrichment({ website: 'peopledatalabs.com' }).then((data) => {
   console.log(data);
@@ -73,7 +73,7 @@ PDLJSClient.company.search.elastic({
   console.log(error);
 });
 
-// Supporting APIs
+// // Supporting APIs
 
 PDLJSClient.autocomplete({
   field: 'skill',
@@ -117,22 +117,23 @@ PDLJSClient.skill({ skill: 'c++' }).then((data) => {
 
 // Sandbox APIs
 
-PDLJSClient.person.sandbox.enrichment({ email: 'irussell@example.org' }).then((data) => {
+PDLJSClient.person.enrichment({ email: 'irussell@example.org', sandbox: true }).then((data) => {
   console.log(data);
 }).catch((error) => {
   console.log(error);
 });
 
-PDLJSClient.person.sandbox.search.sql({
+PDLJSClient.person.search.sql({
   searchQuery: "SELECT * FROM person WHERE location_country='mexico';",
   size: 10,
+  sandbox: true,
 }).then((data) => {
   console.log(data);
 }).catch((error) => {
   console.log(error);
 });
 
-PDLJSClient.person.sandbox.identify({ company: 'walmart' }).then((data) => {
+PDLJSClient.person.identify({ company: 'walmart', sandbox: true }).then((data) => {
   console.log(data);
 }).catch((error) => {
   console.log(error);

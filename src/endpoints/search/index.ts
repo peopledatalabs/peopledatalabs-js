@@ -6,6 +6,7 @@ import { parseRateLimitingResponse } from '../../utils/api-utils';
 
 export default <T extends BaseSearchParams, K extends BaseResponse>(
   basePath: string,
+  sandboxBasePath: string,
   apiKey: string,
   searchType: SearchType,
   params: T,
@@ -14,7 +15,7 @@ export default <T extends BaseSearchParams, K extends BaseResponse>(
   check(params, basePath, apiKey, null, 'search').then(() => {
     const {
       // eslint-disable-next-line @typescript-eslint/naming-convention
-      dataset, searchQuery, size, scroll_token, titlecase, pretty,
+      dataset, searchQuery, size, scroll_token, titlecase, pretty, sandbox,
     } = params;
 
     const searchParams = {
@@ -33,7 +34,9 @@ export default <T extends BaseSearchParams, K extends BaseResponse>(
       'User-Agent': 'PDL-JS-SDK',
     };
 
-    axios.post<K>(`${basePath}/${type}/search`, searchParams, { headers })
+    const url = sandbox && type === 'person' ? `${sandboxBasePath}/person/search` : `${basePath}/${type}/search`;
+
+    axios.post<K>(url, searchParams, { headers })
       .then((response) => {
         if (response?.data?.status === 200) {
           resolve(parseRateLimitingResponse(response));

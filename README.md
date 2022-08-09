@@ -232,16 +232,17 @@ PDLJSClient.skill({ skill: 'c++' }).then((data) => {
 **Using Sandbox APIs**
 ```js
 // By Enrichment
-PDLJSClient.person.sandbox.enrichment({ email: 'irussell@example.org' }).then((data) => {
+PDLJSClient.person.enrichment({ email: 'irussell@example.org', sandbox: true }).then((data) => {
   console.log(data);
 }).catch((error) => {
   console.log(error);
 });
 
 // By Search (SQL)
-PDLJSClient.person.sandbox.search.sql({
+PDLJSClient.person.search.sql({
   searchQuery: "SELECT * FROM person WHERE location_country='mexico';",
   size: 10,
+  sandbox: true,
 }).then((data) => {
   console.log(data);
 }).catch((error) => {
@@ -259,14 +260,14 @@ const esQuery = {
   }
 }
 
-PDLJSClient.person.sandbox.search.elastic({ searchQuery: esQuery, size: 10 }).then((data) => {
+PDLJSClient.person.search.elastic({ searchQuery: esQuery, size: 10, sandbox: true }).then((data) => {
   console.log(data);
 }).catch((error) => {
   console.log(error);
 });
 
 // By Fuzzy Enrichment
-PDLJSClient.person.sandbox.identify({ company: 'walmart' }).then((data) => {
+PDLJSClient.person.identify({ company: 'walmart', sandbox: true }).then((data) => {
   console.log(data);
 }).catch((error) => {
   console.log(error);
@@ -304,9 +305,9 @@ PDLJSClient.person.sandbox.identify({ company: 'walmart' }).then((data) => {
 **Sandbox Endpoints**
 | API Endpoint | PDLJS Function |
 |-|-|
-| [Person Enrichment Sandbox API](https://docs.peopledatalabs.com/docs/sandbox-apis) | `PDLJS.person.sandbox.enrichment(...params)` |
-| [Person Search Sandbox API](https://docs.peopledatalabs.com/docs/sandbox-apis) | SQL: `PDLJS.person.sandbox.search.sql(...params)` <br/> Elasticsearch: `PDLJS.person.sandbox.search.elastic(...params)`|
-| [Person Identify Sandbox API](https://docs.peopledatalabs.com/docs/sandbox-apis) | `PDLJS.person.sandbox.identify(...params)` |
+| [Person Enrichment Sandbox API](https://docs.peopledatalabs.com/docs/sandbox-apis) | `PDLJS.person.enrichment(...params)` |
+| [Person Search Sandbox API](https://docs.peopledatalabs.com/docs/sandbox-apis) | SQL: `PDLJS.person.search.sql(...params)` <br/> Elasticsearch: `PDLJS.person.search.elastic(...params)`|
+| [Person Identify Sandbox API](https://docs.peopledatalabs.com/docs/sandbox-apis) | `PDLJS.person.identify(...params)` |
 
 
 ## 📘 Documentation <a name="documentation"></a>
