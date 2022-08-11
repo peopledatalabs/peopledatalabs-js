@@ -3,6 +3,8 @@ import { ErrorEndpoint } from './types/error-types';
 import { BaseSearchParams } from './types/search-types';
 import { AutoCompleteParams } from './types/autocomplete-types';
 import { RetrieveParams } from './types/retrieve-types';
+import { JobTitleParams } from './types/jobTitle-types';
+import { SkillParams } from './types/skill-types';
 
 const check = (
   params: unknown,
@@ -46,6 +48,24 @@ const check = (
       reject(error);
     } else if (validFields.indexOf(field) === -1) {
       error.message = `field should be one of: ${validFields}`;
+      error.status = 400;
+      reject(error);
+    }
+  }
+
+  if (endpoint === 'jobTitle') {
+    const { jobTitle } = params as JobTitleParams;
+    if (!jobTitle) {
+      error.message = 'Missing jobTitle';
+      error.status = 400;
+      reject(error);
+    }
+  }
+
+  if (endpoint === 'skill') {
+    const { skill } = params as SkillParams;
+    if (!skill) {
+      error.message = 'Missing skill';
       error.status = 400;
       reject(error);
     }

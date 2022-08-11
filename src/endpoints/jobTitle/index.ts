@@ -1,29 +1,32 @@
 import axios from 'axios';
 import { check, errorHandler } from '../../errors';
-import { IdentifyResponse, IdentifyParams } from '../../types/identify-types';
+import { JobTitleParams, JobTitleResponse } from '../../types/jobTitle-types';
 import { parseRateLimitingResponse } from '../../utils/api-utils';
 
 export default (
   basePath: string,
-  sandboxBasePath: string,
   apiKey: string,
-  params: IdentifyParams,
-) => new Promise<IdentifyResponse>((resolve, reject) => {
-  check(params, basePath, apiKey, null, 'identify').then(() => {
+  params: JobTitleParams,
+) => new Promise<JobTitleResponse>((resolve, reject) => {
+  check(params, basePath, apiKey, null, 'jobTitle').then(() => {
+    const {
+      jobTitle, pretty,
+    } = params;
+
+    const jobTitleParams = {
+      job_title: jobTitle,
+      pretty: pretty || false,
+    };
+
     const headers = {
       'Accept-Encoding': 'gzip',
       'User-Agent': 'PDL-JS-SDK',
     };
 
-    const url = params.sandbox ? `${sandboxBasePath}/person/identify` : `${basePath}/person/identify`;
-
-    const p = params;
-    delete p.sandbox;
-
-    axios.get<IdentifyResponse>(url, {
+    axios.get<JobTitleResponse>(`${basePath}/job_title/enrich`, {
       params: {
         api_key: apiKey,
-        ...p,
+        ...jobTitleParams,
       },
       headers,
     })

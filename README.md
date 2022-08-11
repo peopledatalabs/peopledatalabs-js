@@ -47,7 +47,9 @@ or
 npm i peopledatalabs
 ```
 
-2. Sign up for a [free PDL API key](https://www.peopledatalabs.com/signup)
+2. If you get a error while running a typescript project, add `"esModuleInterop": true` to your tsconfig
+
+3. Sign up for a [free PDL API key](https://www.peopledatalabs.com/signup)
 
 ## 🚀 Usage <a name="usage"></a>
 
@@ -60,7 +62,7 @@ const PDLJSClient = new PDLJS({apiKey: "YOUR API KEY"})
 
 Then, send requests to any PDL API Endpoint:
 
-**Getting Person Data**
+**Using Person APIs**
 ```js
 // By Enrichment
 PDLJSClient.person.enrichment({ phone: '4155688415' }).then((data) => {
@@ -134,7 +136,7 @@ PDLJSClient.person.identify({ name: 'sean thorne' }).then((data) => {
 });
 ```
 
-**Getting Company Data**
+**Using Company APIs**
 ```js
 // By Enrichment
 PDLJSClient.company.enrichment({ website: 'peopledatalabs.com' }).then((data) => {
@@ -173,7 +175,7 @@ PDLJSClient.company.search.elastic({ searchQuery: esQuery, size: 10 }).then((dat
 
 ```
 
-**Using Supporting APIs**
+**Using Autocomplete API**
 ```js
 // Get Autocomplete Suggestions
 PDLJSClient.autocomplete({ field: 'title', text: 'full', size: 10 }).then((data) => {
@@ -181,7 +183,10 @@ PDLJSClient.autocomplete({ field: 'title', text: 'full', size: 10 }).then((data)
 }).catch((error) => {
   console.log(error);
 });
+```
 
+**Using Cleaner APIs**
+```js
 // Clean Raw Company Strings
 PDLJSClient.company.cleaner({ name: 'peOple DaTa LabS' }).then((data) => {
   console.log(data);
@@ -202,6 +207,71 @@ PDLJSClient.school.cleaner({ name: 'university of oregon' }).then((data) => {
 }).catch((error) => {
   console.log(error);
 });
+```
+
+**Using Job Title Enrichment API**
+```js
+// Enrich a Job Title
+PDLJSClient.jobTitle({ jobTitle: 'software engineer' }).then((data) => {
+  console.log(data);
+}).catch((error) => {
+  console.log(error);
+});
+```
+
+**Using Skill Enrichment API**
+```js
+// Enrich a Skill
+PDLJSClient.skill({ skill: 'c++' }).then((data) => {
+  console.log(data);
+}).catch((error) => {
+  console.log(error);
+});
+```
+
+**Using Sandbox APIs**
+```js
+// By Enrichment
+PDLJSClient.person.enrichment({ email: 'irussell@example.org', sandbox: true }).then((data) => {
+  console.log(data);
+}).catch((error) => {
+  console.log(error);
+});
+
+// By Search (SQL)
+PDLJSClient.person.search.sql({
+  searchQuery: "SELECT * FROM person WHERE location_country='mexico';",
+  size: 10,
+  sandbox: true,
+}).then((data) => {
+  console.log(data);
+}).catch((error) => {
+  console.log(error);
+});
+
+// By Search (Elasticsearch)
+const esQuery = {
+  query: {
+    bool: {
+      must:[
+        {term: {location_country: "mexico"}}
+      ]
+    }
+  }
+}
+
+PDLJSClient.person.search.elastic({ searchQuery: esQuery, size: 10, sandbox: true }).then((data) => {
+  console.log(data);
+}).catch((error) => {
+  console.log(error);
+});
+
+// By Fuzzy Enrichment
+PDLJSClient.person.identify({ company: 'walmart', sandbox: true }).then((data) => {
+  console.log(data);
+}).catch((error) => {
+  console.log(error);
+});
 
 ```
 
@@ -210,25 +280,34 @@ PDLJSClient.school.cleaner({ name: 'university of oregon' }).then((data) => {
 **Person Endpoints**
 | API Endpoint | PDLJS Function |
 |-|-|
-| [Person Enrichment API](https://docs.peopledatalabs.com/docs/enrichment-api) | `PDLJS.person.enrichment(...params)` |
-| [Person Bulk Person Enrichment API](https://docs.peopledatalabs.com/docs/bulk-enrichment-api) | `PDLJS.person.bulk(...records)` |
-| [Person Search API](https://docs.peopledatalabs.com/docs/search-api) | SQL: `PDLJS.person.search.sql(...params)` <br/> Elasticsearch: `PDLJS.person.search.elastic(...params)`|
-| [Person Retrieve API](https://docs.peopledatalabs.com/docs/person-retrieve-api) | `PDLJS.person.retrieve(...params)` |
-| [Person Identify API](https://docs.peopledatalabs.com/docs/identify-api) | `PDLJS.person.identify(...params)` |
+| [Person Enrichment API](https://docs.peopledatalabs.com/docs/enrichment-api) | `PDLJS.person.enrichment({ ...params })` |
+| [Person Bulk Person Enrichment API](https://docs.peopledatalabs.com/docs/bulk-enrichment-api) | `PDLJS.person.bulk({ ...records })` |
+| [Person Search API](https://docs.peopledatalabs.com/docs/search-api) | SQL: `PDLJS.person.search.sql({ ...params })` <br/> Elasticsearch: `PDLJS.person.search.elastic({ ...params })`|
+| [Person Retrieve API](https://docs.peopledatalabs.com/docs/person-retrieve-api) | `PDLJS.person.retrieve({ ...params })` |
+| [Person Identify API](https://docs.peopledatalabs.com/docs/identify-api) | `PDLJS.person.identify({ ...params })` |
 
 **Company Endpoints**
 | API Endpoint | PDLJS Function |
 |-|-|
-| [Company Enrichment API](https://docs.peopledatalabs.com/docs/company-enrichment-api) | `PDLJS.company.enrichment(...params)` |
-| [Company Search API](https://docs.peopledatalabs.com/docs/company-search-api) | SQL: `PDLJS.company.search.sql(...params)` <br/> Elasticsearch: `PDLJS.company.search.elastic(...params)`|
+| [Company Enrichment API](https://docs.peopledatalabs.com/docs/company-enrichment-api) | `PDLJS.company.enrichment({ ...params })` |
+| [Company Search API](https://docs.peopledatalabs.com/docs/company-search-api) | SQL: `PDLJS.company.search.sql({ ...params })` <br/> Elasticsearch: `PDLJS.company.search.elastic({ ...params })`|
 
 **Supporting Endpoints**
 | API Endpoint | PDLJS Function |
 |-|-|
-| [Autocomplete API](https://docs.peopledatalabs.com/docs/autocomplete-api) | `PDLJS.autocomplete(...params)` |
-| [Company Cleaner API](https://docs.peopledatalabs.com/docs/cleaner-apis#companyclean) | `PDLJS.company.cleaner(...params)` |
-| [Location Cleaner API](https://docs.peopledatalabs.com/docs/cleaner-apis#locationclean) | `PDLJS.location.cleaner(...params)` |
-| [School Cleaner API](https://docs.peopledatalabs.com/docs/cleaner-apis#schoolclean) | `PDLJS.school.cleaner(...params)` |
+| [Autocomplete API](https://docs.peopledatalabs.com/docs/autocomplete-api) | `PDLJS.autocomplete({ ...params })` |
+| [Company Cleaner API](https://docs.peopledatalabs.com/docs/cleaner-apis#companyclean) | `PDLJS.company.cleaner({ ...params })` |
+| [Location Cleaner API](https://docs.peopledatalabs.com/docs/cleaner-apis#locationclean) | `PDLJS.location.cleaner({ ...params })` |
+| [School Cleaner API](https://docs.peopledatalabs.com/docs/cleaner-apis#schoolclean) | `PDLJS.school.cleaner({ ...params })` |
+| [Job Title Enrichment API](https://docs.peopledatalabs.com/docs/job-title-enrichment-api) | `PDLJS.jobTitle({ ...params })` |
+| [Skill Enrichment API](https://docs.peopledatalabs.com/docs/skill-enrichment-api) | `PDLJS.skill({ ...params })` |
+
+**Sandbox Endpoints**
+| API Endpoint | PDLJS Function |
+|-|-|
+| [Person Enrichment Sandbox API](https://docs.peopledatalabs.com/docs/sandbox-apis) | `PDLJS.person.enrichment({ ...params, sandbox: true })` |
+| [Person Search Sandbox API](https://docs.peopledatalabs.com/docs/sandbox-apis) | SQL: `PDLJS.person.search.sql({ ...params, sandbox: true })` <br/> Elasticsearch: `PDLJS.person.search.elastic({ ...params, sandbox: true })`|
+| [Person Identify Sandbox API](https://docs.peopledatalabs.com/docs/sandbox-apis) | `PDLJS.person.identify({ ...params, sandbox: true })` |
 
 
 ## 📘 Documentation <a name="documentation"></a>
@@ -259,10 +338,10 @@ Our Person Search API and Company Search API endpoints both support two types of
 In the PDLJS class, the person and company search functions are broken out into two syntax-specific methods as follows:
 | Data Type | Search Query Syntax | Function |
 | -- | -- | -- |
-| Person | SQL | `PDLJS.person.search.sql(...params)` |
-| Person | Elasticsearch | `PDLJS.person.search.elastic(...params)` |
-| Company | SQL | `PDLJS.company.search.sql(...params)` |
-| Company | Elasticsearch | `PDLJS.company.search.elastic(...params)` |
+| Person | SQL | `PDLJS.person.search.sql({ ...params })` |
+| Person | Elasticsearch | `PDLJS.person.search.elastic({ ...params })` |
+| Company | SQL | `PDLJS.company.search.sql({ ...params })` |
+| Company | Elasticsearch | `PDLJS.company.search.elastic({ ...params })` |
 
 You can pass your query to these methods using the special `searchQuery` function argument, as shown in the following example:
 

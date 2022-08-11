@@ -1,6 +1,7 @@
 export interface APISettings {
   apiKey: string;
   basePath?: string;
+  sandboxBasePath?: string;
   version?: string;
 }
 

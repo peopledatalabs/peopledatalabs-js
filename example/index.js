@@ -102,3 +102,39 @@ PDLJSClient.school.cleaner({ name: 'university of oregon' }).then((data) => {
 }).catch((error) => {
   console.log(error);
 });
+
+PDLJSClient.jobTitle({ jobTitle: 'software engineer' }).then((data) => {
+  console.log(data);
+}).catch((error) => {
+  console.log(error);
+});
+
+PDLJSClient.skill({ skill: 'c++' }).then((data) => {
+  console.log(data);
+}).catch((error) => {
+  console.log(error);
+});
+
+// Sandbox APIs
+
+PDLJSClient.person.enrichment({ email: 'irussell@example.org', sandbox: true }).then((data) => {
+  console.log(data);
+}).catch((error) => {
+  console.log(error);
+});
+
+PDLJSClient.person.search.sql({
+  searchQuery: "SELECT * FROM person WHERE location_country='mexico';",
+  size: 10,
+  sandbox: true,
+}).then((data) => {
+  console.log(data);
+}).catch((error) => {
+  console.log(error);
+});
+
+PDLJSClient.person.identify({ company: 'walmart', sandbox: true }).then((data) => {
+  console.log(data);
+}).catch((error) => {
+  console.log(error);
+});

@@ -1,11 +1,13 @@
 import axios from 'axios';
+import {
+  PersonEnrichmentParams, CompanyEnrichmentParams, EnrichmentType, PersonEnrichmentResponse, CompanyEnrichmentResponse,
+} from '../../types/enrichment-types';
 import { check, errorHandler } from '../../errors';
-import { EnrichmentType } from '../../types/enrichment-types';
-import { BaseResponse } from '../../types/api-types';
 import { parseRateLimitingResponse } from '../../utils/api-utils';
 
-export default <T, K extends BaseResponse>(
+export default <T extends PersonEnrichmentParams | CompanyEnrichmentParams, K extends PersonEnrichmentResponse | CompanyEnrichmentResponse>(
   basePath: string,
+  sandboxBasePath: string,
   apiKey: string,
   params: T,
   type: EnrichmentType,
@@ -16,10 +18,14 @@ export default <T, K extends BaseResponse>(
       'User-Agent': 'PDL-JS-SDK',
     };
 
-    axios.get<K>(`${basePath}/${type}/enrich`, {
+    const url = params.sandbox && type === 'person' ? `${sandboxBasePath}/${type}/enrich` : `${basePath}/${type}/enrich`;
+
+    const p = params;
+    delete p.sandbox;
+    axios.get<K>(url, {
       params: {
         api_key: apiKey,
-        ...params,
+        ...p,
       },
       headers,
     })
