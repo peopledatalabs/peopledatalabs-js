@@ -305,9 +305,9 @@ PDLJSClient.person.identify({ company: 'walmart', sandbox: true }).then((data) =
 **Sandbox Endpoints**
 | API Endpoint | PDLJS Function |
 |-|-|
-| [Person Enrichment Sandbox API](https://docs.peopledatalabs.com/docs/sandbox-apis) | `PDLJS.person.enrichment(...params)` |
-| [Person Search Sandbox API](https://docs.peopledatalabs.com/docs/sandbox-apis) | SQL: `PDLJS.person.search.sql(...params)` <br/> Elasticsearch: `PDLJS.person.search.elastic(...params)`|
-| [Person Identify Sandbox API](https://docs.peopledatalabs.com/docs/sandbox-apis) | `PDLJS.person.identify(...params)` |
+| [Person Enrichment Sandbox API](https://docs.peopledatalabs.com/docs/sandbox-apis) | `PDLJS.person.enrichment(...params, sandbox: true)` |
+| [Person Search Sandbox API](https://docs.peopledatalabs.com/docs/sandbox-apis) | SQL: `PDLJS.person.search.sql(...params)` <br/> Elasticsearch: `PDLJS.person.search.elastic(...params, sandbox: true)`|
+| [Person Identify Sandbox API](https://docs.peopledatalabs.com/docs/sandbox-apis) | `PDLJS.person.identify(...params, sandbox: true)` |
 
 
 ## 📘 Documentation <a name="documentation"></a>

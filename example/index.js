@@ -50,7 +50,7 @@ PDLJSClient.person.retrieve({ id: 'qEnOZ5Oh0poWnQ1luFBfVw_0000' }).then((data) =
   console.log(error);
 });
 
-// // Company APIs
+// Company APIs
 
 PDLJSClient.company.enrichment({ website: 'peopledatalabs.com' }).then((data) => {
   console.log(data);
