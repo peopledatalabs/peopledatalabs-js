@@ -73,7 +73,7 @@ PDLJSClient.company.search.elastic({
   console.log(error);
 });
 
-// // Supporting APIs
+// Supporting APIs
 
 PDLJSClient.autocomplete({
   field: 'skill',
