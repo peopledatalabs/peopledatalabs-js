@@ -338,10 +338,10 @@ Our Person Search API and Company Search API endpoints both support two types of
 In the PDLJS class, the person and company search functions are broken out into two syntax-specific methods as follows:
 | Data Type | Search Query Syntax | Function |
 | -- | -- | -- |
-| Person | SQL | `PDLJS.person.search.sql(...params)` |
-| Person | Elasticsearch | `PDLJS.person.search.elastic(...params)` |
-| Company | SQL | `PDLJS.company.search.sql(...params)` |
-| Company | Elasticsearch | `PDLJS.company.search.elastic(...params)` |
+| Person | SQL | `PDLJS.person.search.sql({ ...params })` |
+| Person | Elasticsearch | `PDLJS.person.search.elastic({ ...params })` |
+| Company | SQL | `PDLJS.company.search.sql({ ...params })` |
+| Company | Elasticsearch | `PDLJS.company.search.elastic({ ...params })` |
 
 You can pass your query to these methods using the special `searchQuery` function argument, as shown in the following example:
 
