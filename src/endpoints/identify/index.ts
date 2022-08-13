@@ -20,6 +20,13 @@ export default (
     const p = params;
     delete p.sandbox;
 
+    Object.entries(p).forEach(([key, value]) => {
+      if (typeof value === 'object') {
+        // @ts-ignore
+        p[key] = JSON.stringify(value);
+      }
+    });
+
     axios.get<IdentifyResponse>(url, {
       params: {
         api_key: apiKey,
