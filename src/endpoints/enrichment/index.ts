@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { cloneDeep } from 'lodash';
+import _ from 'lodash';
 import {
   PersonEnrichmentParams, CompanyEnrichmentParams, EnrichmentType, PersonEnrichmentResponse, CompanyEnrichmentResponse,
 } from '../../types/enrichment-types';
@@ -21,7 +21,7 @@ export default <T extends PersonEnrichmentParams | CompanyEnrichmentParams, K ex
 
     const url = params.sandbox && type === 'person' ? `${sandboxBasePath}/${type}/enrich` : `${basePath}/${type}/enrich`;
 
-    const newParams = cloneDeep(params);
+    const newParams = _.cloneDeep(params);
     const p = new URLSearchParams();
     delete newParams.sandbox;
 
