@@ -26,7 +26,13 @@ export default <T extends PersonEnrichmentParams | CompanyEnrichmentParams, K ex
     delete newParams.sandbox;
 
     Object.entries(newParams).forEach(([key, value]) => {
-      if (typeof value === 'object') {
+      if (key === 'profile') {
+        if (Array.isArray(value)) {
+          p.append(key, JSON.stringify(value));
+        } else {
+          p.append(key, value);
+        }
+      } else if (typeof value === 'object') {
         if (Array.isArray(value)) {
           value.forEach((member) => {
             p.append(key, (member));
