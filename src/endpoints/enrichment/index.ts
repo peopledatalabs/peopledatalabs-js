@@ -20,15 +20,16 @@ export default <T extends PersonEnrichmentParams | CompanyEnrichmentParams, K ex
 
     const url = params.sandbox && type === 'person' ? `${sandboxBasePath}/${type}/enrich` : `${basePath}/${type}/enrich`;
 
+    const newParams = params;
     const p = new URLSearchParams();
-    delete params.sandbox;
+    delete newParams.sandbox;
 
-    Object.entries(params).forEach(([key, value]) => {
+    Object.entries(newParams).forEach(([key, value]) => {
       if (typeof value === 'object') {
         if (Array.isArray(value)) {
-          value.forEach(member => {
+          value.forEach((member) => {
             p.append(key, (member));
-          })
+          });
         } else {
           p.append(key, JSON.stringify(value));
         }
@@ -37,7 +38,7 @@ export default <T extends PersonEnrichmentParams | CompanyEnrichmentParams, K ex
       }
     });
 
-    p.append("api_key", apiKey);
+    p.append('api_key', apiKey);
 
     axios.get<K>(url, {
       params: p,

@@ -17,21 +17,28 @@ export default (
 
     const url = params.sandbox ? `${sandboxBasePath}/person/identify` : `${basePath}/person/identify`;
 
-    const p = params;
-    delete p.sandbox;
+    const newParams = params;
+    const p = new URLSearchParams();
+    delete newParams.sandbox;
 
-    Object.entries(p).forEach(([key, value]) => {
+    Object.entries(newParams).forEach(([key, value]: [string, any]) => {
       if (typeof value === 'object') {
-        // @ts-ignore
-        p[key] = JSON.stringify(value);
+        if (Array.isArray(value)) {
+          value.forEach((member) => {
+            p.append(key, (member));
+          });
+        } else {
+          p.append(key, JSON.stringify(value));
+        }
+      } else {
+        p.append(key, (value));
       }
     });
 
+    p.append('api_key', apiKey);
+
     axios.get<IdentifyResponse>(url, {
-      params: {
-        api_key: apiKey,
-        ...p,
-      },
+      params: p,
       headers,
     })
       .then((response) => {
