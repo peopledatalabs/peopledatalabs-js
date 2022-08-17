@@ -20,7 +20,7 @@ export interface CompanyCleanerResponse extends BaseResponse {
   name?: string,
   size?: string,
   id?: string,
-  founded?: string,
+  founded?: number,
   industry?: string,
   type?: string,
   ticker?: string,
