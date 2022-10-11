@@ -77,7 +77,7 @@ const check = (
     reject(error);
   }
 
-  if (!apiKey || apiKey.length >= 36) {
+  if (!apiKey || apiKey.length < 36) {
     error.message = 'Invalid API Key';
     error.status = 401;
     reject(error);
