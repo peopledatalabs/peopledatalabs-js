@@ -1,6 +1,6 @@
 {
   "name": "peopledatalabs",
-  "version": "4.0.3",
+  "version": "4.1.0",
   "description": "JavaScript client with TypeScript support for the People Data Labs API",
   "type": "module",
   "main": "dist/index.cjs",
@@ -42,27 +42,27 @@
   },
   "homepage": "https://docs.peopledatalabs.com/docs/javascript-sdk",
   "devDependencies": {
-    "@types/lodash": "^4.14.182",
-    "@typescript-eslint/eslint-plugin": "^5.16.0",
-    "@typescript-eslint/parser": "^5.16.0",
-    "chai": "^4.3.6",
-    "dotenv": "^16.0.0",
-    "eslint": "^8.14.0",
-    "eslint-config-airbnb": "^18.2.1",
+    "@types/lodash": "^4.14.191",
+    "@typescript-eslint/eslint-plugin": "^5.48.1",
+    "@typescript-eslint/parser": "^5.48.1",
+    "chai": "^4.3.7",
+    "dotenv": "^16.0.3",
+    "eslint": "^8.31.0",
+    "eslint-config-airbnb": "^19.0.4",
     "eslint-config-airbnb-base": "^15.0.0",
-    "eslint-config-airbnb-typescript": "^16.1.4",
-    "eslint-plugin-import": "^2.25.4",
-    "eslint-plugin-jsx-a11y": "^6.4.1",
-    "eslint-plugin-react": "^7.24.0",
-    "eslint-plugin-react-hooks": "^1.7.0",
+    "eslint-config-airbnb-typescript": "^17.0.0",
+    "eslint-plugin-import": "^2.27.4",
+    "eslint-plugin-jsx-a11y": "^6.7.1",
+    "eslint-plugin-react": "^7.32.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-unused-imports": "^2.0.0",
     "esm": "^3.2.25",
-    "microbundle": "^0.14.2",
-    "mocha": "^10.0.0",
-    "typescript": "^4.6.3"
+    "microbundle": "^0.15.1",
+    "mocha": "^10.2.0",
+    "typescript": "^4.9.4"
   },
   "dependencies": {
-    "axios": "^0.24.0",
+    "axios": "^1.2.2",
     "lodash": "^4.17.21"
   }
 }

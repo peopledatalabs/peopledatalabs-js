@@ -113,3 +113,33 @@ class PDLJS {
 }
 
 export default PDLJS;
+
+export type {
+  AutoCompleteParams,
+  AutoCompleteResponse,
+  CompanyCleanerParams,
+  CompanyCleanerResponse,
+  LocationCleanerParams,
+  LocationCleanerResponse,
+  SchoolCleanerParams,
+  SchoolCleanerResponse,
+  CompanyEnrichmentParams,
+  CompanyEnrichmentResponse,
+  PersonEnrichmentParams,
+  PersonEnrichmentResponse,
+  BulkPersonEnrichmentParams,
+  BulkPersonEnrichmentResponse,
+  CompanySearchParams,
+  CompanySearchResponse,
+  PersonSearchParams,
+  PersonSearchResponse,
+  IdentifyParams,
+  IdentifyResponse,
+  RetrieveParams,
+  RetrieveResponse,
+  JobTitleParams,
+  JobTitleResponse,
+  SkillParams,
+  SkillResponse,
+  APISettings,
+};

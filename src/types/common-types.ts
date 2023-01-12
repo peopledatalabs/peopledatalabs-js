@@ -143,6 +143,7 @@ export interface PersonResponse {
   first_name?: string,
   middle_initial?: string,
   middle_name?: string,
+  last_initial?: string,
   last_name?: string,
   gender?: string,
   birth_year?: string,
