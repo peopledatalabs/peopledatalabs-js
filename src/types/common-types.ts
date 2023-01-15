@@ -237,7 +237,8 @@ export interface PersonResponse {
   num_records?: number,
   num_sources?: number,
   first_seen?: string,
-  certifications?: Array<PersonCertificateResponse>
+  certifications?: Array<PersonCertificateResponse>,
+  recommended_personal_email?: string,
 }
 
 export interface CompanyResponse {
