@@ -1,3 +1,4 @@
+import { PersonResponse, CompanyResponse } from './types/common-types';
 import { AutoCompleteParams, AutoCompleteResponse } from './types/autocomplete-types';
 import {
   CompanyCleanerParams,
@@ -142,4 +143,6 @@ export type {
   SkillParams,
   SkillResponse,
   APISettings,
+  PersonResponse,
+  CompanyResponse,
 };
