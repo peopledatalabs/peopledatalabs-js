@@ -19,6 +19,6 @@
     "module": "ESNext",
     "target": "ESNext"
   },
-  "include": ["src/**/*"],
-  "exclude": ["dist", "node_modules", "tests", "example"]
+  "include": ["src/**/*", ".eslintrc.cjs", "tests"],
+  "exclude": ["dist", "node_modules", "example"]
 }

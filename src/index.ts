@@ -16,7 +16,7 @@ import {
 } from './types/enrichment-types';
 import { BulkPersonEnrichmentParams, BulkPersonEnrichmentResponse } from './types/bulk-types';
 import {
-  autocomplete, bulk, cleaner, enrichment, identify, retrieve, search, jobTitle, skill,
+  autocomplete, bulk, bulkRetrieve, cleaner, enrichment, identify, retrieve, search, jobTitle, skill,
 } from './endpoints';
 import {
   CompanySearchParams,
@@ -29,6 +29,7 @@ import { APISettings } from './types/api-types';
 import { RetrieveParams, RetrieveResponse } from './types/retrieve-types';
 import { JobTitleParams, JobTitleResponse } from './types/jobTitle-types';
 import { SkillParams, SkillResponse } from './types/skill-types';
+import { BulkPersonRetrieveParams, BulkPersonRetrieveResponse } from './types/bulk-retrieve-types';
 
 class PDLJS {
   private readonly apiKey: string;
@@ -45,7 +46,10 @@ class PDLJS {
     };
     identify: (params: IdentifyParams) => Promise<IdentifyResponse>;
     retrieve: (params: RetrieveParams) => Promise<RetrieveResponse>;
-    bulk: (records: BulkPersonEnrichmentParams) => Promise<BulkPersonEnrichmentResponse>;
+    bulk: {
+      enrichment: (records: BulkPersonEnrichmentParams) => Promise<BulkPersonEnrichmentResponse>;
+      retrieve: (records: BulkPersonRetrieveParams) => Promise<BulkPersonRetrieveResponse>;
+    }
   };
 
   public company: {
@@ -83,7 +87,10 @@ class PDLJS {
         elastic: (params) => search<PersonSearchParams, PersonSearchResponse>(this.basePath, this.sandboxBasePath, this.apiKey, 'elastic', params, 'person'),
         sql: (params) => search<PersonSearchParams, PersonSearchResponse>(this.basePath, this.sandboxBasePath, this.apiKey, 'sql', params, 'person'),
       },
-      bulk: (records) => bulk(this.basePath, this.apiKey, records),
+      bulk: {
+        enrichment: (records) => bulk(this.basePath, this.apiKey, records),
+        retrieve: (records) => bulkRetrieve(this.basePath, this.apiKey, records),
+      },
       identify: (params) => identify(this.basePath, this.sandboxBasePath, this.apiKey, params),
       retrieve: (params) => retrieve(this.basePath, this.apiKey, params),
     };
@@ -145,4 +152,6 @@ export type {
   APISettings,
   PersonResponse,
   CompanyResponse,
+  BulkPersonRetrieveParams,
+  BulkPersonRetrieveResponse,
 };

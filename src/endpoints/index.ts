@@ -7,7 +7,8 @@ import retrieve from './retrieve';
 import search from './search';
 import jobTitle from './jobTitle';
 import skill from './skill';
+import bulkRetrieve from './bulkRetrieve';
 
 export {
-  autocomplete, bulk, cleaner, enrichment, identify, retrieve, search, jobTitle, skill,
+  autocomplete, bulk, bulkRetrieve, cleaner, enrichment, identify, retrieve, search, jobTitle, skill,
 };

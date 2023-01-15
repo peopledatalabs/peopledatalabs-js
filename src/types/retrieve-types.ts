@@ -10,4 +10,5 @@ export type RetrieveParams = {
 
 export interface RetrieveResponse extends BaseResponse {
   data: PersonResponse
+  billed: boolean;
 }

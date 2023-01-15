@@ -72,7 +72,7 @@ PDLJSClient.person.enrichment({ phone: '4155688415' }).then((data) => {
 });
 
 // By Bulk Enrichment
-const records = {
+const bulkEnrichmentRecords = {
   requests: [
     {
       params: {
@@ -87,7 +87,7 @@ const records = {
   ],
 };
 
-PDLJSClient.person.bulk(records).then((data) => {
+PDLJSClient.person.bulk.enrichment(bulkEnrichmentRecords).then((data) => {
   console.log(data.items);
 }).catch((error) => {
   console.log(error);
@@ -124,6 +124,20 @@ PDLJSClient.person.search.elastic({ searchQuery: esQuery, size: 10 }).then((data
 // By PDL_ID
 PDLJSClient.person.retrieve({ id: 'qEnOZ5Oh0poWnQ1luFBfVw_0000' }).then((data) => {
   console.log(data);
+}).catch((error) => {
+  console.log(error);
+});
+
+// By Bulk Retrieve
+const bulkRetrieveRecords = {
+  requests: [
+    { id: 'qEnOZ5Oh0poWnQ1luFBfVw_0000' },
+    { id: 'PzFD15NINdBWNULBBkwlig_0000' },
+  ],
+};
+
+PDLJSClient.person.bulk.retrieve(bulkRetrieveRecords).then((data) => {
+  console.log(data.items);
 }).catch((error) => {
   console.log(error);
 });
@@ -281,9 +295,10 @@ PDLJSClient.person.identify({ company: 'walmart', sandbox: true }).then((data) =
 | API Endpoint | PDLJS Function |
 |-|-|
 | [Person Enrichment API](https://docs.peopledatalabs.com/docs/enrichment-api) | `PDLJS.person.enrichment({ ...params })` |
-| [Person Bulk Person Enrichment API](https://docs.peopledatalabs.com/docs/bulk-enrichment-api) | `PDLJS.person.bulk({ ...records })` |
+| [Person Bulk Person Enrichment API](https://docs.peopledatalabs.com/docs/bulk-enrichment-api) | `PDLJS.person.bulk.enrichment({ ...records })` |
 | [Person Search API](https://docs.peopledatalabs.com/docs/search-api) | SQL: `PDLJS.person.search.sql({ ...params })` <br/> Elasticsearch: `PDLJS.person.search.elastic({ ...params })`|
 | [Person Retrieve API](https://docs.peopledatalabs.com/docs/person-retrieve-api) | `PDLJS.person.retrieve({ ...params })` |
+| [Person Bulk Person Retrieve API](https://docs.peopledatalabs.com/docs/bulk-person-retrieve) | `PDLJS.person.bulk.retrieve({ ...records })` |
 | [Person Identify API](https://docs.peopledatalabs.com/docs/identify-api) | `PDLJS.person.identify({ ...params })` |
 
 **Company Endpoints**

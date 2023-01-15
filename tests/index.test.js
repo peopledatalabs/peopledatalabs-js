@@ -2,7 +2,8 @@
 
 import { expect } from 'chai';
 import dotenv from 'dotenv';
-// eslint-disable-next-line
+
+// eslint-disable-next-line import/extensions
 import PDLJS from '../dist/index.m.js';
 
 dotenv.config({ path: './.env.local' });
@@ -41,6 +42,13 @@ const personElastic = {
 };
 
 const personID = 'qEnOZ5Oh0poWnQ1luFBfVw_0000';
+
+const bulkRecords = {
+  requests: [
+    { id: 'qEnOZ5Oh0poWnQ1luFBfVw_0000' },
+    { id: 'PzFD15NINdBWNULBBkwlig_0000' },
+  ],
+};
 
 const website = 'peopledatalabs.com';
 
@@ -96,6 +104,30 @@ describe('Person Enrichment', () => {
   });
 });
 
+describe('Person Bulk Enrichment', () => {
+  it(`Should Return Person Records for ${JSON.stringify(records)}`, (done) => {
+    PDLJSClient.person.bulk.enrichment(records).then((data) => {
+      expect(data.items.length).to.equal(2);
+      expect(data.items).to.be.a('array');
+      done();
+    }).catch((error) => {
+      expect(error).to.be.a('object');
+      done();
+    });
+  });
+
+  it('Should Error for Person Bulk Enrichment', (done) => {
+    PDLJSClient.person.bulk.enrichment().then((data) => {
+      expect(data.items.length).to.equal(2);
+      expect(data.items).to.be.a('array');
+      done();
+    }).catch((error) => {
+      expect(error).to.be.a('object');
+      done();
+    });
+  });
+});
+
 describe('Person Identify', () => {
   it(`Should Return Person Record for ${phone}`, (done) => {
     PDLJSClient.person.identify({ phone: '4155688415' }).then((data) => {
@@ -112,30 +144,6 @@ describe('Person Identify', () => {
     PDLJSClient.person.identify().then((data) => {
       expect(data.status).to.equal(200);
       expect(data).to.be.a('object');
-      done();
-    }).catch((error) => {
-      expect(error).to.be.a('object');
-      done();
-    });
-  });
-});
-
-describe('Person Bulk', () => {
-  it(`Should Return Person Records for ${JSON.stringify(records)}`, (done) => {
-    PDLJSClient.person.bulk(records).then((data) => {
-      expect(data.items.length).to.equal(2);
-      expect(data.items).to.be.a('array');
-      done();
-    }).catch((error) => {
-      expect(error).to.be.a('object');
-      done();
-    });
-  });
-
-  it('Should Error for Person Bulk', (done) => {
-    PDLJSClient.person.bulk().then((data) => {
-      expect(data.items.length).to.equal(2);
-      expect(data.items).to.be.a('array');
       done();
     }).catch((error) => {
       expect(error).to.be.a('object');
@@ -204,6 +212,30 @@ describe('Person Retrieve', () => {
 
   it('Should Error for Person Retrieve', (done) => {
     PDLJSClient.person.retrieve().then((data) => {
+      expect(data.status).to.equal(200);
+      expect(data).to.be.a('object');
+      done();
+    }).catch((error) => {
+      expect(error).to.be.a('object');
+      done();
+    });
+  });
+});
+
+describe('Bulk Person Retrieve', () => {
+  it(`Should Return Person Record for ${personID}`, (done) => {
+    PDLJSClient.person.bulk.retrieve(bulkRecords).then((data) => {
+      expect(data.status).to.equal(200);
+      expect(data).to.be.a('object');
+      done();
+    }).catch((error) => {
+      expect(error).to.be.a('object');
+      done();
+    });
+  });
+
+  it('Should Error for Bulk Person Retrieve', (done) => {
+    PDLJSClient.person.bulk.retrieve().then((data) => {
       expect(data.status).to.equal(200);
       expect(data).to.be.a('object');
       done();
@@ -425,7 +457,7 @@ describe('Job Title API', () => {
 });
 
 describe('Sandbox APIs', () => {
-  it(`Should Return Sandbox Person Record for { email: 'irussell@example.org' }`, (done) => {
+  it('Should Return Sandbox Person Record for { email: \'irussell@example.org\' }', (done) => {
     PDLJSClient.person.enrichment({ email: 'irussell@example.org', sandbox: true }).then((data) => {
       expect(data.status).to.equal(200);
       expect(data).to.be.a('object');
@@ -447,7 +479,7 @@ describe('Sandbox APIs', () => {
     });
   });
 
-  it(`Should Return Sandbox Person Records for "SELECT * FROM person WHERE location_country='mexico';"`, (done) => {
+  it('Should Return Sandbox Person Records for "SELECT * FROM person WHERE location_country=\'mexico\';"', (done) => {
     PDLJSClient.person.search.sql({ searchQuery: "SELECT * FROM person WHERE location_country='mexico';", size: 10, sandbox: true }).then((data) => {
       expect(data.status).to.equal(200);
       expect(data).to.be.a('object');
@@ -469,8 +501,8 @@ describe('Sandbox APIs', () => {
     });
   });
 
-  it(`Should Return Sandbox Person Records for { query: { bool: { must: [{term: {location_country: "mexico"}}] } } }`, (done) => {
-    PDLJSClient.person.search.elastic({ searchQuery: { query: { bool: { must: [{term: {location_country: "mexico"}}] } } }, size: 10, sandbox: true }).then((data) => {
+  it('Should Return Sandbox Person Records for { query: { bool: { must: [{term: {location_country: "mexico"}}] } } }', (done) => {
+    PDLJSClient.person.search.elastic({ searchQuery: { query: { bool: { must: [{ term: { location_country: 'mexico' } }] } } }, size: 10, sandbox: true }).then((data) => {
       expect(data.status).to.equal(200);
       expect(data).to.be.a('object');
       done();
@@ -491,7 +523,7 @@ describe('Sandbox APIs', () => {
     });
   });
 
-  it(`Should Return Sandbox Identify Person Records for { company: 'walmart' }`, (done) => {
+  it('Should Return Sandbox Identify Person Records for { company: \'walmart\' }', (done) => {
     PDLJSClient.person.identify({ company: 'walmart', sandbox: true }).then((data) => {
       expect(data.status).to.equal(200);
       expect(data).to.be.a('object');

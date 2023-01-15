@@ -22,14 +22,14 @@ PDLJSClient.person.identify({ phone: '4155688415' }).then((data) => {
   console.log(error);
 });
 
-const records = {
+const bulkEnrichmentRecords = {
   requests: [
     { params: { profile: ['linkedin.com/in/seanthorne'] } },
     { params: { profile: ['linkedin.com/in/randrewn'] } },
   ],
 };
 
-PDLJSClient.person.bulk(records).then((data) => {
+PDLJSClient.person.bulk.enrichment(bulkEnrichmentRecords).then((data) => {
   console.log(data.items);
 }).catch((error) => {
   console.log(error);
@@ -46,6 +46,19 @@ PDLJSClient.person.search.sql({
 
 PDLJSClient.person.retrieve({ id: 'qEnOZ5Oh0poWnQ1luFBfVw_0000' }).then((data) => {
   console.log(data);
+}).catch((error) => {
+  console.log(error);
+});
+
+const bulkRetrieveRecords = {
+  requests: [
+    { id: 'qEnOZ5Oh0poWnQ1luFBfVw_0000' },
+    { id: 'PzFD15NINdBWNULBBkwlig_0000' },
+  ],
+};
+
+PDLJSClient.person.bulk.retrieve(bulkRetrieveRecords).then((data) => {
+  console.log(data.items);
 }).catch((error) => {
   console.log(error);
 });
