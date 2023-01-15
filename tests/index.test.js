@@ -223,7 +223,7 @@ describe('Person Retrieve', () => {
 });
 
 describe('Bulk Person Retrieve', () => {
-  it(`Should Return Person Record for ${personID}`, (done) => {
+  it(`Should Return Person Records for ${JSON.stringify(bulkRecords)}`, (done) => {
     PDLJSClient.person.bulk.retrieve(bulkRecords).then((data) => {
       expect(data.status).to.equal(200);
       expect(data).to.be.a('object');
