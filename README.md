@@ -33,6 +33,7 @@ This library bundles up PDL API requests into simple function calls, making it e
 - [🌐 Endpoints](#endpoints)
 - [📘 Documentation](#documentation)
     - [Special Note about Search API Support](#special-note)
+    - [Upgrading to v5.X.X](#upgrading-to-v5.X.X)
 
 
 ## 🔧 Installation <a name="installation"></a>
@@ -369,3 +370,7 @@ PDLJSClient.company.search.sql({ searchQuery: sqlQuery, size: 10 }).then((data) 
  console.log(error);
 });
 ```
+
+#### Upgrading to v5.X.X <a name="upgrading-to-v5.X.X"></a>
+
+NOTE: When upgrading to v5.X.X from v4.X.X and below, Bulk Enrichment was moved from `PDLJS.person.bulk({ ...records })` to `PDLJS.person.bulk.enrichment({ ...records })`
