@@ -16,7 +16,8 @@
     "dev": "microbundle watch -p 6008",
     "test": "yarn run build && yarn run mocha",
     "mocha": "mocha --recursive 'tests/**/*.js'",
-    "pub": "yarn run build && yarn publish"
+    "pub": "yarn run build && yarn publish",
+    "lint": "eslint --fix"
   },
   "repository": {
     "type": "git",
@@ -55,6 +56,7 @@
     "eslint-plugin-jsx-a11y": "^6.7.1",
     "eslint-plugin-react": "^7.32.0",
     "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-simple-import-sort": "^8.0.0",
     "eslint-plugin-unused-imports": "^2.0.0",
     "esm": "^3.2.25",
     "microbundle": "^0.15.1",

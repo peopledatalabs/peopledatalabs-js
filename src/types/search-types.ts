@@ -34,4 +34,4 @@ export interface PersonSearchResponse extends BaseSearchResponse<PersonResponse>
 
 export interface CompanySearchParams extends BaseSearchParams {}
 
-export interface CompanySearchResponse extends BaseSearchResponse<CompanyResponse>{}
+export interface CompanySearchResponse extends BaseSearchResponse<CompanyResponse> {}

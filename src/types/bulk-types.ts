@@ -1,5 +1,5 @@
-import { PersonEnrichmentParams, PersonEnrichmentResponse } from './enrichment-types';
 import { RateLimit } from './api-types';
+import { PersonEnrichmentParams, PersonEnrichmentResponse } from './enrichment-types';
 
 export interface BulkPersonEnrichmentRequest {
   params: PersonEnrichmentParams,

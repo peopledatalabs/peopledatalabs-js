@@ -1,6 +1,6 @@
-import { RequireAtLeastOne } from './utility-types';
-import { LocationResponse } from './common-types';
 import { BaseResponse } from './api-types';
+import { LocationResponse } from './common-types';
+import { RequireAtLeastOne } from './utility-types';
 
 export type CleanerType = 'company' | 'school' | 'location';
 
@@ -39,7 +39,7 @@ export interface CompanyCleanerResponse extends BaseResponse {
 
 export type SchoolCleanerParams = CompanyCleanerParams;
 
-export interface SchoolCleanerResponse extends BaseResponse{
+export interface SchoolCleanerResponse extends BaseResponse {
   name?: string,
   type?: string,
   id?: string,
@@ -67,7 +67,7 @@ export interface LocationCleanerParams {
   pretty?: boolean;
 }
 
-export interface LocationCleanerResponse extends BaseResponse{
+export interface LocationCleanerResponse extends BaseResponse {
   name?: string,
   locality?: string,
   region?: string,

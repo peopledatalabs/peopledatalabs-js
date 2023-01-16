@@ -1,6 +1,7 @@
 import axios from 'axios';
-import { BulkPersonRetrieveResponse, BulkPersonRetrieveParams } from '../../types/bulk-retrieve-types';
+
 import { check, errorHandler } from '../../errors';
+import { BulkPersonRetrieveParams, BulkPersonRetrieveResponse } from '../../types/bulk-retrieve-types';
 import { parseRateLimitingResponse } from '../../utils/api-utils';
 
 export default (basePath: string, apiKey: string, records: BulkPersonRetrieveParams) => {

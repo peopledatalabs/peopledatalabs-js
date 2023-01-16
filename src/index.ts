@@ -1,35 +1,16 @@
-import { PersonResponse, CompanyResponse } from './types/common-types';
-import { AutoCompleteParams, AutoCompleteResponse } from './types/autocomplete-types';
-import {
-  CompanyCleanerParams,
-  CompanyCleanerResponse,
-  LocationCleanerParams,
-  LocationCleanerResponse,
-  SchoolCleanerParams,
-  SchoolCleanerResponse,
-} from './types/cleaner-types';
-import {
-  CompanyEnrichmentParams,
-  CompanyEnrichmentResponse,
-  PersonEnrichmentParams,
-  PersonEnrichmentResponse,
-} from './types/enrichment-types';
-import { BulkPersonEnrichmentParams, BulkPersonEnrichmentResponse } from './types/bulk-types';
-import {
-  autocomplete, bulk, bulkRetrieve, cleaner, enrichment, identify, retrieve, search, jobTitle, skill,
-} from './endpoints';
-import {
-  CompanySearchParams,
-  CompanySearchResponse,
-  PersonSearchParams,
-  PersonSearchResponse,
-} from './types/search-types';
-import { IdentifyParams, IdentifyResponse } from './types/identify-types';
+import { autocomplete, bulk, bulkRetrieve, cleaner, enrichment, identify, jobTitle, retrieve, search, skill } from './endpoints';
 import { APISettings } from './types/api-types';
-import { RetrieveParams, RetrieveResponse } from './types/retrieve-types';
-import { JobTitleParams, JobTitleResponse } from './types/jobTitle-types';
-import { SkillParams, SkillResponse } from './types/skill-types';
+import { AutoCompleteParams, AutoCompleteResponse } from './types/autocomplete-types';
 import { BulkPersonRetrieveParams, BulkPersonRetrieveResponse } from './types/bulk-retrieve-types';
+import { BulkPersonEnrichmentParams, BulkPersonEnrichmentResponse } from './types/bulk-types';
+import { CompanyCleanerParams, CompanyCleanerResponse, LocationCleanerParams, LocationCleanerResponse, SchoolCleanerParams, SchoolCleanerResponse } from './types/cleaner-types';
+import { CompanyResponse, PersonResponse } from './types/common-types';
+import { CompanyEnrichmentParams, CompanyEnrichmentResponse, PersonEnrichmentParams, PersonEnrichmentResponse } from './types/enrichment-types';
+import { IdentifyParams, IdentifyResponse } from './types/identify-types';
+import { JobTitleParams, JobTitleResponse } from './types/jobTitle-types';
+import { RetrieveParams, RetrieveResponse } from './types/retrieve-types';
+import { CompanySearchParams, CompanySearchResponse, PersonSearchParams, PersonSearchResponse } from './types/search-types';
+import { SkillParams, SkillResponse } from './types/skill-types';
 
 class PDLJS {
   private readonly apiKey: string;
@@ -123,35 +104,35 @@ class PDLJS {
 export default PDLJS;
 
 export type {
+  APISettings,
   AutoCompleteParams,
   AutoCompleteResponse,
-  CompanyCleanerParams,
-  CompanyCleanerResponse,
-  LocationCleanerParams,
-  LocationCleanerResponse,
-  SchoolCleanerParams,
-  SchoolCleanerResponse,
-  CompanyEnrichmentParams,
-  CompanyEnrichmentResponse,
-  PersonEnrichmentParams,
-  PersonEnrichmentResponse,
   BulkPersonEnrichmentParams,
   BulkPersonEnrichmentResponse,
-  CompanySearchParams,
-  CompanySearchResponse,
-  PersonSearchParams,
-  PersonSearchResponse,
-  IdentifyParams,
-  IdentifyResponse,
-  RetrieveParams,
-  RetrieveResponse,
-  JobTitleParams,
-  JobTitleResponse,
-  SkillParams,
-  SkillResponse,
-  APISettings,
-  PersonResponse,
-  CompanyResponse,
   BulkPersonRetrieveParams,
   BulkPersonRetrieveResponse,
+  CompanyCleanerParams,
+  CompanyCleanerResponse,
+  CompanyEnrichmentParams,
+  CompanyEnrichmentResponse,
+  CompanyResponse,
+  CompanySearchParams,
+  CompanySearchResponse,
+  IdentifyParams,
+  IdentifyResponse,
+  JobTitleParams,
+  JobTitleResponse,
+  LocationCleanerParams,
+  LocationCleanerResponse,
+  PersonEnrichmentParams,
+  PersonEnrichmentResponse,
+  PersonResponse,
+  PersonSearchParams,
+  PersonSearchResponse,
+  RetrieveParams,
+  RetrieveResponse,
+  SchoolCleanerParams,
+  SchoolCleanerResponse,
+  SkillParams,
+  SkillResponse,
 };

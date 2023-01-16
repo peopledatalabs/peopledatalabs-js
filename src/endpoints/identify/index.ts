@@ -1,7 +1,8 @@
-import _ from 'lodash';
 import axios from 'axios';
+import _ from 'lodash';
+
 import { check, errorHandler } from '../../errors';
-import { IdentifyResponse, IdentifyParams } from '../../types/identify-types';
+import { IdentifyParams, IdentifyResponse } from '../../types/identify-types';
 import { parseRateLimitingResponse } from '../../utils/api-utils';
 
 export default (

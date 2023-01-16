@@ -1,6 +1,6 @@
-import { RequireAtLeastOne } from './utility-types';
 import { BaseResponse } from './api-types';
 import { CompanyResponse, PersonResponse } from './common-types';
+import { RequireAtLeastOne } from './utility-types';
 
 export type EnrichmentType = 'company' | 'person';
 

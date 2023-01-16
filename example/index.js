@@ -1,7 +1,6 @@
 /* eslint no-console: "off" */
 
 import dotenv from 'dotenv';
-
 import PDLJS from 'peopledatalabs';
 
 dotenv.config({ path: '../.env.local' });

@@ -1,5 +1,4 @@
 import { BaseResponse, RateLimit } from './api-types';
-
 import { PersonResponse } from './common-types';
 
 export type BulkPersonRetrieveRequest = {
