@@ -1,7 +1,8 @@
 import axios from 'axios';
+
 import { check, errorHandler } from '../../errors';
-import { BaseSearchParams, SearchType } from '../../types/search-types';
 import { BaseResponse } from '../../types/api-types';
+import { BaseSearchParams, SearchType } from '../../types/search-types';
 import { parseRateLimitingResponse } from '../../utils/api-utils';
 
 export default <T extends BaseSearchParams, K extends BaseResponse>(

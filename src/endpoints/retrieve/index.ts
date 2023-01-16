@@ -1,4 +1,5 @@
 import axios from 'axios';
+
 import { check, errorHandler } from '../../errors';
 import { RetrieveParams, RetrieveResponse } from '../../types/retrieve-types';
 import { parseRateLimitingResponse } from '../../utils/api-utils';

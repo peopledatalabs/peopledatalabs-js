@@ -1,9 +1,10 @@
 import axios from 'axios';
+
 import { check, errorHandler } from '../../errors';
-import { BulkPersonEnrichmentParams, BulkPersonEnrichmentResponse } from '../../types/bulk-types';
+import { BulkPersonRetrieveParams, BulkPersonRetrieveResponse } from '../../types/bulk-retrieve-types';
 import { parseRateLimitingResponse } from '../../utils/api-utils';
 
-export default (basePath: string, apiKey: string, records: BulkPersonEnrichmentParams) => {
+export default (basePath: string, apiKey: string, records: BulkPersonRetrieveParams) => {
   const headers = {
     'Content-Type': 'application/json',
     'Accept-Encoding': 'gzip',
@@ -11,9 +12,9 @@ export default (basePath: string, apiKey: string, records: BulkPersonEnrichmentP
     'User-Agent': 'PDL-JS-SDK',
   };
 
-  return new Promise<BulkPersonEnrichmentResponse>((resolve, reject) => {
+  return new Promise<BulkPersonRetrieveResponse>((resolve, reject) => {
     check(records, basePath, apiKey, 'Records', 'bulk').then(() => {
-      axios.post<BulkPersonEnrichmentResponse>(`${basePath}/person/bulk`, records, { headers })
+      axios.post<BulkPersonRetrieveResponse>(`${basePath}/person/retrieve/bulk`, records, { headers })
         .then((response) => {
           resolve(parseRateLimitingResponse(response));
         })

@@ -1,9 +1,10 @@
 import { AxiosError } from 'axios';
-import { ErrorEndpoint } from './types/error-types';
-import { BaseSearchParams } from './types/search-types';
+
 import { AutoCompleteParams } from './types/autocomplete-types';
-import { RetrieveParams } from './types/retrieve-types';
+import { ErrorEndpoint } from './types/error-types';
 import { JobTitleParams } from './types/jobTitle-types';
+import { RetrieveParams } from './types/retrieve-types';
+import { BaseSearchParams } from './types/search-types';
 import { SkillParams } from './types/skill-types';
 
 const check = (

@@ -1,9 +1,8 @@
 import axios from 'axios';
 import _ from 'lodash';
-import {
-  PersonEnrichmentParams, CompanyEnrichmentParams, EnrichmentType, PersonEnrichmentResponse, CompanyEnrichmentResponse,
-} from '../../types/enrichment-types';
+
 import { check, errorHandler } from '../../errors';
+import { CompanyEnrichmentParams, CompanyEnrichmentResponse, EnrichmentType, PersonEnrichmentParams, PersonEnrichmentResponse } from '../../types/enrichment-types';
 import { parseRateLimitingResponse } from '../../utils/api-utils';
 
 export default <T extends PersonEnrichmentParams | CompanyEnrichmentParams, K extends PersonEnrichmentResponse | CompanyEnrichmentResponse>(

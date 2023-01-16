@@ -1,4 +1,5 @@
 import { AxiosResponse } from 'axios';
+
 import { RateLimit } from '../types/api-types';
 
 // eslint-disable-next-line import/prefer-default-export
