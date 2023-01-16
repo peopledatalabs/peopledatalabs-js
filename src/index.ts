@@ -1,4 +1,4 @@
-import { autocomplete, bulk, bulkRetrieve, cleaner, enrichment, identify, jobTitle, retrieve, search, skill } from './endpoints';
+import { autocomplete, bulkEnrichment, bulkRetrieve, cleaner, enrichment, identify, jobTitle, retrieve, search, skill } from './endpoints';
 import { APISettings } from './types/api-types';
 import { AutoCompleteParams, AutoCompleteResponse } from './types/autocomplete-types';
 import { BulkPersonRetrieveParams, BulkPersonRetrieveResponse } from './types/bulk-retrieve-types';
@@ -69,7 +69,7 @@ class PDLJS {
         sql: (params) => search<PersonSearchParams, PersonSearchResponse>(this.basePath, this.sandboxBasePath, this.apiKey, 'sql', params, 'person'),
       },
       bulk: {
-        enrichment: (records) => bulk(this.basePath, this.apiKey, records),
+        enrichment: (records) => bulkEnrichment(this.basePath, this.apiKey, records),
         retrieve: (records) => bulkRetrieve(this.basePath, this.apiKey, records),
       },
       identify: (params) => identify(this.basePath, this.sandboxBasePath, this.apiKey, params),
