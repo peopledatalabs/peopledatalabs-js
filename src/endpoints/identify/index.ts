@@ -1,5 +1,5 @@
 import axios from 'axios';
-import _ from 'lodash';
+import { copy } from 'copy-anything';
 
 import { check, errorHandler } from '../../errors';
 import { IdentifyParams, IdentifyResponse } from '../../types/identify-types';
@@ -19,7 +19,7 @@ export default (
 
     const url = params.sandbox ? `${sandboxBasePath}/person/identify` : `${basePath}/person/identify`;
 
-    const newParams = _.cloneDeep(params);
+    const newParams = copy(params);
     const p = new URLSearchParams();
     delete newParams.sandbox;
 
