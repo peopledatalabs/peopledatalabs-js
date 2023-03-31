@@ -43,7 +43,6 @@
   },
   "homepage": "https://docs.peopledatalabs.com/docs/javascript-sdk",
   "devDependencies": {
-    "@types/lodash": "^4.14.192",
     "@typescript-eslint/eslint-plugin": "^5.57.0",
     "@typescript-eslint/parser": "^5.57.0",
     "chai": "^4.3.7",
