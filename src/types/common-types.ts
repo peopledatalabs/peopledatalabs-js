@@ -241,6 +241,22 @@ export interface PersonResponse {
   recommended_personal_email?: string,
 }
 
+interface NaicsResponse {
+  naics_code?: string,
+  naics_industry?: string,
+  sector?: string,
+  sub_sector?: string,
+  industry_group?: string,
+  national_industry?: string,
+}
+
+export interface SicResponse {
+  sic_code?: string,
+  major_group?: string,
+  industry_group?: string,
+  industry_sector?: string,
+}
+
 export interface CompanyResponse {
   name?: string,
   size?: string,
@@ -634,6 +650,8 @@ export interface CompanyResponse {
   direct_subsidiaries?: Array<string>,
   immediate_parent?: string,
   ultimate_parent?: string,
+  naics?: Array<NaicsResponse>,
+  sic?: Array<SicResponse>,
 }
 
 export interface ErrorResponse {
