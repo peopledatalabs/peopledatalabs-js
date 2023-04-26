@@ -66,11 +66,13 @@ Then, send requests to any PDL API Endpoint:
 **Using Person APIs**
 ```js
 // By Enrichment
-PDLJSClient.person.enrichment({ phone: '4155688415' }).then((data) => {
-  console.log(data);
-}).catch((error) => {
+try {
+  const response = await PDLJSClient.person.enrichment({ phone: '4155688415' });
+
+  console.log(response);
+} catch (error) {
   console.log(error);
-});
+}
 
 // By Bulk Enrichment
 const bulkEnrichmentRecords = {
@@ -88,20 +90,24 @@ const bulkEnrichmentRecords = {
   ],
 };
 
-PDLJSClient.person.bulk.enrichment(bulkEnrichmentRecords).then((data) => {
-  console.log(data.items);
-}).catch((error) => {
+try {
+  const response = await PDLJSClient.person.bulk.enrichment(bulkEnrichmentRecords);
+
+  console.log(response.items);
+} catch (error) {
   console.log(error);
-});
+}
 
 // By Search (SQL)
 const sqlQuery = "SELECT * FROM person WHERE location_country='mexico' AND job_title_role='health'AND phone_numbers IS NOT NULL;"
 
-PDLJSClient.person.search.sql({ searchQuery: sqlQuery, size: 10 }).then((data) => {
-  console.log(data.total);
-}).catch((error) => {
+try {
+  const response = await PDLJSClient.person.search.sql({ searchQuery: sqlQuery, size: 10 });
+
+  console.log(response.total);
+} catch (error) {
   console.log(error);
-});
+}
 
 // By Search (Elasticsearch)
 const esQuery = {
@@ -116,18 +122,22 @@ const esQuery = {
   }
 }
 
-PDLJSClient.person.search.elastic({ searchQuery: esQuery, size: 10 }).then((data) => {
-  console.log(data.total);
-}).catch((error) => {
+try {
+  const response = await PDLJSClient.person.search.elastic({ searchQuery: esQuery, size: 10 });
+
+  console.log(response.total);
+} catch (error) {
   console.log(error);
-});
+}
 
 // By PDL_ID
-PDLJSClient.person.retrieve({ id: 'qEnOZ5Oh0poWnQ1luFBfVw_0000' }).then((data) => {
-  console.log(data);
-}).catch((error) => {
+try {
+  const response = await PDLJSClient.person.retrieve({ id: 'qEnOZ5Oh0poWnQ1luFBfVw_0000' });
+
+  console.log(response);
+} catch (error) {
   console.log(error);
-});
+}
 
 // By Bulk Retrieve
 const bulkRetrieveRecords = {
@@ -137,37 +147,45 @@ const bulkRetrieveRecords = {
   ],
 };
 
-PDLJSClient.person.bulk.retrieve(bulkRetrieveRecords).then((data) => {
-  console.log(data.items);
-}).catch((error) => {
+try {
+  const response = await PDLJSClient.person.bulk.retrieve(bulkRetrieveRecords);
+
+  console.log(response.items);
+} catch (error) {
   console.log(error);
-});
+}
 
 // By Fuzzy Enrichment
-PDLJSClient.person.identify({ name: 'sean thorne' }).then((data) => {
-  console.log(data);
-}).catch((error) => {
+try {
+  const response = await PDLJSClient.person.identify({ name: 'sean thorne' });
+
+  console.log(response);
+} catch (error) {
   console.log(error);
-});
+}
 ```
 
 **Using Company APIs**
 ```js
 // By Enrichment
-PDLJSClient.company.enrichment({ website: 'peopledatalabs.com' }).then((data) => {
-  console.log(data);
-}).catch((error) => {
+try {
+  const response = await PDLJSClient.company.enrichment({ website: 'peopledatalabs.com' });
+
+  console.log(response);
+} catch (error) {
   console.log(error);
-});
+}
 
 // By Search (SQL)
 const sqlQuery = "SELECT * FROM company WHERE tags='big data' AND industry='financial services' AND location.country='united states';"
 
-PDLJSClient.company.search.sql({ searchQuery: sqlQuery, size: 10 }).then((data) => {
-  console.log(data.total);
-}).catch((error) => {
+try {
+  const response = await PDLJSClient.company.search.sql({ searchQuery: sqlQuery, size: 10 });
+
+  console.log(response.total);
+} catch (error) {
   console.log(error);
-});
+}
 
 // By Search (Elasticsearch)
 const esQuery = {
@@ -182,87 +200,105 @@ const esQuery = {
   }
 }
 
-PDLJSClient.company.search.elastic({ searchQuery: esQuery, size: 10 }).then((data) => {
-  console.log(data.total);
-}).catch((error) => {
+try {
+  const response = await PDLJSClient.company.search.elastic({ searchQuery: esQuery, size: 10 });
+
+  console.log(response.total);
+} catch (error) {
   console.log(error);
-});
+}
 
 ```
 
 **Using Autocomplete API**
 ```js
 // Get Autocomplete Suggestions
-PDLJSClient.autocomplete({ field: 'title', text: 'full', size: 10 }).then((data) => {
-  console.log(data);
-}).catch((error) => {
+try {
+  const response = await PDLJSClient.autocomplete({ field: 'title', text: 'full', size: 10 });
+
+  console.log(response);
+} catch (error) {
   console.log(error);
-});
+}
 ```
 
 **Using Cleaner APIs**
 ```js
 // Clean Raw Company Strings
-PDLJSClient.company.cleaner({ name: 'peOple DaTa LabS' }).then((data) => {
-  console.log(data);
-}).catch((error) => {
+try {
+  const response = await PDLJSClient.company.cleaner({ name: 'peOple DaTa LabS' });
+
+  console.log(response);
+} catch (error) {
   console.log(error);
-});
+}
 
 // Clean Raw Location Strings
-PDLJSClient.location.cleaner({ location: '455 Market Street, San Francisco, California 94105, US' }).then((data) => {
-  console.log(data);
-}).catch((error) => {
+try {
+  const response = await PDLJSClient.location.cleaner({ location: '455 Market Street, San Francisco, California 94105, US' });
+
+  console.log(response);
+} catch (error) {
   console.log(error);
-});
+}
 
 // Clean Raw School Strings
-PDLJSClient.school.cleaner({ name: 'university of oregon' }).then((data) => {
-  console.log(data);
-}).catch((error) => {
+try {
+  const response = await PDLJSClient.school.cleaner({ name: 'university of oregon' });
+
+  console.log(response);
+} catch (error) {
   console.log(error);
-});
+}
 ```
 
 **Using Job Title Enrichment API**
 ```js
 // Enrich a Job Title
-PDLJSClient.jobTitle({ jobTitle: 'software engineer' }).then((data) => {
-  console.log(data);
-}).catch((error) => {
+try {
+  const response = await PDLJSClient.jobTitle({ jobTitle: 'software engineer' });
+
+  console.log(response);
+} catch (error) {
   console.log(error);
-});
+}
 ```
 
 **Using Skill Enrichment API**
 ```js
 // Enrich a Skill
-PDLJSClient.skill({ skill: 'c++' }).then((data) => {
-  console.log(data);
-}).catch((error) => {
+try {
+  const response = await PDLJSClient.skill({ skill: 'c++' });
+
+  console.log(response);
+} catch (error) {
   console.log(error);
-});
+}
 ```
 
 **Using Sandbox APIs**
 ```js
 // By Enrichment
-PDLJSClient.person.enrichment({ email: 'irussell@example.org', sandbox: true }).then((data) => {
-  console.log(data);
-}).catch((error) => {
+try {
+  const response = await PDLJSClient.sandbox.person.enrichment({ email: 'irussell@example.org' });
+
+  console.log(response);
+} catch (error) {
   console.log(error);
-});
+}
 
 // By Search (SQL)
-PDLJSClient.person.search.sql({
-  searchQuery: "SELECT * FROM person WHERE location_country='mexico';",
-  size: 10,
-  sandbox: true,
-}).then((data) => {
-  console.log(data);
-}).catch((error) => {
+try {
+  const response = await PDLJSClient.sandbox.person.search.sql({
+    searchQuery: "SELECT * FROM person WHERE location_country='mexico';",
+    size: 10,
+    sandbox: true,
+  });
+
+  console.log(response.total);
+} catch (error) {
   console.log(error);
-});
+}
 
 // By Search (Elasticsearch)
 const esQuery = {
@@ -275,18 +311,22 @@ const esQuery = {
   }
 }
 
-PDLJSClient.person.search.elastic({ searchQuery: esQuery, size: 10, sandbox: true }).then((data) => {
-  console.log(data);
-}).catch((error) => {
+try {
+  const response = await PDLJSClient.sandbox.person.search.elastic({ searchQuery: esQuery, size: 10, sandbox: true });
+
+  console.log(response.total);
+} catch (error) {
   console.log(error);
-});
+}
 
 // By Fuzzy Enrichment
-PDLJSClient.person.identify({ company: 'walmart', sandbox: true }).then((data) => {
-  console.log(data);
-}).catch((error) => {
+try {
+  const response = PDLJSClient.person.identify({ email: 'irussell@example.org', sandbox: true });
+
+  console.log(response);
+} catch (error) {
   console.log(error);
-});
+}
 
 ```
 
@@ -364,11 +404,13 @@ You can pass your query to these methods using the special `searchQuery` functio
 ```js
 const sqlQuery = "SELECT * FROM company WHERE website='peopledatalabs.com';"
 
-PDLJSClient.company.search.sql({ searchQuery: sqlQuery, size: 10 }).then((data) => {
- console.log(data.total);
-}).catch((error) => {
- console.log(error);
-});
+try {
+  const response = await PDLJS.company.search.sql({ searchQuery: sqlQuery, size: 10 });
+
+  console.log(response.total)
+} catch (error) {
+  console.log(error)
+}
 ```
 
 #### Upgrading to v5.X.X <a name="upgrading-to-v5"></a>
