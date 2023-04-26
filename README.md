@@ -58,7 +58,7 @@ First, create the PDLJS client:
 ```js
 import PDLJS from 'peopledatalabs';
 
-const PDLJSClient = new PDLJS({apiKey: "YOUR API KEY"})
+const PDLJSClient = new PDLJS({ apiKey: 'YOUR API KEY' })
 ```
 
 Then, send requests to any PDL API Endpoint:
@@ -114,9 +114,9 @@ const esQuery = {
   query: {
     bool: {
       must:[
-        {term: {location_country: "mexico"}},
-        {term: {job_title_role: "health"}},
-        {exists: {field: "phone_numbers"}}
+        { term: { location_country: 'mexico' } },
+        { term: { job_title_role: 'health' } },
+        { exists: { field: 'phone_numbers' } }
       ]
     }
   }
@@ -192,9 +192,9 @@ const esQuery = {
   query: {
     bool: {
       must:[
-        {term: {tags: "big data"}},
-        {term: {industry: "financial services"}},
-        {term: {location_country: "united states"}}
+        { term: { tags: 'big data' } },
+        { term: { industry: 'financial services' } },
+        { term: { location_country: 'united states' } }
       ]
     }
   }
@@ -305,7 +305,7 @@ const esQuery = {
   query: {
     bool: {
       must:[
-        {term: {location_country: "mexico"}}
+        { term: { location_country: 'mexico' } }
       ]
     }
   }
