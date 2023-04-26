@@ -7,7 +7,10 @@ export interface BulkPersonEnrichmentRequest {
 }
 
 export interface BulkPersonEnrichmentParams {
-  requests: Array<BulkPersonEnrichmentRequest>
+  requests: Array<BulkPersonEnrichmentRequest> & {
+    pretty?: boolean;
+    titlecase?: boolean;
+  }
 }
 
 export interface BulkPersonEnrichmentResponseItem extends PersonEnrichmentResponse {

@@ -9,6 +9,7 @@ export type BulkPersonRetrieveRequest = {
 export interface BulkPersonRetrieveParams {
   requests: Array<BulkPersonRetrieveRequest> & {
     pretty?: boolean;
+    titlecase?: boolean;
     filter_updated?: 'job_change' | any;
   }
 }

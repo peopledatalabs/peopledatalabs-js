@@ -5,7 +5,7 @@ import { BulkPersonRetrieveParams, BulkPersonRetrieveResponse } from './types/bu
 import { BulkPersonEnrichmentParams, BulkPersonEnrichmentResponse } from './types/bulk-types';
 import { CompanyCleanerParams, CompanyCleanerResponse, LocationCleanerParams, LocationCleanerResponse, SchoolCleanerParams, SchoolCleanerResponse } from './types/cleaner-types';
 import { CompanyResponse, PersonResponse } from './types/common-types';
-import { CompanyEnrichmentParams, CompanyEnrichmentResponse, EnrichmentAdditionalParams, PersonEnrichmentParams, PersonEnrichmentResponse } from './types/enrichment-types';
+import { CompanyEnrichmentParams, CompanyEnrichmentResponse, PersonEnrichmentParams, PersonEnrichmentResponse } from './types/enrichment-types';
 import { IdentifyParams, IdentifyResponse } from './types/identify-types';
 import { JobTitleParams, JobTitleResponse } from './types/jobTitle-types';
 import { RetrieveParams, RetrieveResponse } from './types/retrieve-types';
@@ -28,7 +28,7 @@ class PDLJS {
     identify: (params: IdentifyParams) => Promise<IdentifyResponse>;
     retrieve: (params: RetrieveParams) => Promise<RetrieveResponse>;
     bulk: {
-      enrichment: (records: BulkPersonEnrichmentParams, params?: EnrichmentAdditionalParams) => Promise<BulkPersonEnrichmentResponse>;
+      enrichment: (records: BulkPersonEnrichmentParams) => Promise<BulkPersonEnrichmentResponse>;
       retrieve: (records: BulkPersonRetrieveParams) => Promise<BulkPersonRetrieveResponse>;
     }
   };
@@ -69,7 +69,7 @@ class PDLJS {
         sql: (params) => search<PersonSearchParams, PersonSearchResponse>(this.basePath, this.sandboxBasePath, this.apiKey, 'sql', params, 'person'),
       },
       bulk: {
-        enrichment: (records, params) => bulkEnrichment(this.basePath, this.apiKey, records, params),
+        enrichment: (records) => bulkEnrichment(this.basePath, this.apiKey, records),
         retrieve: (records) => bulkRetrieve(this.basePath, this.apiKey, records),
       },
       identify: (params) => identify(this.basePath, this.sandboxBasePath, this.apiKey, params),
