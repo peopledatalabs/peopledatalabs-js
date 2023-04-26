@@ -5,6 +5,7 @@ export type RetrieveParams = {
   id: string;
 } & {
   pretty?: boolean;
+  titlecase?: boolean;
   filter_updated?: 'job_change' | any;
 };
 
