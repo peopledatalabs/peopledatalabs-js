@@ -37,6 +37,7 @@ export type PersonEnrichmentParams = EnrichmentAdditionalParams & Partial<{
   lid: number,
   birth_date: Array<string> | string;
   data_include: string;
+  pdl_id: string;
 }>;
 
 export interface PersonEnrichmentResponse extends BaseResponse {
