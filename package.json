@@ -16,7 +16,7 @@
     "dev": "microbundle watch -p 6008",
     "test": "yarn run build && yarn run mocha",
     "mocha": "mocha --recursive 'tests/**/*.js'",
-    "pub": "yarn run build && yarn publish",
+    "pub": "yarn run build && yarn publish --provenanc --access public",
     "lint": "eslint --fix"
   },
   "repository": {
@@ -43,8 +43,8 @@
   },
   "homepage": "https://docs.peopledatalabs.com/docs/javascript-sdk",
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^5.59.1",
-    "@typescript-eslint/parser": "^5.59.1",
+    "@typescript-eslint/eslint-plugin": "^5.59.2",
+    "@typescript-eslint/parser": "^5.59.2",
     "chai": "^4.3.7",
     "dotenv": "^16.0.3",
     "eslint": "^8.39.0",
