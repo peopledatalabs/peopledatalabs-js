@@ -127,6 +127,12 @@ PDLJSClient.skill({ skill: 'c++' }).then((data) => {
   console.log(error);
 });
 
+PDLJSClient.ip({ ip: '72.212.42.169' }).then((data) => {
+  console.log(data);
+}).catch((error) => {
+  console.log(error);
+});
+
 // Sandbox APIs
 
 PDLJSClient.person.enrichment({ email: 'irussell@example.org', sandbox: true }).then((data) => {

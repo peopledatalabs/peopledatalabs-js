@@ -1,4 +1,5 @@
 import { autocomplete, bulkEnrichment, bulkRetrieve, cleaner, enrichment, identify, jobTitle, retrieve, search, skill } from './endpoints';
+import ip from './endpoints/ip';
 import { APISettings } from './types/api-types';
 import { AutoCompleteParams, AutoCompleteResponse } from './types/autocomplete-types';
 import { BulkPersonRetrieveParams, BulkPersonRetrieveResponse } from './types/bulk-retrieve-types';
@@ -7,6 +8,7 @@ import { CompanyCleanerParams, CompanyCleanerResponse, LocationCleanerParams, Lo
 import { CompanyResponse, PersonResponse } from './types/common-types';
 import { CompanyEnrichmentParams, CompanyEnrichmentResponse, PersonEnrichmentParams, PersonEnrichmentResponse } from './types/enrichment-types';
 import { IdentifyParams, IdentifyResponse } from './types/identify-types';
+import { IPParams, IPResponse } from './types/ip-types';
 import { JobTitleParams, JobTitleResponse } from './types/jobTitle-types';
 import { RetrieveParams, RetrieveResponse } from './types/retrieve-types';
 import { CompanySearchParams, CompanySearchResponse, PersonSearchParams, PersonSearchResponse } from './types/search-types';
@@ -51,6 +53,8 @@ class PDLJS {
   public skill: (params: SkillParams) => Promise<SkillResponse>;
 
   public jobTitle: (params: JobTitleParams) => Promise<JobTitleResponse>;
+
+  public ip: (params: IPParams) => Promise<IPResponse>;
 
   constructor({
     apiKey,
@@ -98,6 +102,8 @@ class PDLJS {
     this.jobTitle = (params: JobTitleParams) => jobTitle(this.basePath, this.apiKey, params);
 
     this.skill = (params: SkillParams) => skill(this.basePath, this.apiKey, params);
+
+    this.ip = (params: IPParams) => ip(this.basePath, this.apiKey, params);
   }
 }
 
@@ -120,6 +126,8 @@ export type {
   CompanySearchResponse,
   IdentifyParams,
   IdentifyResponse,
+  IPParams,
+  IPResponse,
   JobTitleParams,
   JobTitleResponse,
   LocationCleanerParams,

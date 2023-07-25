@@ -276,6 +276,18 @@ try {
 }
 ```
 
+**Using IP Enrichment API**
+```js
+// Enrich an IP Address
+try {
+  const response = await PDLJSClient.ip({ ip: '72.212.42.169' });
+
+  console.log(response);
+} catch (error) {
+  console.log(error);
+}
+```
+
 **Using Sandbox APIs**
 ```js
 // By Enrichment
@@ -357,6 +369,7 @@ try {
 | [School Cleaner API](https://docs.peopledatalabs.com/docs/cleaner-apis#schoolclean) | `PDLJS.school.cleaner({ ...params })` |
 | [Job Title Enrichment API](https://docs.peopledatalabs.com/docs/job-title-enrichment-api) | `PDLJS.jobTitle({ ...params })` |
 | [Skill Enrichment API](https://docs.peopledatalabs.com/docs/skill-enrichment-api) | `PDLJS.skill({ ...params })` |
+| [IP Enrichment API](https://docs.peopledatalabs.com/docs/ip-enrichment-api) | `PDLJS.ip({ ...params })` |
 
 **Sandbox Endpoints**
 | API Endpoint | PDLJS Function |
