@@ -15,6 +15,12 @@ PDLJSClient.person.enrichment({ phone: '4155688415' }).then((data) => {
   console.log(error);
 });
 
+PDLJSClient.person.enrichmentPreview({ phone: '4155688415' }).then((data) => {
+  console.log(data);
+}).catch((error) => {
+  console.log(error);
+});
+
 PDLJSClient.person.identify({ phone: '4155688415' }).then((data) => {
   console.log(data);
 }).catch((error) => {
@@ -122,6 +128,12 @@ PDLJSClient.jobTitle({ jobTitle: 'software engineer' }).then((data) => {
 });
 
 PDLJSClient.skill({ skill: 'c++' }).then((data) => {
+  console.log(data);
+}).catch((error) => {
+  console.log(error);
+});
+
+PDLJSClient.ip({ ip: '72.212.42.169' }).then((data) => {
   console.log(data);
 }).catch((error) => {
   console.log(error);

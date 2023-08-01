@@ -1,1 +1,1 @@
-export type ErrorEndpoint = 'enrichment' | 'autocomplete' | 'search' | 'identify' | 'bulk' | 'cleaner' | 'retrieve' | 'jobTitle' | 'skill';
+export type ErrorEndpoint = 'enrichment' | 'autocomplete' | 'search' | 'identify' | 'bulk' | 'cleaner' | 'retrieve' | 'jobTitle' | 'skill' | 'ip';

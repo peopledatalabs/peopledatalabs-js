@@ -80,6 +80,8 @@ const skill = { skill: 'c++' };
 
 const jobTitle = { jobTitle: 'software engineer' };
 
+const ip = { ip: '72.212.42.169' };
+
 describe('Person Enrichment', () => {
   it(`Should Return Person Record for ${phone}`, async () => {
     try {
@@ -95,6 +97,30 @@ describe('Person Enrichment', () => {
   it('Should Error for Person Enrichment', async () => {
     try {
       const response = await PDLJSClient.person.enrichment();
+
+      expect(response.status).to.equal(200);
+      expect(response).to.be.a('object');
+    } catch (error) {
+      expect(error).to.be.a('object');
+    }
+  });
+});
+
+describe('Person Preview Enrichment', () => {
+  it(`Should Return Person Preview Record for ${phone}`, async () => {
+    try {
+      const response = await PDLJSClient.person.enrichmentPreview({ phone });
+
+      expect(response.status).to.equal(200);
+      expect(response).to.be.a('object');
+    } catch (error) {
+      expect(error).to.be.a('object');
+    }
+  });
+
+  it('Should Error for Person Preview Enrichment', async () => {
+    try {
+      const response = await PDLJSClient.person.enrichmentPreview();
 
       expect(response.status).to.equal(200);
       expect(response).to.be.a('object');
@@ -447,6 +473,30 @@ describe('Job Title API', () => {
   it('Should Error for Job Title', async () => {
     try {
       const response = await PDLJSClient.jobTitle();
+
+      expect(response.status).to.equal(200);
+      expect(response).to.be.a('object');
+    } catch (error) {
+      expect(error).to.be.a('object');
+    }
+  });
+});
+
+describe('IP Enrichment API', () => {
+  it(`Should Return IP Records for ${JSON.stringify(ip)}`, async () => {
+    try {
+      const response = await PDLJSClient.ip(ip);
+
+      expect(response.status).to.equal(200);
+      expect(response).to.be.a('object');
+    } catch (error) {
+      expect(error).to.be.a('object');
+    }
+  });
+
+  it('Should Error for IP Enrichment', async () => {
+    try {
+      const response = await PDLJSClient.ip();
 
       expect(response.status).to.equal(200);
       expect(response).to.be.a('object');

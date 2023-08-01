@@ -2,6 +2,7 @@ import { AxiosError } from 'axios';
 
 import { AutoCompleteParams } from './types/autocomplete-types';
 import { ErrorEndpoint } from './types/error-types';
+import { IPParams } from './types/ip-types';
 import { JobTitleParams } from './types/jobTitle-types';
 import { RetrieveParams } from './types/retrieve-types';
 import { BaseSearchParams } from './types/search-types';
@@ -67,6 +68,15 @@ const check = (
     const { skill } = params as SkillParams;
     if (!skill) {
       error.message = 'Missing skill';
+      error.status = 400;
+      reject(error);
+    }
+  }
+
+  if (endpoint === 'ip') {
+    const { ip } = params as IPParams;
+    if (!ip) {
+      error.message = 'Missing ip';
       error.status = 400;
       reject(error);
     }
