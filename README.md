@@ -74,6 +74,15 @@ try {
   console.log(error);
 }
 
+// By Preview Enrichment
+try {
+  const response = await PDLJSClient.person.enrichmentPreview({ phone: '4155688415' });
+
+  console.log(response);
+} catch (error) {
+  console.log(error);
+}
+
 // By Bulk Enrichment
 const bulkEnrichmentRecords = {
   requests: [
@@ -348,6 +357,7 @@ try {
 | API Endpoint | PDLJS Function |
 |-|-|
 | [Person Enrichment API](https://docs.peopledatalabs.com/docs/enrichment-api) | `PDLJS.person.enrichment({ ...params })` |
+| [Person Preview Enrichment API](https://docs.peopledatalabs.com/docs/preview-enrichment-api) | `PDLJS.person.enrichmentPreview({ ...params })` |
 | [Person Bulk Person Enrichment API](https://docs.peopledatalabs.com/docs/bulk-enrichment-api) | `PDLJS.person.bulk.enrichment({ ...records })` |
 | [Person Search API](https://docs.peopledatalabs.com/docs/search-api) | SQL: `PDLJS.person.search.sql({ ...params })` <br/> Elasticsearch: `PDLJS.person.search.elastic({ ...params })`|
 | [Person Retrieve API](https://docs.peopledatalabs.com/docs/person-retrieve-api) | `PDLJS.person.retrieve({ ...params })` |

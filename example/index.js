@@ -15,6 +15,12 @@ PDLJSClient.person.enrichment({ phone: '4155688415' }).then((data) => {
   console.log(error);
 });
 
+PDLJSClient.person.enrichmentPreview({ phone: '4155688415' }).then((data) => {
+  console.log(data);
+}).catch((error) => {
+  console.log(error);
+});
+
 PDLJSClient.person.identify({ phone: '4155688415' }).then((data) => {
   console.log(data);
 }).catch((error) => {

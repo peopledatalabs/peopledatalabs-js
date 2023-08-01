@@ -1,4 +1,4 @@
-import { autocomplete, bulkEnrichment, bulkRetrieve, cleaner, enrichment, identify, jobTitle, retrieve, search, skill } from './endpoints';
+import { autocomplete, bulkEnrichment, bulkRetrieve, cleaner, enrichment, enrichmentPreview, identify, jobTitle, retrieve, search, skill } from './endpoints';
 import ip from './endpoints/ip';
 import { APISettings } from './types/api-types';
 import { AutoCompleteParams, AutoCompleteResponse } from './types/autocomplete-types';
@@ -6,7 +6,15 @@ import { BulkPersonRetrieveParams, BulkPersonRetrieveResponse } from './types/bu
 import { BulkPersonEnrichmentParams, BulkPersonEnrichmentResponse } from './types/bulk-types';
 import { CompanyCleanerParams, CompanyCleanerResponse, LocationCleanerParams, LocationCleanerResponse, SchoolCleanerParams, SchoolCleanerResponse } from './types/cleaner-types';
 import { CompanyResponse, PersonResponse } from './types/common-types';
-import { CompanyEnrichmentParams, CompanyEnrichmentResponse, PersonEnrichmentParams, PersonEnrichmentResponse } from './types/enrichment-types';
+import {
+  CompanyEnrichmentParams,
+  CompanyEnrichmentResponse,
+  PersonEnrichmentParams,
+  PersonEnrichmentPreviewParams,
+  PersonEnrichmentPreviewResponse,
+  PersonEnrichmentResponse,
+  PersonPreviewResponse,
+} from './types/enrichment-types';
 import { IdentifyParams, IdentifyResponse } from './types/identify-types';
 import { IPParams, IPResponse } from './types/ip-types';
 import { JobTitleParams, JobTitleResponse } from './types/jobTitle-types';
@@ -23,6 +31,7 @@ class PDLJS {
 
   public person: {
     enrichment: (params: PersonEnrichmentParams) => Promise<PersonEnrichmentResponse>;
+    enrichmentPreview: (params: PersonEnrichmentPreviewParams) => Promise<PersonEnrichmentPreviewResponse>;
     search: {
       elastic: (params: PersonSearchParams) => Promise<PersonSearchResponse>;
       sql: (params: PersonSearchParams) => Promise<PersonSearchResponse>;
@@ -68,6 +77,7 @@ class PDLJS {
 
     this.person = {
       enrichment: (params) => enrichment<PersonEnrichmentParams, PersonEnrichmentResponse>(this.basePath, this.sandboxBasePath, this.apiKey, params, 'person'),
+      enrichmentPreview: (params) => enrichmentPreview(this.basePath, this.sandboxBasePath, this.apiKey, params),
       search: {
         elastic: (params) => search<PersonSearchParams, PersonSearchResponse>(this.basePath, this.sandboxBasePath, this.apiKey, 'elastic', params, 'person'),
         sql: (params) => search<PersonSearchParams, PersonSearchResponse>(this.basePath, this.sandboxBasePath, this.apiKey, 'sql', params, 'person'),
@@ -133,7 +143,10 @@ export type {
   LocationCleanerParams,
   LocationCleanerResponse,
   PersonEnrichmentParams,
+  PersonEnrichmentPreviewParams,
+  PersonEnrichmentPreviewResponse,
   PersonEnrichmentResponse,
+  PersonPreviewResponse,
   PersonResponse,
   PersonSearchParams,
   PersonSearchResponse,

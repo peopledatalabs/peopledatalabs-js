@@ -106,6 +106,30 @@ describe('Person Enrichment', () => {
   });
 });
 
+describe('Person Preview Enrichment', () => {
+  it(`Should Return Person Preview Record for ${phone}`, async () => {
+    try {
+      const response = await PDLJSClient.person.enrichmentPreview({ phone });
+
+      expect(response.status).to.equal(200);
+      expect(response).to.be.a('object');
+    } catch (error) {
+      expect(error).to.be.a('object');
+    }
+  });
+
+  it('Should Error for Person Preview Enrichment', async () => {
+    try {
+      const response = await PDLJSClient.person.enrichmentPreview();
+
+      expect(response.status).to.equal(200);
+      expect(response).to.be.a('object');
+    } catch (error) {
+      expect(error).to.be.a('object');
+    }
+  });
+});
+
 describe('Person Bulk Enrichment', () => {
   it(`Should Return Person Records for ${JSON.stringify(records)}`, async () => {
     try {
