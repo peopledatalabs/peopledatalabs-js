@@ -45,6 +45,21 @@ export interface PersonEnrichmentResponse extends BaseResponse {
   data: PersonResponse
 }
 
+export type PersonEnrichmentPreviewParams = PersonEnrichmentParams;
+
+type PersonPreviewResponseVisibleKeys = 'id' | 'full_name' | 'gender' | 'linkedin_url' | 'industry' | 'job_title' | 'job_title_role' | 'job_title_sub_role' | 'job_title_levels' | 'job_company_name' | 'job_company_website' | 'location_name';
+
+type PersonPreviewResponseType = {
+  [K in keyof PersonResponse]: K extends PersonPreviewResponseVisibleKeys ? PersonResponse[K] : boolean;
+};
+
+export interface PersonPreviewResponse extends PersonPreviewResponseType {}
+
+export interface PersonEnrichmentPreviewResponse extends BaseResponse {
+  likelihood: number,
+  data: PersonPreviewResponse
+}
+
 /* ---------------------------------------------------------- */
 /* ------------------------- Company ------------------------ */
 /* ---------------------------------------------------------- */
