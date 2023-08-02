@@ -1,8 +1,28 @@
 import axios from 'axios';
 
 import { check, errorHandler } from '../../errors';
-import { BulkPersonRetrieveParams, BulkPersonRetrieveResponse } from '../../types/bulk-retrieve-types';
+import {
+  ApiBulkPersonRetrieveParams,
+  BulkPersonRetrieveParams,
+  BulkPersonRetrieveResponse,
+} from '../../types/bulk-retrieve-types';
 import { parseRateLimitingResponse } from '../../utils/api-utils';
+
+const transformBulkRetrieveParams = (params: BulkPersonRetrieveParams): ApiBulkPersonRetrieveParams => {
+  const filter = params.filter_updated;
+  if (filter == null) {
+    return {
+      ...params,
+      filter_updated: undefined,
+    };
+  }
+  const filtersArray = Array.isArray(filter) ? filter : [filter];
+  const filterUpdated = filtersArray.join(',');
+  return {
+    ...params,
+    filter_updated: filterUpdated,
+  };
+};
 
 export default (basePath: string, apiKey: string, records: BulkPersonRetrieveParams) => {
   const headers = {
@@ -14,7 +34,8 @@ export default (basePath: string, apiKey: string, records: BulkPersonRetrievePar
 
   return new Promise<BulkPersonRetrieveResponse>((resolve, reject) => {
     check(records, basePath, apiKey, 'Records', 'bulk').then(() => {
-      axios.post<BulkPersonRetrieveResponse>(`${basePath}/person/retrieve/bulk`, records, { headers })
+      const apiParams = transformBulkRetrieveParams(records);
+      axios.post<BulkPersonRetrieveResponse>(`${basePath}/person/retrieve/bulk`, apiParams, { headers })
         .then((response) => {
           resolve(parseRateLimitingResponse(response));
         })

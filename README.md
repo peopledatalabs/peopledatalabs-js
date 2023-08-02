@@ -19,22 +19,25 @@ JavaScript client with TypeScript support for the People Data Labs API.
 </p>
 
 #
+
 This is a simple JavaScript client library to access the various API endpoints provided by [People Data Labs](https://www.peopledatalabs.com/).
 
 This library bundles up PDL API requests into simple function calls, making it easy to integrate into your projects. You can use the various [API endpoints](#endpoints) to access up-to-date, real-world data from our massive [Person](https://docs.peopledatalabs.com/docs/stats) and [Company](https://docs.peopledatalabs.com/docs/company-stats) Datasets.  
 
 ## ✨ Features
+
 - Supports all People Data Labs API endpoints
 - Built-in Typescript support
 
 ## Table of Contents
+
 - [🔧 Installation](#installation)
 - [🚀 Usage](#usage)
 - [🌐 Endpoints](#endpoints)
 - [📘 Documentation](#documentation)
-    - [Special Note about Search API Support](#special-note)
-    - [Upgrading to v5.X.X](#upgrading-to-v5)
-
+  - [Special Note about Search API Support](#special-note)
+  - [Upgrading to v6.X.X](#upgrading-to-v6)
+  - [Upgrading to v5.X.X](#upgrading-to-v5)
 
 ## 🔧 Installation <a name="installation"></a>
 
@@ -43,7 +46,9 @@ This library bundles up PDL API requests into simple function calls, making it e
 ```bash
 yarn add peopledatalabs
 ```
+
 or
+
 ```bash
 npm i peopledatalabs
 ```
@@ -55,6 +60,7 @@ npm i peopledatalabs
 ## 🚀 Usage <a name="usage"></a>
 
 First, create the PDLJS client:
+
 ```js
 import PDLJS from 'peopledatalabs';
 
@@ -64,6 +70,7 @@ const PDLJSClient = new PDLJS({ apiKey: 'YOUR API KEY' })
 Then, send requests to any PDL API Endpoint:
 
 **Using Person APIs**
+
 ```js
 // By Enrichment
 try {
@@ -154,6 +161,8 @@ const bulkRetrieveRecords = {
     { id: 'qEnOZ5Oh0poWnQ1luFBfVw_0000' },
     { id: 'PzFD15NINdBWNULBBkwlig_0000' },
   ],
+  titlecase: true,
+  filter_updated: 'job_change',
 };
 
 try {
@@ -175,6 +184,7 @@ try {
 ```
 
 **Using Company APIs**
+
 ```js
 // By Enrichment
 try {
@@ -220,6 +230,7 @@ try {
 ```
 
 **Using Autocomplete API**
+
 ```js
 // Get Autocomplete Suggestions
 try {
@@ -232,6 +243,7 @@ try {
 ```
 
 **Using Cleaner APIs**
+
 ```js
 // Clean Raw Company Strings
 try {
@@ -262,6 +274,7 @@ try {
 ```
 
 **Using Job Title Enrichment API**
+
 ```js
 // Enrich a Job Title
 try {
@@ -274,6 +287,7 @@ try {
 ```
 
 **Using Skill Enrichment API**
+
 ```js
 // Enrich a Skill
 try {
@@ -286,6 +300,7 @@ try {
 ```
 
 **Using IP Enrichment API**
+
 ```js
 // Enrich an IP Address
 try {
@@ -298,6 +313,7 @@ try {
 ```
 
 **Using Sandbox APIs**
+
 ```js
 // By Enrichment
 try {
@@ -388,10 +404,9 @@ try {
 | [Person Search Sandbox API](https://docs.peopledatalabs.com/docs/sandbox-apis) | SQL: `PDLJS.person.search.sql({ ...params, sandbox: true })` <br/> Elasticsearch: `PDLJS.person.search.elastic({ ...params, sandbox: true })`|
 | [Person Identify Sandbox API](https://docs.peopledatalabs.com/docs/sandbox-apis) | `PDLJS.person.identify({ ...params, sandbox: true })` |
 
-
 ## 📘 Documentation <a name="documentation"></a>
 
-All of our API endpoints are documented at: https://docs.peopledatalabs.com/
+All of our API endpoints are documented at: <https://docs.peopledatalabs.com/>
 
 These docs describe the supported input parameters, output responses and also provide additional technical context.
 
@@ -400,15 +415,16 @@ As illustrated in the [Endpoints](#endpoints) section above, each of our API end
 As an example:
 
 The following is **valid** because `name` is a [supported input parameter to the Person Identify API](https://docs.peopledatalabs.com/docs/identify-api-reference#input-parameters):
+
 ```js
 PDLJS.person.identify({ name: 'sean thorne' })
 ```
 
 Conversely, this would be **invalid** because `fake_parameter` is not an input parameter to the Person Identify API:
+
 ```js
 PDLJS.person.identify({ fake_parameter: 'anything' })
 ```
-
 
 #### Special Note about Search API Support <a name="special-note"></a>
 
@@ -435,6 +451,10 @@ try {
   console.log(error)
 }
 ```
+
+#### Upgrading to v6.X.X <a name="upgrading-to-v6"></a>
+
+NOTE: When upgrading to v6.X.X from vX.X.X and below, Retrieve and Bulk Retrieve were both changed to make the `pretty`, `titlecase` and `filter_updated` to be siblings of the `requests` parameter.
 
 #### Upgrading to v5.X.X <a name="upgrading-to-v5"></a>
 

@@ -60,6 +60,8 @@ const bulkRetrieveRecords = {
     { id: 'qEnOZ5Oh0poWnQ1luFBfVw_0000' },
     { id: 'PzFD15NINdBWNULBBkwlig_0000' },
   ],
+  titlecase: true,
+  filter_updated: 'job_change',
 };
 
 PDLJSClient.person.bulk.retrieve(bulkRetrieveRecords).then((data) => {
