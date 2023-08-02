@@ -1,6 +1,6 @@
 {
   "name": "peopledatalabs",
-  "version": "5.1.0",
+  "version": "6.0.0",
   "description": "JavaScript client with TypeScript support for the People Data Labs API",
   "type": "module",
   "main": "dist/index.cjs",
@@ -15,7 +15,7 @@
     "build": "rm -rf dist && microbundle",
     "dev": "microbundle watch -p 6008",
     "test": "yarn run build && yarn run mocha",
-    "mocha": "mocha --recursive 'tests/**/*.js'",
+    "mocha": "mocha --recursive 'tests/**/*.js' --timeout 5000",
     "pub": "yarn run build && yarn publish --provenanc --access public",
     "lint": "eslint --fix"
   },

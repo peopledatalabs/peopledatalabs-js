@@ -4,7 +4,7 @@ import { check, errorHandler } from '../../errors';
 import {
   ApiBulkPersonRetrieveParams,
   BulkPersonRetrieveParams,
-  BulkPersonRetrieveResponse
+  BulkPersonRetrieveResponse,
 } from '../../types/bulk-retrieve-types';
 import { parseRateLimitingResponse } from '../../utils/api-utils';
 
