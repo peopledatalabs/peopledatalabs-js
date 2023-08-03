@@ -1,12 +1,13 @@
 import { AxiosError } from 'axios';
 
 import { AutoCompleteParams } from './types/autocomplete-types';
-import { ErrorEndpoint } from './types/error-types';
+import { ErrorEndpoint, PdlError } from './types/error-types';
 import { IPParams } from './types/ip-types';
 import { JobTitleParams } from './types/jobTitle-types';
 import { RetrieveParams } from './types/retrieve-types';
 import { BaseSearchParams } from './types/search-types';
 import { SkillParams } from './types/skill-types';
+import { parseRateLimitingResponse } from './utils/api-utils';
 
 const check = (
   params: unknown,
@@ -97,7 +98,7 @@ const check = (
   resolve();
 });
 
-const errorHandler = (error: AxiosError) => {
+const errorHandler = (error: AxiosError): PdlError => {
   const errorMessages = {
     400: 'Request contained either missing or invalid parameters',
     401: 'Request contained a missing or invalid key',
@@ -111,10 +112,12 @@ const errorHandler = (error: AxiosError) => {
   if (error.response) {
     const { status } = error.response;
     const statusCode = status >= 500 && status < 600 ? 500 : status;
+    const { rateLimit } = parseRateLimitingResponse(error.response);
 
     return ({
       status: statusCode,
       message: errorMessages[statusCode as keyof typeof errorMessages],
+      rateLimit,
     });
   }
 
