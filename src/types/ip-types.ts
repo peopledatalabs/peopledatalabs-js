@@ -5,6 +5,7 @@ export interface IPParams {
   return_ip_location?: boolean;
   return_ip_metadata?: boolean;
   return_person?: boolean;
+  return_if_unmatched?: boolean;
   pretty?: boolean;
   titlecase?: boolean;
 }
