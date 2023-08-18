@@ -22,7 +22,8 @@ export interface IPResponse extends BaseResponse {
         tor?: boolean,
         vpn?: boolean,
         relay?: boolean,
-        service?: boolean,
+        service?: string,
+        asn_domain?: string,
       },
       location?: {
         name?: string,
@@ -39,7 +40,7 @@ export interface IPResponse extends BaseResponse {
     company?: {
       confidence?: 'very high' | 'high' | 'moderate' | 'low' | 'very low',
       id?: string,
-      domain?: string,
+      website?: string,
       name?: string,
       location?: {
         name?: string,
