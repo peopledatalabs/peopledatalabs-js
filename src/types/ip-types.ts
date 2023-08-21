@@ -5,6 +5,7 @@ export interface IPParams {
   return_ip_location?: boolean;
   return_ip_metadata?: boolean;
   return_person?: boolean;
+  return_if_unmatched?: boolean;
   pretty?: boolean;
   titlecase?: boolean;
 }
@@ -21,7 +22,8 @@ export interface IPResponse extends BaseResponse {
         tor?: boolean,
         vpn?: boolean,
         relay?: boolean,
-        service?: boolean,
+        service?: string,
+        asn_domain?: string,
       },
       location?: {
         name?: string,
@@ -38,7 +40,7 @@ export interface IPResponse extends BaseResponse {
     company?: {
       confidence?: 'very high' | 'high' | 'moderate' | 'low' | 'very low',
       id?: string,
-      domain?: string,
+      website?: string,
       name?: string,
       location?: {
         name?: string,
