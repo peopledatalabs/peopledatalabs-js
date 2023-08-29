@@ -18,6 +18,7 @@ export interface EnrichmentAdditionalParams {
 /* ---------------------------------------------------------- */
 
 export type PersonEnrichmentParams = EnrichmentAdditionalParams & Partial<{
+  pdl_id: string;
   name: Array<string> | string,
   first_name: Array<string> | string,
   last_name: Array<string> | string,
@@ -37,7 +38,6 @@ export type PersonEnrichmentParams = EnrichmentAdditionalParams & Partial<{
   lid: number,
   birth_date: Array<string> | string;
   data_include: string;
-  pdl_id: string;
 }>;
 
 export interface PersonEnrichmentResponse extends BaseResponse {
@@ -65,6 +65,7 @@ export interface PersonEnrichmentPreviewResponse extends BaseResponse {
 /* ---------------------------------------------------------- */
 
 export interface CompanyEnrichmentRequiredParams {
+  pdl_id: string;
   name: string,
   profile: string,
   ticker: string,
