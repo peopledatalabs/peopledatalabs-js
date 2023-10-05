@@ -652,6 +652,20 @@ export interface CompanyResponse {
   ultimate_parent?: string,
   naics?: Array<NaicsResponse>,
   sic?: Array<SicResponse>,
+  total_funding_raised?: number,
+  latest_funding_stage?: string,
+  last_funding_date?: string,
+  number_funding_rounds?: number,
+  funding_stages?: Array<string>,
+  funding_details?: Array<{
+    funding_round_date?: string,
+    funding_raised?: number,
+    funding_currency?: string,
+    funding_type?: string,
+    investing_companies?: Array<string>,
+    investing_individuals?: Array<string>,
+  }>,
+  linkedin_employee_count?: number,
 }
 
 export interface ErrorResponse {
