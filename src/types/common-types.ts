@@ -259,6 +259,7 @@ export interface SicResponse {
 
 export interface CompanyResponse {
   name?: string,
+  display_name?: string,
   size?: string,
   employee_count?: number,
   id?: string,
