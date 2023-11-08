@@ -37,7 +37,13 @@ export interface CompanyCleanerResponse extends BaseResponse {
 /* ------------------------- School ------------------------- */
 /* ---------------------------------------------------------- */
 
-export type SchoolCleanerParams = CompanyCleanerParams;
+export type SchoolCleanerParams = RequireAtLeastOne<{
+  name: string;
+  website: string;
+  profile: string;
+}> & {
+  pretty?: boolean;
+};
 
 export interface SchoolCleanerResponse extends BaseResponse {
   name?: string,

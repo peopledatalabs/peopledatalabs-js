@@ -8,8 +8,9 @@ export interface BulkPersonEnrichmentRequest {
 
 export interface BulkPersonEnrichmentParams {
   requests: Array<BulkPersonEnrichmentRequest> & {
-    pretty?: boolean;
     titlecase?: boolean;
+    include_if_matched?: boolean;
+    pretty?: boolean;
   }
 }
 
