@@ -3,6 +3,7 @@ import { BaseResponse } from './api-types';
 export interface SkillParams {
   skill: string;
   pretty?: boolean;
+  titlecase?: boolean;
 }
 
 export interface SkillResponse extends BaseResponse {

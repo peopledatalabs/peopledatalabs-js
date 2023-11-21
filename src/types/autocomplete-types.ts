@@ -11,13 +11,16 @@ export type AutoCompleteField =
   'school' |
   'sub_role' |
   'skill' |
-  'title';
+  'title' |
+  'website';
 
 export interface AutoCompleteParams {
   field: AutoCompleteField;
   text?: string;
   size?: number;
   pretty?: boolean;
+  titlecase?: boolean;
+  beta?: boolean;
 }
 
 export interface AutoCompleteResponse extends BaseResponse {

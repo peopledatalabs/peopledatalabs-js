@@ -3,6 +3,7 @@ import { BaseResponse } from './api-types';
 export interface JobTitleParams {
   jobTitle: string;
   pretty?: boolean;
+  titlecase?: boolean;
 }
 
 export interface JobTitleResponse extends BaseResponse {
