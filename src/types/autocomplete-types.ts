@@ -37,6 +37,9 @@ export interface AutoCompleteResponse extends BaseResponse {
       locality?: string;
       region?: string;
       role?: string;
+      alternative_names?: Array<string>;
+      display_name?: string;
+      display_name_history?: Array<string>;
     }
   }>
 }
