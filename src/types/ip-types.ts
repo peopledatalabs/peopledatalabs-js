@@ -42,6 +42,7 @@ export interface IPResponse extends BaseResponse {
       id?: string,
       website?: string,
       name?: string,
+      display_name?: string,
       location?: {
         name?: string,
         locality?: string,
@@ -62,8 +63,8 @@ export interface IPResponse extends BaseResponse {
     },
     person?: {
       confidence?: 'very high' | 'high' | 'moderate' | 'low' | 'very low',
-      job_title_sub_role?: string,
       job_title_role?: string,
+      job_title_sub_role?: string,
       job_title_levels?: Array<string>,
     },
   }
