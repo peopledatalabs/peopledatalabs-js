@@ -1,12 +1,12 @@
 import axios from 'axios';
 
-import { check, errorHandler } from '../../errors';
+import { check, errorHandler } from '../../errors.js';
 import {
   ApiBulkPersonRetrieveParams,
   BulkPersonRetrieveParams,
   BulkPersonRetrieveResponse,
-} from '../../types/bulk-retrieve-types';
-import { parseRateLimitingResponse } from '../../utils/api-utils';
+} from '../../types/bulk-retrieve-types.js';
+import { parseRateLimitingResponse } from '../../utils/api-utils.js';
 
 const transformBulkRetrieveParams = (params: BulkPersonRetrieveParams): ApiBulkPersonRetrieveParams => {
   const filter = params.filter_updated;

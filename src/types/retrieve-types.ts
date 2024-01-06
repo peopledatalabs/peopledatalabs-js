@@ -1,5 +1,5 @@
-import { BaseResponse } from './api-types';
-import { PersonResponse } from './common-types';
+import { BaseResponse } from './api-types.js';
+import { PersonResponse } from './common-types.js';
 
 export type RetrieveFilter = 'job_change' | 'education' | 'location' | 'personal_emails' | 'phone_number' | 'social_profile' | 'work_email';
 

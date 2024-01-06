@@ -1,9 +1,9 @@
 import axios from 'axios';
 import { copy } from 'copy-anything';
 
-import { check, errorHandler } from '../../errors';
-import { IdentifyParams, IdentifyResponse } from '../../types/identify-types';
-import { parseRateLimitingResponse } from '../../utils/api-utils';
+import { check, errorHandler } from '../../errors.js';
+import { IdentifyParams, IdentifyResponse } from '../../types/identify-types.js';
+import { parseRateLimitingResponse } from '../../utils/api-utils.js';
 
 export default (
   basePath: string,

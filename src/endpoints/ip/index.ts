@@ -1,8 +1,8 @@
 import axios from 'axios';
 
-import { check, errorHandler } from '../../errors';
-import { IPParams, IPResponse } from '../../types/ip-types';
-import { parseRateLimitingResponse } from '../../utils/api-utils';
+import { check, errorHandler } from '../../errors.js';
+import { IPParams, IPResponse } from '../../types/ip-types.js';
+import { parseRateLimitingResponse } from '../../utils/api-utils.js';
 
 export default (
   basePath: string,

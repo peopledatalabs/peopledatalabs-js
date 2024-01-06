@@ -1,9 +1,9 @@
 import axios from 'axios';
 import { copy } from 'copy-anything';
 
-import { check, errorHandler } from '../../errors';
-import { CompanyEnrichmentParams, CompanyEnrichmentResponse, EnrichmentType, PersonEnrichmentParams, PersonEnrichmentResponse } from '../../types/enrichment-types';
-import { parseRateLimitingResponse } from '../../utils/api-utils';
+import { check, errorHandler } from '../../errors.js';
+import { CompanyEnrichmentParams, CompanyEnrichmentResponse, EnrichmentType, PersonEnrichmentParams, PersonEnrichmentResponse } from '../../types/enrichment-types.js';
+import { parseRateLimitingResponse } from '../../utils/api-utils.js';
 
 export default <T extends PersonEnrichmentParams | CompanyEnrichmentParams, K extends PersonEnrichmentResponse | CompanyEnrichmentResponse>(
   basePath: string,

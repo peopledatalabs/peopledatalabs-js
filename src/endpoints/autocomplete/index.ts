@@ -1,8 +1,8 @@
 import axios from 'axios';
 
-import { check, errorHandler } from '../../errors';
-import type { AutoCompleteParams, AutoCompleteResponse } from '../../types/autocomplete-types';
-import { parseRateLimitingResponse } from '../../utils/api-utils';
+import { check, errorHandler } from '../../errors.js';
+import type { AutoCompleteParams, AutoCompleteResponse } from '../../types/autocomplete-types.js';
+import { parseRateLimitingResponse } from '../../utils/api-utils.js';
 
 export default (
   basePath: string,
