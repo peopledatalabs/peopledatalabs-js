@@ -1,13 +1,13 @@
 import { AxiosError } from 'axios';
 
-import { AutoCompleteParams } from './types/autocomplete-types';
-import { ErrorEndpoint, PdlError } from './types/error-types';
-import { IPParams } from './types/ip-types';
-import { JobTitleParams } from './types/jobTitle-types';
-import { RetrieveParams } from './types/retrieve-types';
-import { BaseSearchParams } from './types/search-types';
-import { SkillParams } from './types/skill-types';
-import { parseRateLimitingResponse } from './utils/api-utils';
+import { AutoCompleteParams } from './types/autocomplete-types.js';
+import { ErrorEndpoint, PdlError } from './types/error-types.js';
+import { IPParams } from './types/ip-types.js';
+import { JobTitleParams } from './types/jobTitle-types.js';
+import { RetrieveParams } from './types/retrieve-types.js';
+import { BaseSearchParams } from './types/search-types.js';
+import { SkillParams } from './types/skill-types.js';
+import { parseRateLimitingResponse } from './utils/api-utils.js';
 
 const check = (
   params: unknown,

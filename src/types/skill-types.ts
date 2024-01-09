@@ -1,4 +1,4 @@
-import { BaseResponse } from './api-types';
+import { BaseResponse } from './api-types.js';
 
 export interface SkillParams {
   skill: string;

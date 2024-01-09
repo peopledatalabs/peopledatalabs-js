@@ -1,6 +1,6 @@
 import { AxiosResponse } from 'axios';
 
-import { RateLimit } from '../types/api-types';
+import { RateLimit } from '../types/api-types.js';
 
 // eslint-disable-next-line import/prefer-default-export
 export const parseRateLimitingResponse = (response: AxiosResponse) => {

@@ -1,13 +1,13 @@
-import autocomplete from './autocomplete';
-import bulkEnrichment from './bulkEnrichment';
-import bulkRetrieve from './bulkRetrieve';
-import cleaner from './cleaner';
-import enrichment from './enrichment';
-import enrichmentPreview from './enrichmentPreview';
-import identify from './identify';
-import jobTitle from './jobTitle';
-import retrieve from './retrieve';
-import search from './search';
-import skill from './skill';
+import autocomplete from './autocomplete/index.js';
+import bulkEnrichment from './bulkEnrichment/index.js';
+import bulkRetrieve from './bulkRetrieve/index.js';
+import cleaner from './cleaner/index.js';
+import enrichment from './enrichment/index.js';
+import enrichmentPreview from './enrichmentPreview/index.js';
+import identify from './identify/index.js';
+import jobTitle from './jobTitle/index.js';
+import retrieve from './retrieve/index.js';
+import search from './search/index.js';
+import skill from './skill/index.js';
 
 export { autocomplete, bulkEnrichment, bulkRetrieve, cleaner, enrichment, enrichmentPreview, identify, jobTitle, retrieve, search, skill };

@@ -1,9 +1,9 @@
 import axios from 'axios';
 
-import { check, errorHandler } from '../../errors';
-import { BaseResponse } from '../../types/api-types';
-import { CleanerType } from '../../types/cleaner-types';
-import { parseRateLimitingResponse } from '../../utils/api-utils';
+import { check, errorHandler } from '../../errors.js';
+import { BaseResponse } from '../../types/api-types.js';
+import { CleanerType } from '../../types/cleaner-types.js';
+import { parseRateLimitingResponse } from '../../utils/api-utils.js';
 
 export default <T, K extends BaseResponse> (
   basePath: string,
