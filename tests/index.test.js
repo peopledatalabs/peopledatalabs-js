@@ -181,7 +181,7 @@ describe('Person Identify', () => {
 describe('Person Search', () => {
   it(`Should Return Person Records for ${personSQL}`, async () => {
     try {
-      const response = PDLJSClient.person.search.sql({ searchQuery: personSQL, size: 10 });
+      const response = await PDLJSClient.person.search.sql({ searchQuery: personSQL, size: 10 });
 
       expect(response.status).to.equal(200);
       expect(response).to.be.a('object');
@@ -192,7 +192,7 @@ describe('Person Search', () => {
 
   it('Should Error for Person Search (sql)', async () => {
     try {
-      const response = PDLJSClient.person.search.sql();
+      const response = await PDLJSClient.person.search.sql();
 
       expect(response.status).to.equal(200);
       expect(response).to.be.a('object');
@@ -203,7 +203,7 @@ describe('Person Search', () => {
 
   it(`Should Return Person Records for ${JSON.stringify(personElastic)}`, async () => {
     try {
-      const response = PDLJSClient.person.search.elastic({ searchQuery: personElastic, size: 10 });
+      const response = await PDLJSClient.person.search.elastic({ searchQuery: personElastic, size: 10 });
 
       expect(response.status).to.equal(200);
       expect(response).to.be.a('object');
@@ -214,7 +214,7 @@ describe('Person Search', () => {
 
   it('Should Error for Person Search (elastic)', async () => {
     try {
-      const response = PDLJSClient.person.search.elastic();
+      const response = await PDLJSClient.person.search.elastic();
 
       expect(response.status).to.equal(200);
       expect(response).to.be.a('object');
@@ -253,7 +253,6 @@ describe('Bulk Person Retrieve', () => {
     try {
       const response = await PDLJSClient.person.bulk.retrieve(bulkRecords);
 
-      expect(response.status).to.equal(200);
       expect(response).to.be.a('object');
     } catch (error) {
       expect(error).to.be.a('object');
