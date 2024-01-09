@@ -1,5 +1,5 @@
-import { BaseResponse } from './api-types';
-import { CompanyResponse, PersonResponse } from './common-types';
+import { BaseResponse } from './api-types.js';
+import { CompanyResponse, PersonResponse } from './common-types.js';
 
 export interface BaseSearchParams {
   searchQuery?: string | object,

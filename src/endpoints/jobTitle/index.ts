@@ -1,8 +1,8 @@
 import axios from 'axios';
 
-import { check, errorHandler } from '../../errors';
-import { JobTitleParams, JobTitleResponse } from '../../types/jobTitle-types';
-import { parseRateLimitingResponse } from '../../utils/api-utils';
+import { check, errorHandler } from '../../errors.js';
+import { JobTitleParams, JobTitleResponse } from '../../types/jobTitle-types.js';
+import { parseRateLimitingResponse } from '../../utils/api-utils.js';
 
 export default (
   basePath: string,

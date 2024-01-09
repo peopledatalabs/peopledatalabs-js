@@ -1,6 +1,6 @@
-import { BaseResponse, RateLimit } from './api-types';
-import { PersonResponse } from './common-types';
-import { ApiRetrieveMetaParams, RetrieveMetaParams } from './retrieve-types';
+import { BaseResponse, RateLimit } from './api-types.js';
+import { PersonResponse } from './common-types.js';
+import { ApiRetrieveMetaParams, RetrieveMetaParams } from './retrieve-types.js';
 
 export type BulkPersonRetrieveRequest = {
   id: string;

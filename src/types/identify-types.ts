@@ -1,6 +1,6 @@
-import { BaseResponse } from './api-types';
-import { PersonResponse } from './common-types';
-import { RequireAtLeastOne } from './utility-types';
+import { BaseResponse } from './api-types.js';
+import { PersonResponse } from './common-types.js';
+import { RequireAtLeastOne } from './utility-types.js';
 
 export type IdentifyRequiredParams = RequireAtLeastOne<{
   name: string,

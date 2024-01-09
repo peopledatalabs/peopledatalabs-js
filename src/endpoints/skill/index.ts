@@ -1,8 +1,8 @@
 import axios from 'axios';
 
-import { check, errorHandler } from '../../errors';
-import { SkillParams, SkillResponse } from '../../types/skill-types';
-import { parseRateLimitingResponse } from '../../utils/api-utils';
+import { check, errorHandler } from '../../errors.js';
+import { SkillParams, SkillResponse } from '../../types/skill-types.js';
+import { parseRateLimitingResponse } from '../../utils/api-utils.js';
 
 export default (
   basePath: string,

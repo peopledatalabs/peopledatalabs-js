@@ -1,11 +1,11 @@
-import { autocomplete, bulkEnrichment, bulkRetrieve, cleaner, enrichment, enrichmentPreview, identify, jobTitle, retrieve, search, skill } from './endpoints';
-import ip from './endpoints/ip';
-import { APISettings } from './types/api-types';
-import { AutoCompleteParams, AutoCompleteResponse } from './types/autocomplete-types';
-import { BulkPersonRetrieveParams, BulkPersonRetrieveResponse } from './types/bulk-retrieve-types';
-import { BulkPersonEnrichmentParams, BulkPersonEnrichmentResponse } from './types/bulk-types';
-import { CompanyCleanerParams, CompanyCleanerResponse, LocationCleanerParams, LocationCleanerResponse, SchoolCleanerParams, SchoolCleanerResponse } from './types/cleaner-types';
-import { CompanyResponse, PersonResponse } from './types/common-types';
+import { autocomplete, bulkEnrichment, bulkRetrieve, cleaner, enrichment, enrichmentPreview, identify, jobTitle, retrieve, search, skill } from './endpoints/index.js';
+import ip from './endpoints/ip/index.js';
+import { APISettings } from './types/api-types.js';
+import { AutoCompleteParams, AutoCompleteResponse } from './types/autocomplete-types.js';
+import { BulkPersonRetrieveParams, BulkPersonRetrieveResponse } from './types/bulk-retrieve-types.js';
+import { BulkPersonEnrichmentParams, BulkPersonEnrichmentResponse } from './types/bulk-types.js';
+import { CompanyCleanerParams, CompanyCleanerResponse, LocationCleanerParams, LocationCleanerResponse, SchoolCleanerParams, SchoolCleanerResponse } from './types/cleaner-types.js';
+import { CompanyResponse, PersonResponse } from './types/common-types.js';
 import {
   CompanyEnrichmentParams,
   CompanyEnrichmentResponse,
@@ -14,13 +14,13 @@ import {
   PersonEnrichmentPreviewResponse,
   PersonEnrichmentResponse,
   PersonPreviewResponse,
-} from './types/enrichment-types';
-import { IdentifyParams, IdentifyResponse } from './types/identify-types';
-import { IPParams, IPResponse } from './types/ip-types';
-import { JobTitleParams, JobTitleResponse } from './types/jobTitle-types';
-import { RetrieveParams, RetrieveResponse } from './types/retrieve-types';
-import { CompanySearchParams, CompanySearchResponse, PersonSearchParams, PersonSearchResponse } from './types/search-types';
-import { SkillParams, SkillResponse } from './types/skill-types';
+} from './types/enrichment-types.js';
+import { IdentifyParams, IdentifyResponse } from './types/identify-types.js';
+import { IPParams, IPResponse } from './types/ip-types.js';
+import { JobTitleParams, JobTitleResponse } from './types/jobTitle-types.js';
+import { RetrieveParams, RetrieveResponse } from './types/retrieve-types.js';
+import { CompanySearchParams, CompanySearchResponse, PersonSearchParams, PersonSearchResponse } from './types/search-types.js';
+import { SkillParams, SkillResponse } from './types/skill-types.js';
 
 class PDLJS {
   private readonly apiKey: string;
