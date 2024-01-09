@@ -72,6 +72,21 @@ const autocomplete = {
 
 const company = { name: 'peopledatalabs' };
 
+const companyRecords = {
+  requests: [
+    {
+      params: {
+        profile: ['linkedin.com/company/peopledatalabs'],
+      },
+    },
+    {
+      params: {
+        profile: ['linkedin.com/company/apple'],
+      },
+    },
+  ],
+};
+
 const location = { location: '455 Market Street, San Francisco, California 94105, US' };
 
 const school = { name: 'university of oregon' };
@@ -283,12 +298,47 @@ describe('Company Enrichment', () => {
     }
   });
 
+  it('Should Return Multiple Company Records for MRI', async () => {
+    try {
+      const response = await PDLJSClient.company.enrichment({ name: 'MRI', size: 2 });
+
+      expect(response.status).to.equal(200);
+      expect(response).to.be.a('object');
+    } catch (error) {
+      expect(error).to.be.a('object');
+    }
+  });
+
   it('Should Error for Company Enrichment', async () => {
     try {
       const response = await PDLJSClient.company.enrichment();
 
       expect(response.status).to.equal(200);
       expect(response).to.be.a('object');
+    } catch (error) {
+      expect(error).to.be.a('object');
+    }
+  });
+});
+
+describe('Company Bulk Enrichment', () => {
+  it(`Should Return Company Records for ${JSON.stringify(companyRecords)}`, async () => {
+    try {
+      const response = await PDLJSClient.company.bulk.enrichment(companyRecords);
+
+      expect(response.items.length).to.equal(2);
+      expect(response.items).to.be.a('array');
+    } catch (error) {
+      expect(error).to.be.a('object');
+    }
+  });
+
+  it('Should Error for Company Bulk Enrichment', async () => {
+    try {
+      const response = await PDLJSClient.company.bulk.enrichment();
+
+      expect(response.items.length).to.equal(2);
+      expect(response.items).to.be.a('array');
     } catch (error) {
       expect(error).to.be.a('object');
     }

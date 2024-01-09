@@ -1,9 +1,9 @@
-import { autocomplete, bulkEnrichment, bulkRetrieve, cleaner, enrichment, enrichmentPreview, identify, jobTitle, retrieve, search, skill } from './endpoints/index.js';
+import { autocomplete, bulkCompanyEnrichment, bulkEnrichment, bulkRetrieve, cleaner, enrichment, enrichmentPreview, identify, jobTitle, retrieve, search, skill } from './endpoints/index.js';
 import ip from './endpoints/ip/index.js';
 import { APISettings } from './types/api-types.js';
 import { AutoCompleteParams, AutoCompleteResponse } from './types/autocomplete-types.js';
 import { BulkPersonRetrieveParams, BulkPersonRetrieveResponse } from './types/bulk-retrieve-types.js';
-import { BulkPersonEnrichmentParams, BulkPersonEnrichmentResponse } from './types/bulk-types.js';
+import { BulkCompanyEnrichmentParams, BulkCompanyEnrichmentResponse, BulkPersonEnrichmentParams, BulkPersonEnrichmentResponse } from './types/bulk-types.js';
 import { CompanyCleanerParams, CompanyCleanerResponse, LocationCleanerParams, LocationCleanerResponse, SchoolCleanerParams, SchoolCleanerResponse } from './types/cleaner-types.js';
 import { CompanyResponse, PersonResponse } from './types/common-types.js';
 import {
@@ -51,6 +51,9 @@ class PDLJS {
       sql: (params: CompanySearchParams) => Promise<CompanySearchResponse>;
     };
     cleaner: (params: CompanyCleanerParams) => Promise<CompanyCleanerResponse>;
+    bulk: {
+      enrichment: (records: BulkCompanyEnrichmentParams) => Promise<BulkCompanyEnrichmentResponse>;
+    }
   };
 
   public school: { cleaner: (params: SchoolCleanerParams) => Promise<SchoolCleanerResponse> };
@@ -96,6 +99,9 @@ class PDLJS {
         elastic: (params) => search<CompanySearchParams, CompanySearchResponse>(this.basePath, this.sandboxBasePath, this.apiKey, 'elastic', params, 'company'),
         sql: (params) => search<CompanySearchParams, CompanySearchResponse>(this.basePath, this.sandboxBasePath, this.apiKey, 'sql', params, 'company'),
       },
+      bulk: {
+        enrichment: (records) => bulkCompanyEnrichment(this.basePath, this.apiKey, records),
+      },
       cleaner: (params) => cleaner<CompanyCleanerParams, CompanyCleanerResponse>(this.basePath, this.apiKey, params, 'company'),
     };
 
@@ -123,6 +129,8 @@ export type {
   APISettings,
   AutoCompleteParams,
   AutoCompleteResponse,
+  BulkCompanyEnrichmentParams,
+  BulkCompanyEnrichmentResponse,
   BulkPersonEnrichmentParams,
   BulkPersonEnrichmentResponse,
   BulkPersonRetrieveParams,
