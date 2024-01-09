@@ -195,6 +195,30 @@ try {
   console.log(error);
 }
 
+// By Bulk Enrichment
+const bulkEnrichmentRecords = {
+  requests: [
+    {
+      params: {
+        profile: ['linkedin.com/in/peopledatalabs'],
+      },
+    },
+    {
+      params: {
+        profile: ['linkedin.com/in/apple'],
+      },
+    },
+  ],
+};
+
+try {
+  const response = await PDLJSClient.company.bulk.enrichment(bulkEnrichmentRecords);
+
+  console.log(response.items);
+} catch (error) {
+  console.log(error);
+}
+
 // By Search (SQL)
 const sqlQuery = "SELECT * FROM company WHERE tags='big data' AND industry='financial services' AND location.country='united states';"
 
@@ -384,6 +408,7 @@ try {
 | API Endpoint | PDLJS Function |
 |-|-|
 | [Company Enrichment API](https://docs.peopledatalabs.com/docs/company-enrichment-api) | `PDLJS.company.enrichment({ ...params })` |
+| [Company Bulk Enrichment API](https://docs.peopledatalabs.com/docs/bulk-company-enrichment-api) | `PDLJS.company.bulk.enrichment({ ...records })` |
 | [Company Search API](https://docs.peopledatalabs.com/docs/company-search-api) | SQL: `PDLJS.company.search.sql({ ...params })` <br/> Elasticsearch: `PDLJS.company.search.elastic({ ...params })`|
 
 **Supporting Endpoints**
