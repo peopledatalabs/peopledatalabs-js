@@ -11,6 +11,7 @@ export interface EnrichmentAdditionalParams {
   required?: string;
   pretty?: boolean;
   sandbox?: boolean;
+  size?: number;
 }
 
 /* ---------------------------------------------------------- */

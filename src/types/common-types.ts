@@ -267,6 +267,7 @@ export interface CompanyResponse {
   size?: string,
   employee_count?: number,
   id?: string,
+  linkedin_slug?: string,
   founded?: number,
   industry?: string,
   location?: LocationResponse,
