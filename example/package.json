@@ -10,7 +10,7 @@
   "author": "People Data Labs",
   "license": "MIT",
   "dependencies": {
-    "dotenv": "^16.3.1",
+    "dotenv": "^16.3.2",
     "peopledatalabs": "*"
   }
 }
