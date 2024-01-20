@@ -65,9 +65,10 @@ const companyElastic = {
 };
 
 const autocomplete = {
-  field: 'skill',
-  text: 'c++',
+  field: 'company',
+  text: 'facebook',
   size: 10,
+  beta: true,
 };
 
 const company = { name: 'peopledatalabs' };
