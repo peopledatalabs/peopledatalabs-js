@@ -35,15 +35,15 @@ delayed-stream@~1.0.0:
   resolved "https://registry.yarnpkg.com/delayed-stream/-/delayed-stream-1.0.0.tgz#df3ae199acadfb7d440aaae0b29e2272b24ec619"
   integrity sha512-ZySD7Nf91aLB0RxL4KGrKHBXl7Eds1DAmEdcoVawXnLD7SDhpNgtuII2aAkg7a7QS41jxPSZ17p4VdGnMHk3MQ==
 
-dotenv@^16.3.1:
-  version "16.3.1"
-  resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-16.3.1.tgz#369034de7d7e5b120972693352a3bf112172cc3e"
-  integrity sha512-IPzF4w4/Rd94bA9imS68tZBaYyBWSCE47V1RGuMrB94iyTOIEwRmVL2x/4An+6mETpLrKJ5hQkB8W4kFAadeIQ==
+dotenv@^16.3.2:
+  version "16.3.2"
+  resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-16.3.2.tgz#3cb611ce5a63002dbabf7c281bc331f69d28f03f"
+  integrity sha512-HTlk5nmhkm8F6JcdXvHIzaorzCoziNQT9mGxLPVXW8wJF1TiGSL60ZGB4gHWabHOaMmWmhvk2/lPHfnBiT78AQ==
 
 follow-redirects@^1.15.4:
-  version "1.15.4"
-  resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.15.4.tgz#cdc7d308bf6493126b17ea2191ea0ccf3e535adf"
-  integrity sha512-Cr4D/5wlrb0z9dgERpUL3LrmPKVDsETIJhaCMeDfuFYcqa5bldGV6wBsAN6X/vxlXQtFBMrXdXxdL8CbDTGniw==
+  version "1.15.5"
+  resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.15.5.tgz#54d4d6d062c0fa7d9d17feb008461550e3ba8020"
+  integrity sha512-vSFWUON1B+yAw1VN4xMfxgn5fTUiaOzAJCKBwIIgT/+7CuGy9+r+5gITvP62j3RmaD5Ph65UaERdOSRGUzZtgw==
 
 form-data@^4.0.0:
   version "4.0.0"
@@ -72,9 +72,9 @@ mime-types@^2.1.12:
     mime-db "1.52.0"
 
 peopledatalabs@*:
-  version "7.0.0"
-  resolved "https://registry.yarnpkg.com/peopledatalabs/-/peopledatalabs-7.0.0.tgz#b54883321b1ac4492614db5f109a107eda758a26"
-  integrity sha512-C1WFg2rk7o1/Z7WwmNkMz8fzdj4uU8c2GHuIIWM1d1KpPjy1HLZqX3WEj2w/ModtfjlQIS1FtkQHMpng8QqTng==
+  version "7.0.1"
+  resolved "https://registry.yarnpkg.com/peopledatalabs/-/peopledatalabs-7.0.1.tgz#2036b7e3745df8458463b15828231fd0a913320e"
+  integrity sha512-FD9KbAMkNwrguV3bJTYHohm9xXHJEJ2vIEH+3HPJEmHcz7QE4QTzcVq1rmMo0UUSrNY65VMx7RO4NTCCWvxZ8A==
   dependencies:
     axios "^1.6.5"
     copy-anything "^3.0.5"
