@@ -11,7 +11,11 @@ export default (
 ) => new Promise<AutoCompleteResponse>((resolve, reject) => {
   check(params, basePath, apiKey, null, 'autocomplete').then(() => {
     const {
-      field, text, size, pretty,
+      field,
+      text,
+      size,
+      pretty,
+      beta,
     } = params;
 
     const autocompleteParams = {
@@ -19,6 +23,7 @@ export default (
       text: text || '',
       size: size || 10,
       pretty: pretty || false,
+      beta: beta || false,
     };
 
     const headers = {
