@@ -7,7 +7,7 @@ asynckit@^0.4.0:
   resolved "https://registry.yarnpkg.com/asynckit/-/asynckit-0.4.0.tgz#c79ed97f7f34cb8f2ba1bc9790bcc366474b4b79"
   integrity sha512-Oei9OH4tRh0YqU3GxhX79dM/mwVgvbZJaSNaRk+bshkj0S5cfHcgYakreBjrHwatXKbz+IoIdYLxrKim2MjW0Q==
 
-axios@^1.6.5:
+axios@^1.6.7:
   version "1.6.7"
   resolved "https://registry.yarnpkg.com/axios/-/axios-1.6.7.tgz#7b48c2e27c96f9c68a2f8f31e2ab19f59b06b0a7"
   integrity sha512-/hDJGff6/c7u0hDkvkGxR/oy6CbCs8ziCsC7SqmhjfozqiJGc8Z11wrv9z9lYfY4K8l+H9TpjcMDX0xOZmx+RA==
@@ -35,10 +35,10 @@ delayed-stream@~1.0.0:
   resolved "https://registry.yarnpkg.com/delayed-stream/-/delayed-stream-1.0.0.tgz#df3ae199acadfb7d440aaae0b29e2272b24ec619"
   integrity sha512-ZySD7Nf91aLB0RxL4KGrKHBXl7Eds1DAmEdcoVawXnLD7SDhpNgtuII2aAkg7a7QS41jxPSZ17p4VdGnMHk3MQ==
 
-dotenv@^16.4.2:
-  version "16.4.2"
-  resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-16.4.2.tgz#7ca798f89ae2011846bbdbf6470785307754120d"
-  integrity sha512-rZSSFxke7d9nYQ5NeMIwp5PP+f8wXgKNljpOb7KtH6SKW1cEqcXAz9VSJYVLKe7Jhup/gUYOkaeSVyK8GJ+nBg==
+dotenv@^16.4.5:
+  version "16.4.5"
+  resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-16.4.5.tgz#cdd3b3b604cb327e286b4762e13502f717cb099f"
+  integrity sha512-ZmdL2rui+eB2YwhsWzjInR8LldtZHGDoQ1ugH85ppHKwpUHL7j7rN0Ti9NCnGiQbhaZ11FpR+7ao1dNsmduNUg==
 
 follow-redirects@^1.15.4:
   version "1.15.5"
@@ -72,11 +72,11 @@ mime-types@^2.1.12:
     mime-db "1.52.0"
 
 peopledatalabs@*:
-  version "7.0.2"
-  resolved "https://registry.yarnpkg.com/peopledatalabs/-/peopledatalabs-7.0.2.tgz#d3a3b14bb816585cbc4b3c6fc8dc6c16b2f13a91"
-  integrity sha512-WCJHuiScNRCfuI+lkoqY1GhFDfEthT0uA0/rIm7arcivO4LQ0iG/8aBu/UZpPjLKapgS2hn95YZj6cjBzzTgAg==
+  version "7.0.4"
+  resolved "https://registry.yarnpkg.com/peopledatalabs/-/peopledatalabs-7.0.4.tgz#74c24cef38d6c8ca26e55458c9c4eaf150c7fa75"
+  integrity sha512-mqYVI6kPnE2rYosR7VoQVwue2Yd2CwQfF/pBpp0McRCmOWpJ4bqkg1H4oqMb4MWIL2yC31AIgVzvVkBE2VKMQg==
   dependencies:
-    axios "^1.6.5"
+    axios "^1.6.7"
     copy-anything "^3.0.5"
 
 proxy-from-env@^1.1.0:
