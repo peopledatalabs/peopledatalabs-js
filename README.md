@@ -146,33 +146,6 @@ try {
   console.log(error);
 }
 
-// By PDL_ID
-try {
-  const response = await PDLJSClient.person.retrieve({ id: 'qEnOZ5Oh0poWnQ1luFBfVw_0000' });
-
-  console.log(response);
-} catch (error) {
-  console.log(error);
-}
-
-// By Bulk Retrieve
-const bulkRetrieveRecords = {
-  requests: [
-    { id: 'qEnOZ5Oh0poWnQ1luFBfVw_0000' },
-    { id: 'PzFD15NINdBWNULBBkwlig_0000' },
-  ],
-  titlecase: true,
-  filter_updated: 'job_change',
-};
-
-try {
-  const response = await PDLJSClient.person.bulk.retrieve(bulkRetrieveRecords);
-
-  console.log(response.items);
-} catch (error) {
-  console.log(error);
-}
-
 // By Fuzzy Enrichment
 try {
   const response = await PDLJSClient.person.identify({ name: 'sean thorne' });
@@ -341,7 +314,10 @@ try {
 ```js
 // By Enrichment
 try {
-  const response = await PDLJSClient.sandbox.person.enrichment({ email: 'irussell@example.org' });
+  const response = await PDLJSClient.person.enrichment({
+    email: 'irussell@example.org',
+    sandbox: true,
+  });
 
   console.log(response);
 } catch (error) {
@@ -350,7 +326,7 @@ try {
 
 // By Search (SQL)
 try {
-  const response = await PDLJSClient.sandbox.person.search.sql({
+  const response = await PDLJSClient.person.search.sql({
     searchQuery: "SELECT * FROM person WHERE location_country='mexico';",
     size: 10,
     sandbox: true,
@@ -373,7 +349,7 @@ const esQuery = {
 }
 
 try {
-  const response = await PDLJSClient.sandbox.person.search.elastic({ searchQuery: esQuery, size: 10, sandbox: true });
+  const response = await PDLJSClient.person.search.elastic({ searchQuery: esQuery, size: 10, sandbox: true });
 
   console.log(response.total);
 } catch (error) {
