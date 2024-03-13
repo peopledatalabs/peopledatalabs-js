@@ -20,7 +20,6 @@ export interface AutoCompleteParams {
   size?: number;
   pretty?: boolean;
   titlecase?: boolean;
-  beta?: boolean;
 }
 
 export interface AutoCompleteResponse extends BaseResponse {

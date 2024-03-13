@@ -68,7 +68,6 @@ const autocomplete = {
   field: 'company',
   text: 'facebook',
   size: 10,
-  beta: true,
 };
 
 const company = { name: 'peopledatalabs' };

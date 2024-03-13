@@ -15,7 +15,7 @@ export default (
       text,
       size,
       pretty,
-      beta,
+      titlecase,
     } = params;
 
     const autocompleteParams = {
@@ -23,7 +23,7 @@ export default (
       text: text || '',
       size: size || 10,
       pretty: pretty || false,
-      beta: beta || false,
+      titlecase: titlecase || false,
     };
 
     const headers = {
