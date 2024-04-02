@@ -145,7 +145,7 @@ export interface PersonResponse {
   middle_name?: string,
   last_initial?: string,
   last_name?: string,
-  gender?: string,
+  sex?: string,
   birth_year?: string,
   birth_date?: string,
   linkedin_url?: string,
