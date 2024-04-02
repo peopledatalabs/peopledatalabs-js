@@ -200,6 +200,8 @@ export interface PersonResponse {
   job_onet_specific_occupation_detail?: string,
   job_summary?: string,
   job_last_updated?: string,
+  job_last_changed?: string,
+  job_last_verifed?: string,
   job_start_date?: string,
   languages?: Array<PersonLanguageResponse>,
   location_name?: string,
