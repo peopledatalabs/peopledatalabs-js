@@ -376,8 +376,6 @@ try {
 | [Person Preview Enrichment API](https://docs.peopledatalabs.com/docs/preview-enrichment-api) | `PDLJS.person.enrichmentPreview({ ...params })` |
 | [Person Bulk Person Enrichment API](https://docs.peopledatalabs.com/docs/bulk-enrichment-api) | `PDLJS.person.bulk.enrichment({ ...records })` |
 | [Person Search API](https://docs.peopledatalabs.com/docs/search-api) | SQL: `PDLJS.person.search.sql({ ...params })` <br/> Elasticsearch: `PDLJS.person.search.elastic({ ...params })`|
-| [Person Retrieve API](https://docs.peopledatalabs.com/docs/person-retrieve-api) | `PDLJS.person.retrieve({ ...params })` |
-| [Person Bulk Person Retrieve API](https://docs.peopledatalabs.com/docs/bulk-person-retrieve) | `PDLJS.person.bulk.retrieve({ ...records })` |
 | [Person Identify API](https://docs.peopledatalabs.com/docs/identify-api) | `PDLJS.person.identify({ ...params })` |
 
 **Company Endpoints**

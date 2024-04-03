@@ -49,23 +49,17 @@ PDLJSClient.person.search.sql({
   console.log(error);
 });
 
-PDLJSClient.person.retrieve({ id: 'qEnOZ5Oh0poWnQ1luFBfVw_0000' }).then((data) => {
+PDLJSClient.person.search.elastic({
+  searchQuery: {
+    query: {
+      bool: {
+        must: [{ term: { job_company_website: 'peopledatalabs.com' } }],
+      },
+    },
+  },
+  size: 10,
+}).then((data) => {
   console.log(data);
-}).catch((error) => {
-  console.log(error);
-});
-
-const bulkRetrieveRecords = {
-  requests: [
-    { id: 'qEnOZ5Oh0poWnQ1luFBfVw_0000' },
-    { id: 'PzFD15NINdBWNULBBkwlig_0000' },
-  ],
-  titlecase: true,
-  filter_updated: 'job_change',
-};
-
-PDLJSClient.person.bulk.retrieve(bulkRetrieveRecords).then((data) => {
-  console.log(data.items);
 }).catch((error) => {
   console.log(error);
 });
@@ -73,6 +67,28 @@ PDLJSClient.person.bulk.retrieve(bulkRetrieveRecords).then((data) => {
 // Company APIs
 
 PDLJSClient.company.enrichment({ website: 'peopledatalabs.com' }).then((data) => {
+  console.log(data);
+}).catch((error) => {
+  console.log(error);
+});
+
+const bulkCompanyEnrichmentRecords = {
+  requests: [
+    { params: { profile: ['linkedin.com/company/peopledatalabs'] } },
+    { params: { profile: ['linkedin.com/company/apple'] } },
+  ],
+};
+
+PDLJSClient.company.bulk.enrichment(bulkCompanyEnrichmentRecords).then((data) => {
+  console.log(data.items);
+}).catch((error) => {
+  console.log(error);
+});
+
+PDLJSClient.company.search.sql({
+  searchQuery: "SELECT * FROM company WHERE website = 'peopledatalabs.com';",
+  size: 10,
+}).then((data) => {
   console.log(data);
 }).catch((error) => {
   console.log(error);
@@ -88,6 +104,14 @@ PDLJSClient.company.search.elastic({
   },
   size: 10,
 }).then((data) => {
+  console.log(data);
+}).catch((error) => {
+  console.log(error);
+});
+
+// IP APIs
+
+PDLJSClient.ip({ ip: '72.212.42.169' }).then((data) => {
   console.log(data);
 }).catch((error) => {
   console.log(error);
@@ -130,12 +154,6 @@ PDLJSClient.jobTitle({ jobTitle: 'software engineer' }).then((data) => {
 });
 
 PDLJSClient.skill({ skill: 'c++' }).then((data) => {
-  console.log(data);
-}).catch((error) => {
-  console.log(error);
-});
-
-PDLJSClient.ip({ ip: '72.212.42.169' }).then((data) => {
   console.log(data);
 }).catch((error) => {
   console.log(error);
