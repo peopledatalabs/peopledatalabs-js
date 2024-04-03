@@ -75,7 +75,7 @@ PDLJSClient.company.enrichment({ website: 'peopledatalabs.com' }).then((data) =>
 const bulkCompanyEnrichmentRecords = {
   requests: [
     { params: { profile: ['linkedin.com/company/peopledatalabs'] } },
-    { params: { profile: ['linkedin.com/in/apple'] } },
+    { params: { profile: ['linkedin.com/company/apple'] } },
   ],
 };
 
