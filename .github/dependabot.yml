@@ -15,3 +15,5 @@ updates:
       timezone: "America/Los_Angeles"
     labels:
       - "dependencies"
+    ignore:
+      - dependency-name: "eslint"
