@@ -1,0 +1,8 @@
+{
+    "interactive": true,
+    "packageManager": "yarn",
+    "reject": [
+        "eslint"
+    ],
+    "root": true
+}
