@@ -43,7 +43,8 @@ export type PersonEnrichmentParams = EnrichmentAdditionalParams & Partial<{
 
 export interface PersonEnrichmentResponse extends BaseResponse {
   likelihood: number,
-  data: PersonResponse
+  data: PersonResponse,
+  matched: Array<string>
 }
 
 export type PersonEnrichmentPreviewParams = PersonEnrichmentParams;
