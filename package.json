@@ -1,6 +1,6 @@
 {
   "name": "peopledatalabs",
-  "version": "8.0.1",
+  "version": "8.0.2",
   "description": "JavaScript client with TypeScript support for the People Data Labs API",
   "type": "module",
   "main": "dist/index.cjs",
@@ -43,9 +43,9 @@
   },
   "homepage": "https://docs.peopledatalabs.com/docs/javascript-sdk",
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^7.6.0",
-    "@typescript-eslint/parser": "^7.6.0",
-    "chai": "^5.1.0",
+    "@typescript-eslint/eslint-plugin": "^7.8.0",
+    "@typescript-eslint/parser": "^7.8.0",
+    "chai": "^5.1.1",
     "dotenv": "^16.4.5",
     "eslint": "^8.57.0",
     "eslint-config-airbnb": "^19.0.4",
@@ -54,13 +54,13 @@
     "eslint-plugin-import": "^2.29.1",
     "eslint-plugin-jsx-a11y": "^6.8.0",
     "eslint-plugin-react": "^7.34.1",
-    "eslint-plugin-react-hooks": "^4.6.0",
-    "eslint-plugin-simple-import-sort": "^12.0.0",
-    "eslint-plugin-unused-imports": "^3.1.0",
+    "eslint-plugin-react-hooks": "^4.6.2",
+    "eslint-plugin-simple-import-sort": "^12.1.0",
+    "eslint-plugin-unused-imports": "^3.2.0",
     "esm": "^3.2.25",
     "microbundle": "^0.15.1",
     "mocha": "^10.4.0",
-    "typescript": "^5.4.4"
+    "typescript": "^5.4.5"
   },
   "dependencies": {
     "axios": "^1.6.8",
