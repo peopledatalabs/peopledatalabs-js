@@ -290,6 +290,7 @@ export interface CompanyResponse {
   alternative_domains?: Array<string>,
   affiliated_profiles?: Array<string>,
   likelihood?: number,
+  matched?: Array<string>,
   average_employee_tenure?: number,
   average_tenure_by_level?: {
     cxo?: number,
