@@ -4,15 +4,15 @@ import { PersonResponse } from './common-types.js';
 export type RetrieveFilter = 'job_change' | 'education' | 'location' | 'personal_emails' | 'phone_number' | 'social_profile' | 'work_email';
 
 export type RetrieveMetaParams = {
+  filter_updated?: RetrieveFilter | RetrieveFilter[];
   pretty?: boolean;
   titlecase?: boolean;
-  filter_updated?: RetrieveFilter | RetrieveFilter[];
 };
 
 export type ApiRetrieveMetaParams = {
+  filter_updated?: string;
   pretty?: boolean;
   titlecase?: boolean;
-  filter_updated?: string;
 };
 
 export type RetrieveParams = {
@@ -24,6 +24,6 @@ export type ApiRetrieveParams = {
 } & ApiRetrieveMetaParams;
 
 export interface RetrieveResponse extends BaseResponse {
-  data: PersonResponse
   billed: boolean;
+  data: PersonResponse
 }

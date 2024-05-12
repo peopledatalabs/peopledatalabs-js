@@ -17,7 +17,7 @@
     "test": "yarn run build && yarn run mocha",
     "mocha": "mocha --recursive 'tests/**/*.js' --timeout 5000",
     "pub": "yarn run build && yarn publish --provenanc --access public",
-    "lint": "eslint --fix"
+    "lint": "eslint ./src --fix"
   },
   "repository": {
     "type": "git",
@@ -56,6 +56,7 @@
     "eslint-plugin-react": "^7.34.1",
     "eslint-plugin-react-hooks": "^4.6.2",
     "eslint-plugin-simple-import-sort": "^12.1.0",
+    "eslint-plugin-typescript-sort-keys": "^3.2.0",
     "eslint-plugin-unused-imports": "^3.2.0",
     "esm": "^3.2.25",
     "microbundle": "^0.15.1",

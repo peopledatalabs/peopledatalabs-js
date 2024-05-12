@@ -2,15 +2,15 @@ import { RateLimit } from './api-types.js';
 import { CompanyEnrichmentParams, CompanyEnrichmentResponse, PersonEnrichmentParams, PersonEnrichmentResponse } from './enrichment-types.js';
 
 export interface BulkPersonEnrichmentRequest {
-  params: PersonEnrichmentParams,
-  metadata?: unknown // The user can define their own custom metadata
+  metadata?: unknown,
+  params: PersonEnrichmentParams // The user can define their own custom metadata
 }
 
 export interface BulkPersonEnrichmentParams {
   requests: Array<BulkPersonEnrichmentRequest> & {
-    titlecase?: boolean;
     include_if_matched?: boolean;
     pretty?: boolean;
+    titlecase?: boolean;
   }
 }
 
@@ -24,15 +24,15 @@ export type BulkPersonEnrichmentResponse = {
 };
 
 export interface BulkCompanyEnrichmentRequest {
-  params: CompanyEnrichmentParams,
-  metadata?: unknown // The user can define their own custom metadata
+  metadata?: unknown,
+  params: CompanyEnrichmentParams // The user can define their own custom metadata
 }
 
 export interface BulkCompanyEnrichmentParams {
   requests: Array<BulkCompanyEnrichmentRequest> & {
-    titlecase?: boolean;
     include_if_matched?: boolean;
     pretty?: boolean;
+    titlecase?: boolean;
   }
 }
 

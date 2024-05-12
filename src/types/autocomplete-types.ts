@@ -16,29 +16,29 @@ export type AutoCompleteField =
 
 export interface AutoCompleteParams {
   field: AutoCompleteField;
-  text?: string;
-  size?: number;
   pretty?: boolean;
+  size?: number;
+  text?: string;
   titlecase?: boolean;
 }
 
 export interface AutoCompleteResponse extends BaseResponse {
-  fields?: Array<string>;
   data?: Array<{
-    name: string;
     count: number;
     meta?: {
-      website?: string;
-      location_name?: string;
-      industry?: string;
-      id?: string;
-      country?: string;
-      locality?: string;
-      region?: string;
-      role?: string;
       alternative_names?: Array<string>;
+      country?: string;
       display_name?: string;
       display_name_history?: Array<string>;
-    }
-  }>
+      id?: string;
+      industry?: string;
+      locality?: string;
+      location_name?: string;
+      region?: string;
+      role?: string;
+      website?: string;
+    },
+    name: string;
+  }>,
+  fields?: Array<string>;
 }

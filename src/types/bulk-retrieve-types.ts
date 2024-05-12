@@ -16,9 +16,9 @@ export interface ApiBulkPersonRetrieveParams extends ApiRetrieveMetaParams {
 }
 
 export interface BulkPersonRetrieveResponseItem extends BaseResponse {
+  billed: boolean;
   data: PersonResponse;
   metadata?: unknown;
-  billed: boolean;
 }
 
 // This response does not extend from the BaseResponse since each item in the array has its own status

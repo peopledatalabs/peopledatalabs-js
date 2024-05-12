@@ -10,27 +10,27 @@ export type CleanerType = 'company' | 'school' | 'location';
 
 export type CompanyCleanerParams = RequireAtLeastOne<{
   name: string;
-  website: string;
   profile: string;
+  website: string;
 }> & {
   pretty?: boolean;
 };
 
 export interface CompanyCleanerResponse extends BaseResponse {
+  facebook_url: string,
+  founded?: number,
+  fuzzy_match: boolean,
+  id?: string,
+  industry?: string,
+  linkedin_id: string,
+  linkedin_url: string,
+  location?: Omit<LocationResponse, 'metro'>,
   name?: string,
   size?: string,
-  id?: string,
-  founded?: number,
-  industry?: string,
-  type?: string,
   ticker?: string,
-  location?: Omit<LocationResponse, 'metro'>,
-  linkedin_url: string,
-  linkedin_id: string,
-  facebook_url: string,
   twitter_url: string,
-  website: string,
-  fuzzy_match: boolean
+  type?: string,
+  website: string
 }
 
 /* ---------------------------------------------------------- */
@@ -39,29 +39,29 @@ export interface CompanyCleanerResponse extends BaseResponse {
 
 export type SchoolCleanerParams = RequireAtLeastOne<{
   name: string;
-  website: string;
   profile: string;
+  website: string;
 }> & {
   pretty?: boolean;
 };
 
 export interface SchoolCleanerResponse extends BaseResponse {
-  name?: string,
-  type?: string,
-  id?: string,
-  location: {
-    name?: string,
-    locality?: string,
-    region?: string,
-    country?: string,
-    continent?: string
-  },
-  linkedin_url?: string,
+  domain?: string,
   facebook_url?: null,
-  twitter_url?: null,
+  id?: string,
   linkedin_id?: string,
-  website?: string,
-  domain?: string
+  linkedin_url?: string,
+  location: {
+    continent?: string,
+    country?: string,
+    locality?: string,
+    name?: string,
+    region?: string
+  },
+  name?: string,
+  twitter_url?: null,
+  type?: string,
+  website?: string
 }
 
 /* ---------------------------------------------------------- */
@@ -74,12 +74,12 @@ export interface LocationCleanerParams {
 }
 
 export interface LocationCleanerResponse extends BaseResponse {
-  name?: string,
+  continent?: string,
+  country?: string,
+  geo?: string,
   locality?: string,
+  name?: string,
   region?: string,
   subregion?: string,
-  country?: string,
-  continent?: string,
-  type?: string,
-  geo?: string,
+  type?: string
 }
