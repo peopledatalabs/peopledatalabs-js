@@ -315,7 +315,7 @@ try {
 // By Enrichment
 try {
   const response = await PDLJSClient.person.enrichment({
-    email: 'irussell@example.org',
+    email: 'reneewillis74@aol.com',
     sandbox: true,
   });
 
@@ -327,7 +327,7 @@ try {
 // By Search (SQL)
 try {
   const response = await PDLJSClient.person.search.sql({
-    searchQuery: "SELECT * FROM person WHERE location_country='mexico';",
+    searchQuery: "SELECT * FROM person WHERE location_country='united states';",
     size: 10,
     sandbox: true,
   });
@@ -342,7 +342,7 @@ const esQuery = {
   query: {
     bool: {
       must:[
-        { term: { location_country: 'mexico' } }
+        { term: { location_country: 'united states' } }
       ]
     }
   }
@@ -358,7 +358,7 @@ try {
 
 // By Fuzzy Enrichment
 try {
-  const response = PDLJSClient.person.identify({ email: 'irussell@example.org', sandbox: true });
+  const response = PDLJSClient.person.identify({ email: 'reneewillis74@aol.com', sandbox: true });
 
   console.log(response);
 } catch (error) {
