@@ -16,11 +16,21 @@ module.exports = {
   plugins: [
     '@typescript-eslint',
     'simple-import-sort',
+    'typescript-sort-keys',
   ],
   rules: {
     'max-len': 'off',
     'simple-import-sort/imports': 'error',
     'simple-import-sort/exports': 'error',
     'object-curly-newline': 'off',
+    'typescript-sort-keys/interface': ['error', 'asc', {
+      caseSensitive: false,
+      natural: true,
+      requiredFirst: false,
+    }],
+    'typescript-sort-keys/string-enum': ['error', 'asc', {
+      caseSensitive: false,
+      natural: true,
+    }],
   },
 };

@@ -3,33 +3,33 @@ import { PersonResponse } from './common-types.js';
 import { RequireAtLeastOne } from './utility-types.js';
 
 export type IdentifyRequiredParams = RequireAtLeastOne<{
-  name: string,
-  first_name: string,
-  last_name: string,
-  location: string,
-  street_address: string,
-  locality: string,
-  region: string,
-  postal_code: string,
   company: string,
-  school: string,
-  phone: string,
   email: string,
   email_hash: string,
-  profile: string,
+  first_name: string,
+  last_name: string,
   lid: number,
+  locality: string,
+  location: string,
+  name: string,
+  phone: string,
+  postal_code: string,
+  profile: string,
+  region: string,
+  school: string,
+  street_address: string
 }>;
 
 export type IdentifyParams = IdentifyRequiredParams & Partial<{
-  middle_name: string
-  country: string,
   birth_date: string,
-  required: string,
-  titlecase: boolean
+  country: string,
   data_include: string,
   include_if_matched: boolean,
+  middle_name: string,
   pretty: boolean,
+  required: string,
   sandbox: boolean,
+  titlecase: boolean
 }>;
 
 export interface IdentifyResponse extends BaseResponse {

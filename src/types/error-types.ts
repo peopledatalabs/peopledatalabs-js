@@ -4,6 +4,6 @@ export type ErrorEndpoint = 'enrichment' | 'autocomplete' | 'search' | 'identify
 
 export type PdlError = {
   message: string;
-  status: number;
   rateLimit?: RateLimit;
+  status: number;
 };

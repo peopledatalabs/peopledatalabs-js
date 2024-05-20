@@ -30,30 +30,30 @@ class PDLJS {
   private readonly sandboxBasePath: string;
 
   public person: {
+    bulk: {
+      enrichment: (records: BulkPersonEnrichmentParams) => Promise<BulkPersonEnrichmentResponse>;
+      retrieve: (records: BulkPersonRetrieveParams) => Promise<BulkPersonRetrieveResponse>;
+    },
     enrichment: (params: PersonEnrichmentParams) => Promise<PersonEnrichmentResponse>;
     enrichmentPreview: (params: PersonEnrichmentPreviewParams) => Promise<PersonEnrichmentPreviewResponse>;
+    identify: (params: IdentifyParams) => Promise<IdentifyResponse>;
+    retrieve: (params: RetrieveParams) => Promise<RetrieveResponse>;
     search: {
       elastic: (params: PersonSearchParams) => Promise<PersonSearchResponse>;
       sql: (params: PersonSearchParams) => Promise<PersonSearchResponse>;
     };
-    identify: (params: IdentifyParams) => Promise<IdentifyResponse>;
-    retrieve: (params: RetrieveParams) => Promise<RetrieveResponse>;
-    bulk: {
-      enrichment: (records: BulkPersonEnrichmentParams) => Promise<BulkPersonEnrichmentResponse>;
-      retrieve: (records: BulkPersonRetrieveParams) => Promise<BulkPersonRetrieveResponse>;
-    }
   };
 
   public company: {
+    bulk: {
+      enrichment: (records: BulkCompanyEnrichmentParams) => Promise<BulkCompanyEnrichmentResponse>;
+    },
+    cleaner: (params: CompanyCleanerParams) => Promise<CompanyCleanerResponse>;
     enrichment: (params: CompanyEnrichmentParams) => Promise<CompanyEnrichmentResponse>;
     search: {
       elastic: (params: CompanySearchParams) => Promise<CompanySearchResponse>;
       sql: (params: CompanySearchParams) => Promise<CompanySearchResponse>;
     };
-    cleaner: (params: CompanyCleanerParams) => Promise<CompanyCleanerResponse>;
-    bulk: {
-      enrichment: (records: BulkCompanyEnrichmentParams) => Promise<BulkCompanyEnrichmentResponse>;
-    }
   };
 
   public school: { cleaner: (params: SchoolCleanerParams) => Promise<SchoolCleanerResponse> };

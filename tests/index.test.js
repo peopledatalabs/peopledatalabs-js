@@ -556,9 +556,9 @@ describe('IP Enrichment API', () => {
 });
 
 describe('Sandbox APIs', () => {
-  it('Should Return Sandbox Person Record for { email: \'irussell@example.org\' }', async () => {
+  it('Should Return Sandbox Person Record for { email: \'reneewillis74@aol.com\' }', async () => {
     try {
-      const response = await PDLJSClient.person.enrichment({ email: 'irussell@example.org', sandbox: true });
+      const response = await PDLJSClient.person.enrichment({ email: 'reneewillis74@aol.com', sandbox: true });
 
       expect(response.status).to.equal(200);
       expect(response).to.be.a('object');
@@ -578,9 +578,9 @@ describe('Sandbox APIs', () => {
     }
   });
 
-  it('Should Return Sandbox Person Records for "SELECT * FROM person WHERE location_country=\'mexico\';"', async () => {
+  it('Should Return Sandbox Person Records for "SELECT * FROM person WHERE location_country=\'united states\';"', async () => {
     try {
-      const response = await PDLJSClient.person.search.sql({ searchQuery: 'SELECT * FROM person WHERE location_country=\'mexico\';', size: 10, sandbox: true });
+      const response = await PDLJSClient.person.search.sql({ searchQuery: 'SELECT * FROM person WHERE location_country=\'united states\';', size: 10, sandbox: true });
 
       expect(response.status).to.equal(200);
       expect(response).to.be.a('object');
@@ -600,9 +600,9 @@ describe('Sandbox APIs', () => {
     }
   });
 
-  it('Should Return Sandbox Person Records for { query: { bool: { must: [{term: {location_country: "mexico"}}] } } }', async () => {
+  it('Should Return Sandbox Person Records for { query: { bool: { must: [{term: {location_country: "united states"}}] } } }', async () => {
     try {
-      const response = await PDLJSClient.person.search.elastic({ searchQuery: { query: { bool: { must: [{ term: { location_country: 'mexico' } }] } } }, size: 10, sandbox: true });
+      const response = await PDLJSClient.person.search.elastic({ searchQuery: { query: { bool: { must: [{ term: { location_country: 'united states' } }] } } }, size: 10, sandbox: true });
 
       expect(response.status).to.equal(200);
       expect(response).to.be.a('object');
@@ -622,9 +622,9 @@ describe('Sandbox APIs', () => {
     }
   });
 
-  it('Should Return Sandbox Identify Person Records for { email: \'irussell@example.org\' }', async () => {
+  it('Should Return Sandbox Identify Person Records for { email: \'reneewillis74@aol.com\' }', async () => {
     try {
-      const response = await PDLJSClient.person.identify({ email: 'irussell@example.org', sandbox: true });
+      const response = await PDLJSClient.person.identify({ email: 'reneewillis74@aol.com', sandbox: true });
 
       expect(response.status).to.equal(200);
       expect(response).to.be.a('object');

@@ -2,19 +2,19 @@ import { BaseResponse } from './api-types.js';
 import { CompanyResponse, PersonResponse } from './common-types.js';
 
 export interface BaseSearchParams {
-  searchQuery?: string | object,
-  size?: number,
-  from?: number,
-  scroll_token?: string,
   dataset?: string,
-  titlecase?: boolean,
+  from?: number,
   pretty?: boolean,
   sandbox?: boolean,
+  scroll_token?: string,
+  searchQuery?: string | object,
+  size?: number,
+  titlecase?: boolean
 }
 
 export interface BaseSearchResponse <T> extends BaseResponse {
-  scroll_token: string,
   data: Array<T>,
+  scroll_token: string,
   total: number
 }
 
