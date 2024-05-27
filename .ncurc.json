@@ -2,7 +2,8 @@
     "interactive": true,
     "packageManager": "yarn",
     "reject": [
-        "eslint"
+        "eslint",
+        "eslint-plugin-unused-imports"
     ],
     "root": true
 }

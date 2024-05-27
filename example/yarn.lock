@@ -8,9 +8,9 @@ asynckit@^0.4.0:
   integrity sha512-Oei9OH4tRh0YqU3GxhX79dM/mwVgvbZJaSNaRk+bshkj0S5cfHcgYakreBjrHwatXKbz+IoIdYLxrKim2MjW0Q==
 
 axios@^1.6.8:
-  version "1.6.8"
-  resolved "https://registry.yarnpkg.com/axios/-/axios-1.6.8.tgz#66d294951f5d988a00e87a0ffb955316a619ea66"
-  integrity sha512-v/ZHtJDU39mDpyBoFVkETcd/uNdxrWRrg3bKpOKzXFA6Bvqopts6ALSMU3y6ijYxbw2B+wPrIv46egTzJXCLGQ==
+  version "1.7.2"
+  resolved "https://registry.yarnpkg.com/axios/-/axios-1.7.2.tgz#b625db8a7051fbea61c35a3cbb3a1daa7b9c7621"
+  integrity sha512-2A8QhOMrbomlDuiLeK9XibIBzuHeRcqqNOHp0Cyp5EoJ1IFDh+XZH3A6BkXtv0K4gFGCI0Y4BM7B1wOEi0Rmgw==
   dependencies:
     follow-redirects "^1.15.6"
     form-data "^4.0.0"
@@ -72,9 +72,9 @@ mime-types@^2.1.12:
     mime-db "1.52.0"
 
 peopledatalabs@*:
-  version "8.0.1"
-  resolved "https://registry.yarnpkg.com/peopledatalabs/-/peopledatalabs-8.0.1.tgz#7ba41c298596eb0b5cf0a861e87709cb72babd5d"
-  integrity sha512-/NZ8AU1qHnevxwut/fKTZQgdFBA74f39X5Pg0ljaTN5KEG9BK7TkCbo1or82RY0XVI0JTuyjljrvJfgVe83JCA==
+  version "8.1.0"
+  resolved "https://registry.yarnpkg.com/peopledatalabs/-/peopledatalabs-8.1.0.tgz#fa243ac1743ae511e55be72029028dd5cace4948"
+  integrity sha512-KpJM2pZq/zBgtM+Avw/wfS1rszFLrz/o4Z1jR4fu8pDpkUtJqVwYA+xTff6EjvOtjDMkQBZ4ZjwmuCrqPnz4dA==
   dependencies:
     axios "^1.6.8"
     copy-anything "^3.0.5"
