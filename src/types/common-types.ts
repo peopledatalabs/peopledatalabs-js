@@ -342,6 +342,7 @@ export interface CompanyResponse {
   latest_funding_stage?: string,
   likelihood?: number,
   linkedin_employee_count?: number,
+  linkedin_followers?: number,
   linkedin_id?: string,
   linkedin_slug?: string,
   linkedin_url?: string,
