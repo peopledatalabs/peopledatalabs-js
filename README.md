@@ -312,7 +312,7 @@ try {
 **Using Sandbox APIs**
 
 ```js
-// By Enrichment
+// By Person Enrichment
 try {
   const response = await PDLJSClient.person.enrichment({
     email: 'reneewillis74@aol.com',
@@ -324,7 +324,7 @@ try {
   console.log(error);
 }
 
-// By Search (SQL)
+// By Person Search (SQL)
 try {
   const response = await PDLJSClient.person.search.sql({
     searchQuery: "SELECT * FROM person WHERE location_country='united states';",
@@ -337,7 +337,7 @@ try {
   console.log(error);
 }
 
-// By Search (Elasticsearch)
+// By Person Search (Elasticsearch)
 const esQuery = {
   query: {
     bool: {
@@ -356,7 +356,7 @@ try {
   console.log(error);
 }
 
-// By Fuzzy Enrichment
+// By Person Fuzzy Enrichment
 try {
   const response = PDLJSClient.person.identify({ email: 'reneewillis74@aol.com', sandbox: true });
 
@@ -365,6 +365,45 @@ try {
   console.log(error);
 }
 
+// By Company Enrichment
+try {
+  const response = await PDLJSClient.company.enrichment({ website: 'kohlerinteriors.com', sandbox: true });
+
+  console.log(response);
+} catch (error) {
+  console.log(error);
+}
+
+// By Company Search (SQL)
+const sqlQuery = "SELECT * FROM company WHERE tags='hotel consultant' AND industry='hospitality';"
+
+try {
+  const response = await PDLJSClient.company.search.sql({ searchQuery: sqlQuery, size: 10, sandbox: true });
+
+  console.log(response.total);
+} catch (error) {
+  console.log(error);
+}
+
+// By Company Search (Elasticsearch)
+const esQuery = {
+  query: {
+    bool: {
+      must:[
+        { term: { tags: 'hotel consultant' } },
+        { term: { industry: 'hospitality' } }
+      ]
+    }
+  }
+}
+
+try {
+  const response = await PDLJSClient.company.search.elastic({ searchQuery: esQuery, size: 10, sandbox: true });
+
+  console.log(response.total);
+} catch (error) {
+  console.log(error);
+}
 ```
 
 ## 🌐 Endpoints <a name="endpoints"></a>
@@ -402,6 +441,8 @@ try {
 | [Person Enrichment Sandbox API](https://docs.peopledatalabs.com/docs/sandbox-apis) | `PDLJS.person.enrichment({ ...params, sandbox: true })` |
 | [Person Search Sandbox API](https://docs.peopledatalabs.com/docs/sandbox-apis) | SQL: `PDLJS.person.search.sql({ ...params, sandbox: true })` <br/> Elasticsearch: `PDLJS.person.search.elastic({ ...params, sandbox: true })`|
 | [Person Identify Sandbox API](https://docs.peopledatalabs.com/docs/sandbox-apis) | `PDLJS.person.identify({ ...params, sandbox: true })` |
+| [Company Enrichment Sandbox API](https://docs.peopledatalabs.com/docs/sandbox-apis) | `PDLJS.company.enrichment({ ...params, sandbox: true })` |
+| [Company Search Sandbox API](https://docs.peopledatalabs.com/docs/sandbox-apis) | SQL: `PDLJS.company.search.sql({ ...params, sandbox: true })` <br/> Elasticsearch: `PDLJS.company.search.elastic({ ...params, sandbox: true })`|
 
 ## 📘 Documentation <a name="documentation"></a>
 
