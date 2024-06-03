@@ -2,6 +2,7 @@
     "interactive": true,
     "packageManager": "yarn",
     "reject": [
+        "copy-anything",
         "eslint",
         "eslint-plugin-unused-imports"
     ],

@@ -16,5 +16,6 @@ updates:
     labels:
       - "dependencies"
     ignore:
+      - dependency-name: "copy-anything"
       - dependency-name: "eslint"
       - dependency-name: "eslint-plugin-unused-imports"
