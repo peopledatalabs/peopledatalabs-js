@@ -65,6 +65,6 @@
   },
   "dependencies": {
     "axios": "^1.7.2",
-    "copy-anything": "^3.0.5"
+    "copy-anything": "^4.0.0"
   }
 }

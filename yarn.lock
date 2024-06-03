@@ -1953,10 +1953,10 @@ convert-source-map@^2.0.0:
   resolved "https://registry.yarnpkg.com/convert-source-map/-/convert-source-map-2.0.0.tgz#4b560f649fc4e918dd0ab75cf4961e8bc882d82a"
   integrity sha512-Kvp459HrV2FEJ1CAsi1Ku+MY3kasH19TFykTz2xWmMeq6bk2NU3XXvfJ+Q61m0xktWwt+1HSYf3JZsTms3aRJg==
 
-copy-anything@^3.0.5:
-  version "3.0.5"
-  resolved "https://registry.yarnpkg.com/copy-anything/-/copy-anything-3.0.5.tgz#2d92dce8c498f790fa7ad16b01a1ae5a45b020a0"
-  integrity sha512-yCEafptTtb4bk7GLEQoM8KVJpxAfdBJYaXyzQEgQQQgYrZiDp8SJmGKlYza6CYjEDNstAdNdKA3UuoULlEbS6w==
+copy-anything@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/copy-anything/-/copy-anything-4.0.0.tgz#0aed762265c7dd156bac969eb544836dafde5e10"
+  integrity sha512-8ggtOOhouP5A2Xsy7PG1wSHAZPabQDqmNJclGLYwzaINP0Scav9LzyRLdPQHE1nXlgS6oDUnFHWSgOikc1ua0w==
   dependencies:
     is-what "^4.1.8"
 
