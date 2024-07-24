@@ -105,7 +105,7 @@ describe('Person Enrichment', () => {
       expect(response.status).to.equal(200);
       expect(response).to.be.a('object');
     } catch (error) {
-      expect(error).to.be.a('object');
+      expect(error).to.be.null();
     }
   });
 
@@ -113,8 +113,7 @@ describe('Person Enrichment', () => {
     try {
       const response = await PDLJSClient.person.enrichment();
 
-      expect(response.status).to.equal(200);
-      expect(response).to.be.a('object');
+      expect(response).to.be.null();
     } catch (error) {
       expect(error).to.be.a('object');
     }
@@ -129,7 +128,7 @@ describe('Person Preview Enrichment', () => {
       expect(response.status).to.equal(200);
       expect(response).to.be.a('object');
     } catch (error) {
-      expect(error).to.be.a('object');
+      expect(error).to.be.null();
     }
   });
 
@@ -137,8 +136,7 @@ describe('Person Preview Enrichment', () => {
     try {
       const response = await PDLJSClient.person.enrichmentPreview();
 
-      expect(response.status).to.equal(200);
-      expect(response).to.be.a('object');
+      expect(response).to.be.null();
     } catch (error) {
       expect(error).to.be.a('object');
     }
@@ -153,7 +151,7 @@ describe('Person Bulk Enrichment', () => {
       expect(response.items.length).to.equal(2);
       expect(response.items).to.be.a('array');
     } catch (error) {
-      expect(error).to.be.a('object');
+      expect(error).to.be.null();
     }
   });
 
@@ -161,8 +159,7 @@ describe('Person Bulk Enrichment', () => {
     try {
       const response = await PDLJSClient.person.bulk.enrichment();
 
-      expect(response.items.length).to.equal(2);
-      expect(response.items).to.be.a('array');
+      expect(response).to.be.null();
     } catch (error) {
       expect(error).to.be.a('object');
     }
@@ -177,7 +174,7 @@ describe('Person Identify', () => {
       expect(response.status).to.equal(200);
       expect(response).to.be.a('object');
     } catch (error) {
-      expect(error).to.be.a('object');
+      expect(error).to.be.null();
     }
   });
 
@@ -185,8 +182,7 @@ describe('Person Identify', () => {
     try {
       const response = await PDLJSClient.person.identify();
 
-      expect(response.status).to.equal(200);
-      expect(response).to.be.a('object');
+      expect(response).to.be.null();
     } catch (error) {
       expect(error).to.be.a('object');
     }
@@ -201,7 +197,7 @@ describe('Person Search', () => {
       expect(response.status).to.equal(200);
       expect(response).to.be.a('object');
     } catch (error) {
-      expect(error).to.be.a('object');
+      expect(error).to.be.null();
     }
   });
 
@@ -209,8 +205,7 @@ describe('Person Search', () => {
     try {
       const response = await PDLJSClient.person.search.sql();
 
-      expect(response.status).to.equal(200);
-      expect(response).to.be.a('object');
+      expect(response).to.be.null();
     } catch (error) {
       expect(error).to.be.a('object');
     }
@@ -223,7 +218,7 @@ describe('Person Search', () => {
       expect(response.status).to.equal(200);
       expect(response).to.be.a('object');
     } catch (error) {
-      expect(error).to.be.a('object');
+      expect(error).to.be.null();
     }
   });
 
@@ -231,8 +226,7 @@ describe('Person Search', () => {
     try {
       const response = await PDLJSClient.person.search.elastic();
 
-      expect(response.status).to.equal(200);
-      expect(response).to.be.a('object');
+      expect(response).to.be.null();
     } catch (error) {
       expect(error).to.be.a('object');
     }
@@ -247,7 +241,7 @@ describe('Person Retrieve', () => {
       expect(response.status).to.equal(200);
       expect(response).to.be.a('object');
     } catch (error) {
-      expect(error).to.be.a('object');
+      expect(error).to.be.null();
     }
   });
 
@@ -255,8 +249,7 @@ describe('Person Retrieve', () => {
     try {
       const response = await PDLJSClient.person.retrieve();
 
-      expect(response.status).to.equal(200);
-      expect(response).to.be.a('object');
+      expect(response).to.be.null();
     } catch (error) {
       expect(error).to.be.a('object');
     }
@@ -270,7 +263,7 @@ describe('Bulk Person Retrieve', () => {
 
       expect(response).to.be.a('object');
     } catch (error) {
-      expect(error).to.be.a('object');
+      expect(error).to.be.null();
     }
   });
 
@@ -278,8 +271,7 @@ describe('Bulk Person Retrieve', () => {
     try {
       const response = await PDLJSClient.person.bulk.retrieve();
 
-      expect(response.status).to.equal(200);
-      expect(response).to.be.a('object');
+      expect(response).to.be.null();
     } catch (error) {
       expect(error).to.be.a('object');
     }
@@ -294,7 +286,7 @@ describe('Company Enrichment', () => {
       expect(response.status).to.equal(200);
       expect(response).to.be.a('object');
     } catch (error) {
-      expect(error).to.be.a('object');
+      expect(error).to.be.null();
     }
   });
 
@@ -305,7 +297,7 @@ describe('Company Enrichment', () => {
       expect(response.status).to.equal(200);
       expect(response).to.be.a('object');
     } catch (error) {
-      expect(error).to.be.a('object');
+      expect(error).to.be.null();
     }
   });
 
@@ -313,8 +305,7 @@ describe('Company Enrichment', () => {
     try {
       const response = await PDLJSClient.company.enrichment();
 
-      expect(response.status).to.equal(200);
-      expect(response).to.be.a('object');
+      expect(response).to.be.null();
     } catch (error) {
       expect(error).to.be.a('object');
     }
@@ -329,7 +320,7 @@ describe('Company Bulk Enrichment', () => {
       expect(response.items.length).to.equal(2);
       expect(response.items).to.be.a('array');
     } catch (error) {
-      expect(error).to.be.a('object');
+      expect(error).to.be.null();
     }
   });
 
@@ -337,8 +328,7 @@ describe('Company Bulk Enrichment', () => {
     try {
       const response = await PDLJSClient.company.bulk.enrichment();
 
-      expect(response.items.length).to.equal(2);
-      expect(response.items).to.be.a('array');
+      expect(response).to.be.null();
     } catch (error) {
       expect(error).to.be.a('object');
     }
@@ -353,7 +343,7 @@ describe('Company Search', () => {
       expect(response.status).to.equal(200);
       expect(response).to.be.a('object');
     } catch (error) {
-      expect(error).to.be.a('object');
+      expect(error).to.be.null();
     }
   });
 
@@ -361,8 +351,7 @@ describe('Company Search', () => {
     try {
       const response = await PDLJSClient.company.search.sql();
 
-      expect(response.status).to.equal(200);
-      expect(response).to.be.a('object');
+      expect(response).to.be.null();
     } catch (error) {
       expect(error).to.be.a('object');
     }
@@ -375,7 +364,7 @@ describe('Company Search', () => {
       expect(response.status).to.equal(200);
       expect(response).to.be.a('object');
     } catch (error) {
-      expect(error).to.be.a('object');
+      expect(error).to.be.null();
     }
   });
 
@@ -383,8 +372,7 @@ describe('Company Search', () => {
     try {
       const response = await PDLJSClient.company.search.elastic();
 
-      expect(response.status).to.equal(200);
-      expect(response).to.be.a('object');
+      expect(response).to.be.null();
     } catch (error) {
       expect(error).to.be.a('object');
     }
@@ -399,7 +387,7 @@ describe('Autocomplete', () => {
       expect(response.status).to.equal(200);
       expect(response).to.be.a('object');
     } catch (error) {
-      expect(error).to.be.a('object');
+      expect(error).to.be.null();
     }
   });
 
@@ -407,8 +395,7 @@ describe('Autocomplete', () => {
     try {
       const response = await PDLJSClient.autocomplete();
 
-      expect(response.status).to.equal(200);
-      expect(response).to.be.a('object');
+      expect(response).to.be.null();
     } catch (error) {
       expect(error).to.be.a('object');
     }
@@ -423,7 +410,7 @@ describe('Cleaner APIs', () => {
       expect(response.status).to.equal(200);
       expect(response).to.be.a('object');
     } catch (error) {
-      expect(error).to.be.a('object');
+      expect(error).to.be.null();
     }
   });
 
@@ -431,8 +418,7 @@ describe('Cleaner APIs', () => {
     try {
       const response = await PDLJSClient.company.cleaner();
 
-      expect(response.status).to.equal(200);
-      expect(response).to.be.a('object');
+      expect(response).to.be.null();
     } catch (error) {
       expect(error).to.be.a('object');
     }
@@ -445,7 +431,7 @@ describe('Cleaner APIs', () => {
       expect(response.status).to.equal(200);
       expect(response).to.be.a('object');
     } catch (error) {
-      expect(error).to.be.a('object');
+      expect(error).to.be.null();
     }
   });
 
@@ -453,8 +439,7 @@ describe('Cleaner APIs', () => {
     try {
       const response = await PDLJSClient.location.cleaner();
 
-      expect(response.status).to.equal(200);
-      expect(response).to.be.a('object');
+      expect(response).to.be.null();
     } catch (error) {
       expect(error).to.be.a('object');
     }
@@ -467,7 +452,7 @@ describe('Cleaner APIs', () => {
       expect(response.status).to.equal(200);
       expect(response).to.be.a('object');
     } catch (error) {
-      expect(error).to.be.a('object');
+      expect(error).to.be.null();
     }
   });
 
@@ -475,8 +460,7 @@ describe('Cleaner APIs', () => {
     try {
       const response = await PDLJSClient.school.cleaner();
 
-      expect(response.status).to.equal(200);
-      expect(response).to.be.a('object');
+      expect(response).to.be.null();
     } catch (error) {
       expect(error).to.be.a('object');
     }
@@ -491,7 +475,7 @@ describe('Skill API', () => {
       expect(response.status).to.equal(200);
       expect(response).to.be.a('object');
     } catch (error) {
-      expect(error).to.be.a('object');
+      expect(error).to.be.null();
     }
   });
 
@@ -499,8 +483,7 @@ describe('Skill API', () => {
     try {
       const response = await PDLJSClient.skill();
 
-      expect(response.status).to.equal(200);
-      expect(response).to.be.a('object');
+      expect(response).to.be.null();
     } catch (error) {
       expect(error).to.be.a('object');
     }
@@ -515,7 +498,7 @@ describe('Job Title API', () => {
       expect(response.status).to.equal(200);
       expect(response).to.be.a('object');
     } catch (error) {
-      expect(error).to.be.a('object');
+      expect(error).to.be.null();
     }
   });
 
@@ -523,8 +506,7 @@ describe('Job Title API', () => {
     try {
       const response = await PDLJSClient.jobTitle();
 
-      expect(response.status).to.equal(200);
-      expect(response).to.be.a('object');
+      expect(response).to.be.null();
     } catch (error) {
       expect(error).to.be.a('object');
     }
@@ -539,7 +521,7 @@ describe('IP Enrichment API', () => {
       expect(response.status).to.equal(200);
       expect(response).to.be.a('object');
     } catch (error) {
-      expect(error).to.be.a('object');
+      expect(error).to.be.null();
     }
   });
 
@@ -547,8 +529,7 @@ describe('IP Enrichment API', () => {
     try {
       const response = await PDLJSClient.ip();
 
-      expect(response.status).to.equal(200);
-      expect(response).to.be.a('object');
+      expect(response).to.be.null();
     } catch (error) {
       expect(error).to.be.a('object');
     }
@@ -563,7 +544,7 @@ describe('Sandbox APIs', () => {
       expect(response.status).to.equal(200);
       expect(response).to.be.a('object');
     } catch (error) {
-      expect(error).to.be.a('object');
+      expect(error).to.be.null();
     }
   });
 
@@ -571,8 +552,7 @@ describe('Sandbox APIs', () => {
     try {
       const response = await PDLJSClient.person.enrichment();
 
-      expect(response.status).to.equal(200);
-      expect(response).to.be.a('object');
+      expect(response).to.be.null();
     } catch (error) {
       expect(error).to.be.a('object');
     }
@@ -585,7 +565,7 @@ describe('Sandbox APIs', () => {
       expect(response.status).to.equal(200);
       expect(response).to.be.a('object');
     } catch (error) {
-      expect(error).to.be.a('object');
+      expect(error).to.be.null();
     }
   });
 
@@ -593,8 +573,7 @@ describe('Sandbox APIs', () => {
     try {
       const response = await PDLJSClient.person.search.sql({ sandbox: true });
 
-      expect(response.status).to.equal(200);
-      expect(response).to.be.a('object');
+      expect(response).to.be.null();
     } catch (error) {
       expect(error).to.be.a('object');
     }
@@ -607,7 +586,7 @@ describe('Sandbox APIs', () => {
       expect(response.status).to.equal(200);
       expect(response).to.be.a('object');
     } catch (error) {
-      expect(error).to.be.a('object');
+      expect(error).to.be.null();
     }
   });
 
@@ -615,8 +594,7 @@ describe('Sandbox APIs', () => {
     try {
       const response = await PDLJSClient.person.search.elastic({ sandbox: true });
 
-      expect(response.status).to.equal(200);
-      expect(response).to.be.a('object');
+      expect(response).to.be.null();
     } catch (error) {
       expect(error).to.be.a('object');
     }
@@ -629,7 +607,7 @@ describe('Sandbox APIs', () => {
       expect(response.status).to.equal(200);
       expect(response).to.be.a('object');
     } catch (error) {
-      expect(error).to.be.a('object');
+      expect(error).to.be.null();
     }
   });
 
@@ -637,8 +615,7 @@ describe('Sandbox APIs', () => {
     try {
       const response = await PDLJSClient.person.identify({ sandbox: true });
 
-      expect(response.status).to.equal(200);
-      expect(response).to.be.a('object');
+      expect(response).to.be.null();
     } catch (error) {
       expect(error).to.be.a('object');
     }
