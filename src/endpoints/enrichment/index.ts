@@ -24,22 +24,24 @@ export default <T extends PersonEnrichmentParams | CompanyEnrichmentParams, K ex
     const p = new URLSearchParams();
     delete newParams.sandbox;
 
-    Object.entries(newParams).forEach(([key, value]) => {
+    Object.entries(newParams).forEach(([key, value]: [string, any]) => {
       if (key === 'profile') {
         if (Array.isArray(value)) {
           p.append(key, JSON.stringify(value));
-        } else {
+        } else if (value) {
           p.append(key, value);
         }
       } else if (typeof value === 'object') {
         if (Array.isArray(value)) {
           value.forEach((member) => {
-            p.append(key, (member));
+            if (member) {
+              p.append(key, (member));
+            }
           });
-        } else {
+        } else if (value) {
           p.append(key, JSON.stringify(value));
         }
-      } else {
+      } else if (value) {
         p.append(key, (value));
       }
     });

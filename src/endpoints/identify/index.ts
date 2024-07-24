@@ -27,18 +27,20 @@ export default (
       if (key === 'profile') {
         if (Array.isArray(value)) {
           p.append(key, JSON.stringify(value));
-        } else {
+        } else if (value) {
           p.append(key, value);
         }
       } else if (typeof value === 'object') {
         if (Array.isArray(value)) {
           value.forEach((member) => {
-            p.append(key, (member));
+            if (member) {
+              p.append(key, (member));
+            }
           });
-        } else {
+        } else if (value) {
           p.append(key, JSON.stringify(value));
         }
-      } else {
+      } else if (value) {
         p.append(key, (value));
       }
     });
