@@ -46,6 +46,7 @@ export interface PersonExperienceResponse {
   start_date?: string | null,
   summary?: string | null,
   title?: {
+    class?: string | null,
     levels?: Array<string> | null,
     name?: string | null,
     raw?: Array<string> | null,
@@ -207,6 +208,7 @@ export interface PersonResponse {
   job_start_date?: string | null,
   job_summary?: string | null,
   job_title?: string | null,
+  job_title_class?: string | null,
   job_title_levels?: Array<string> | null,
   job_title_role?: string | null,
   job_title_sub_role?: string | null,
@@ -401,11 +403,13 @@ export interface CompanyResponse {
   recent_exec_departures?: Array<{
     departed_date?: string | null,
     job_title?: string | null,
+    job_title_class?: string | null,
     job_title_levels?: Array<string> | null,
     job_title_role?: string | null,
     job_title_sub_role?: string | null,
     new_company_id?: string | null,
     new_company_job_title?: string | null,
+    new_company_job_title_class?: string | null,
     new_company_job_title_levels?: Array<string> | null,
     new_company_job_title_role?: string | null,
     new_company_job_title_sub_role?: string | null,
@@ -413,6 +417,7 @@ export interface CompanyResponse {
   }> | null,
   recent_exec_hires?: Array<{
     job_title?: string | null,
+    job_title_class?: string | null,
     job_title_levels?: Array<string> | null,
     job_title_role?: string | null,
     job_title_sub_role?: string | null,
@@ -420,6 +425,7 @@ export interface CompanyResponse {
     pdl_id?: string | null,
     previous_company_id?: string | null,
     previous_company_job_title?: string | null,
+    previous_company_job_title_class?: string | null,
     previous_company_job_title_levels?: Array<string> | null,
     previous_company_job_title_role?: string | null,
     previous_company_job_title_sub_role?: string | null

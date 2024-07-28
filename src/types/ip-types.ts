@@ -64,6 +64,7 @@ export interface IPResponse extends BaseResponse {
     } | null,
     person?: {
       confidence?: 'very high' | 'high' | 'moderate' | 'low' | 'very low' | null,
+      job_title_class?: string | null,
       job_title_levels?: Array<string> | null,
       job_title_role?: string | null,
       job_title_sub_role?: string | null
