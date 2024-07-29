@@ -8,8 +8,8 @@ export interface SkillParams {
 
 export interface SkillResponse extends BaseResponse {
   data?: {
-    cleaned_skill: string,
-    relevant_job_titles: Array<string>,
-    similar_skills: Array<string>
+    cleaned_skill?: string | null,
+    relevant_job_titles?: Array<string> | null,
+    similar_skills?: Array<string> | null
   }
 }

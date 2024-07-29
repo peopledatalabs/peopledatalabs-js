@@ -17,20 +17,20 @@ export type CompanyCleanerParams = RequireAtLeastOne<{
 };
 
 export interface CompanyCleanerResponse extends BaseResponse {
-  facebook_url: string,
-  founded?: number,
-  fuzzy_match: boolean,
-  id?: string,
-  industry?: string,
-  linkedin_id: string,
-  linkedin_url: string,
-  location?: Omit<LocationResponse, 'metro'>,
-  name?: string,
-  size?: string,
-  ticker?: string,
-  twitter_url: string,
-  type?: string,
-  website: string
+  facebook_url: string | null,
+  founded?: number | null,
+  fuzzy_match: boolean | null,
+  id?: string | null,
+  industry?: string | null,
+  linkedin_id: string | null,
+  linkedin_url: string | null,
+  location?: Omit<LocationResponse, 'metro'> | null,
+  name?: string | null,
+  size?: string | null,
+  ticker?: string | null,
+  twitter_url: string | null,
+  type?: string | null,
+  website: string | null
 }
 
 /* ---------------------------------------------------------- */
@@ -46,22 +46,22 @@ export type SchoolCleanerParams = RequireAtLeastOne<{
 };
 
 export interface SchoolCleanerResponse extends BaseResponse {
-  domain?: string,
-  facebook_url?: null,
-  id?: string,
-  linkedin_id?: string,
-  linkedin_url?: string,
+  domain?: string | null,
+  facebook_url?: string | null,
+  id?: string | null,
+  linkedin_id?: string | null,
+  linkedin_url?: string | null,
   location: {
-    continent?: string,
-    country?: string,
-    locality?: string,
-    name?: string,
-    region?: string
-  },
-  name?: string,
-  twitter_url?: null,
-  type?: string,
-  website?: string
+    continent?: string | null,
+    country?: string | null,
+    locality?: string | null,
+    name?: string | null,
+    region?: string | null
+  } | null,
+  name?: string | null,
+  twitter_url?: string | null,
+  type?: string | null,
+  website?: string | null
 }
 
 /* ---------------------------------------------------------- */
@@ -74,12 +74,12 @@ export interface LocationCleanerParams {
 }
 
 export interface LocationCleanerResponse extends BaseResponse {
-  continent?: string,
-  country?: string,
-  geo?: string,
-  locality?: string,
-  name?: string,
-  region?: string,
-  subregion?: string,
-  type?: string
+  continent?: string | null,
+  country?: string | null,
+  geo?: string | null,
+  locality?: string | null,
+  name?: string | null,
+  region?: string | null,
+  subregion?: string | null,
+  type?: string | null
 }
