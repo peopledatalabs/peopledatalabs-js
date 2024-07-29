@@ -13,7 +13,7 @@ export interface IPParams {
 export interface IPResponse extends BaseResponse {
   data?: {
     company?: {
-      confidence?: 'very high' | 'high' | 'moderate' | 'low' | 'very low' | null,
+      confidence?: 'very high' | 'high' | 'moderate' | 'low' | 'very low',
       display_name?: string | null,
       employee_count?: number | null,
       id?: string | null,
@@ -63,11 +63,11 @@ export interface IPResponse extends BaseResponse {
       }
     } | null,
     person?: {
-      confidence?: 'very high' | 'high' | 'moderate' | 'low' | 'very low' | null,
+      confidence?: 'very high' | 'high' | 'moderate' | 'low' | 'very low',
       job_title_class?: string | null,
       job_title_levels?: Array<string> | null,
       job_title_role?: string | null,
       job_title_sub_role?: string | null
-    }
-  }
+    } | null
+  } | null
 }
