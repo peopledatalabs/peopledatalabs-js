@@ -26,6 +26,7 @@ export interface CompanyCleanerResponse extends BaseResponse {
   linkedin_url: string | null,
   location?: Omit<LocationResponse, 'metro'> | null,
   name?: string | null,
+  score?: number | null,
   size?: string | null,
   ticker?: string | null,
   twitter_url: string | null,
