@@ -2,6 +2,8 @@
     "interactive": true,
     "packageManager": "yarn",
     "reject": [
+        "@typescript-eslint/eslint-plugin",
+        "@typescript-eslint/parser",
         "copy-anything",
         "eslint",
         "eslint-plugin-unused-imports"
