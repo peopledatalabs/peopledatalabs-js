@@ -476,6 +476,8 @@ export interface CompanyResponse {
   twitter_url?: string | null,
   type?: string | null,
   ultimate_parent?: string | null,
+  ultimate_parent_mic_exchange?: string | null,
+  ultimate_parent_ticker?: string | null,
   website?: string | null
 }
 
