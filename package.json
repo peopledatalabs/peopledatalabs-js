@@ -1,6 +1,6 @@
 {
   "name": "peopledatalabs",
-  "version": "9.3.1",
+  "version": "9.3.2",
   "description": "JavaScript client with TypeScript support for the People Data Labs API",
   "type": "module",
   "main": "dist/index.cjs",
@@ -64,7 +64,7 @@
     "typescript": "^5.5.4"
   },
   "dependencies": {
-    "axios": "^1.7.5",
+    "axios": "^1.7.7",
     "copy-anything": "3.0.5"
   }
 }
