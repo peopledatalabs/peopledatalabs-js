@@ -2,12 +2,14 @@ import { BaseResponse } from './api-types.js';
 
 export interface IPParams {
   ip: string;
+  min_confidence?: 'very high' | 'high' | 'moderate' | 'low' | 'very low';
   pretty?: boolean;
   return_if_unmatched?: boolean;
   return_ip_location?: boolean;
   return_ip_metadata?: boolean;
   return_person?: boolean;
   titlecase?: boolean;
+  updated_title_roles?: boolean;
 }
 
 export interface IPResponse extends BaseResponse {

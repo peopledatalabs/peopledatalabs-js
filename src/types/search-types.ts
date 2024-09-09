@@ -2,6 +2,7 @@ import { BaseResponse } from './api-types.js';
 import { CompanyResponse, PersonResponse } from './common-types.js';
 
 export interface BaseSearchParams {
+  count_only?: boolean;
   dataset?: string,
   from?: number,
   pretty?: boolean,
@@ -24,7 +25,9 @@ export type SearchType = 'sql' | 'elastic';
 /* ------------------------- Person ------------------------- */
 /* ---------------------------------------------------------- */
 
-export interface PersonSearchParams extends BaseSearchParams {}
+export interface PersonSearchParams extends BaseSearchParams {
+  updated_title_roles?: boolean;
+}
 
 export interface PersonSearchResponse extends BaseSearchResponse<PersonResponse> {}
 

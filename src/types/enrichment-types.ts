@@ -38,7 +38,8 @@ export type PersonEnrichmentParams = EnrichmentAdditionalParams & Partial<{
   profile: Array<string> | string,
   region: string,
   school: Array<string> | string,
-  street_address: string
+  street_address: string,
+  updated_title_roles?: boolean;
 }>;
 
 export interface PersonEnrichmentResponse extends BaseResponse {
