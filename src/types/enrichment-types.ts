@@ -12,6 +12,7 @@ export interface EnrichmentAdditionalParams {
   sandbox?: boolean;
   size?: number;
   titlecase?: boolean;
+  updated_title_roles?: boolean;
 }
 
 /* ---------------------------------------------------------- */
@@ -39,7 +40,6 @@ export type PersonEnrichmentParams = EnrichmentAdditionalParams & Partial<{
   region: string,
   school: Array<string> | string,
   street_address: string,
-  updated_title_roles?: boolean;
 }>;
 
 export interface PersonEnrichmentResponse extends BaseResponse {

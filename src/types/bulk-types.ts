@@ -11,6 +11,7 @@ export interface BulkPersonEnrichmentParams {
     include_if_matched?: boolean;
     pretty?: boolean;
     titlecase?: boolean;
+    updated_title_roles?: boolean;
   }
 }
 

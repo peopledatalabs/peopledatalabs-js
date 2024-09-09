@@ -7,12 +7,14 @@ export type RetrieveMetaParams = {
   filter_updated?: RetrieveFilter | RetrieveFilter[];
   pretty?: boolean;
   titlecase?: boolean;
+  updated_title_roles?: boolean;
 };
 
 export type ApiRetrieveMetaParams = {
   filter_updated?: string;
   pretty?: boolean;
   titlecase?: boolean;
+  updated_title_roles?: boolean;
 };
 
 export type RetrieveParams = {
