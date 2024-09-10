@@ -3,20 +3,21 @@ import { CompanyResponse, PersonResponse } from './common-types.js';
 
 export interface BaseSearchParams {
   count_only?: boolean;
-  dataset?: string,
-  from?: number,
-  pretty?: boolean,
-  sandbox?: boolean,
-  scroll_token?: string,
-  searchQuery?: string | object,
-  size?: number,
-  titlecase?: boolean
+  dataset?: string;
+  from?: number;
+  pretty?: boolean;
+  sandbox?: boolean;
+  scroll_token?: string;
+  searchQuery?: string | object;
+  size?: number;
+  titlecase?: boolean;
+  updated_title_roles?: boolean;
 }
 
-export interface BaseSearchResponse <T> extends BaseResponse {
-  data: Array<T>,
-  scroll_token: string,
-  total: number
+export interface BaseSearchResponse<T> extends BaseResponse {
+  data: Array<T>;
+  scroll_token: string;
+  total: number;
 }
 
 export type SearchType = 'sql' | 'elastic';
@@ -26,7 +27,6 @@ export type SearchType = 'sql' | 'elastic';
 /* ---------------------------------------------------------- */
 
 export interface PersonSearchParams extends BaseSearchParams {
-  updated_title_roles?: boolean;
 }
 
 export interface PersonSearchResponse extends BaseSearchResponse<PersonResponse> {}

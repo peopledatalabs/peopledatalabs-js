@@ -27,5 +27,5 @@ export type ApiRetrieveParams = {
 
 export interface RetrieveResponse extends BaseResponse {
   billed: boolean;
-  data: PersonResponse
+  data: PersonResponse;
 }

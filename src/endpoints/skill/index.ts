@@ -11,7 +11,7 @@ export default (
 ) => new Promise<SkillResponse>((resolve, reject) => {
   check(params, basePath, apiKey, null, 'skill').then(() => {
     const {
-      skill, pretty,
+      pretty, skill,
     } = params;
 
     const skillParams = {

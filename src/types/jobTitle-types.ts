@@ -8,8 +8,8 @@ export interface JobTitleParams {
 
 export interface JobTitleResponse extends BaseResponse {
   data?: {
-    cleaned_job_title?: string | null,
-    relevant_skills?: Array<string> | null,
-    similar_job_titles?: Array<string> | null
-  }
+    cleaned_job_title?: string | null;
+    relevant_skills?: Array<string> | null;
+    similar_job_titles?: Array<string> | null;
+  };
 }

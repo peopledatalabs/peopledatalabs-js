@@ -24,21 +24,21 @@ export interface AutoCompleteParams {
 
 export interface AutoCompleteResponse extends BaseResponse {
   data?: Array<{
-    count: number | null,
+    count: number | null;
     meta?: {
-      alternative_names?: Array<string> | null,
-      country?: string | null,
-      display_name?: string | null,
-      display_name_history?: Array<string> | null,
-      id?: string | null,
-      industry?: string | null,
-      locality?: string | null,
-      location_name?: string | null,
-      region?: string | null,
-      role?: string | null,
-      website?: string | null,
-    } | null,
-    name?: string | null,
-  }>,
-  fields?: Array<string> | null,
+      alternative_names?: Array<string> | null;
+      country?: string | null;
+      display_name?: string | null;
+      display_name_history?: Array<string> | null;
+      id?: string | null;
+      industry?: string | null;
+      locality?: string | null;
+      location_name?: string | null;
+      region?: string | null;
+      role?: string | null;
+      website?: string | null;
+    } | null;
+    name?: string | null;
+  }>;
+  fields?: Array<string> | null;
 }
