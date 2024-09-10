@@ -52,7 +52,7 @@ export interface PersonExperienceResponse {
     raw?: Array<string> | null;
     role?: string | null;
     sub_role?: string | null;
-  };
+  } | null;
 }
 
 export interface PersonEducationResponse {
