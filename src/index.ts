@@ -33,7 +33,7 @@ class PDLJS {
     bulk: {
       enrichment: (records: BulkPersonEnrichmentParams) => Promise<BulkPersonEnrichmentResponse>;
       retrieve: (records: BulkPersonRetrieveParams) => Promise<BulkPersonRetrieveResponse>;
-    },
+    };
     enrichment: (params: PersonEnrichmentParams) => Promise<PersonEnrichmentResponse>;
     enrichmentPreview: (params: PersonEnrichmentPreviewParams) => Promise<PersonEnrichmentPreviewResponse>;
     identify: (params: IdentifyParams) => Promise<IdentifyResponse>;
@@ -47,7 +47,7 @@ class PDLJS {
   public company: {
     bulk: {
       enrichment: (records: BulkCompanyEnrichmentParams) => Promise<BulkCompanyEnrichmentResponse>;
-    },
+    };
     cleaner: (params: CompanyCleanerParams) => Promise<CompanyCleanerResponse>;
     enrichment: (params: CompanyEnrichmentParams) => Promise<CompanyEnrichmentResponse>;
     search: {

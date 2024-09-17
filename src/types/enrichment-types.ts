@@ -12,6 +12,7 @@ export interface EnrichmentAdditionalParams {
   sandbox?: boolean;
   size?: number;
   titlecase?: boolean;
+  updated_title_roles?: boolean;
 }
 
 /* ---------------------------------------------------------- */
@@ -20,31 +21,31 @@ export interface EnrichmentAdditionalParams {
 
 export type PersonEnrichmentParams = EnrichmentAdditionalParams & Partial<{
   birth_date: Array<string> | string;
-  company: Array<string> | string,
-  country: string,
+  company: Array<string> | string;
+  country: string;
   data_include: string;
-  email: Array<string> | string,
-  email_hash: Array<string> | string,
-  first_name: Array<string> | string,
-  last_name: Array<string> | string,
-  lid: number,
-  locality: string,
-  location: Array<string> | string,
-  middle_name: Array<string> | string,
-  name: Array<string> | string,
+  email: Array<string> | string;
+  email_hash: Array<string> | string;
+  first_name: Array<string> | string;
+  last_name: Array<string> | string;
+  lid: number;
+  locality: string;
+  location: Array<string> | string;
+  middle_name: Array<string> | string;
+  name: Array<string> | string;
   pdl_id: string;
-  phone: Array<string> | string,
-  postal_code: string,
-  profile: Array<string> | string,
-  region: string,
-  school: Array<string> | string,
-  street_address: string
+  phone: Array<string> | string;
+  postal_code: string;
+  profile: Array<string> | string;
+  region: string;
+  school: Array<string> | string;
+  street_address: string;
 }>;
 
 export interface PersonEnrichmentResponse extends BaseResponse {
-  data: PersonResponse,
-  likelihood: number,
-  matched?: Array<string>
+  data: PersonResponse;
+  likelihood: number;
+  matched?: Array<string>;
 }
 
 export type PersonEnrichmentPreviewParams = PersonEnrichmentParams;
@@ -58,9 +59,9 @@ type PersonPreviewResponseType = {
 export interface PersonPreviewResponse extends PersonPreviewResponseType {}
 
 export interface PersonEnrichmentPreviewResponse extends BaseResponse {
-  data: PersonPreviewResponse,
-  likelihood: number,
-  matched?: Array<string>
+  data: PersonPreviewResponse;
+  likelihood: number;
+  matched?: Array<string>;
 }
 
 /* ---------------------------------------------------------- */
@@ -68,21 +69,21 @@ export interface PersonEnrichmentPreviewResponse extends BaseResponse {
 /* ---------------------------------------------------------- */
 
 export interface CompanyEnrichmentRequiredParams {
-  name: string,
+  name: string;
   pdl_id: string;
-  profile: string,
-  ticker: string,
-  website: string,
+  profile: string;
+  ticker: string;
+  website: string;
 }
 
 // eslint-disable-next-line max-len
 export type CompanyEnrichmentParams = RequireAtLeastOne<CompanyEnrichmentRequiredParams> & EnrichmentAdditionalParams & {
-  country?: string,
-  locality?: string,
-  location?: string,
-  postal_code?: string,
-  region?: string,
-  street_address?: string
+  country?: string;
+  locality?: string;
+  location?: string;
+  postal_code?: string;
+  region?: string;
+  street_address?: string;
 };
 
 export interface CompanyEnrichmentResponse extends BaseResponse, CompanyResponse {}

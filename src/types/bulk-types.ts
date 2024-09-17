@@ -2,8 +2,8 @@ import { RateLimit } from './api-types.js';
 import { CompanyEnrichmentParams, CompanyEnrichmentResponse, PersonEnrichmentParams, PersonEnrichmentResponse } from './enrichment-types.js';
 
 export interface BulkPersonEnrichmentRequest {
-  metadata?: unknown,
-  params: PersonEnrichmentParams // The user can define their own custom metadata
+  metadata?: unknown;
+  params: PersonEnrichmentParams; // The user can define their own custom metadata
 }
 
 export interface BulkPersonEnrichmentParams {
@@ -11,21 +11,22 @@ export interface BulkPersonEnrichmentParams {
     include_if_matched?: boolean;
     pretty?: boolean;
     titlecase?: boolean;
-  }
+    updated_title_roles?: boolean;
+  };
 }
 
 export interface BulkPersonEnrichmentResponseItem extends PersonEnrichmentResponse {
-  metadata?: unknown
+  metadata?: unknown;
 }
 
 export type BulkPersonEnrichmentResponse = {
-  items: Array<BulkPersonEnrichmentResponseItem>,
-  rateLimit: RateLimit
+  items: Array<BulkPersonEnrichmentResponseItem>;
+  rateLimit: RateLimit;
 };
 
 export interface BulkCompanyEnrichmentRequest {
-  metadata?: unknown,
-  params: CompanyEnrichmentParams // The user can define their own custom metadata
+  metadata?: unknown;
+  params: CompanyEnrichmentParams; // The user can define their own custom metadata
 }
 
 export interface BulkCompanyEnrichmentParams {
@@ -33,14 +34,15 @@ export interface BulkCompanyEnrichmentParams {
     include_if_matched?: boolean;
     pretty?: boolean;
     titlecase?: boolean;
-  }
+    updated_title_roles?: boolean;
+  };
 }
 
 export interface BulkCompanyEnrichmentResponseItem extends CompanyEnrichmentResponse {
-  metadata?: unknown
+  metadata?: unknown;
 }
 
 export type BulkCompanyEnrichmentResponse = {
-  items: Array<BulkCompanyEnrichmentResponseItem>,
-  rateLimit: RateLimit
+  items: Array<BulkCompanyEnrichmentResponseItem>;
+  rateLimit: RateLimit;
 };

@@ -10,7 +10,7 @@ dotenv.config({ path: './.env.local' });
 
 const PDLJSClient = new PDLJS({ apiKey: process.env.PDL_API_KEY });
 
-const phone = '4155688415';
+const email = 'varun@peopledatalabs.com';
 
 const records = {
   requests: [
@@ -98,12 +98,24 @@ const jobTitle = { jobTitle: 'software engineer' };
 const ip = { ip: '72.212.42.169' };
 
 describe('Person Enrichment', () => {
-  it(`Should Return Person Record for ${phone}`, async () => {
+  it(`Should Return Person Record for ${email}`, async () => {
     try {
-      const response = await PDLJSClient.person.enrichment({ phone });
+      const response = await PDLJSClient.person.enrichment({ email });
 
       expect(response.status).to.equal(200);
       expect(response).to.be.a('object');
+    } catch (error) {
+      expect(error).to.be.null();
+    }
+  });
+
+  it(`Should Return Person Record for ${email} with new title tags`, async () => {
+    try {
+      const response = await PDLJSClient.person.enrichment({ email, updated_title_roles: true });
+
+      expect(response.status).to.equal(200);
+      expect(response).to.be.a('object');
+      expect(response.data.job_title_class).to.be.a('string');
     } catch (error) {
       expect(error).to.be.null();
     }
@@ -121,9 +133,9 @@ describe('Person Enrichment', () => {
 });
 
 describe('Person Preview Enrichment', () => {
-  it(`Should Return Person Preview Record for ${phone}`, async () => {
+  it(`Should Return Person Preview Record for ${email}`, async () => {
     try {
-      const response = await PDLJSClient.person.enrichmentPreview({ phone });
+      const response = await PDLJSClient.person.enrichmentPreview({ email });
 
       expect(response.status).to.equal(200);
       expect(response).to.be.a('object');
@@ -167,9 +179,9 @@ describe('Person Bulk Enrichment', () => {
 });
 
 describe('Person Identify', () => {
-  it(`Should Return Person Record for ${phone}`, async () => {
+  it(`Should Return Person Record for ${email}`, async () => {
     try {
-      const response = await PDLJSClient.person.identify({ phone });
+      const response = await PDLJSClient.person.identify({ email });
 
       expect(response.status).to.equal(200);
       expect(response).to.be.a('object');
@@ -517,6 +529,22 @@ describe('IP Enrichment API', () => {
   it(`Should Return IP Records for ${JSON.stringify(ip)}`, async () => {
     try {
       const response = await PDLJSClient.ip(ip);
+
+      expect(response.status).to.equal(200);
+      expect(response).to.be.a('object');
+    } catch (error) {
+      expect(error).to.be.null();
+    }
+  });
+
+  it(`Should Return IP Records for ${JSON.stringify(ip)} with very high confidence`, async () => {
+    try {
+      const object = {
+        ...ip,
+        min_confidence: 'very high',
+      };
+
+      const response = await PDLJSClient.ip(object);
 
       expect(response.status).to.equal(200);
       expect(response).to.be.a('object');

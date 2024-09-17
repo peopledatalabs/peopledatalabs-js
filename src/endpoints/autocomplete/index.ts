@@ -12,9 +12,9 @@ export default (
   check(params, basePath, apiKey, null, 'autocomplete').then(() => {
     const {
       field,
-      text,
-      size,
       pretty,
+      size,
+      text,
       titlecase,
     } = params;
 

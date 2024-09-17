@@ -14,8 +14,10 @@ module.exports = {
     project: './tsconfig.eslint.json',
   },
   plugins: [
+    '@stylistic',
     '@typescript-eslint',
     'simple-import-sort',
+    'sort-destructure-keys',
     'typescript-sort-keys',
   ],
   rules: {
@@ -32,5 +34,26 @@ module.exports = {
       caseSensitive: false,
       natural: true,
     }],
+    '@stylistic/member-delimiter-style': [
+      'error',
+      {
+        multiline: {
+          delimiter: 'semi',
+          requireLast: true,
+        },
+        singleline: {
+          delimiter: 'comma',
+          requireLast: false,
+        },
+      },
+    ],
+    '@stylistic/type-annotation-spacing': 'error',
+    '@stylistic/type-generic-spacing': ['error'],
+    '@stylistic/type-named-tuple-spacing': ['error'],
+    'sort-destructure-keys/sort-destructure-keys': [
+      2, {
+        caseSensitive: false,
+      },
+    ],
   },
 };

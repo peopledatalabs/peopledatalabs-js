@@ -16,7 +16,7 @@ export default <T extends BaseSearchParams, K extends BaseResponse>(
   check(params, basePath, apiKey, null, 'search').then(() => {
     const {
       // eslint-disable-next-line @typescript-eslint/naming-convention
-      dataset, searchQuery, size, scroll_token, titlecase, pretty, sandbox,
+      dataset, pretty, sandbox, scroll_token, searchQuery, size, titlecase,
     } = params;
 
     const searchParams = {

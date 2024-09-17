@@ -24,6 +24,6 @@ export interface BulkPersonRetrieveResponseItem extends BaseResponse {
 // This response does not extend from the BaseResponse since each item in the array has its own status
 // See https://docs.peopledatalabs.com/docs/bulk-requests
 export type BulkPersonRetrieveResponse = {
-  items: Array<BulkPersonRetrieveResponseItem>,
-  rateLimit: RateLimit
+  items: Array<BulkPersonRetrieveResponseItem>;
+  rateLimit: RateLimit;
 };
