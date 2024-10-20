@@ -1,5 +1,5 @@
 <p align="center">
-<div style="background-color: white; padding: 5px 10px;">
+<div style="background-color: white; padding: 5px 10px 0px; width: 250px; margin: 0 auto;">
 <img src="https://www.peopledatalabs.com/images/company-logo.png"  width="250" alt="People Data Labs Logo">
 </div>
 </p>
