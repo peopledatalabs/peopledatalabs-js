@@ -1,5 +1,7 @@
 <p align="center">
-<img src="https://www.peopledatalabs.com/images/company-logo.png" style="background-color: white; padding: 5px 10px;" width="250" alt="People Data Labs Logo">
+<div style="background-color: white; padding: 5px 10px;">
+<img src="https://www.peopledatalabs.com/images/company-logo.png"  width="250" alt="People Data Labs Logo">
+</div>
 </p>
 <h1 align="center">People Data Labs JavaScript Library</h1>
 <p align="center">
