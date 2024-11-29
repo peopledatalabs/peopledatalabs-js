@@ -165,6 +165,7 @@ export interface PersonResponse {
   full_name?: string | null;
   github_url?: string | null;
   github_username?: string | null;
+  headline?: string | null;
   id?: string | null;
   industry?: string | null;
   inferred_salary?: string | null;
