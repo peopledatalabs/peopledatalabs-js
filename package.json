@@ -63,7 +63,7 @@
     "eslint-plugin-unused-imports": "^3.2.0",
     "esm": "^3.2.25",
     "microbundle": "^0.15.1",
-    "mocha": "^10.8.2",
+    "mocha": "^11.0.1",
     "typescript": "^5.7.2"
   },
   "dependencies": {
