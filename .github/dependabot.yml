@@ -10,8 +10,8 @@ updates:
     directory: "/" # Location of package manifests
     schedule:
       interval: "weekly"
-      day: "monday"
-      time: "06:00"
+      day: "sunday"
+      time: "09:00"
       timezone: "America/Los_Angeles"
     labels:
       - "dependencies"
