@@ -16,6 +16,8 @@ export default (
       size,
       text,
       titlecase,
+      // eslint-disable-next-line @typescript-eslint/naming-convention
+      updated_title_roles,
     } = params;
 
     const autocompleteParams = {
@@ -24,6 +26,7 @@ export default (
       size: size || 10,
       pretty: pretty || false,
       titlecase: titlecase || false,
+      updated_title_roles: updated_title_roles || false,
     };
 
     const headers = {
