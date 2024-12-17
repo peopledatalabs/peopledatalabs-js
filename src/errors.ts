@@ -44,7 +44,7 @@ const check = (
 
   if (endpoint === 'autocomplete') {
     const { field } = params as AutoCompleteParams;
-    const validFields = ['company', 'country', 'industry', 'location', 'major', 'region', 'role', 'school', 'sub_role', 'skill', 'title'];
+    const validFields = ['class', 'company', 'country', 'industry', 'location', 'major', 'region', 'role', 'school', 'sub_role', 'skill', 'title'];
     if (!field) {
       error.message = 'Missing field';
       error.status = 400;
