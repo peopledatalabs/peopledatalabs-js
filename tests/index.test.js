@@ -403,6 +403,23 @@ describe('Autocomplete', () => {
     }
   });
 
+  it('Should Return Autocomplete for `class` field', async () => {
+    const autocompleteClassParams = {
+      field: 'class',
+      text: 'sales',
+      updated_title_roles: true,
+    };
+
+    try {
+      const response = await PDLJSClient.autocomplete(autocompleteClassParams);
+
+      expect(response.status).to.equal(200);
+      expect(response).to.be.a('object');
+    } catch (error) {
+      expect(error).to.be.null();
+    }
+  });
+
   it('Should Error for Autocomplete', async () => {
     try {
       const response = await PDLJSClient.autocomplete();

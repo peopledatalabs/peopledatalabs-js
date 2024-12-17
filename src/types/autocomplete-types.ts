@@ -1,6 +1,7 @@
 import { BaseResponse } from './api-types.js';
 
 export type AutoCompleteField =
+  'class' |
   'company' |
   'country' |
   'industry' |
@@ -20,6 +21,7 @@ export interface AutoCompleteParams {
   size?: number;
   text?: string;
   titlecase?: boolean;
+  updated_title_roles?: boolean;
 }
 
 export interface AutoCompleteResponse extends BaseResponse {
