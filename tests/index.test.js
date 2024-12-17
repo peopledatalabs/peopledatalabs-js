@@ -406,7 +406,7 @@ describe('Autocomplete', () => {
   it('Should Return Autocomplete for `class` field', async () => {
     const autocompleteClassParams = {
       field: 'class',
-      text: 'product',
+      text: 'sales',
       updated_title_roles: true,
     };
 
