@@ -30,7 +30,6 @@ export type IdentifyParams = IdentifyRequiredParams & Partial<{
   required: string;
   sandbox: boolean;
   titlecase: boolean;
-  updated_title_roles?: boolean;
 }>;
 
 export interface IdentifyResponse extends BaseResponse {

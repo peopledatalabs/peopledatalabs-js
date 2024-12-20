@@ -9,7 +9,6 @@ export interface IPParams {
   return_ip_metadata?: boolean;
   return_person?: boolean;
   titlecase?: boolean;
-  updated_title_roles?: boolean;
 }
 
 export interface IPResponse extends BaseResponse {

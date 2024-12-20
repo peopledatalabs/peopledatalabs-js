@@ -10,7 +10,6 @@ export interface BaseSearchParams {
   searchQuery?: string | object;
   size?: number;
   titlecase?: boolean;
-  updated_title_roles?: boolean;
 }
 
 export interface BaseSearchResponse<T> extends BaseResponse {

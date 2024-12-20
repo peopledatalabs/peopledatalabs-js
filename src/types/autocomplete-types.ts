@@ -21,7 +21,6 @@ export interface AutoCompleteParams {
   size?: number;
   text?: string;
   titlecase?: boolean;
-  updated_title_roles?: boolean;
 }
 
 export interface AutoCompleteResponse extends BaseResponse {

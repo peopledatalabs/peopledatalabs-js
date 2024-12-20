@@ -104,17 +104,6 @@ describe('Person Enrichment', () => {
 
       expect(response.status).to.equal(200);
       expect(response).to.be.a('object');
-    } catch (error) {
-      expect(error).to.be.null();
-    }
-  });
-
-  it(`Should Return Person Record for ${email} with new title tags`, async () => {
-    try {
-      const response = await PDLJSClient.person.enrichment({ email, updated_title_roles: true });
-
-      expect(response.status).to.equal(200);
-      expect(response).to.be.a('object');
       expect(response.data.job_title_class).to.be.a('string');
     } catch (error) {
       expect(error).to.be.null();
@@ -407,7 +396,6 @@ describe('Autocomplete', () => {
     const autocompleteClassParams = {
       field: 'class',
       text: 'sales',
-      updated_title_roles: true,
     };
 
     try {
