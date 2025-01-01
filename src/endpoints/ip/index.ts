@@ -21,15 +21,13 @@ export default (
         ...params,
       },
       headers,
-    })
-      .then((response) => {
-        if (response?.data?.status === 200) {
-          resolve(parseRateLimitingResponse(response));
-        }
-      })
-      .catch((error) => {
-        reject(errorHandler(error));
-      });
+    }).then((response) => {
+      if (response?.data?.status === 200) {
+        resolve(parseRateLimitingResponse(response));
+      }
+    }).catch((error) => {
+      reject(errorHandler(error));
+    });
   }).catch((error) => {
     reject(error);
   });
