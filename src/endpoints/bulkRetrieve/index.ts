@@ -1,11 +1,7 @@
 import axios from 'axios';
 
 import { check, errorHandler } from '../../errors.js';
-import {
-  ApiBulkPersonRetrieveParams,
-  BulkPersonRetrieveParams,
-  BulkPersonRetrieveResponse,
-} from '../../types/bulk-retrieve-types.js';
+import { ApiBulkPersonRetrieveParams, BulkPersonRetrieveParams, BulkPersonRetrieveResponse } from '../../types/bulk-retrieve-types.js';
 import { parseRateLimitingResponse } from '../../utils/api-utils.js';
 
 const transformBulkRetrieveParams = (params: BulkPersonRetrieveParams): ApiBulkPersonRetrieveParams => {

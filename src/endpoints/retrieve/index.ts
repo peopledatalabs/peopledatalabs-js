@@ -1,11 +1,7 @@
 import axios from 'axios';
 
 import { check, errorHandler } from '../../errors.js';
-import {
-  ApiRetrieveParams,
-  RetrieveParams,
-  RetrieveResponse,
-} from '../../types/retrieve-types.js';
+import { ApiRetrieveParams, RetrieveParams, RetrieveResponse } from '../../types/retrieve-types.js';
 import { parseRateLimitingResponse } from '../../utils/api-utils.js';
 
 const transformRetrieveParams = (params: RetrieveParams): ApiRetrieveParams => {
