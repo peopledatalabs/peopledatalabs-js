@@ -1,4 +1,5 @@
 import { BaseResponse } from './api-types.js';
+import { IndustryType, JobTitleRole } from './canonical-types.js';
 
 export type AutoCompleteField = 'class' | 'company' | 'country' | 'industry' | 'location' | 'major' | 'region' | 'role' | 'school' | 'sub_role' | 'skill' | 'title' | 'website';
 
@@ -19,11 +20,11 @@ export interface AutoCompleteResponse extends BaseResponse {
       display_name?: string | null;
       display_name_history?: Array<string> | null;
       id?: string | null;
-      industry?: string | null;
+      industry?: IndustryType | null;
       locality?: string | null;
       location_name?: string | null;
       region?: string | null;
-      role?: string | null;
+      role?: JobTitleRole | null;
       website?: string | null;
     } | null;
     name?: string | null;
