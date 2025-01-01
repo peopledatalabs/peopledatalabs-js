@@ -1,19 +1,6 @@
 import { BaseResponse } from './api-types.js';
 
-export type AutoCompleteField =
-  'class' |
-  'company' |
-  'country' |
-  'industry' |
-  'location' |
-  'major' |
-  'region' |
-  'role' |
-  'school' |
-  'sub_role' |
-  'skill' |
-  'title' |
-  'website';
+export type AutoCompleteField = 'class' | 'company' | 'country' | 'industry' | 'location' | 'major' | 'region' | 'role' | 'school' | 'sub_role' | 'skill' | 'title' | 'website';
 
 export interface AutoCompleteParams {
   field: AutoCompleteField;
