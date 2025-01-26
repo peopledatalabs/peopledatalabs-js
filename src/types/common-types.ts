@@ -150,13 +150,13 @@ export interface VersionStatus {
 }
 
 export interface PersonResponse {
-  birth_date?: string | null;
-  birth_year?: number | null;
+  birth_date?: string | boolean | null;
+  birth_year?: number | boolean | null;
   certifications?: Array<PersonCertificateResponse> | null;
   countries?: Array<string> | null;
   dataset_version?: string | null;
   education?: Array<PersonEducationResponse> | null;
-  emails?: Array<PersonEmailResponse> | null;
+  emails?: Array<PersonEmailResponse> | boolean | null;
   experience?: Array<PersonExperienceResponse> | null;
   facebook_friends?: number | null;
   facebook_id?: string | null;
@@ -222,26 +222,26 @@ export interface PersonResponse {
   linkedin_id?: string | null;
   linkedin_url?: string | null;
   linkedin_username?: string | null;
-  location_address_line_2?: string | null;
+  location_address_line_2?: string | boolean | null;
   location_continent?: Continent | null;
   location_country?: string | null;
-  location_geo?: string | null;
+  location_geo?: string | boolean | null;
   location_last_updated?: string | null;
-  location_locality?: string | null;
-  location_metro?: string | null;
-  location_name?: string | null;
-  location_names?: Array<string> | null;
-  location_postal_code?: string | null;
-  location_region?: string | null;
-  location_street_address?: string | null;
+  location_locality?: string | boolean | null;
+  location_metro?: string | boolean | null;
+  location_name?: string | boolean | null;
+  location_names?: Array<string> | boolean | null;
+  location_postal_code?: string | boolean | null;
+  location_region?: string | boolean | null;
+  location_street_address?: string | boolean | null;
   middle_initial?: string | null;
   middle_name?: string | null;
-  mobile_phone?: string | null;
+  mobile_phone?: string | boolean | null;
   name_aliases?: Array<string> | null;
   num_records?: number | null;
   num_sources?: number | null;
-  personal_emails?: Array<string> | null;
-  phone_numbers?: Array<string> | null;
+  personal_emails?: Array<string> | boolean | null;
+  phone_numbers?: Array<string> | boolean | null;
   phones?: Array<PersonPhoneResponse> | null;
   possible_birth_dates?: Array<string> | null;
   possible_emails?: Array<PersonEmailResponse> | null;
@@ -250,16 +250,16 @@ export interface PersonResponse {
   possible_profiles?: Array<PersonProfileResponse> | null;
   possible_street_addresses?: Array<PersonStreetAddressResponse> | null;
   profiles?: Array<PersonProfileResponse> | null;
-  recommended_personal_email?: string | null;
-  regions?: Array<string> | null;
+  recommended_personal_email?: string | boolean | null;
+  regions?: Array<string> | boolean | null;
   sex?: 'female' | 'male' | null;
   skills?: Array<string> | null;
-  street_addresses?: Array<PersonStreetAddressResponse> | null;
+  street_addresses?: Array<PersonStreetAddressResponse> | boolean | null;
   summary?: string | null;
   twitter_url?: string | null;
   twitter_username?: string | null;
   version_status?: VersionStatus | null;
-  work_email?: string | null;
+  work_email?: string | boolean | null;
 }
 
 interface NaicsResponse {
