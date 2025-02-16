@@ -46,7 +46,7 @@
     "@stylistic/eslint-plugin": "^3.1.0",
     "@typescript-eslint/eslint-plugin": "7.18.0",
     "@typescript-eslint/parser": "7.18.0",
-    "chai": "^5.1.2",
+    "chai": "^5.2.0",
     "dotenv": "^16.4.7",
     "eslint": "^8.57.0",
     "eslint-config-airbnb": "^19.0.4",

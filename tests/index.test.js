@@ -95,7 +95,7 @@ const skill = { skill: 'c++' };
 
 const jobTitle = { jobTitle: 'software engineer' };
 
-const ip = { ip: '72.212.42.169' };
+const ip = { ip: '72.212.42.228' };
 
 describe('Person Enrichment', () => {
   it(`Should Return Person Record for ${email}`, async () => {

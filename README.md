@@ -301,7 +301,7 @@ try {
 ```js
 // Enrich an IP Address
 try {
-  const response = await PDLJSClient.ip({ ip: '72.212.42.169' });
+  const response = await PDLJSClient.ip({ ip: '72.212.42.228' });
 
   console.log(response);
 } catch (error) {
