@@ -131,7 +131,7 @@ PDLJSClient.company.search.elastic({
 
 // IP APIs
 
-PDLJSClient.ip({ ip: '72.212.42.169' }).then((data) => {
+PDLJSClient.ip({ ip: '72.212.42.228' }).then((data) => {
   console.log('IP Enrichment API');
   console.log(data);
 }).catch((error) => {

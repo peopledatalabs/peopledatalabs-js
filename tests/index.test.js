@@ -95,23 +95,12 @@ const skill = { skill: 'c++' };
 
 const jobTitle = { jobTitle: 'software engineer' };
 
-const ip = { ip: '72.212.42.169' };
+const ip = { ip: '72.212.42.228' };
 
 describe('Person Enrichment', () => {
   it(`Should Return Person Record for ${email}`, async () => {
     try {
       const response = await PDLJSClient.person.enrichment({ email });
-
-      expect(response.status).to.equal(200);
-      expect(response).to.be.a('object');
-    } catch (error) {
-      expect(error).to.be.null();
-    }
-  });
-
-  it(`Should Return Person Record for ${email} with new title tags`, async () => {
-    try {
-      const response = await PDLJSClient.person.enrichment({ email, updated_title_roles: true });
 
       expect(response.status).to.equal(200);
       expect(response).to.be.a('object');
@@ -407,7 +396,6 @@ describe('Autocomplete', () => {
     const autocompleteClassParams = {
       field: 'class',
       text: 'sales',
-      updated_title_roles: true,
     };
 
     try {

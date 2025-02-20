@@ -10,15 +10,7 @@ export default (
   params: AutoCompleteParams,
 ) => new Promise<AutoCompleteResponse>((resolve, reject) => {
   check(params, basePath, apiKey, null, 'autocomplete').then(() => {
-    const {
-      field,
-      pretty,
-      size,
-      text,
-      titlecase,
-      // eslint-disable-next-line @typescript-eslint/naming-convention
-      updated_title_roles,
-    } = params;
+    const { field, pretty, size, text, titlecase } = params;
 
     const autocompleteParams = {
       field,
@@ -26,7 +18,6 @@ export default (
       size: size || 10,
       pretty: pretty || false,
       titlecase: titlecase || false,
-      updated_title_roles: updated_title_roles || false,
     };
 
     const headers = {
@@ -40,15 +31,13 @@ export default (
         ...autocompleteParams,
       },
       headers,
-    })
-      .then((response) => {
-        if (response?.data?.status === 200) {
-          resolve(parseRateLimitingResponse(response));
-        }
-      })
-      .catch((error) => {
-        reject(errorHandler(error));
-      });
+    }).then((response) => {
+      if (response?.data?.status === 200) {
+        resolve(parseRateLimitingResponse(response));
+      }
+    }).catch((error) => {
+      reject(errorHandler(error));
+    });
   }).catch((error) => {
     reject(error);
   });

@@ -6,15 +6,7 @@ import { BulkPersonRetrieveParams, BulkPersonRetrieveResponse } from './types/bu
 import { BulkCompanyEnrichmentParams, BulkCompanyEnrichmentResponse, BulkPersonEnrichmentParams, BulkPersonEnrichmentResponse } from './types/bulk-types.js';
 import { CompanyCleanerParams, CompanyCleanerResponse, LocationCleanerParams, LocationCleanerResponse, SchoolCleanerParams, SchoolCleanerResponse } from './types/cleaner-types.js';
 import { CompanyResponse, PersonResponse } from './types/common-types.js';
-import {
-  CompanyEnrichmentParams,
-  CompanyEnrichmentResponse,
-  PersonEnrichmentParams,
-  PersonEnrichmentPreviewParams,
-  PersonEnrichmentPreviewResponse,
-  PersonEnrichmentResponse,
-  PersonPreviewResponse,
-} from './types/enrichment-types.js';
+import { CompanyEnrichmentParams, CompanyEnrichmentResponse, PersonEnrichmentParams, PersonEnrichmentPreviewParams, PersonEnrichmentPreviewResponse, PersonEnrichmentResponse, PersonPreviewResponse } from './types/enrichment-types.js';
 import { IdentifyParams, IdentifyResponse } from './types/identify-types.js';
 import { IPParams, IPResponse } from './types/ip-types.js';
 import { JobTitleParams, JobTitleResponse } from './types/jobTitle-types.js';

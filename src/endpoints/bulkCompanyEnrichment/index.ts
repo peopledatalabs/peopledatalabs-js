@@ -14,13 +14,13 @@ export default (basePath: string, apiKey: string, records: BulkCompanyEnrichment
 
   return new Promise<BulkCompanyEnrichmentResponse>((resolve, reject) => {
     check(records, basePath, apiKey, 'Records', 'bulk').then(() => {
-      axios.post<BulkCompanyEnrichmentResponse>(`${basePath}/company/enrich/bulk`, records, { headers })
-        .then((response) => {
-          resolve(parseRateLimitingResponse(response));
-        })
-        .catch((error) => {
-          reject(errorHandler(error));
-        });
+      axios.post<BulkCompanyEnrichmentResponse>(`${basePath}/company/enrich/bulk`, records, {
+        headers,
+      }).then((response) => {
+        resolve(parseRateLimitingResponse(response));
+      }).catch((error) => {
+        reject(errorHandler(error));
+      });
     }).catch((error) => {
       reject(error);
     });

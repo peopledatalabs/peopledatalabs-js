@@ -1,4 +1,5 @@
 import { BaseResponse } from './api-types.js';
+import type { CompanySize, IndustryType, InferredRevenue, JobTitleClass, JobTitleLevel, JobTitleRole, JobTitleSubRole } from './canonical-types.js';
 
 export interface IPParams {
   ip: string;
@@ -9,7 +10,6 @@ export interface IPParams {
   return_ip_metadata?: boolean;
   return_person?: boolean;
   titlecase?: boolean;
-  updated_title_roles?: boolean;
 }
 
 export interface IPResponse extends BaseResponse {
@@ -19,8 +19,8 @@ export interface IPResponse extends BaseResponse {
       display_name?: string | null;
       employee_count?: number | null;
       id?: string | null;
-      industry?: string | null;
-      inferred_revenue?: string | null;
+      industry?: IndustryType | null;
+      inferred_revenue?: InferredRevenue | null;
       location?: {
         address_line_2?: string | null;
         continent?: string | null;
@@ -34,7 +34,7 @@ export interface IPResponse extends BaseResponse {
         street_address?: string;
       } | null;
       name?: string | null;
-      size?: string | null;
+      size?: CompanySize | null;
       tags?: Array<string> | null;
       website?: string | null;
     } | null;
@@ -66,10 +66,10 @@ export interface IPResponse extends BaseResponse {
     } | null;
     person?: {
       confidence?: 'very high' | 'high' | 'moderate' | 'low' | 'very low';
-      job_title_class?: string | null;
-      job_title_levels?: Array<string> | null;
-      job_title_role?: string | null;
-      job_title_sub_role?: string | null;
+      job_title_class?: JobTitleClass | null;
+      job_title_levels?: Array<JobTitleLevel> | null;
+      job_title_role?: JobTitleRole | null;
+      job_title_sub_role?: JobTitleSubRole | null;
     } | null;
   } | null;
 }

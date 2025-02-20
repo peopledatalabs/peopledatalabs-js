@@ -37,15 +37,15 @@ export default <T extends BaseSearchParams, K extends BaseResponse>(
 
     const url = sandbox && type === 'person' ? `${sandboxBasePath}/person/search` : `${basePath}/${type}/search`;
 
-    axios.post<K>(url, searchParams, { headers })
-      .then((response) => {
-        if (response?.data?.status === 200) {
-          resolve(parseRateLimitingResponse(response));
-        }
-      })
-      .catch((error) => {
-        reject(errorHandler(error));
-      });
+    axios.post<K>(url, searchParams, {
+      headers,
+    }).then((response) => {
+      if (response?.data?.status === 200) {
+        resolve(parseRateLimitingResponse(response));
+      }
+    }).catch((error) => {
+      reject(errorHandler(error));
+    });
   }).catch((error) => {
     reject(error);
   });

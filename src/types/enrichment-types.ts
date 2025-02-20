@@ -12,7 +12,6 @@ export interface EnrichmentAdditionalParams {
   sandbox?: boolean;
   size?: number;
   titlecase?: boolean;
-  updated_title_roles?: boolean;
 }
 
 /* ---------------------------------------------------------- */

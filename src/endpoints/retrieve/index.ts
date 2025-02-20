@@ -1,11 +1,7 @@
 import axios from 'axios';
 
 import { check, errorHandler } from '../../errors.js';
-import {
-  ApiRetrieveParams,
-  RetrieveParams,
-  RetrieveResponse,
-} from '../../types/retrieve-types.js';
+import { ApiRetrieveParams, RetrieveParams, RetrieveResponse } from '../../types/retrieve-types.js';
 import { parseRateLimitingResponse } from '../../utils/api-utils.js';
 
 const transformRetrieveParams = (params: RetrieveParams): ApiRetrieveParams => {
@@ -42,15 +38,13 @@ export default (
         ...apiParams,
       },
       headers,
-    })
-      .then((response) => {
-        if (response?.data?.status === 200) {
-          resolve(parseRateLimitingResponse(response));
-        }
-      })
-      .catch((error) => {
-        reject(errorHandler(error));
-      });
+    }).then((response) => {
+      if (response?.data?.status === 200) {
+        resolve(parseRateLimitingResponse(response));
+      }
+    }).catch((error) => {
+      reject(errorHandler(error));
+    });
   }).catch((error) => {
     reject(error);
   });

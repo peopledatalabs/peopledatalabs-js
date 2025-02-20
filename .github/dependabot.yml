@@ -16,6 +16,7 @@ updates:
     labels:
       - "dependencies"
     ignore:
+      - dependency-name: "@stylistic/eslint-plugin"
       - dependency-name: "@typescript-eslint/eslint-plugin"
       - dependency-name: "@typescript-eslint/parser"
       - dependency-name: "copy-anything"
