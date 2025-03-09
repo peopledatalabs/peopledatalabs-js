@@ -2,6 +2,7 @@ import { BaseResponse } from './api-types.js';
 import { CompanyResponse, PersonResponse } from './common-types.js';
 
 export interface BaseSearchParams {
+  data_include?: string;
   dataset?: string;
   from?: number;
   pretty?: boolean;

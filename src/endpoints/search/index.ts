@@ -16,7 +16,7 @@ export default <T extends BaseSearchParams, K extends BaseResponse>(
   check(params, basePath, apiKey, null, 'search').then(() => {
     const {
       // eslint-disable-next-line @typescript-eslint/naming-convention
-      dataset, pretty, sandbox, scroll_token, searchQuery, size, titlecase,
+      data_include, dataset, pretty, sandbox, scroll_token, searchQuery, size, titlecase,
     } = params;
 
     const searchParams = {
@@ -26,6 +26,7 @@ export default <T extends BaseSearchParams, K extends BaseResponse>(
       size: size || 10,
       [`${searchType === 'sql' ? 'sql' : 'query'}`]: searchQuery,
       pretty: pretty || false,
+      data_include: data_include || null,
     };
 
     const headers = {
