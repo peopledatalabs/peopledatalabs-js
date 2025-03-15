@@ -19,7 +19,8 @@
     "mocha": "mocha --recursive 'tests/**/*.js' --timeout 5000",
     "pub": "pnpm run build && pnpm publish --provenance --access public",
     "lint": "eslint ./src --fix",
-    "clean": "rm -rf node_modules && rm -rf pnpm-lock.yaml"
+    "clean": "rm -rf node_modules && rm -rf pnpm-lock.yaml",
+    "check-packages": "pnpm dlx npm-check-updates"
   },
   "repository": {
     "type": "git",
@@ -70,7 +71,7 @@
     "typescript": "^5.8.2"
   },
   "dependencies": {
-    "axios": "^1.8.2",
+    "axios": "^1.8.3",
     "copy-anything": "3.0.5"
   }
 }
