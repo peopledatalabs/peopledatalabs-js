@@ -2,10 +2,12 @@
   "name": "peopledatalabs-example",
   "version": "1.0.0",
   "description": "Example project with People Data Labs API library",
+  "packageManager": "pnpm@10.6.3",
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "clean": "rm -rf node_modules && rm -rf pnpm-lock.yaml"
   },
   "author": "People Data Labs",
   "license": "MIT",
