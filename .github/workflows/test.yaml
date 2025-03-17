@@ -14,7 +14,8 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 18
-      - run: pnpm install
+      - run: npm install -g pnpm
+      - run: pnpm install --frozen-lockfile
       - run: pnpm test
         env:
           PDL_API_KEY: ${{secrets.PDL_API_KEY}}
