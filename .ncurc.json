@@ -1,6 +1,6 @@
 {
     "interactive": true,
-    "packageManager": "yarn",
+    "packageManager": "pnpm",
     "reject": [
         "@stylistic/eslint-plugin",
         "@typescript-eslint/eslint-plugin",

@@ -15,7 +15,7 @@
     "preserveWatchOutput": true,
     "skipLibCheck": true,
     "strict": true,
-    "lib": ["dom", "ES2015"],
+    "lib": ["dom", "ES2017"],
     "module": "Node16",
     "target": "ESNext"
   },

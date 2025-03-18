@@ -140,3 +140,10 @@ dist
 
 # VS Code
 .vscode
+
+# pnpm
+.pnpm/
+.pnp.cjs
+.pnp.loader.mjs
+.pnpm-store/
+pnpm-debug.log*
