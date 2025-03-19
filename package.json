@@ -17,7 +17,7 @@
     "dev": "microbundle watch -p 6008",
     "test": "pnpm run build && pnpm run mocha",
     "mocha": "mocha --recursive 'tests/**/*.js' --timeout 5000",
-    "pub": "pnpm run build && pnpm publish --provenance --access public",
+    "pub": "pnpm run build && pnpm publish --no-git-checks --provenance --access public",
     "lint": "eslint ./src --fix",
     "clean": "rm -rf node_modules && rm -rf pnpm-lock.yaml",
     "check-packages": "pnpm dlx npm-check-updates"
