@@ -9,7 +9,7 @@ importers:
   .:
     dependencies:
       axios:
-        specifier: ^1.8.4
+        specifier: ^1.9.0
         version: 1.9.0
       copy-anything:
         specifier: 3.0.5
