@@ -91,8 +91,6 @@ const location = { location: '455 Market Street, San Francisco, California 94105
 
 const school = { name: 'university of oregon' };
 
-const skill = { skill: 'c++' };
-
 const jobTitle = { jobTitle: 'software engineer' };
 
 const ip = { ip: '72.212.42.228' };
@@ -476,29 +474,6 @@ describe('Cleaner APIs', () => {
   it('Should Error for School Cleaner', async () => {
     try {
       const response = await PDLJSClient.school.cleaner();
-
-      expect(response).to.be.null();
-    } catch (error) {
-      expect(error).to.be.a('object');
-    }
-  });
-});
-
-describe('Skill API', () => {
-  it(`Should Return Skill Records for ${JSON.stringify(skill)}`, async () => {
-    try {
-      const response = await PDLJSClient.skill(skill);
-
-      expect(response.status).to.equal(200);
-      expect(response).to.be.a('object');
-    } catch (error) {
-      expect(error).to.be.null();
-    }
-  });
-
-  it('Should Error for Skill', async () => {
-    try {
-      const response = await PDLJSClient.skill();
 
       expect(response).to.be.null();
     } catch (error) {

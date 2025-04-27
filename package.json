@@ -1,6 +1,6 @@
 {
   "name": "peopledatalabs",
-  "version": "11.0.2",
+  "version": "12.0.0",
   "description": "JavaScript client with TypeScript support for the People Data Labs API",
   "packageManager": "pnpm@10.9.0",
   "type": "module",

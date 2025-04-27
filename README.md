@@ -283,19 +283,6 @@ try {
 }
 ```
 
-**Using Skill Enrichment API**
-
-```js
-// Enrich a Skill
-try {
-  const response = await PDLJSClient.skill({ skill: 'c++' });
-
-  console.log(response);
-} catch (error) {
-  console.log(error);
-}
-```
-
 **Using IP Enrichment API**
 
 ```js
@@ -432,7 +419,6 @@ try {
 | [Location Cleaner API](https://docs.peopledatalabs.com/docs/cleaner-apis#locationclean) | `PDLJS.location.cleaner({ ...params })` |
 | [School Cleaner API](https://docs.peopledatalabs.com/docs/cleaner-apis#schoolclean) | `PDLJS.school.cleaner({ ...params })` |
 | [Job Title Enrichment API](https://docs.peopledatalabs.com/docs/job-title-enrichment-api) | `PDLJS.jobTitle({ ...params })` |
-| [Skill Enrichment API](https://docs.peopledatalabs.com/docs/skill-enrichment-api) | `PDLJS.skill({ ...params })` |
 | [IP Enrichment API](https://docs.peopledatalabs.com/docs/ip-enrichment-api) | `PDLJS.ip({ ...params })` |
 
 **Sandbox Endpoints**
