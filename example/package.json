@@ -2,17 +2,18 @@
   "name": "peopledatalabs-example",
   "version": "1.0.0",
   "description": "Example project with People Data Labs API library",
-  "packageManager": "pnpm@10.6.3",
+  "packageManager": "pnpm@10.9.0",
   "main": "index.js",
   "type": "module",
   "scripts": {
     "start": "node index.js",
-    "clean": "rm -rf node_modules && rm -rf pnpm-lock.yaml"
+    "clean": "rm -rf node_modules && rm -rf pnpm-lock.yaml",
+    "check-packages": "pnpm dlx npm-check-updates"
   },
   "author": "People Data Labs",
   "license": "MIT",
   "dependencies": {
-    "dotenv": "^16.4.5",
+    "dotenv": "^16.5.0",
     "peopledatalabs": "*"
   }
 }

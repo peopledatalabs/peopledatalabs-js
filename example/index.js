@@ -185,14 +185,6 @@ PDLJSClient.jobTitle({ jobTitle: 'software engineer' }).then((data) => {
   console.log(error);
 });
 
-PDLJSClient.skill({ skill: 'c++' }).then((data) => {
-  console.log('Skill API');
-  console.log(data);
-}).catch((error) => {
-  console.log('Skill API');
-  console.log(error);
-});
-
 // Sandbox APIs
 
 PDLJSClient.person.enrichment({ email: 'chad_taylor@carroll-inc.com', sandbox: true }).then((data) => {

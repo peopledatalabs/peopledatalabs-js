@@ -6,7 +6,6 @@ import { IPParams } from './types/ip-types.js';
 import { JobTitleParams } from './types/jobTitle-types.js';
 import { RetrieveParams } from './types/retrieve-types.js';
 import { BaseSearchParams } from './types/search-types.js';
-import { SkillParams } from './types/skill-types.js';
 import { parseRateLimitingResponse } from './utils/api-utils.js';
 
 const check = (
@@ -60,15 +59,6 @@ const check = (
     const { jobTitle } = params as JobTitleParams;
     if (!jobTitle) {
       error.message = 'Missing jobTitle';
-      error.status = 400;
-      reject(error);
-    }
-  }
-
-  if (endpoint === 'skill') {
-    const { skill } = params as SkillParams;
-    if (!skill) {
-      error.message = 'Missing skill';
       error.status = 400;
       reject(error);
     }
