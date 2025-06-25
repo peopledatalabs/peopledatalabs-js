@@ -279,6 +279,151 @@ export interface SicResponse {
 }
 
 export interface CompanyResponse {
+  active_job_postings?: number | null;
+  active_job_postings_by_class?: {
+    general_and_administrative?: number | null;
+    research_and_development?: number | null;
+    sales_and_marketing?: number | null;
+    services?: number | null;
+    unemployed?: number | null;
+  } | null;
+  active_job_postings_by_country?: object | null;
+  active_job_postings_by_metro?: object | null;
+  active_job_postings_by_month?: object | null;
+  active_job_postings_by_role?: {
+    advisory?: number | null;
+    analyst?: number | null;
+    creative?: number | null;
+    education?: number | null;
+    engineering?: number | null;
+    finance?: number | null;
+    fulfillment?: number | null;
+    health?: number | null;
+    hospitality?: number | null;
+    human_resources?: number | null;
+    legal?: number | null;
+    manufacturing?: number | null;
+    marketing?: number | null;
+    operations?: number | null;
+    partnerships?: number | null;
+    product?: number | null;
+    professional_service?: number | null;
+    public_service?: number | null;
+    research?: number | null;
+    sales?: number | null;
+    sales_engineering?: number | null;
+    support?: number | null;
+    trade?: number | null;
+    unemployed?: number | null;
+  } | null;
+  active_job_postings_by_subrole?: {
+    academic?: number | null;
+    account_executive?: number | null;
+    account_management?: number | null;
+    accounting?: number | null;
+    accounting_services?: number | null;
+    administrative?: number | null;
+    advisor?: number | null;
+    agriculture?: number | null;
+    aides?: number | null;
+    architecture?: number | null;
+    artist?: number | null;
+    board_member?: number | null;
+    bookkeeping?: number | null;
+    brand?: number | null;
+    building_and_grounds?: number | null;
+    business_analyst?: number | null;
+    business_development?: number | null;
+    chemical?: number | null;
+    compliance?: number | null;
+    construction?: number | null;
+    consulting?: number | null;
+    content?: number | null;
+    corporate_development?: number | null;
+    curation?: number | null;
+    customer_success?: number | null;
+    customer_support?: number | null;
+    data_analyst?: number | null;
+    data_engineering?: number | null;
+    data_science?: number | null;
+    dental?: number | null;
+    devops?: number | null;
+    doctor?: number | null;
+    electric?: number | null;
+    electrical?: number | null;
+    emergency_services?: number | null;
+    entertainment?: number | null;
+    executive?: number | null;
+    fashion?: number | null;
+    financial?: number | null;
+    fitness?: number | null;
+    fraud?: number | null;
+    graphic_design?: number | null;
+    growth?: number | null;
+    hair_stylist?: number | null;
+    hardware?: number | null;
+    health_and_safety?: number | null;
+    human_resources?: number | null;
+    implementation?: number | null;
+    industrial?: number | null;
+    information_technology?: number | null;
+    insurance?: number | null;
+    investment_banking?: number | null;
+    investor?: number | null;
+    investor_relations?: number | null;
+    journalism?: number | null;
+    judicial?: number | null;
+    legal?: number | null;
+    legal_services?: number | null;
+    logistics?: number | null;
+    machinist?: number | null;
+    marketing_design?: number | null;
+    marketing_services?: number | null;
+    mechanic?: number | null;
+    mechanical?: number | null;
+    military?: number | null;
+    network?: number | null;
+    nursing?: number | null;
+    partnerships?: number | null;
+    pharmacy?: number | null;
+    planning_and_analysis?: number | null;
+    plumbing?: number | null;
+    political?: number | null;
+    primary_and_secondary?: number | null;
+    procurement?: number | null;
+    product_design?: number | null;
+    product_management?: number | null;
+    professor?: number | null;
+    project_management?: number | null;
+    protective_service?: number | null;
+    qa_engineering?: number | null;
+    quality_assurance?: number | null;
+    realtor?: number | null;
+    recruiting?: number | null;
+    restaurants?: number | null;
+    retail?: number | null;
+    revenue_operations?: number | null;
+    risk?: number | null;
+    sales_development?: number | null;
+    scientific?: number | null;
+    security?: number | null;
+    social_service?: number | null;
+    software?: number | null;
+    solutions_engineer?: number | null;
+    strategy?: number | null;
+    student?: number | null;
+    talent_analytics?: number | null;
+    therapy?: number | null;
+    tour_and_travel?: number | null;
+    training?: number | null;
+    translation?: number | null;
+    transport?: number | null;
+    unemployed?: number | null;
+    veterinarian?: number | null;
+    warehouse?: number | null;
+    web?: number | null;
+    wellness?: number | null;
+  } | null;
   affiliated_profiles?: Array<string> | null;
   all_subsidiaries?: Array<string> | null;
   alternative_domains?: Array<string> | null;
@@ -323,6 +468,149 @@ export interface CompanyResponse {
     unemployed?: number | null;
   } | null;
   dataset_version?: string | null;
+  deactivated_job_postings?: number | null;
+  deactivated_job_postings_by_class?: {
+    general_and_administrative?: number | null;
+    research_and_development?: number | null;
+    sales_and_marketing?: number | null;
+    services?: number | null;
+    unemployed?: number | null;
+  } | null;
+  deactivated_job_postings_by_month?: object | null;
+  deactivated_job_postings_by_role?: {
+    advisory?: number | null;
+    analyst?: number | null;
+    creative?: number | null;
+    education?: number | null;
+    engineering?: number | null;
+    finance?: number | null;
+    fulfillment?: number | null;
+    health?: number | null;
+    hospitality?: number | null;
+    human_resources?: number | null;
+    legal?: number | null;
+    manufacturing?: number | null;
+    marketing?: number | null;
+    operations?: number | null;
+    partnerships?: number | null;
+    product?: number | null;
+    professional_service?: number | null;
+    public_service?: number | null;
+    research?: number | null;
+    sales?: number | null;
+    sales_engineering?: number | null;
+    support?: number | null;
+    trade?: number | null;
+    unemployed?: number | null;
+  } | null;
+  deactivated_job_postings_by_subrole?: {
+    academic?: number | null;
+    account_executive?: number | null;
+    account_management?: number | null;
+    accounting?: number | null;
+    accounting_services?: number | null;
+    administrative?: number | null;
+    advisor?: number | null;
+    agriculture?: number | null;
+    aides?: number | null;
+    architecture?: number | null;
+    artist?: number | null;
+    board_member?: number | null;
+    bookkeeping?: number | null;
+    brand?: number | null;
+    building_and_grounds?: number | null;
+    business_analyst?: number | null;
+    business_development?: number | null;
+    chemical?: number | null;
+    compliance?: number | null;
+    construction?: number | null;
+    consulting?: number | null;
+    content?: number | null;
+    corporate_development?: number | null;
+    curation?: number | null;
+    customer_success?: number | null;
+    customer_support?: number | null;
+    data_analyst?: number | null;
+    data_engineering?: number | null;
+    data_science?: number | null;
+    dental?: number | null;
+    devops?: number | null;
+    doctor?: number | null;
+    electric?: number | null;
+    electrical?: number | null;
+    emergency_services?: number | null;
+    entertainment?: number | null;
+    executive?: number | null;
+    fashion?: number | null;
+    financial?: number | null;
+    fitness?: number | null;
+    fraud?: number | null;
+    graphic_design?: number | null;
+    growth?: number | null;
+    hair_stylist?: number | null;
+    hardware?: number | null;
+    health_and_safety?: number | null;
+    human_resources?: number | null;
+    implementation?: number | null;
+    industrial?: number | null;
+    information_technology?: number | null;
+    insurance?: number | null;
+    investment_banking?: number | null;
+    investor?: number | null;
+    investor_relations?: number | null;
+    journalism?: number | null;
+    judicial?: number | null;
+    legal?: number | null;
+    legal_services?: number | null;
+    logistics?: number | null;
+    machinist?: number | null;
+    marketing_design?: number | null;
+    marketing_services?: number | null;
+    mechanic?: number | null;
+    mechanical?: number | null;
+    military?: number | null;
+    network?: number | null;
+    nursing?: number | null;
+    partnerships?: number | null;
+    pharmacy?: number | null;
+    planning_and_analysis?: number | null;
+    plumbing?: number | null;
+    political?: number | null;
+    primary_and_secondary?: number | null;
+    procurement?: number | null;
+    product_design?: number | null;
+    product_management?: number | null;
+    professor?: number | null;
+    project_management?: number | null;
+    protective_service?: number | null;
+    qa_engineering?: number | null;
+    quality_assurance?: number | null;
+    realtor?: number | null;
+    recruiting?: number | null;
+    restaurants?: number | null;
+    retail?: number | null;
+    revenue_operations?: number | null;
+    risk?: number | null;
+    sales_development?: number | null;
+    scientific?: number | null;
+    security?: number | null;
+    social_service?: number | null;
+    software?: number | null;
+    solutions_engineer?: number | null;
+    strategy?: number | null;
+    student?: number | null;
+    talent_analytics?: number | null;
+    therapy?: number | null;
+    tour_and_travel?: number | null;
+    training?: number | null;
+    translation?: number | null;
+    transport?: number | null;
+    unemployed?: number | null;
+    veterinarian?: number | null;
+    warehouse?: number | null;
+    web?: number | null;
+    wellness?: number | null;
+  } | null;
   direct_subsidiaries?: Array<string> | null;
   display_name?: string | null;
   employee_churn_rate: {
@@ -463,59 +751,249 @@ export interface CompanyResponse {
   summary?: string | null;
   tags?: Array<string> | null;
   ticker?: string | null;
-  top_next_employers_by_role?: {
-    advisory?: number | null;
-    all?: object | null;
-    analyst?: number | null;
-    creative?: number | null;
-    education?: number | null;
-    engineering?: number | null;
-    finance?: number | null;
-    fulfillment?: number | null;
-    health?: number | null;
-    hospitality?: number | null;
-    human_resources?: number | null;
-    legal?: number | null;
-    manufacturing?: number | null;
-    marketing?: number | null;
-    operations?: number | null;
-    partnerships?: number | null;
-    product?: number | null;
-    professional_service?: number | null;
-    public_service?: number | null;
-    research?: number | null;
-    sales?: number | null;
-    sales_engineering?: number | null;
-    support?: number | null;
-    trade?: number | null;
-    unemployed?: number | null;
+  top_next_employers?: {
+    advisory?: {
+      count?: number | null;
+      display_name?: string | null;
+      id?: string | null;
+    }[] | null;
+    analyst?: {
+      count?: number | null;
+      display_name?: string | null;
+      id?: string | null;
+    }[] | null;
+    creative?: {
+      count?: number | null;
+      display_name?: string | null;
+      id?: string | null;
+    }[] | null;
+    education?: {
+      count?: number | null;
+      display_name?: string | null;
+      id?: string | null;
+    }[] | null;
+    engineering?: {
+      count?: number | null;
+      display_name?: string | null;
+      id?: string | null;
+    }[] | null;
+    finance?: {
+      count?: number | null;
+      display_name?: string | null;
+      id?: string | null;
+    }[] | null;
+    fulfillment?: {
+      count?: number | null;
+      display_name?: string | null;
+      id?: string | null;
+    }[] | null;
+    health?: {
+      count?: number | null;
+      display_name?: string | null;
+      id?: string | null;
+    }[] | null;
+    hospitality?: {
+      count?: number | null;
+      display_name?: string | null;
+      id?: string | null;
+    }[] | null;
+    human_resources?: {
+      count?: number | null;
+      display_name?: string | null;
+      id?: string | null;
+    }[] | null;
+    legal?: {
+      count?: number | null;
+      display_name?: string | null;
+      id?: string | null;
+    }[] | null;
+    manufacturing?: {
+      count?: number | null;
+      display_name?: string | null;
+      id?: string | null;
+    }[] | null;
+    marketing?: {
+      count?: number | null;
+      display_name?: string | null;
+      id?: string | null;
+    }[] | null;
+    operations?: {
+      count?: number | null;
+      display_name?: string | null;
+      id?: string | null;
+    }[] | null;
+    partnerships?: {
+      count?: number | null;
+      display_name?: string | null;
+      id?: string | null;
+    }[] | null;
+    product?: {
+      count?: number | null;
+      display_name?: string | null;
+      id?: string | null;
+    }[] | null;
+    professional_service?: {
+      count?: number | null;
+      display_name?: string | null;
+      id?: string | null;
+    }[] | null;
+    public_service?: {
+      count?: number | null;
+      display_name?: string | null;
+      id?: string | null;
+    }[] | null;
+    research?: {
+      count?: number | null;
+      display_name?: string | null;
+      id?: string | null;
+    }[] | null;
+    sales?: {
+      count?: number | null;
+      display_name?: string | null;
+      id?: string | null;
+    }[] | null;
+    sales_engineering?: {
+      count?: number | null;
+      display_name?: string | null;
+      id?: string | null;
+    }[] | null;
+    support?: {
+      count?: number | null;
+      display_name?: string | null;
+      id?: string | null;
+    }[] | null;
+    trade?: {
+      count?: number | null;
+      display_name?: string | null;
+      id?: string | null;
+    }[] | null;
+    unemployed?: {
+      count?: number | null;
+      display_name?: string | null;
+      id?: string | null;
+    }[] | null;
   } | null;
-  top_previous_employers_by_role?: {
-    advisory?: number | null;
-    all?: object | null;
-    analyst?: number | null;
-    creative?: number | null;
-    education?: number | null;
-    engineering?: number | null;
-    finance?: number | null;
-    fulfillment?: number | null;
-    health?: number | null;
-    hospitality?: number | null;
-    human_resources?: number | null;
-    legal?: number | null;
-    manufacturing?: number | null;
-    marketing?: number | null;
-    operations?: number | null;
-    partnerships?: number | null;
-    product?: number | null;
-    professional_service?: number | null;
-    public_service?: number | null;
-    research?: number | null;
-    sales?: number | null;
-    sales_engineering?: number | null;
-    support?: number | null;
-    trade?: number | null;
-    unemployed?: number | null;
+  top_previous_employers?: {
+    advisory?: {
+      count?: number | null;
+      display_name?: string | null;
+      id?: string | null;
+    }[] | null;
+    analyst?: {
+      count?: number | null;
+      display_name?: string | null;
+      id?: string | null;
+    }[] | null;
+    creative?: {
+      count?: number | null;
+      display_name?: string | null;
+      id?: string | null;
+    }[] | null;
+    education?: {
+      count?: number | null;
+      display_name?: string | null;
+      id?: string | null;
+    }[] | null;
+    engineering?: {
+      count?: number | null;
+      display_name?: string | null;
+      id?: string | null;
+    }[] | null;
+    finance?: {
+      count?: number | null;
+      display_name?: string | null;
+      id?: string | null;
+    }[] | null;
+    fulfillment?: {
+      count?: number | null;
+      display_name?: string | null;
+      id?: string | null;
+    }[] | null;
+    health?: {
+      count?: number | null;
+      display_name?: string | null;
+      id?: string | null;
+    }[] | null;
+    hospitality?: {
+      count?: number | null;
+      display_name?: string | null;
+      id?: string | null;
+    }[] | null;
+    human_resources?: {
+      count?: number | null;
+      display_name?: string | null;
+      id?: string | null;
+    }[] | null;
+    legal?: {
+      count?: number | null;
+      display_name?: string | null;
+      id?: string | null;
+    }[] | null;
+    manufacturing?: {
+      count?: number | null;
+      display_name?: string | null;
+      id?: string | null;
+    }[] | null;
+    marketing?: {
+      count?: number | null;
+      display_name?: string | null;
+      id?: string | null;
+    }[] | null;
+    operations?: {
+      count?: number | null;
+      display_name?: string | null;
+      id?: string | null;
+    }[] | null;
+    partnerships?: {
+      count?: number | null;
+      display_name?: string | null;
+      id?: string | null;
+    }[] | null;
+    product?: {
+      count?: number | null;
+      display_name?: string | null;
+      id?: string | null;
+    }[] | null;
+    professional_service?: {
+      count?: number | null;
+      display_name?: string | null;
+      id?: string | null;
+    }[] | null;
+    public_service?: {
+      count?: number | null;
+      display_name?: string | null;
+      id?: string | null;
+    }[] | null;
+    research?: {
+      count?: number | null;
+      display_name?: string | null;
+      id?: string | null;
+    }[] | null;
+    sales?: {
+      count?: number | null;
+      display_name?: string | null;
+      id?: string | null;
+    }[] | null;
+    sales_engineering?: {
+      count?: number | null;
+      display_name?: string | null;
+      id?: string | null;
+    }[] | null;
+    support?: {
+      count?: number | null;
+      display_name?: string | null;
+      id?: string | null;
+    }[] | null;
+    trade?: {
+      count?: number | null;
+      display_name?: string | null;
+      id?: string | null;
+    }[] | null;
+    unemployed?: {
+      count?: number | null;
+      display_name?: string | null;
+      id?: string | null;
+    }[] | null;
   } | null;
   top_us_employee_metros: object | null;
   total_funding_raised?: number | null;
