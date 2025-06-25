@@ -710,10 +710,12 @@ export interface CompanyResponse {
   linkedin_slug?: string | null;
   linkedin_url?: string | null;
   location?: LocationResponse | null;
+  locations?: Array<LocationResponse & { is_primary?: boolean }> | null;
   matched?: Array<string> | null;
   mic_exchange?: MICCode | null;
   naics?: Array<NaicsResponse> | null;
   name?: string | null;
+  num_total_locations?: number | null;
   number_funding_rounds?: number | null;
   profiles?: Array<string> | null;
   recent_exec_departures?: Array<{
