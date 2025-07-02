@@ -316,7 +316,7 @@ export interface CompanyResponse {
     trade?: number | null;
     unemployed?: number | null;
   } | null;
-  active_job_postings_by_subrole?: {
+  active_job_postings_by_sub_role?: {
     academic?: number | null;
     account_executive?: number | null;
     account_management?: number | null;
@@ -503,7 +503,7 @@ export interface CompanyResponse {
     trade?: number | null;
     unemployed?: number | null;
   } | null;
-  deactivated_job_postings_by_subrole?: {
+  deactivated_job_postings_by_sub_role?: {
     academic?: number | null;
     account_executive?: number | null;
     account_management?: number | null;
