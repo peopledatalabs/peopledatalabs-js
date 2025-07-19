@@ -13,28 +13,26 @@ export default (
     // eslint-disable-next-line @typescript-eslint/naming-convention
     const { currentVersion, fieldsUpdated, ids, originVersion, scroll_token, type } = params;
 
-    const changelogParams = {
-      originVersion,
-      currentVersion,
-      type: type || '',
-      ids: ids || [],
-      fields_updated: fieldsUpdated || [],
-      scroll_token: scroll_token || null,
+    const changelogParams: any = {
+      origin_version: originVersion || null,
+      current_version: currentVersion || null,
     };
+
+    if (type) changelogParams.type = type;
+    if (ids) changelogParams.ids = ids;
+    if (fieldsUpdated) changelogParams.fields_updated = fieldsUpdated;
+    if (scroll_token) changelogParams.scroll_token = scroll_token;
 
     const headers = {
       'Accept-Encoding': 'gzip',
       'User-Agent': 'PDL-JS-SDK',
+      'X-Api-Key': apiKey,
     };
 
-    axios.get<ChangelogResponse>(`${basePath}/person/changelog`, {
-      params: {
-        api_key: apiKey,
-        ...changelogParams,
-      },
+    axios.post<ChangelogResponse>(`${basePath}/person/changelog`, changelogParams, {
       headers,
     }).then((response) => {
-      if (response?.data?.status === 200) {
+      if (response?.status === 200) {
         resolve(parseRateLimitingResponse(response));
       }
     }).catch((error) => {

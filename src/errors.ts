@@ -34,9 +34,15 @@ const check = (
   }
 
   if (endpoint === 'changelog') {
-    const { currentVersion, originVersion } = params as ChangelogParams;
+    const { currentVersion, ids, originVersion, type: changelogType } = params as ChangelogParams;
     if (!originVersion || !currentVersion) {
       error.message = 'Missing originVersion or currentVersion';
+      error.status = 400;
+      reject(error);
+    }
+
+    if (!ids && !changelogType) {
+      error.message = 'Must provide ids or type';
       error.status = 400;
       reject(error);
     }
