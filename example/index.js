@@ -76,6 +76,18 @@ PDLJSClient.person.search.elastic({
   console.log(error);
 });
 
+PDLJSClient.person.changelog({
+  originVersion: '30.2',
+  currentVersion: '31.0',
+  type: 'updated',
+}).then((data) => {
+  console.log('Person Changelog API');
+  console.log(data);
+}).catch((error) => {
+  console.log('Person Changelog API');
+  console.log(error);
+});
+
 // Company APIs
 
 PDLJSClient.company.enrichment({ website: 'peopledatalabs.com' }).then((data) => {

@@ -1,6 +1,7 @@
 import { AxiosError } from 'axios';
 
 import { AutoCompleteParams } from './types/autocomplete-types.js';
+import { ChangelogParams } from './types/changelog-types.js';
 import { ErrorEndpoint, PdlError } from './types/error-types.js';
 import { IPParams } from './types/ip-types.js';
 import { JobTitleParams } from './types/jobTitle-types.js';
@@ -27,6 +28,21 @@ const check = (
     const { searchQuery } = params as BaseSearchParams;
     if (!searchQuery) {
       error.message = 'Missing searchQuery';
+      error.status = 400;
+      reject(error);
+    }
+  }
+
+  if (endpoint === 'changelog') {
+    const { currentVersion, ids, originVersion, type: changelogType } = params as ChangelogParams;
+    if (!originVersion || !currentVersion) {
+      error.message = 'Missing originVersion or currentVersion';
+      error.status = 400;
+      reject(error);
+    }
+
+    if (!ids && !changelogType) {
+      error.message = 'Must provide ids or type';
       error.status = 400;
       reject(error);
     }

@@ -95,6 +95,12 @@ const jobTitle = { jobTitle: 'software engineer' };
 
 const ip = { ip: '72.212.42.228' };
 
+const personChangelogLookup = {
+  originVersion: '30.2',
+  currentVersion: '31.0',
+  type: 'updated',
+};
+
 describe('Person Enrichment', () => {
   it(`Should Return Person Record for ${email}`, async () => {
     try {
@@ -269,6 +275,28 @@ describe('Bulk Person Retrieve', () => {
   it('Should Error for Bulk Person Retrieve', async () => {
     try {
       const response = await PDLJSClient.person.bulk.retrieve();
+
+      expect(response).to.be.null();
+    } catch (error) {
+      expect(error).to.be.a('object');
+    }
+  });
+});
+
+describe('Person Changelog', () => {
+  it(`Should Return Person Changelog Records for ${JSON.stringify(personChangelogLookup)}`, async () => {
+    try {
+      const response = await PDLJSClient.person.changelog(personChangelogLookup);
+
+      expect(response).to.be.a('object');
+    } catch (error) {
+      expect(error).to.be.null();
+    }
+  }).timeout(10000);
+
+  it('Should Error for Person Changelog', async () => {
+    try {
+      const response = await PDLJSClient.person.changelog();
 
       expect(response).to.be.null();
     } catch (error) {

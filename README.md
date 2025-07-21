@@ -154,6 +154,21 @@ try {
 } catch (error) {
   console.log(error);
 }
+
+// By Changelog
+const personChangelogLookup = {
+  currentVersion: '31.0',
+  originVersion: '30.2',
+  type: 'updated',
+}
+
+try {
+  const response = await PDLJSClient.person.changelog(personChangelogLookup);
+
+  console.log(response);
+} catch (error) {
+  console.log(error);
+}
 ```
 
 **Using Company APIs**
@@ -403,6 +418,7 @@ try {
 | [Person Bulk Person Enrichment API](https://docs.peopledatalabs.com/docs/bulk-enrichment-api) | `PDLJS.person.bulk.enrichment({ ...records })` |
 | [Person Search API](https://docs.peopledatalabs.com/docs/search-api) | SQL: `PDLJS.person.search.sql({ ...params })` <br/> Elasticsearch: `PDLJS.person.search.elastic({ ...params })`|
 | [Person Identify API](https://docs.peopledatalabs.com/docs/identify-api) | `PDLJS.person.identify({ ...params })` |
+| [Person Changelog API](https://docs.peopledatalabs.com/docs/person-changelog-api) | `PDLJS.person.changelog({ ...params })` |
 
 **Company Endpoints**
 | API Endpoint | PDLJS Function |

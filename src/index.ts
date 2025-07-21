@@ -1,9 +1,10 @@
-import { autocomplete, bulkCompanyEnrichment, bulkEnrichment, bulkRetrieve, cleaner, enrichment, enrichmentPreview, identify, jobTitle, retrieve, search } from './endpoints/index.js';
+import { autocomplete, bulkCompanyEnrichment, bulkEnrichment, bulkRetrieve, changelog, cleaner, enrichment, enrichmentPreview, identify, jobTitle, retrieve, search } from './endpoints/index.js';
 import ip from './endpoints/ip/index.js';
 import { APISettings } from './types/api-types.js';
 import { AutoCompleteParams, AutoCompleteResponse } from './types/autocomplete-types.js';
 import { BulkPersonRetrieveParams, BulkPersonRetrieveResponse } from './types/bulk-retrieve-types.js';
 import { BulkCompanyEnrichmentParams, BulkCompanyEnrichmentResponse, BulkPersonEnrichmentParams, BulkPersonEnrichmentResponse } from './types/bulk-types.js';
+import { ChangelogParams, ChangelogResponse } from './types/changelog-types.js';
 import { CompanyCleanerParams, CompanyCleanerResponse, LocationCleanerParams, LocationCleanerResponse, SchoolCleanerParams, SchoolCleanerResponse } from './types/cleaner-types.js';
 import { CompanyResponse, PersonResponse } from './types/common-types.js';
 import { CompanyEnrichmentParams, CompanyEnrichmentResponse, PersonEnrichmentParams, PersonEnrichmentPreviewParams, PersonEnrichmentPreviewResponse, PersonEnrichmentResponse, PersonPreviewResponse } from './types/enrichment-types.js';
@@ -25,6 +26,7 @@ class PDLJS {
       enrichment: (records: BulkPersonEnrichmentParams) => Promise<BulkPersonEnrichmentResponse>;
       retrieve: (records: BulkPersonRetrieveParams) => Promise<BulkPersonRetrieveResponse>;
     };
+    changelog: (params: ChangelogParams) => Promise<ChangelogResponse>;
     enrichment: (params: PersonEnrichmentParams) => Promise<PersonEnrichmentResponse>;
     enrichmentPreview: (params: PersonEnrichmentPreviewParams) => Promise<PersonEnrichmentPreviewResponse>;
     identify: (params: IdentifyParams) => Promise<IdentifyResponse>;
@@ -80,6 +82,7 @@ class PDLJS {
       },
       identify: (params) => identify(this.basePath, this.sandboxBasePath, this.apiKey, params),
       retrieve: (params) => retrieve(this.basePath, this.apiKey, params),
+      changelog: (params) => changelog(this.basePath, this.apiKey, params),
     };
 
     this.company = {
@@ -122,6 +125,8 @@ export type {
   BulkPersonEnrichmentResponse,
   BulkPersonRetrieveParams,
   BulkPersonRetrieveResponse,
+  ChangelogParams,
+  ChangelogResponse,
   CompanyCleanerParams,
   CompanyCleanerResponse,
   CompanyEnrichmentParams,
