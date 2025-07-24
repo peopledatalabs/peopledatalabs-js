@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { copy } from 'copy-anything';
 
+import packageJSON from '../../../package.json';
 import { check, errorHandler } from '../../errors.js';
 import { CompanyEnrichmentParams, CompanyEnrichmentResponse, EnrichmentType, PersonEnrichmentParams, PersonEnrichmentResponse } from '../../types/enrichment-types.js';
 import { parseRateLimitingResponse } from '../../utils/api-utils.js';
@@ -16,6 +17,7 @@ export default <T extends PersonEnrichmentParams | CompanyEnrichmentParams, K ex
     const headers = {
       'Accept-Encoding': 'gzip',
       'User-Agent': 'PDL-JS-SDK',
+      'SDK-Version': packageJSON.version,
     };
 
     const url = params.sandbox && type === 'person' ? `${sandboxBasePath}/${type}/enrich` : `${basePath}/${type}/enrich`;

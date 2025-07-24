@@ -1,5 +1,6 @@
 import axios from 'axios';
 
+import packageJSON from '../../../package.json';
 import { check, errorHandler } from '../../errors.js';
 import type { ChangelogParams, ChangelogResponse } from '../../types/changelog-types.js';
 import { parseRateLimitingResponse } from '../../utils/api-utils.js';
@@ -26,6 +27,7 @@ export default (
     const headers = {
       'Accept-Encoding': 'gzip',
       'User-Agent': 'PDL-JS-SDK',
+      'SDK-Version': packageJSON.version,
       'X-Api-Key': apiKey,
     };
 

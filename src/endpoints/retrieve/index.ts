@@ -1,5 +1,6 @@
 import axios from 'axios';
 
+import packageJSON from '../../../package.json';
 import { check, errorHandler } from '../../errors.js';
 import { ApiRetrieveParams, RetrieveParams, RetrieveResponse } from '../../types/retrieve-types.js';
 import { parseRateLimitingResponse } from '../../utils/api-utils.js';
@@ -29,7 +30,9 @@ export default (
     const headers = {
       'Accept-Encoding': 'gzip',
       'User-Agent': 'PDL-JS-SDK',
+      'SDK-Version': packageJSON.version,
     };
+
     const apiParams = transformRetrieveParams(params);
 
     axios.get<RetrieveResponse>(`${basePath}/person/retrieve/${params.id}`, {

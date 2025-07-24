@@ -1,5 +1,6 @@
 import axios from 'axios';
 
+import packageJSON from '../../../package.json';
 import { check, errorHandler } from '../../errors.js';
 import { BaseResponse } from '../../types/api-types.js';
 import { CleanerType } from '../../types/cleaner-types.js';
@@ -15,6 +16,7 @@ export default <T, K extends BaseResponse> (
     const headers = {
       'Accept-Encoding': 'gzip',
       'User-Agent': 'PDL-JS-SDK',
+      'SDK-Version': packageJSON.version,
     };
 
     axios.get<K>(`${basePath}/${type}/clean`, {
