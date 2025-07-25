@@ -1,5 +1,6 @@
 import axios from 'axios';
 
+import packageJSON from '../../../package.json';
 import { check, errorHandler } from '../../errors.js';
 import { ApiBulkPersonRetrieveParams, BulkPersonRetrieveParams, BulkPersonRetrieveResponse } from '../../types/bulk-retrieve-types.js';
 import { parseRateLimitingResponse } from '../../utils/api-utils.js';
@@ -24,8 +25,9 @@ export default (basePath: string, apiKey: string, records: BulkPersonRetrievePar
   const headers = {
     'Content-Type': 'application/json',
     'Accept-Encoding': 'gzip',
-    'X-Api-Key': apiKey,
     'User-Agent': 'PDL-JS-SDK',
+    'SDK-Version': packageJSON.version,
+    'X-Api-Key': apiKey,
   };
 
   return new Promise<BulkPersonRetrieveResponse>((resolve, reject) => {

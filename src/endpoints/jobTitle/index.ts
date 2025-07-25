@@ -1,5 +1,6 @@
 import axios from 'axios';
 
+import packageJSON from '../../../package.json';
 import { check, errorHandler } from '../../errors.js';
 import { JobTitleParams, JobTitleResponse } from '../../types/jobTitle-types.js';
 import { parseRateLimitingResponse } from '../../utils/api-utils.js';
@@ -22,6 +23,7 @@ export default (
     const headers = {
       'Accept-Encoding': 'gzip',
       'User-Agent': 'PDL-JS-SDK',
+      'SDK-Version': packageJSON.version,
     };
 
     axios.get<JobTitleResponse>(`${basePath}/job_title/enrich`, {

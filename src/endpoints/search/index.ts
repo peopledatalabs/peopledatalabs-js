@@ -1,5 +1,6 @@
 import axios from 'axios';
 
+import packageJSON from '../../../package.json';
 import { check, errorHandler } from '../../errors.js';
 import { BaseResponse } from '../../types/api-types.js';
 import { BaseSearchParams, SearchType } from '../../types/search-types.js';
@@ -32,8 +33,9 @@ export default <T extends BaseSearchParams, K extends BaseResponse>(
     const headers = {
       'Content-Type': 'application/json',
       'Accept-Encoding': 'gzip',
-      'X-Api-Key': apiKey,
       'User-Agent': 'PDL-JS-SDK',
+      'SDK-Version': packageJSON.version,
+      'X-Api-Key': apiKey,
     };
 
     const url = sandbox && type === 'person' ? `${sandboxBasePath}/person/search` : `${basePath}/${type}/search`;

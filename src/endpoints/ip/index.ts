@@ -1,5 +1,6 @@
 import axios from 'axios';
 
+import packageJSON from '../../../package.json';
 import { check, errorHandler } from '../../errors.js';
 import { IPParams, IPResponse } from '../../types/ip-types.js';
 import { parseRateLimitingResponse } from '../../utils/api-utils.js';
@@ -13,6 +14,7 @@ export default (
     const headers = {
       'Accept-Encoding': 'gzip',
       'User-Agent': 'PDL-JS-SDK',
+      'SDK-Version': packageJSON.version,
     };
 
     axios.get<IPResponse>(`${basePath}/ip/enrich`, {
