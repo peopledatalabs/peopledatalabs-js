@@ -1,10 +1,10 @@
 import axios from 'axios';
 
-import packageJSON from '../../../package.json';
 import { check, errorHandler } from '../../errors.js';
 import { BaseResponse } from '../../types/api-types.js';
 import { CleanerType } from '../../types/cleaner-types.js';
 import { parseRateLimitingResponse } from '../../utils/api-utils.js';
+import SDK_VERSION from '../../utils/sdk-version.js';
 
 export default <T, K extends BaseResponse> (
   basePath: string,
@@ -16,7 +16,7 @@ export default <T, K extends BaseResponse> (
     const headers = {
       'Accept-Encoding': 'gzip',
       'User-Agent': 'PDL-JS-SDK',
-      'SDK-Version': packageJSON.version,
+      'SDK-Version': SDK_VERSION,
     };
 
     axios.get<K>(`${basePath}/${type}/clean`, {

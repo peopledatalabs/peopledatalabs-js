@@ -1,9 +1,9 @@
 import axios from 'axios';
 
-import packageJSON from '../../../package.json';
 import { check, errorHandler } from '../../errors.js';
 import { ApiBulkPersonRetrieveParams, BulkPersonRetrieveParams, BulkPersonRetrieveResponse } from '../../types/bulk-retrieve-types.js';
 import { parseRateLimitingResponse } from '../../utils/api-utils.js';
+import SDK_VERSION from '../../utils/sdk-version.js';
 
 const transformBulkRetrieveParams = (params: BulkPersonRetrieveParams): ApiBulkPersonRetrieveParams => {
   const filter = params.filter_updated;
@@ -26,7 +26,7 @@ export default (basePath: string, apiKey: string, records: BulkPersonRetrievePar
     'Content-Type': 'application/json',
     'Accept-Encoding': 'gzip',
     'User-Agent': 'PDL-JS-SDK',
-    'SDK-Version': packageJSON.version,
+    'SDK-Version': SDK_VERSION,
     'X-Api-Key': apiKey,
   };
 
