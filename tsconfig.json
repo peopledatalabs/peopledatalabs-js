@@ -13,7 +13,6 @@
     "noUnusedLocals": false,
     "noUnusedParameters": false,
     "preserveWatchOutput": true,
-    "resolveJsonModule": true,
     "skipLibCheck": true,
     "strict": true,
     "lib": ["dom", "ES2017"],

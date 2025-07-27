@@ -1,10 +1,10 @@
 import axios from 'axios';
 import { copy } from 'copy-anything';
 
-import packageJSON from '../../../package.json';
 import { check, errorHandler } from '../../errors.js';
 import { IdentifyParams, IdentifyResponse } from '../../types/identify-types.js';
 import { parseRateLimitingResponse } from '../../utils/api-utils.js';
+import SDK_VERSION from '../../utils/sdk-version.js';
 
 export default (
   basePath: string,
@@ -16,7 +16,7 @@ export default (
     const headers = {
       'Accept-Encoding': 'gzip',
       'User-Agent': 'PDL-JS-SDK',
-      'SDK-Version': packageJSON.version,
+      'SDK-Version': SDK_VERSION,
     };
 
     const url = params.sandbox ? `${sandboxBasePath}/person/identify` : `${basePath}/person/identify`;
