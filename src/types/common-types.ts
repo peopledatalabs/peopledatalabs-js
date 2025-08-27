@@ -700,6 +700,7 @@ export interface CompanyResponse {
   id?: string | null;
   immediate_parent?: string | null;
   industry?: IndustryType | null;
+  industry_v2?: string | null;
   inferred_revenue?: InferredRevenue | null;
   last_funding_date?: string | null;
   latest_funding_stage?: string | null;
