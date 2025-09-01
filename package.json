@@ -2,7 +2,7 @@
   "name": "peopledatalabs",
   "version": "13.4.0",
   "description": "JavaScript client with TypeScript support for the People Data Labs API",
-  "packageManager": "pnpm@10.15.0",
+  "packageManager": "pnpm@10.15.1",
   "type": "module",
   "main": "dist/index.cjs",
   "module": "dist/index.m.js",
