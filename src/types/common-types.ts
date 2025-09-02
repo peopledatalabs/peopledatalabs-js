@@ -1,4 +1,4 @@
-import type { CompanySize, CompanyType, Continent, Currencies, EmailType, FundingRoundType, IndustryType, InferredRevenue, InferredSalary, JobTitleClass, JobTitleLevel, JobTitleRole, JobTitleSubRole, LanguageName, MICCode, ProfileNetwork } from './canonical-types.js';
+import type { CompanySize, CompanyType, Continent, Currencies, EmailType, FundingRoundType, IndustryType, IndustryV2Type, InferredRevenue, InferredSalary, JobTitleClass, JobTitleLevel, JobTitleRole, JobTitleSubRole, LanguageName, MICCode, ProfileNetwork } from './canonical-types.js';
 
 export interface LocationResponse {
   address_line_2?: string | null;
@@ -700,6 +700,7 @@ export interface CompanyResponse {
   id?: string | null;
   immediate_parent?: string | null;
   industry?: IndustryType | null;
+  industry_v2?: IndustryV2Type | null;
   inferred_revenue?: InferredRevenue | null;
   last_funding_date?: string | null;
   latest_funding_stage?: string | null;
