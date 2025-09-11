@@ -1,6 +1,7 @@
 import axios from 'axios';
 
 import { check, errorHandler } from '../../errors.js';
+import { RequestOptions } from '../../types/api-types.js';
 import { ApiBulkPersonRetrieveParams, BulkPersonRetrieveParams, BulkPersonRetrieveResponse } from '../../types/bulk-retrieve-types.js';
 import { parseRateLimitingResponse } from '../../utils/api-utils.js';
 import SDK_VERSION from '../../utils/sdk-version.js';
@@ -21,7 +22,7 @@ const transformBulkRetrieveParams = (params: BulkPersonRetrieveParams): ApiBulkP
   };
 };
 
-export default (basePath: string, apiKey: string, records: BulkPersonRetrieveParams) => {
+export default (basePath: string, apiKey: string, records: BulkPersonRetrieveParams, options: RequestOptions = {}) => {
   const headers = {
     'Content-Type': 'application/json',
     'Accept-Encoding': 'gzip',
@@ -35,6 +36,7 @@ export default (basePath: string, apiKey: string, records: BulkPersonRetrievePar
       const apiParams = transformBulkRetrieveParams(records);
       axios.post<BulkPersonRetrieveResponse>(`${basePath}/person/retrieve/bulk`, apiParams, {
         headers,
+        ...options,
       }).then((response) => {
         resolve(parseRateLimitingResponse(response));
       }).catch((error) => {

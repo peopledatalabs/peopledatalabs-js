@@ -1,6 +1,7 @@
 import axios from 'axios';
 
 import { check, errorHandler } from '../../errors.js';
+import { RequestOptions } from '../../types/api-types.js';
 import type { AutoCompleteParams, AutoCompleteResponse } from '../../types/autocomplete-types.js';
 import { parseRateLimitingResponse } from '../../utils/api-utils.js';
 import SDK_VERSION from '../../utils/sdk-version.js';
@@ -9,6 +10,7 @@ export default (
   basePath: string,
   apiKey: string,
   params: AutoCompleteParams,
+  options: RequestOptions = {},
 ) => new Promise<AutoCompleteResponse>((resolve, reject) => {
   check(params, basePath, apiKey, null, 'autocomplete').then(() => {
     const { field, pretty, size, text, titlecase } = params;
@@ -33,6 +35,7 @@ export default (
         ...autocompleteParams,
       },
       headers,
+      ...options,
     }).then((response) => {
       if (response?.data?.status === 200) {
         resolve(parseRateLimitingResponse(response));

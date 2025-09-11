@@ -2,6 +2,7 @@ import axios from 'axios';
 import { copy } from 'copy-anything';
 
 import { check, errorHandler } from '../../errors.js';
+import { RequestOptions } from '../../types/api-types.js';
 import { IdentifyParams, IdentifyResponse } from '../../types/identify-types.js';
 import { parseRateLimitingResponse } from '../../utils/api-utils.js';
 import SDK_VERSION from '../../utils/sdk-version.js';
@@ -11,6 +12,7 @@ export default (
   sandboxBasePath: string,
   apiKey: string,
   params: IdentifyParams,
+  options: RequestOptions = {},
 ) => new Promise<IdentifyResponse>((resolve, reject) => {
   check(params, basePath, apiKey, null, 'identify').then(() => {
     const headers = {
@@ -52,6 +54,7 @@ export default (
     axios.get<IdentifyResponse>(url, {
       params: p,
       headers,
+      ...options,
     }).then((response) => {
       if (response?.data?.status === 200) {
         resolve(parseRateLimitingResponse(response));

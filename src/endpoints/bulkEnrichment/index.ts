@@ -1,11 +1,12 @@
 import axios from 'axios';
 
 import { check, errorHandler } from '../../errors.js';
+import { RequestOptions } from '../../types/api-types.js';
 import { BulkPersonEnrichmentParams, BulkPersonEnrichmentResponse } from '../../types/bulk-types.js';
 import { parseRateLimitingResponse } from '../../utils/api-utils.js';
 import SDK_VERSION from '../../utils/sdk-version.js';
 
-export default (basePath: string, apiKey: string, records: BulkPersonEnrichmentParams) => {
+export default (basePath: string, apiKey: string, records: BulkPersonEnrichmentParams, options: RequestOptions = {}) => {
   const headers = {
     'Content-Type': 'application/json',
     'Accept-Encoding': 'gzip',
@@ -18,6 +19,7 @@ export default (basePath: string, apiKey: string, records: BulkPersonEnrichmentP
     check(records, basePath, apiKey, 'Records', 'bulk').then(() => {
       axios.post<BulkPersonEnrichmentResponse>(`${basePath}/person/bulk`, records, {
         headers,
+        ...options,
       }).then((response) => {
         resolve(parseRateLimitingResponse(response));
       }).catch((error) => {

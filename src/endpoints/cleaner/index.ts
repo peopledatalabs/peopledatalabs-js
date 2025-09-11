@@ -1,16 +1,17 @@
 import axios from 'axios';
 
 import { check, errorHandler } from '../../errors.js';
-import { BaseResponse } from '../../types/api-types.js';
+import { BaseResponse, RequestOptions } from '../../types/api-types.js';
 import { CleanerType } from '../../types/cleaner-types.js';
 import { parseRateLimitingResponse } from '../../utils/api-utils.js';
 import SDK_VERSION from '../../utils/sdk-version.js';
 
-export default <T, K extends BaseResponse> (
+export default <T, K extends BaseResponse>(
   basePath: string,
   apiKey: string,
   params: T,
   type: CleanerType,
+  options: RequestOptions = {},
 ) => new Promise<K>((resolve, reject) => {
   check(params, basePath, apiKey, null, 'cleaner').then(() => {
     const headers = {
@@ -25,6 +26,7 @@ export default <T, K extends BaseResponse> (
         ...params,
       },
       headers,
+      ...options,
     }).then((response) => {
       if (response?.data?.status === 200) {
         resolve(parseRateLimitingResponse(response));

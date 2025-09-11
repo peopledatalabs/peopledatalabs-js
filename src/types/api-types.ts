@@ -1,9 +1,13 @@
+import { AxiosRequestConfig } from 'axios';
+
 export interface APISettings {
   apiKey: string;
   basePath?: string;
   sandboxBasePath?: string;
   version?: string;
 }
+
+export type RequestOptions = Pick<AxiosRequestConfig, 'timeout' | 'signal'>;
 
 export interface RateLimit {
   callCreditsSpent?: number | null;

@@ -2,6 +2,7 @@ import axios from 'axios';
 import { copy } from 'copy-anything';
 
 import { check, errorHandler } from '../../errors.js';
+import { RequestOptions } from '../../types/api-types.js';
 import { PersonEnrichmentPreviewParams, PersonEnrichmentPreviewResponse } from '../../types/enrichment-types.js';
 import { parseRateLimitingResponse } from '../../utils/api-utils.js';
 import SDK_VERSION from '../../utils/sdk-version.js';
@@ -11,6 +12,7 @@ export default (
   sandboxBasePath: string,
   apiKey: string,
   params: PersonEnrichmentPreviewParams,
+  options: RequestOptions = {},
 ) => new Promise<PersonEnrichmentPreviewResponse>((resolve, reject) => {
   check(params, basePath, apiKey, null, 'enrichment').then(() => {
     const headers = {
@@ -52,6 +54,7 @@ export default (
     axios.get<PersonEnrichmentPreviewResponse>(url, {
       params: p,
       headers,
+      ...options,
     }).then((response) => {
       if (response?.data?.status === 200) {
         resolve(parseRateLimitingResponse(response));
