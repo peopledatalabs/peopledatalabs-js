@@ -1,6 +1,7 @@
 import axios from 'axios';
 
 import { check, errorHandler } from '../../errors.js';
+import { RequestOptions } from '../../types/api-types.js';
 import type { ChangelogParams, ChangelogResponse } from '../../types/changelog-types.js';
 import { parseRateLimitingResponse } from '../../utils/api-utils.js';
 import SDK_VERSION from '../../utils/sdk-version.js';
@@ -9,6 +10,7 @@ export default (
   basePath: string,
   apiKey: string,
   params: ChangelogParams,
+  options: RequestOptions = {},
 ) => new Promise<ChangelogResponse>((resolve, reject) => {
   check(params, basePath, apiKey, null, 'changelog').then(() => {
     // eslint-disable-next-line @typescript-eslint/naming-convention
@@ -33,6 +35,7 @@ export default (
 
     axios.post<ChangelogResponse>(`${basePath}/person/changelog`, changelogParams, {
       headers,
+      ...options,
     }).then((response) => {
       if (response?.status === 200) {
         resolve(parseRateLimitingResponse(response));

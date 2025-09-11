@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 import { check, errorHandler } from '../../errors.js';
-import { BaseResponse } from '../../types/api-types.js';
+import { BaseResponse, RequestOptions } from '../../types/api-types.js';
 import { BaseSearchParams, SearchType } from '../../types/search-types.js';
 import { parseRateLimitingResponse } from '../../utils/api-utils.js';
 import SDK_VERSION from '../../utils/sdk-version.js';
@@ -13,6 +13,7 @@ export default <T extends BaseSearchParams, K extends BaseResponse>(
   searchType: SearchType,
   params: T,
   type: string,
+  options: RequestOptions = {},
 ) => new Promise<K>((resolve, reject) => {
   check(params, basePath, apiKey, null, 'search').then(() => {
     const {
@@ -42,6 +43,7 @@ export default <T extends BaseSearchParams, K extends BaseResponse>(
 
     axios.post<K>(url, searchParams, {
       headers,
+      ...options,
     }).then((response) => {
       if (response?.data?.status === 200) {
         resolve(parseRateLimitingResponse(response));

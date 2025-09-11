@@ -2,6 +2,7 @@ import axios from 'axios';
 import { copy } from 'copy-anything';
 
 import { check, errorHandler } from '../../errors.js';
+import { RequestOptions } from '../../types/api-types.js';
 import { CompanyEnrichmentParams, CompanyEnrichmentResponse, EnrichmentType, PersonEnrichmentParams, PersonEnrichmentResponse } from '../../types/enrichment-types.js';
 import { parseRateLimitingResponse } from '../../utils/api-utils.js';
 import SDK_VERSION from '../../utils/sdk-version.js';
@@ -12,6 +13,7 @@ export default <T extends PersonEnrichmentParams | CompanyEnrichmentParams, K ex
   apiKey: string,
   params: T,
   type: EnrichmentType,
+  options: RequestOptions = {},
 ) => new Promise<K>((resolve, reject) => {
   check(params, basePath, apiKey, null, 'enrichment').then(() => {
     const headers = {
@@ -53,6 +55,7 @@ export default <T extends PersonEnrichmentParams | CompanyEnrichmentParams, K ex
     axios.get<K>(url, {
       params: p,
       headers,
+      ...options,
     }).then((response) => {
       if (response?.data?.status === 200) {
         resolve(parseRateLimitingResponse(response));

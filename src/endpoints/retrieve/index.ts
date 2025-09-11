@@ -1,6 +1,7 @@
 import axios from 'axios';
 
 import { check, errorHandler } from '../../errors.js';
+import { RequestOptions } from '../../types/api-types.js';
 import { ApiRetrieveParams, RetrieveParams, RetrieveResponse } from '../../types/retrieve-types.js';
 import { parseRateLimitingResponse } from '../../utils/api-utils.js';
 import SDK_VERSION from '../../utils/sdk-version.js';
@@ -25,6 +26,7 @@ export default (
   basePath: string,
   apiKey: string,
   params: RetrieveParams,
+  options: RequestOptions = {},
 ) => new Promise<RetrieveResponse>((resolve, reject) => {
   check(params, basePath, apiKey, 'ID', 'retrieve').then(() => {
     const headers = {
@@ -41,6 +43,7 @@ export default (
         ...apiParams,
       },
       headers,
+      ...options,
     }).then((response) => {
       if (response?.data?.status === 200) {
         resolve(parseRateLimitingResponse(response));

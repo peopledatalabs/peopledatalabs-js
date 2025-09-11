@@ -1,6 +1,7 @@
 import axios from 'axios';
 
 import { check, errorHandler } from '../../errors.js';
+import { RequestOptions } from '../../types/api-types.js';
 import { JobTitleParams, JobTitleResponse } from '../../types/jobTitle-types.js';
 import { parseRateLimitingResponse } from '../../utils/api-utils.js';
 import SDK_VERSION from '../../utils/sdk-version.js';
@@ -9,6 +10,7 @@ export default (
   basePath: string,
   apiKey: string,
   params: JobTitleParams,
+  options: RequestOptions = {},
 ) => new Promise<JobTitleResponse>((resolve, reject) => {
   check(params, basePath, apiKey, null, 'jobTitle').then(() => {
     const {
@@ -32,6 +34,7 @@ export default (
         ...jobTitleParams,
       },
       headers,
+      ...options,
     }).then((response) => {
       if (response?.data?.status === 200) {
         resolve(parseRateLimitingResponse(response));

@@ -1,3 +1,3 @@
-const SDK_VERSION = '13.3.0';
+const SDK_VERSION = '13.5.0';
 
 export default SDK_VERSION;
