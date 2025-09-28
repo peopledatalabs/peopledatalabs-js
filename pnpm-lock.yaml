@@ -26,7 +26,7 @@ importers:
         version: 7.18.0(eslint@8.57.1)(typescript@5.9.2)
       chai:
         specifier: ^6.0.1
-        version: 6.0.1
+        version: 6.2.0
       dotenv:
         specifier: ^17.2.2
         version: 17.2.2
@@ -1131,8 +1131,8 @@ packages:
   caniuse-lite@1.0.30001705:
     resolution: {integrity: sha512-S0uyMMiYvA7CxNgomYBwwwPUnWzFD83f3B1ce5jHUfHTH//QL6hHsreI8RVC5606R4ssqravelYO5TU6t8sEyg==}
 
-  chai@6.0.1:
-    resolution: {integrity: sha512-/JOoU2//6p5vCXh00FpNgtlw0LjvhGttaWc+y7wpW9yjBm3ys0dI8tSKZxIOgNruz5J0RleccatSIC3uxEZP0g==}
+  chai@6.2.0:
+    resolution: {integrity: sha512-aUTnJc/JipRzJrNADXVvpVqi6CO0dn3nx4EVPxijri+fj3LUUDyZQOgVeW54Ob3Y1Xh9Iz8f+CgaCl8v0mn9bA==}
     engines: {node: '>=18'}
 
   chalk@1.1.3:
@@ -4450,7 +4450,7 @@ snapshots:
 
   caniuse-lite@1.0.30001705: {}
 
-  chai@6.0.1: {}
+  chai@6.2.0: {}
 
   chalk@1.1.3:
     dependencies:
