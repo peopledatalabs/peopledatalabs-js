@@ -28,7 +28,7 @@ importers:
         specifier: 7.18.0
         version: 7.18.0(eslint@8.57.1)(typescript@5.9.2)
       chai:
-        specifier: ^6.0.1
+        specifier: ^6.2.0
         version: 6.2.0
       dotenv:
         specifier: ^17.2.2
