@@ -72,6 +72,7 @@
   },
   "dependencies": {
     "@types/chai": "^5.2.2",
+    "@types/mocha": "^10.0.10",
     "axios": "^1.12.2",
     "copy-anything": "3.0.5"
   }
