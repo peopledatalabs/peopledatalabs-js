@@ -76,12 +76,12 @@ const companyRecords = {
   requests: [
     {
       params: {
-        profile: ['linkedin.com/company/peopledatalabs'],
+        profile: 'linkedin.com/company/peopledatalabs',
       },
     },
     {
       params: {
-        profile: ['linkedin.com/company/apple'],
+        profile: 'linkedin.com/company/apple',
       },
     },
   ],
@@ -104,13 +104,14 @@ const personChangelogLookup = {
 describe('Person Enrichment', () => {
   it(`Should Return Person Record for ${email}`, async () => {
     try {
-      const response = await PDLJSClient.person.enrichment({ email });
+      const enrichmentParams = { email };
+      const response = await PDLJSClient.person.enrichment(enrichmentParams);
 
       expect(response.status).to.equal(200);
       expect(response).to.be.a('object');
       expect(response.data.job_title_class).to.be.a('string');
     } catch (error) {
-      expect(error).to.be.null();
+      expect(error).to.equal(null);
     }
   });
 
@@ -118,7 +119,7 @@ describe('Person Enrichment', () => {
     try {
       const response = await PDLJSClient.person.enrichment();
 
-      expect(response).to.be.null();
+      expect(response).to.equal(null);
     } catch (error) {
       expect(error).to.be.a('object');
     }
@@ -133,7 +134,7 @@ describe('Person Preview Enrichment', () => {
       expect(response.status).to.equal(200);
       expect(response).to.be.a('object');
     } catch (error) {
-      expect(error).to.be.null();
+      expect(error).to.equal(null);
     }
   });
 
@@ -141,7 +142,7 @@ describe('Person Preview Enrichment', () => {
     try {
       const response = await PDLJSClient.person.enrichmentPreview();
 
-      expect(response).to.be.null();
+      expect(response).to.equal(null);
     } catch (error) {
       expect(error).to.be.a('object');
     }
@@ -156,7 +157,7 @@ describe('Person Bulk Enrichment', () => {
       expect(response.items.length).to.equal(2);
       expect(response.items).to.be.a('array');
     } catch (error) {
-      expect(error).to.be.null();
+      expect(error).to.equal(null);
     }
   });
 
@@ -164,7 +165,7 @@ describe('Person Bulk Enrichment', () => {
     try {
       const response = await PDLJSClient.person.bulk.enrichment();
 
-      expect(response).to.be.null();
+      expect(response).to.equal(null);
     } catch (error) {
       expect(error).to.be.a('object');
     }
@@ -179,7 +180,7 @@ describe('Person Identify', () => {
       expect(response.status).to.equal(200);
       expect(response).to.be.a('object');
     } catch (error) {
-      expect(error).to.be.null();
+      expect(error).to.equal(null);
     }
   });
 
@@ -187,7 +188,7 @@ describe('Person Identify', () => {
     try {
       const response = await PDLJSClient.person.identify();
 
-      expect(response).to.be.null();
+      expect(response).to.equal(null);
     } catch (error) {
       expect(error).to.be.a('object');
     }
@@ -202,7 +203,7 @@ describe('Person Search', () => {
       expect(response.status).to.equal(200);
       expect(response).to.be.a('object');
     } catch (error) {
-      expect(error).to.be.null();
+      expect(error).to.equal(null);
     }
   });
 
@@ -210,7 +211,7 @@ describe('Person Search', () => {
     try {
       const response = await PDLJSClient.person.search.sql();
 
-      expect(response).to.be.null();
+      expect(response).to.equal(null);
     } catch (error) {
       expect(error).to.be.a('object');
     }
@@ -223,7 +224,7 @@ describe('Person Search', () => {
       expect(response.status).to.equal(200);
       expect(response).to.be.a('object');
     } catch (error) {
-      expect(error).to.be.null();
+      expect(error).to.equal(null);
     }
   });
 
@@ -231,7 +232,7 @@ describe('Person Search', () => {
     try {
       const response = await PDLJSClient.person.search.elastic();
 
-      expect(response).to.be.null();
+      expect(response).to.equal(null);
     } catch (error) {
       expect(error).to.be.a('object');
     }
@@ -246,7 +247,7 @@ describe('Person Retrieve', () => {
       expect(response.status).to.equal(200);
       expect(response).to.be.a('object');
     } catch (error) {
-      expect(error).to.be.null();
+      expect(error).to.equal(null);
     }
   });
 
@@ -254,7 +255,7 @@ describe('Person Retrieve', () => {
     try {
       const response = await PDLJSClient.person.retrieve();
 
-      expect(response).to.be.null();
+      expect(response).to.equal(null);
     } catch (error) {
       expect(error).to.be.a('object');
     }
@@ -268,7 +269,7 @@ describe('Bulk Person Retrieve', () => {
 
       expect(response).to.be.a('object');
     } catch (error) {
-      expect(error).to.be.null();
+      expect(error).to.equal(null);
     }
   });
 
@@ -276,7 +277,7 @@ describe('Bulk Person Retrieve', () => {
     try {
       const response = await PDLJSClient.person.bulk.retrieve();
 
-      expect(response).to.be.null();
+      expect(response).to.equal(null);
     } catch (error) {
       expect(error).to.be.a('object');
     }
@@ -290,7 +291,7 @@ describe('Person Changelog', () => {
 
       expect(response).to.be.a('object');
     } catch (error) {
-      expect(error).to.be.null();
+      expect(error).to.equal(null);
     }
   }).timeout(10000);
 
@@ -298,7 +299,7 @@ describe('Person Changelog', () => {
     try {
       const response = await PDLJSClient.person.changelog();
 
-      expect(response).to.be.null();
+      expect(response).to.equal(null);
     } catch (error) {
       expect(error).to.be.a('object');
     }
@@ -313,7 +314,7 @@ describe('Company Enrichment', () => {
       expect(response.status).to.equal(200);
       expect(response).to.be.a('object');
     } catch (error) {
-      expect(error).to.be.null();
+      expect(error).to.equal(null);
     }
   });
 
@@ -324,7 +325,7 @@ describe('Company Enrichment', () => {
       expect(response.status).to.equal(200);
       expect(response).to.be.a('object');
     } catch (error) {
-      expect(error).to.be.null();
+      expect(error).to.equal(null);
     }
   });
 
@@ -332,7 +333,7 @@ describe('Company Enrichment', () => {
     try {
       const response = await PDLJSClient.company.enrichment();
 
-      expect(response).to.be.null();
+      expect(response).to.equal(null);
     } catch (error) {
       expect(error).to.be.a('object');
     }
@@ -347,7 +348,7 @@ describe('Company Bulk Enrichment', () => {
       expect(response.items.length).to.equal(2);
       expect(response.items).to.be.a('array');
     } catch (error) {
-      expect(error).to.be.null();
+      expect(error).to.equal(null);
     }
   });
 
@@ -355,7 +356,7 @@ describe('Company Bulk Enrichment', () => {
     try {
       const response = await PDLJSClient.company.bulk.enrichment();
 
-      expect(response).to.be.null();
+      expect(response).to.equal(null);
     } catch (error) {
       expect(error).to.be.a('object');
     }
@@ -370,7 +371,7 @@ describe('Company Search', () => {
       expect(response.status).to.equal(200);
       expect(response).to.be.a('object');
     } catch (error) {
-      expect(error).to.be.null();
+      expect(error).to.equal(null);
     }
   });
 
@@ -378,7 +379,7 @@ describe('Company Search', () => {
     try {
       const response = await PDLJSClient.company.search.sql();
 
-      expect(response).to.be.null();
+      expect(response).to.equal(null);
     } catch (error) {
       expect(error).to.be.a('object');
     }
@@ -391,7 +392,7 @@ describe('Company Search', () => {
       expect(response.status).to.equal(200);
       expect(response).to.be.a('object');
     } catch (error) {
-      expect(error).to.be.null();
+      expect(error).to.equal(null);
     }
   });
 
@@ -399,7 +400,7 @@ describe('Company Search', () => {
     try {
       const response = await PDLJSClient.company.search.elastic();
 
-      expect(response).to.be.null();
+      expect(response).to.equal(null);
     } catch (error) {
       expect(error).to.be.a('object');
     }
@@ -414,7 +415,7 @@ describe('Autocomplete', () => {
       expect(response.status).to.equal(200);
       expect(response).to.be.a('object');
     } catch (error) {
-      expect(error).to.be.null();
+      expect(error).to.equal(null);
     }
   });
 
@@ -430,7 +431,7 @@ describe('Autocomplete', () => {
       expect(response.status).to.equal(200);
       expect(response).to.be.a('object');
     } catch (error) {
-      expect(error).to.be.null();
+      expect(error).to.equal(null);
     }
   });
 
@@ -446,7 +447,7 @@ describe('Autocomplete', () => {
       expect(response.status).to.equal(200);
       expect(response).to.be.a('object');
     } catch (error) {
-      expect(error).to.be.null();
+      expect(error).to.equal(null);
     }
   });
 
@@ -454,7 +455,7 @@ describe('Autocomplete', () => {
     try {
       const response = await PDLJSClient.autocomplete();
 
-      expect(response).to.be.null();
+      expect(response).to.equal(null);
     } catch (error) {
       expect(error).to.be.a('object');
     }
@@ -469,7 +470,7 @@ describe('Cleaner APIs', () => {
       expect(response.status).to.equal(200);
       expect(response).to.be.a('object');
     } catch (error) {
-      expect(error).to.be.null();
+      expect(error).to.equal(null);
     }
   });
 
@@ -477,7 +478,7 @@ describe('Cleaner APIs', () => {
     try {
       const response = await PDLJSClient.company.cleaner();
 
-      expect(response).to.be.null();
+      expect(response).to.equal(null);
     } catch (error) {
       expect(error).to.be.a('object');
     }
@@ -490,7 +491,7 @@ describe('Cleaner APIs', () => {
       expect(response.status).to.equal(200);
       expect(response).to.be.a('object');
     } catch (error) {
-      expect(error).to.be.null();
+      expect(error).to.equal(null);
     }
   });
 
@@ -498,7 +499,7 @@ describe('Cleaner APIs', () => {
     try {
       const response = await PDLJSClient.location.cleaner();
 
-      expect(response).to.be.null();
+      expect(response).to.equal(null);
     } catch (error) {
       expect(error).to.be.a('object');
     }
@@ -511,7 +512,7 @@ describe('Cleaner APIs', () => {
       expect(response.status).to.equal(200);
       expect(response).to.be.a('object');
     } catch (error) {
-      expect(error).to.be.null();
+      expect(error).to.equal(null);
     }
   });
 
@@ -519,7 +520,7 @@ describe('Cleaner APIs', () => {
     try {
       const response = await PDLJSClient.school.cleaner();
 
-      expect(response).to.be.null();
+      expect(response).to.equal(null);
     } catch (error) {
       expect(error).to.be.a('object');
     }
@@ -534,7 +535,7 @@ describe('Job Title API', () => {
       expect(response.status).to.equal(200);
       expect(response).to.be.a('object');
     } catch (error) {
-      expect(error).to.be.null();
+      expect(error).to.equal(null);
     }
   });
 
@@ -542,7 +543,7 @@ describe('Job Title API', () => {
     try {
       const response = await PDLJSClient.jobTitle();
 
-      expect(response).to.be.null();
+      expect(response).to.equal(null);
     } catch (error) {
       expect(error).to.be.a('object');
     }
@@ -557,7 +558,7 @@ describe('IP Enrichment API', () => {
       expect(response.status).to.equal(200);
       expect(response).to.be.a('object');
     } catch (error) {
-      expect(error).to.be.null();
+      expect(error).to.equal(null);
     }
   });
 
@@ -573,7 +574,7 @@ describe('IP Enrichment API', () => {
       expect(response.status).to.equal(200);
       expect(response).to.be.a('object');
     } catch (error) {
-      expect(error).to.be.null();
+      expect(error).to.equal(null);
     }
   });
 
@@ -581,7 +582,7 @@ describe('IP Enrichment API', () => {
     try {
       const response = await PDLJSClient.ip();
 
-      expect(response).to.be.null();
+      expect(response).to.equal(null);
     } catch (error) {
       expect(error).to.be.a('object');
     }
@@ -596,7 +597,7 @@ describe('Sandbox APIs', () => {
       expect(response.status).to.equal(200);
       expect(response).to.be.a('object');
     } catch (error) {
-      expect(error).to.be.null();
+      expect(error).to.equal(null);
     }
   });
 
@@ -604,7 +605,7 @@ describe('Sandbox APIs', () => {
     try {
       const response = await PDLJSClient.person.enrichment();
 
-      expect(response).to.be.null();
+      expect(response).to.equal(null);
     } catch (error) {
       expect(error).to.be.a('object');
     }
@@ -617,7 +618,7 @@ describe('Sandbox APIs', () => {
       expect(response.status).to.equal(200);
       expect(response).to.be.a('object');
     } catch (error) {
-      expect(error).to.be.null();
+      expect(error).to.equal(null);
     }
   });
 
@@ -625,7 +626,7 @@ describe('Sandbox APIs', () => {
     try {
       const response = await PDLJSClient.person.search.sql({ sandbox: true });
 
-      expect(response).to.be.null();
+      expect(response).to.equal(null);
     } catch (error) {
       expect(error).to.be.a('object');
     }
@@ -638,7 +639,7 @@ describe('Sandbox APIs', () => {
       expect(response.status).to.equal(200);
       expect(response).to.be.a('object');
     } catch (error) {
-      expect(error).to.be.null();
+      expect(error).to.equal(null);
     }
   });
 
@@ -646,7 +647,7 @@ describe('Sandbox APIs', () => {
     try {
       const response = await PDLJSClient.person.search.elastic({ sandbox: true });
 
-      expect(response).to.be.null();
+      expect(response).to.equal(null);
     } catch (error) {
       expect(error).to.be.a('object');
     }
@@ -659,7 +660,7 @@ describe('Sandbox APIs', () => {
       expect(response.status).to.equal(200);
       expect(response).to.be.a('object');
     } catch (error) {
-      expect(error).to.be.null();
+      expect(error).to.equal(null);
     }
   });
 
@@ -667,7 +668,7 @@ describe('Sandbox APIs', () => {
     try {
       const response = await PDLJSClient.person.identify({ sandbox: true });
 
-      expect(response).to.be.null();
+      expect(response).to.equal(null);
     } catch (error) {
       expect(error).to.be.a('object');
     }
