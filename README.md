@@ -188,12 +188,12 @@ const bulkEnrichmentRecords = {
   requests: [
     {
       params: {
-        profile: ['linkedin.com/in/peopledatalabs'],
+        profile: 'linkedin.com/in/peopledatalabs',
       },
     },
     {
       params: {
-        profile: ['linkedin.com/in/apple'],
+        profile: 'linkedin.com/in/apple',
       },
     },
   ],

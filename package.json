@@ -1,8 +1,8 @@
 {
   "name": "peopledatalabs",
-  "version": "13.5.2",
+  "version": "14.0.0",
   "description": "JavaScript client with TypeScript support for the People Data Labs API",
-  "packageManager": "pnpm@10.16.1",
+  "packageManager": "pnpm@10.17.1",
   "type": "module",
   "main": "dist/index.cjs",
   "module": "dist/index.m.js",
@@ -16,7 +16,7 @@
     "build": "rm -rf dist && microbundle",
     "dev": "microbundle watch -p 6008",
     "test": "pnpm run build && pnpm run mocha",
-    "mocha": "mocha --recursive 'tests/**/*.js' --timeout 5000",
+    "mocha": "mocha --recursive 'tests/**/*.ts' --timeout 5000",
     "pub": "pnpm run build && pnpm publish --no-git-checks --provenance --access public",
     "lint": "eslint ./src --fix",
     "clean": "rm -rf node_modules && rm -rf pnpm-lock.yaml",
@@ -49,7 +49,7 @@
     "@stylistic/eslint-plugin": "^3.1.0",
     "@typescript-eslint/eslint-plugin": "7.18.0",
     "@typescript-eslint/parser": "7.18.0",
-    "chai": "^6.0.1",
+    "chai": "^6.2.0",
     "dotenv": "^17.2.2",
     "eslint": "^8.57.1",
     "eslint-config-airbnb": "^19.0.4",
@@ -71,6 +71,8 @@
     "typescript": "^5.9.2"
   },
   "dependencies": {
+    "@types/chai": "^5.2.2",
+    "@types/mocha": "^10.0.10",
     "axios": "^1.12.2",
     "copy-anything": "3.0.5"
   }

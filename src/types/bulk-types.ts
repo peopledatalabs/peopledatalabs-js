@@ -7,11 +7,10 @@ export interface BulkPersonEnrichmentRequest {
 }
 
 export interface BulkPersonEnrichmentParams {
-  requests: Array<BulkPersonEnrichmentRequest> & {
-    include_if_matched?: boolean;
-    pretty?: boolean;
-    titlecase?: boolean;
-  };
+  include_if_matched?: boolean;
+  pretty?: boolean;
+  requests: Array<BulkPersonEnrichmentRequest>;
+  titlecase?: boolean;
 }
 
 export interface BulkPersonEnrichmentResponseItem extends PersonEnrichmentResponse {
@@ -29,11 +28,10 @@ export interface BulkCompanyEnrichmentRequest {
 }
 
 export interface BulkCompanyEnrichmentParams {
-  requests: Array<BulkCompanyEnrichmentRequest> & {
-    include_if_matched?: boolean;
-    pretty?: boolean;
-    titlecase?: boolean;
-  };
+  include_if_matched?: boolean;
+  pretty?: boolean;
+  requests: Array<BulkCompanyEnrichmentRequest>;
+  titlecase?: boolean;
 }
 
 export interface BulkCompanyEnrichmentResponseItem extends CompanyEnrichmentResponse {
