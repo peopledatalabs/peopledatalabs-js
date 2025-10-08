@@ -91,6 +91,15 @@ importers:
         specifier: ^5.9.3
         version: 5.9.3
 
+  example:
+    dependencies:
+      dotenv:
+        specifier: ^17.2.3
+        version: 17.2.3
+      peopledatalabs:
+        specifier: workspace:*
+        version: link:..
+
 packages:
 
   '@ampproject/remapping@2.3.0':

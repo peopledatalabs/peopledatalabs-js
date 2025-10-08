@@ -2,7 +2,7 @@
   "name": "peopledatalabs-example",
   "version": "1.0.0",
   "description": "Example project with People Data Labs API library",
-  "packageManager": "pnpm@10.9.0",
+  "packageManager": "pnpm@10.18.1",
   "main": "index.js",
   "type": "module",
   "scripts": {
@@ -13,7 +13,7 @@
   "author": "People Data Labs",
   "license": "MIT",
   "dependencies": {
-    "dotenv": "^16.5.0",
-    "peopledatalabs": "*"
+    "dotenv": "^17.2.3",
+    "peopledatalabs": "workspace:*"
   }
 }
