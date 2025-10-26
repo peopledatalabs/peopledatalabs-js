@@ -9,5 +9,6 @@
         "eslint",
         "eslint-plugin-unused-imports"
     ],
-    "root": true
+    "root": true,
+    "workspaces": true
 }

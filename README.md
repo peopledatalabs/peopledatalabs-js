@@ -157,8 +157,8 @@ try {
 
 // By Changelog
 const personChangelogLookup = {
-  currentVersion: '31.0',
-  originVersion: '30.2',
+  currentVersion: '31.2',
+  originVersion: '32.0',
   type: 'updated',
 }
 
