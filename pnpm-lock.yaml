@@ -15,7 +15,7 @@ importers:
         specifier: ^10.0.10
         version: 10.0.10
       axios:
-        specifier: ^1.12.2
+        specifier: ^1.13.1
         version: 1.13.1
       copy-anything:
         specifier: 3.0.5
