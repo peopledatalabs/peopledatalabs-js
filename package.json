@@ -1,6 +1,6 @@
 {
   "name": "peopledatalabs",
-  "version": "14.0.4",
+  "version": "14.0.5",
   "description": "JavaScript client with TypeScript support for the People Data Labs API",
   "packageManager": "pnpm@10.20.0",
   "type": "module",
@@ -67,13 +67,13 @@
     "eslint-plugin-unused-imports": "^3.2.0",
     "esm": "^3.2.25",
     "microbundle": "^0.15.1",
-    "mocha": "^11.7.4",
+    "mocha": "^11.7.5",
     "typescript": "^5.9.3"
   },
   "dependencies": {
     "@types/chai": "^5.2.3",
     "@types/mocha": "^10.0.10",
-    "axios": "^1.13.1",
+    "axios": "^1.13.2",
     "copy-anything": "3.0.5"
   }
 }
