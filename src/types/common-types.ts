@@ -17,7 +17,9 @@ export interface PersonEmailResponse {
   address?: string | null;
   first_seen?: string | null;
   last_seen?: string | null;
+  md5_hash?: string | null;
   num_sources?: number | null;
+  sha_256_hash?: string | null;
   type?: EmailType | null;
 }
 
@@ -278,6 +280,17 @@ export interface SicResponse {
   sic_code?: string | null;
 }
 
+export interface AffiliatedEntity {
+  affiliated_id?: string | null;
+  display_name?: string | null;
+  end_date?: string | null;
+  relationship?: string | null;
+  relationship_catalyst?: string | null;
+  relationship_citations?: Array<string> | null;
+  relationship_status?: string | null;
+  start_date?: string | null;
+}
+
 export interface CompanyResponse {
   active_job_postings?: number | null;
   active_job_postings_by_class?: {
@@ -424,6 +437,7 @@ export interface CompanyResponse {
     web?: number | null;
     wellness?: number | null;
   } | null;
+  affiliated_entities?: Array<AffiliatedEntity> | null;
   affiliated_profiles?: Array<string> | null;
   all_subsidiaries?: Array<string> | null;
   alternative_domains?: Array<string> | null;
