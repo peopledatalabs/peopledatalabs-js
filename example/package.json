@@ -2,7 +2,7 @@
   "name": "peopledatalabs-example",
   "version": "1.0.0",
   "description": "Example project with People Data Labs API library",
-  "packageManager": "pnpm@10.24.0",
+  "packageManager": "pnpm@10.27.0",
   "main": "index.js",
   "type": "module",
   "scripts": {
