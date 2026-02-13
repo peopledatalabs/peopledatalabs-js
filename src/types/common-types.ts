@@ -181,6 +181,7 @@ export interface PersonResponse {
   job_company_founded?: number | null;
   job_company_id?: string | null;
   job_company_industry?: IndustryType | null;
+  job_company_industry_v2?: IndustryV2Type | null;
   job_company_inferred_revenue?: InferredRevenue | null;
   job_company_linkedin_id?: string | null;
   job_company_linkedin_url?: string | null;
