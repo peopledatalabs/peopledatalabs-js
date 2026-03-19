@@ -10,7 +10,7 @@ dotenv.config({ path: './.env.local' });
 
 const PDLJSClient = new PDLJS({ apiKey: process.env.PDL_API_KEY });
 
-const email = 'varun@peopledatalabs.com';
+const email = 'ben@peopledatalabs.com';
 
 const records = {
   requests: [

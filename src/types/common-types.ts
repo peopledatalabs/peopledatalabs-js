@@ -284,6 +284,7 @@ export interface SicResponse {
 export interface AffiliatedEntity {
   affiliated_id?: string | null;
   display_name?: string | null;
+  employee_count?: number | null;
   end_date?: string | null;
   relationship?: string | null;
   relationship_catalyst?: string | null;
@@ -444,6 +445,7 @@ export interface CompanyResponse {
   alternative_domains?: Array<string> | null;
   alternative_names?: Array<string> | null;
   average_employee_tenure?: number | null;
+  median_employee_tenure?: number | null;
   average_tenure_by_level?: {
     cxo?: number | null;
     director?: number | null;
@@ -456,7 +458,45 @@ export interface CompanyResponse {
     unpaid?: number | null;
     vp?: number | null;
   } | null;
+  median_tenure_by_level?: {
+    cxo?: number | null;
+    director?: number | null;
+    entry?: number | null;
+    manager?: number | null;
+    owner?: number | null;
+    partner?: number | null;
+    senior?: number | null;
+    training?: number | null;
+    unpaid?: number | null;
+    vp?: number | null;
+  } | null;
   average_tenure_by_role?: {
+    advisory?: number | null;
+    analyst?: number | null;
+    creative?: number | null;
+    education?: number | null;
+    engineering?: number | null;
+    finance?: number | null;
+    fulfillment?: number | null;
+    health?: number | null;
+    hospitality?: number | null;
+    human_resources?: number | null;
+    legal?: number | null;
+    manufacturing?: number | null;
+    marketing?: number | null;
+    operations?: number | null;
+    partnerships?: number | null;
+    product?: number | null;
+    professional_service?: number | null;
+    public_service?: number | null;
+    research?: number | null;
+    sales?: number | null;
+    sales_engineering?: number | null;
+    support?: number | null;
+    trade?: number | null;
+    unemployed?: number | null;
+  } | null;
+  median_tenure_by_role?: {
     advisory?: number | null;
     analyst?: number | null;
     creative?: number | null;
@@ -634,8 +674,17 @@ export interface CompanyResponse {
     '12_month'?: number | null;
     '24_month'?: number | null;
   } | null;
+  employee_turnover_rate?: {
+    '3_month'?: number | null;
+    '6_month'?: number | null;
+    '12_month'?: number | null;
+    '24_month'?: number | null;
+  } | null;
+  annualized_employee_turnover_rate?: number | null;
   employee_count?: number | null;
-  employee_count_by_country?: object | null;
+  employee_count_by_country?: {
+    [country: string]: number | null;
+  } | null;
   employee_count_by_month?: object | null;
   employee_count_by_month_by_level?: object | null;
   employee_count_by_month_by_role?: object | null;
@@ -696,6 +745,13 @@ export interface CompanyResponse {
     support?: number | null;
     trade?: number | null;
     unemployed?: number | null;
+  } | null;
+  employee_growth_rate_12_month_by_country?: {
+    [country: string]: {
+      current_headcount?: number | null;
+      '12_month_headcount'?: number | null;
+      '12_month_growth_rate'?: number | null;
+    } | null;
   } | null;
   facebook_url?: string | null;
   founded?: number | null;
