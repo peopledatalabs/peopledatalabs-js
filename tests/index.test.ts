@@ -550,6 +550,65 @@ describe('Job Title API', () => {
   });
 });
 
+describe('Job Posting Search API', () => {
+  const jobPostingElastic = {
+    query: {
+      bool: {
+        must: [
+          { term: { title_role: 'engineering' } },
+          { term: { remote_work_policy: 'remote' } },
+        ],
+      },
+    },
+  };
+
+  it(`Should Return Job Posting Records for ${JSON.stringify(jobPostingElastic)}`, async () => {
+    try {
+      const response = await PDLJSClient.jobPosting.search({ ...jobPostingElastic, size: 10 });
+
+      expect(response.status).to.equal(200);
+      expect(response).to.be.a('object');
+    } catch (error) {
+      expect(error).to.equal(null);
+    }
+  });
+
+  it('Should Return Job Posting Records by field params', async () => {
+    try {
+      const response = await PDLJSClient.jobPosting.search({
+        title_role: 'engineering',
+        remote_work_policy: 'remote',
+        size: 10,
+      });
+
+      expect(response.status).to.equal(200);
+      expect(response).to.be.a('object');
+    } catch (error) {
+      expect(error).to.equal(null);
+    }
+  });
+
+  it('Should Error for Job Posting Search with no params', async () => {
+    try {
+      const response = await PDLJSClient.jobPosting.search();
+
+      expect(response).to.equal(null);
+    } catch (error) {
+      expect(error).to.be.a('object');
+    }
+  });
+
+  it('Should Error for Job Posting Search with empty params', async () => {
+    try {
+      const response = await PDLJSClient.jobPosting.search({});
+
+      expect(response).to.equal(null);
+    } catch (error) {
+      expect(error).to.be.a('object');
+    }
+  });
+});
+
 describe('IP Enrichment API', () => {
   it(`Should Return IP Records for ${JSON.stringify(ip)}`, async () => {
     try {

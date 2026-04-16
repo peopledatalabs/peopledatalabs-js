@@ -1,4 +1,4 @@
-import { autocomplete, bulkCompanyEnrichment, bulkEnrichment, bulkRetrieve, changelog, cleaner, enrichment, enrichmentPreview, identify, jobTitle, retrieve, search } from './endpoints/index.js';
+import { autocomplete, bulkCompanyEnrichment, bulkEnrichment, bulkRetrieve, changelog, cleaner, enrichment, enrichmentPreview, identify, jobPostingSearch, jobTitle, retrieve, search } from './endpoints/index.js';
 import ip from './endpoints/ip/index.js';
 import { APISettings, RequestOptions } from './types/api-types.js';
 import { AutoCompleteParams, AutoCompleteResponse } from './types/autocomplete-types.js';
@@ -10,6 +10,7 @@ import { CompanyResponse, PersonResponse } from './types/common-types.js';
 import { CompanyEnrichmentParams, CompanyEnrichmentResponse, PersonEnrichmentParams, PersonEnrichmentPreviewParams, PersonEnrichmentPreviewResponse, PersonEnrichmentResponse, PersonPreviewResponse } from './types/enrichment-types.js';
 import { IdentifyParams, IdentifyResponse } from './types/identify-types.js';
 import { IPParams, IPResponse } from './types/ip-types.js';
+import { JobPostingSearchParams, JobPostingSearchResponse } from './types/jobPosting-types.js';
 import { JobTitleParams, JobTitleResponse } from './types/jobTitle-types.js';
 import { RetrieveParams, RetrieveResponse } from './types/retrieve-types.js';
 import { CompanySearchParams, CompanySearchResponse, PersonSearchParams, PersonSearchResponse } from './types/search-types.js';
@@ -56,6 +57,10 @@ class PDLJS {
   public autocomplete: (params: AutoCompleteParams, options?: RequestOptions) => Promise<AutoCompleteResponse>;
 
   public jobTitle: (params: JobTitleParams, options?: RequestOptions) => Promise<JobTitleResponse>;
+
+  public jobPosting: {
+    search: (params: JobPostingSearchParams, options?: RequestOptions) => Promise<JobPostingSearchResponse>;
+  };
 
   public ip: (params: IPParams, options?: RequestOptions) => Promise<IPResponse>;
 
@@ -109,6 +114,10 @@ class PDLJS {
 
     this.jobTitle = (params: JobTitleParams, options) => jobTitle(this.basePath, this.apiKey, params, options);
 
+    this.jobPosting = {
+      search: (params, options) => jobPostingSearch(this.basePath, this.apiKey, params, options),
+    };
+
     this.ip = (params: IPParams, options) => ip(this.basePath, this.apiKey, params, options);
   }
 }
@@ -138,6 +147,8 @@ export type {
   IdentifyResponse,
   IPParams,
   IPResponse,
+  JobPostingSearchParams,
+  JobPostingSearchResponse,
   JobTitleParams,
   JobTitleResponse,
   LocationCleanerParams,

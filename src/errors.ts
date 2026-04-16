@@ -4,6 +4,7 @@ import { AutoCompleteParams } from './types/autocomplete-types.js';
 import { ChangelogParams } from './types/changelog-types.js';
 import { ErrorEndpoint, PdlError } from './types/error-types.js';
 import { IPParams } from './types/ip-types.js';
+import { JobPostingQuerySearchParams, JobPostingSearchParams } from './types/jobPosting-types.js';
 import { JobTitleParams } from './types/jobTitle-types.js';
 import { RetrieveParams } from './types/retrieve-types.js';
 import { BaseSearchParams } from './types/search-types.js';
@@ -66,6 +67,22 @@ const check = (
       reject(error);
     } else if (validFields.indexOf(field) === -1) {
       error.message = `field should be one of: ${validFields}`;
+      error.status = 400;
+      reject(error);
+    }
+  }
+
+  if (endpoint === 'jobPostingSearch') {
+    const searchParams = params as JobPostingSearchParams | undefined;
+    if (!searchParams || Object.keys(searchParams).length === 0) {
+      error.message = 'Missing Params';
+      error.status = 400;
+      reject(error);
+    } else if (
+      'query' in searchParams
+      && typeof (searchParams as JobPostingQuerySearchParams).query !== 'object'
+    ) {
+      error.message = 'query must be an object';
       error.status = 400;
       reject(error);
     }

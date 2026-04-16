@@ -298,6 +298,44 @@ try {
 }
 ```
 
+**Using Job Posting Search API**
+
+```js
+// By Search (Elasticsearch query)
+const esQuery = {
+  query: {
+    bool: {
+      must: [
+        { term: { title_role: 'engineering' } },
+        { term: { remote_work_policy: 'remote' } },
+      ],
+    },
+  },
+}
+
+try {
+  const response = await PDLJSClient.jobPosting.search({ ...esQuery, size: 10 });
+
+  console.log(response.total);
+} catch (error) {
+  console.log(error);
+}
+
+// By Search (field parameters)
+try {
+  const response = await PDLJSClient.jobPosting.search({
+    title_role: 'engineering',
+    remote_work_policy: 'remote',
+    is_active: true,
+    size: 10,
+  });
+
+  console.log(response.total);
+} catch (error) {
+  console.log(error);
+}
+```
+
 **Using IP Enrichment API**
 
 ```js
@@ -426,6 +464,11 @@ try {
 | [Company Enrichment API](https://docs.peopledatalabs.com/docs/company-enrichment-api) | `PDLJS.company.enrichment({ ...params })` |
 | [Company Bulk Enrichment API](https://docs.peopledatalabs.com/docs/bulk-company-enrichment-api) | `PDLJS.company.bulk.enrichment({ ...records })` |
 | [Company Search API](https://docs.peopledatalabs.com/docs/company-search-api) | SQL: `PDLJS.company.search.sql({ ...params })` <br/> Elasticsearch: `PDLJS.company.search.elastic({ ...params })`|
+
+**Job Posting Endpoints**
+| API Endpoint | PDLJS Function |
+|-|-|
+| [Job Posting Search API](https://docs.peopledatalabs.com/docs/job-posting-search-api) | `PDLJS.jobPosting.search({ ...params })` |
 
 **Supporting Endpoints**
 | API Endpoint | PDLJS Function |
