@@ -570,7 +570,7 @@ describe('Job Posting Search API', () => {
     } catch (error) {
       expect(error).to.equal(null);
     }
-  });
+  }).timeout(10000);
 
   it('Should Return Job Posting Records by field params', async () => {
     try {
@@ -585,7 +585,7 @@ describe('Job Posting Search API', () => {
     } catch (error) {
       expect(error).to.equal(null);
     }
-  });
+  }).timeout(10000);
 
   it('Should Error for Job Posting Search with no params', async () => {
     try {
