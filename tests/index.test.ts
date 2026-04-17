@@ -556,7 +556,6 @@ describe('Job Posting Search API', () => {
       bool: {
         must: [
           { term: { title_role: 'engineering' } },
-          { term: { remote_work_policy: 'remote' } },
         ],
       },
     },
