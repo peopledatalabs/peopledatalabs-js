@@ -154,7 +154,7 @@ export interface VersionStatus {
 export interface PersonProfileScoreFactorResponse {
   attribute_fill_rate?: number | boolean | null;
   has_valid_url?: number | boolean | null;
-  meets_connection_threshold?: number | boolean | null;
+  linkedin_connections?: number | boolean | null;
   profile_age_months?: number | boolean | null;
 }
 
@@ -166,7 +166,7 @@ export interface PersonActivityScoreFactorResponse {
 
 export interface PersonResponse {
   activity_score?: string | boolean | null;
-  activity_score_factors?: Array<PersonActivityScoreFactorResponse> | boolean | null;
+  activity_score_factors?: PersonActivityScoreFactorResponse | boolean | null;
   birth_date?: string | boolean | null;
   birth_year?: number | boolean | null;
   certifications?: Array<PersonCertificateResponse> | null;
@@ -268,7 +268,7 @@ export interface PersonResponse {
   possible_profiles?: Array<PersonProfileResponse> | null;
   possible_street_addresses?: Array<PersonStreetAddressResponse> | null;
   profile_score?: string | boolean | null;
-  profile_score_factors?: Array<PersonProfileScoreFactorResponse> | boolean | null;
+  profile_score_factors?: PersonProfileScoreFactorResponse | boolean | null;
   profiles?: Array<PersonProfileResponse> | null;
   recommended_personal_email?: string | boolean | null;
   regions?: Array<string> | boolean | null;
