@@ -810,8 +810,12 @@ export interface CompanyResponse {
   naics?: Array<NaicsResponse> | null;
   name?: string | null;
   num_active_locations?: number | null;
+  num_job_posting_mentions?: number | null;
+  num_resume_mentions?: number | null;
   num_total_locations?: number | null;
   number_funding_rounds?: number | null;
+  product_id?: string | null;
+  product_name?: string | null;
   profiles?: Array<string> | null;
   recent_exec_departures?: Array<{
     departed_date?: string | null;
@@ -847,6 +851,7 @@ export interface CompanyResponse {
   size?: CompanySize | null;
   summary?: string | null;
   tags?: Array<string> | null;
+  technologies_used?: Array<string> | null;
   ticker?: string | null;
   top_next_employers?: {
     advisory?: {
