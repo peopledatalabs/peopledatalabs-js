@@ -848,10 +848,10 @@ export interface CompanyResponse {
   summary?: string | null;
   tags?: Array<string> | null;
   technologies_used?: Array<{
+    name?: string | null;
     num_job_posting_mentions?: number | null;
     num_resume_mentions?: number | null;
     product_id?: string | null;
-    product_name?: string | null;
   }> | null;
   ticker?: string | null;
   top_next_employers?: {
