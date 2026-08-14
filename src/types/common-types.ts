@@ -778,6 +778,10 @@ export interface CompanyResponse {
     funding_round_date?: string | null;
     funding_type?: FundingRoundType | null;
     investing_companies?: Array<string> | null;
+    investing_companies_details?: Array<{
+      investing_company_id?: string | null;
+      investing_company_display_name?: string | null;
+    }> | null;
     investing_individuals?: Array<string> | null;
   }> | null;
   funding_stages?: Array<string> | null;
