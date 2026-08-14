@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## [14.5.0] - 2026-08-14
 
 - Added investing_companies_details to Company response funding_details (PDL API v35.1)
+- Added job_posting_first_observed, job_posting_last_observed, resume_first_observed, resume_last_observed, inferred_first_used, and inferred_last_used to Company response technologies_used (PDL API v35.1)
 
 ## [14.4.0] - 2026-07-22
 
