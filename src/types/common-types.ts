@@ -188,6 +188,9 @@ export interface PersonResponse {
   id?: string | null;
   industry?: IndustryType | null;
   inferred_salary?: InferredSalary | null;
+  inferred_salary_confidence?: string | null;
+  inferred_salary_high?: number | null;
+  inferred_salary_low?: number | null;
   inferred_years_experience?: number | null;
   interests?: Array<string> | null;
   job_company_12mo_employee_growth_rate?: number | null;
