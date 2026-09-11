@@ -778,6 +778,10 @@ export interface CompanyResponse {
     funding_round_date?: string | null;
     funding_type?: FundingRoundType | null;
     investing_companies?: Array<string> | null;
+    investing_companies_details?: Array<{
+      investing_company_id?: string | null;
+      investing_company_display_name?: string | null;
+    }> | null;
     investing_individuals?: Array<string> | null;
   }> | null;
   funding_stages?: Array<string> | null;
@@ -848,10 +852,16 @@ export interface CompanyResponse {
   summary?: string | null;
   tags?: Array<string> | null;
   technologies_used?: Array<{
+    inferred_first_used?: string | null;
+    inferred_last_used?: string | null;
+    job_posting_first_observed?: string | null;
+    job_posting_last_observed?: string | null;
     name?: string | null;
     num_job_posting_mentions?: number | null;
     num_resume_mentions?: number | null;
     product_id?: string | null;
+    resume_first_observed?: string | null;
+    resume_last_observed?: string | null;
   }> | null;
   ticker?: string | null;
   top_next_employers?: {
