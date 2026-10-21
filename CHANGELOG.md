@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [14.7.0] - 2026-10-21
+
+- Added inferred_revenue_integer to Company response type (PDL API v36.0)
+- Added recent_exec_internal_changes to Company response type (PDL API v36.0)
+- Added name, linkedin_url, and previous_company_display_name to Company response recent_exec_hires (PDL API v36.0)
+- Added name, linkedin_url, and new_company_display_name to Company response recent_exec_departures (PDL API v36.0)
+- Deprecated Company response affiliated_profiles and funding_details investing_companies, scheduled for removal in PDL API v37.1 (2027-02-16)
+
 ## [14.6.0] - 2026-09-16
 
 - Added inferred_salary_low, inferred_salary_high, and inferred_salary_confidence to Person response type (PDL API v35.2)
