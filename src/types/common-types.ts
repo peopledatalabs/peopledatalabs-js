@@ -460,6 +460,7 @@ export interface CompanyResponse {
     wellness?: number | null;
   } | null;
   affiliated_entities?: Array<AffiliatedEntity> | null;
+  /** @deprecated Removal on 2027-02-16 (PDL API v37.1). Use `affiliated_entities[].affiliated_id` instead. */
   affiliated_profiles?: Array<string> | null;
   all_subsidiaries?: Array<string> | null;
   alternative_domains?: Array<string> | null;
@@ -780,6 +781,7 @@ export interface CompanyResponse {
     funding_raised?: number | null;
     funding_round_date?: string | null;
     funding_type?: FundingRoundType | null;
+    /** @deprecated Removal on 2027-02-16 (PDL API v37.1). Use `investing_companies_details` instead. */
     investing_companies?: Array<string> | null;
     investing_companies_details?: Array<{
       investing_company_id?: string | null;
@@ -797,6 +799,7 @@ export interface CompanyResponse {
   industry?: IndustryType | null;
   industry_v2?: IndustryV2Type | null;
   inferred_revenue?: InferredRevenue | null;
+  inferred_revenue_integer?: number | null;
   last_funding_date?: string | null;
   latest_funding_stage?: string | null;
   likelihood?: number | null;
@@ -827,6 +830,9 @@ export interface CompanyResponse {
     job_title_levels?: Array<JobTitleLevel> | null;
     job_title_role?: JobTitleRole | null;
     job_title_sub_role?: JobTitleSubRole | null;
+    linkedin_url?: string | null;
+    name?: string | null;
+    new_company_display_name?: string | null;
     new_company_id?: string | null;
     new_company_job_title?: string | null;
     new_company_job_title_class?: JobTitleClass | null;
@@ -842,13 +848,32 @@ export interface CompanyResponse {
     job_title_role?: JobTitleRole | null;
     job_title_sub_role?: JobTitleSubRole | null;
     joined_date?: string | null;
+    linkedin_url?: string | null;
+    name?: string | null;
     pdl_id?: string | null;
+    previous_company_display_name?: string | null;
     previous_company_id?: string | null;
     previous_company_job_title?: string | null;
     previous_company_job_title_class?: JobTitleClass | null;
     previous_company_job_title_levels?: Array<JobTitleLevel> | null;
     previous_company_job_title_role?: JobTitleRole | null;
     previous_company_job_title_sub_role?: JobTitleSubRole | null;
+  }> | null;
+  recent_exec_internal_changes?: Array<{
+    job_title?: string | null;
+    job_title_class?: JobTitleClass | null;
+    job_title_levels?: Array<JobTitleLevel> | null;
+    job_title_role?: JobTitleRole | null;
+    job_title_sub_role?: JobTitleSubRole | null;
+    linkedin_url?: string | null;
+    name?: string | null;
+    new_role_date?: string | null;
+    pdl_id?: string | null;
+    previous_job_title?: string | null;
+    previous_job_title_class?: JobTitleClass | null;
+    previous_job_title_levels?: Array<JobTitleLevel> | null;
+    previous_job_title_role?: JobTitleRole | null;
+    previous_job_title_sub_role?: JobTitleSubRole | null;
   }> | null;
   sic?: Array<SicResponse> | null;
   size?: CompanySize | null;
