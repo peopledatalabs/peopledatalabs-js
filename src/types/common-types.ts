@@ -735,6 +735,9 @@ export interface CompanyResponse {
     trade?: number | null;
     unemployed?: number | null;
   } | null;
+  employee_count_by_us_state?: {
+    [state: string]: number | null;
+  } | null;
   employee_growth_rate?: {
     '3_month'?: number | null;
     '6_month'?: number | null;
@@ -769,9 +772,16 @@ export interface CompanyResponse {
   } | null;
   employee_growth_rate_12_month_by_country?: {
     [country: string]: {
-      current_headcount?: number | null;
-      '12_month_headcount'?: number | null;
       '12_month_growth_rate'?: number | null;
+      '12_month_headcount'?: number | null;
+      current_headcount?: number | null;
+    } | null;
+  } | null;
+  employee_growth_rate_12_month_by_us_state?: {
+    [state: string]: {
+      '12_month_growth_rate'?: number | null;
+      '12_month_headcount'?: number | null;
+      current_headcount?: number | null;
     } | null;
   } | null;
   facebook_url?: string | null;
@@ -806,6 +816,8 @@ export interface CompanyResponse {
   linkedin_employee_count?: number | null;
   linkedin_follower_count?: number | null;
   linkedin_id?: string | null;
+  linkedin_is_active?: boolean | null;
+  linkedin_last_verified?: string | null;
   linkedin_slug?: string | null;
   linkedin_url?: string | null;
   location?: LocationResponse | null;
@@ -822,6 +834,7 @@ export interface CompanyResponse {
   num_active_locations?: number | null;
   num_total_locations?: number | null;
   number_funding_rounds?: number | null;
+  profile_score?: 'positive signals' | 'neutral signals' | 'negative signals' | null;
   profiles?: Array<string> | null;
   recent_exec_departures?: Array<{
     departed_date?: string | null;

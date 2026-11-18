@@ -96,8 +96,8 @@ const jobTitle = { jobTitle: 'software engineer' };
 const ip = { ip: '72.212.42.228' };
 
 const personChangelogLookup = {
-  originVersion: '35.2',
-  currentVersion: '36.0',
+  originVersion: '36.0',
+  currentVersion: '36.1',
   type: 'updated',
 };
 
