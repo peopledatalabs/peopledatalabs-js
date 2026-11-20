@@ -77,8 +77,8 @@ PDLJSClient.person.search.elastic({
 });
 
 PDLJSClient.person.changelog({
-  originVersion: '35.2',
-  currentVersion: '36.0',
+  originVersion: '36.0',
+  currentVersion: '36.1',
   type: 'updated',
 }).then((data) => {
   console.log('Person Changelog API');
